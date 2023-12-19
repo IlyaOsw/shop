@@ -1,0 +1,14 @@
+.title {
+  cursor: default;
+  text-transform: uppercase;
+  letter-spacing: 1px !important;
+  width: 100%;
+}
+.toggles {
+  display: flex;
+  justify-content: space-around;
+}
+.link {
+  text-decoration: none;
+  color: inherit;
+}
