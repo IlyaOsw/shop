@@ -32,6 +32,7 @@ import { Link } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import { useTranslation } from "react-i18next";
 import Routing from "../../route/Routing";
+import HelpButton from "../Buttons/HelpButton/HelpButton";
 
 const drawerWidth = 240;
 
@@ -116,6 +117,12 @@ const generalIcons = [
   <PermContactCalendarIcon />,
 ];
 
+const headerIcons = [
+  <HomeButton />,
+  <CartButton />,
+  <LoginButton />,
+  <HelpButton />,
+];
 enum LocalesAcc {
   PHONE = "Phone",
   HEADPHONES = "Headphones",
@@ -176,9 +183,9 @@ export default function MiniDrawer() {
           >
             {t("Store")}
           </Typography>
-          <HomeButton />
-          <CartButton />
-          <LoginButton />
+          {headerIcons.map((item) => (
+            <>{item}</>
+          ))}
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
@@ -284,7 +291,7 @@ export default function MiniDrawer() {
           <ThemeToggle />
           <LanguageToggle />
         </Box>
-        <Box sx={{ m: 2 }}>
+        <Box sx={{ m: 3 }}>
           <Routing />
         </Box>
       </Box>

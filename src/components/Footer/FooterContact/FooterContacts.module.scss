@@ -1,0 +1,32 @@
+.contacts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .links {
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+    color: rgb(62, 62, 62);
+    transition: all 0.3s;
+    position: relative;
+    &:hover {
+      filter: brightness(100%);
+    }
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 0;
+      height: 1px;
+      background: rgb(54, 54, 54);
+      transition: 0.4s;
+      right: 0;
+      left: initial;
+    }
+    &:hover:after {
+      width: 100%;
+      right: initial;
+      left: 0;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+.social {
+  border-radius: 25%;
+  transition: all 0.3s;
+  background-color: transparent;
+  height: 45px;
+  width: 45px;
+  &:hover {
+    transform: scale(1.1);
+    filter: brightness(120%);
+  }
+}
+.links {
+  display: flex;
+  align-items: center;
+  .follow {
+    letter-spacing: 2px;
+    cursor: default;
+    transition: all 0.3s;
+    color: rgb(62, 62, 62);
+    padding-bottom: 3px;
+    font-size: 1.2rem;
+    position: relative;
+    &:hover {
+      filter: brightness(100%);
+    }
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 0;
+      height: 1px;
+      background: rgb(54, 54, 54);
+      transition: 0.4s;
+      right: 0;
+      left: initial;
+    }
+    &:hover:after {
+      width: 100%;
+      right: initial;
+      left: 0;
+    }
+  }
+}
+@media (max-width: 600px) {
+  .links {
+    padding-top: 10px;
+    padding-left: 15px;
+  }
+}
