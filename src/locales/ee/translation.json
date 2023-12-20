@@ -1,8 +1,8 @@
 {
 	"Store": "E-Pood",
-	"English": "Inglise",
-	"Estonian": "Eesti",
-	"Russian": "Vene",
+	"en": "Inglise",
+	"ee": "Eesti",
+	"ru": "Vene",
 	"Home": "Avaleht",
 	"Phone": "Telefonid",
 	"Headphones": "Kõrvaklapid",

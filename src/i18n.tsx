@@ -8,8 +8,19 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    resources: {
+      en: {
+        translation: require("./locales/en/translation.json"),
+      },
+      ee: {
+        translation: require("./locales/ee/translation.json"),
+      },
+      ru: {
+        translation: require("./locales/ru/translation.json"),
+      },
+    },
     fallbackLng: "en",
-    // debug: true,
+    debug: true,
     detection: {
       order: ["queryString", "cookie"],
       caches: ["cookie"],
@@ -18,7 +29,7 @@ i18n
       escapeValue: false,
     },
     backend: {
-      loadPath: "/locales/{{lng}}/translation.json",
+      loadPath: "locales/{{lng}}/translation.json",
     },
   });
 

@@ -14,9 +14,9 @@ import i18n from "../../../i18n";
 import { useTranslation } from "react-i18next";
 
 enum Locales {
-  EE = "Estonian",
-  RU = "Russian",
-  EN = "English",
+  EE = "ee",
+  RU = "ru",
+  EN = "en",
 }
 const changeLanguage = (language: Locales): void => {
   i18n.changeLanguage(language);
@@ -111,11 +111,9 @@ export default function LanguageToggle() {
                       }}
                     >
                       <img
+                        alt={lang.label}
                         className={styles.languageIcon}
-                        src={
-                          process.env.PUBLIC_URL +
-                          `Images/LanguageIcons/${lang.label}.png`
-                        }
+                        src={`${process.env.PUBLIC_URL}/Images/LanguageIcons/${lang.label}.png`}
                       />
                       {t(lang.label)}
                     </MenuItem>

@@ -1,8 +1,8 @@
 {
     "Store": "E-Store",
-    "English": "English",
-    "Estonian": "Estonian",
-    "Russian": "Russian",
+    "en": "English",
+    "ee": "Estonian",
+    "ru": "Russian",
     "Home": "Home page",
     "Phone": "Phone",
 	"Headphones": "Headphones",
