@@ -16,7 +16,7 @@
     letter-spacing: 2px;
     cursor: default;
     transition: all 0.3s;
-    color: rgb(62, 62, 62);
+    color: #fff;
     padding-bottom: 3px;
     font-size: 1.2rem;
     position: relative;
@@ -29,7 +29,8 @@
       position: absolute;
       width: 0;
       height: 1px;
-      background: rgb(54, 54, 54);
+      background: #fff;
+
       transition: 0.4s;
       right: 0;
       left: initial;
