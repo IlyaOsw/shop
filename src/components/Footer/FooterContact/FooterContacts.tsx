@@ -1,13 +1,12 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { Stack, IconButton, Box } from "@mui/material";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import EmailIcon from "@mui/icons-material/Email";
 import styles from "./FooterContacts.module.scss";
+import { t } from "i18next";
 
 const FooterContacts: React.FC = () => {
-  const { t } = useTranslation();
   enum Contacts {
     LOCATION = "location",
     PHONE = "phone",

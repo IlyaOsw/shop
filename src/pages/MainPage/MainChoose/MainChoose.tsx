@@ -2,16 +2,15 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import { useTranslation } from "react-i18next";
 import { Typography, useMediaQuery, useTheme } from "@mui/material";
 import styles from "./MainChoose.module.scss";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import AllInclusiveIcon from "@mui/icons-material/AllInclusive";
+import { useTranslation } from "react-i18next";
 
 export default function MainChoose() {
   const { t } = useTranslation();
-
   const [value, setValue] = React.useState(1);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -31,12 +30,24 @@ export default function MainChoose() {
         centered
         orientation={isSmallScreen ? "vertical" : "horizontal"}
       >
-        <FavoriteBorderIcon fontSize="large" color="action" />
-        <Tab label={t("choose1")} />
-        <ThumbUpOffAltIcon fontSize="large" color="action" />
-        <Tab label={t("choose2")} />
-        <AllInclusiveIcon fontSize="large" color="action" />
-        <Tab label={t("choose3")} />
+        <FavoriteBorderIcon
+          fontSize="large"
+          color="action"
+          className={styles.icons}
+        />
+        <Tab label={t("choose1")} className={styles.info} />
+        <ThumbUpOffAltIcon
+          fontSize="large"
+          color="action"
+          className={styles.icons}
+        />
+        <Tab label={t("choose2")} className={styles.info} />
+        <AllInclusiveIcon
+          fontSize="large"
+          color="action"
+          className={styles.icons}
+        />
+        <Tab label={t("choose3")} className={styles.info} />
       </Tabs>
     </Box>
   );

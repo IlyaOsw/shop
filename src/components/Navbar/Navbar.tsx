@@ -30,10 +30,10 @@ import ThemeToggle from "../Buttons/ThemeToggle/ThemeToggle";
 import LanguageToggle from "../Buttons/LanguageToggle/LanguageToggle";
 import { Link } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
-import { useTranslation } from "react-i18next";
 import Routing from "../../route/Routing";
 import HelpButton from "../Buttons/HelpButton/HelpButton";
 import Particle from "../../assets/Particle";
+import { useTranslation } from "react-i18next";
 
 const drawerWidth = 240;
 
@@ -147,7 +147,6 @@ const navigation: { id: number; label: LocalesNavigation }[] = [
 ];
 export default function MiniDrawer() {
   const { t } = useTranslation();
-
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -293,7 +292,7 @@ export default function MiniDrawer() {
           <ThemeToggle />
           <LanguageToggle />
         </Box>
-        <Box sx={{ m: 3 }}>
+        <Box sx={{ m: 1 }}>
           <Routing />
         </Box>
       </Box>

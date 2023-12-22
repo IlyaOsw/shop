@@ -2,6 +2,7 @@
     "en": "English",
     "ee": "Estonian",
     "ru": "Russian",
+    "welcome": "Welcome to the tech store!",
     "Home": "Home page",
     "Phone": "Phone",
 	"Headphones": "Headphones",
@@ -14,11 +15,21 @@
     "location": "Estonia, Tartu",
     "Card1": "Technology that makes life easier!",
 	"Card2": "Explore a world of new possibilities with our tech!",
-    "cardInfo1":"We offer innovative devices for everyday life: from home appliances to cutting-edge gadgets — all designed with your comfort in mind!",
+    "cardInfo1":"We offer innovative devices for everyday life: from home appliances to cutting-edge gadgets — all designed with comfort in mind!",
 	"cardInfo2": "Our store provides access to the latest groundbreaking technologies, helping you unlock potential in the modern world!",
     "choose1": "Our store offers a wide selection of high-quality technology at attractive prices, catering to the needs of the most discerning customers.",
     "choose2": "We guarantee an individual approach to each client, providing not only products but also expert consultations for the best choice of technology.",
-    "choose3": "With us, you get more than just a purchase; it's a full-fledged partnership: reliability, quality, and constant support at every stage of your buying experience.",
+    "choose3": "With us, you get more than just a purchase, it's a full-fledged partnership: reliability, quality, and constant support at every stage of your buying experience.",
     "whyWe": "Why Choose us?",
-    "feedback": "How satisfied are you with our website?"
+    "feedback": "How satisfied are you with our website?",
+    "about": "About us",
+    "aboutTitle1": "10+ years of quality",
+    "aboutInfo1": "Experience and innovation - our pride, your advantage.",
+    "aboutTitle2": "Investing in the future",
+    "aboutInfo2": "Supporting the development of modern technologies for you.",
+    "aboutTitle3": "Ahead of technologies",
+    "aboutInfo3": "Creating the future with you together.",
+    "aboutTitle4": "Energy for your devices",
+    "aboutInfo4": "Transformative technologies that inspire your life."
+
 }

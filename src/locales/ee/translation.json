@@ -2,6 +2,7 @@
 	"en": "Inglise",
 	"ee": "Eesti",
 	"ru": "Vene",
+	"welcome": "Tere tulemast tehnikapoodi!",
 	"Home": "Avaleht",
 	"Phone": "Telefonid",
 	"Headphones": "Kõrvaklapid",
@@ -20,5 +21,15 @@
 	"choose2": "Me garanteerime individuaalse lähenemise igale kliendile, pakkudes mitte ainult tooteid, vaid ka ekspertnõustamist parima tehnikavaliku jaoks.",
 	"choose3": "Meiega saate rohkemat kui lihtsalt ostu; see on täisväärtuslik partnerlus: usaldusväärsus, kvaliteet ja pidev tugi igal teie ostukogemuse etapil.",
 	"whyWe": "Miks valida meid?",
-	"feedback": "Kui rahul oled meie veebilehega?"
+	"feedback": "Kui rahul oled meie veebilehega?",
+	"about": "Meiest",
+	"aboutTitle1": "10+ aastat kvaliteeti",
+	"aboutInfo1": "Kogemus ja innovatsioon - meie uhkus, teie eelis.",
+	"aboutTitle2": "Investeeringud tulevikku",
+	"aboutInfo2": "Toetame kaasaegsete tehnoloogiate arengut teie heaks.",
+	"aboutTitle3": "Tehnoloogiate ees",
+	"aboutInfo3": "Loome tuleviku teie keskmes koostöös.",
+	"aboutTitle4": "Energia teie seadmetele",
+	"aboutInfo4": "Tehnoloogiad, mis innustavad teie elu."
+
 }

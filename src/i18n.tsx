@@ -20,7 +20,7 @@ i18n
       },
     },
     fallbackLng: "en",
-    debug: true,
+    // debug: true,
     detection: {
       order: ["queryString", "cookie"],
       caches: ["cookie"],

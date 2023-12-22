@@ -3,7 +3,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
-import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 
 enum Cards {
   CARD1 = "Card1",
@@ -16,7 +16,6 @@ const cards: { id: number; label: Cards; description: string }[] = [
 ];
 
 export default function MainCard() {
-  const { t } = useTranslation();
   return (
     <>
       {cards.map((item) => (
