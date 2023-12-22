@@ -82,6 +82,7 @@ export default function LanguageToggle() {
         </Button>
       </ButtonGroup>
       <Popper
+        style={{ zIndex: 2 }}
         sx={{
           zIndex: 1,
         }}

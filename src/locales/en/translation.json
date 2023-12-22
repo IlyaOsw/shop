@@ -1,5 +1,4 @@
 {
-    "Store": "E-Store",
     "en": "English",
     "ee": "Estonian",
     "ru": "Russian",
@@ -12,5 +11,14 @@
 	"Contacts": "Contacts",
     "Theme": "Theme",
     "Follow": "Follow",
-    "location": "Estonia, Tartu"
+    "location": "Estonia, Tartu",
+    "Card1": "Technology that makes life easier!",
+	"Card2": "Explore a world of new possibilities with our tech!",
+    "cardInfo1":"We offer innovative devices for everyday life: from home appliances to cutting-edge gadgets — all designed with your comfort in mind!",
+	"cardInfo2": "Our store provides access to the latest groundbreaking technologies, helping you unlock potential in the modern world!",
+    "choose1": "Our store offers a wide selection of high-quality technology at attractive prices, catering to the needs of the most discerning customers.",
+    "choose2": "We guarantee an individual approach to each client, providing not only products but also expert consultations for the best choice of technology.",
+    "choose3": "With us, you get more than just a purchase; it's a full-fledged partnership: reliability, quality, and constant support at every stage of your buying experience.",
+    "whyWe": "Why Choose us?",
+    "feedback": "How satisfied are you with our website?"
 }

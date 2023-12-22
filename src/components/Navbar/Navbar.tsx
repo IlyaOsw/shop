@@ -33,6 +33,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import { useTranslation } from "react-i18next";
 import Routing from "../../route/Routing";
 import HelpButton from "../Buttons/HelpButton/HelpButton";
+import Particle from "../../assets/Particle";
 
 const drawerWidth = 240;
 
@@ -181,7 +182,7 @@ export default function MiniDrawer() {
             component="div"
             className={styles.title}
           >
-            {t("Store")}
+            E-STORE
           </Typography>
           {headerIcons.map((item) => (
             <>{item}</>
@@ -286,6 +287,7 @@ export default function MiniDrawer() {
         <Divider />
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1 }}>
+        <Particle />
         <DrawerHeader />
         <Box className={styles.toggles} sx={{ height: 40, m: 3 }}>
           <ThemeToggle />
