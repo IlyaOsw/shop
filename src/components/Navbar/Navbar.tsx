@@ -183,8 +183,8 @@ export default function MiniDrawer() {
           >
             E-STORE
           </Typography>
-          {headerIcons.map((item) => (
-            <>{item}</>
+          {headerIcons.map((item, index) => (
+            <React.Fragment key={index}>{item}</React.Fragment>
           ))}
         </Toolbar>
       </AppBar>

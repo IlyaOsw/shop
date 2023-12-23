@@ -14,17 +14,17 @@ import i18n from "../../../i18n";
 import { useTranslation } from "react-i18next";
 
 enum Locales {
+  EN = "en",
   EE = "ee",
   RU = "ru",
-  EN = "en",
 }
 const changeLanguage = (language: Locales): void => {
   i18n.changeLanguage(language);
 };
 const options: { id: number; label: Locales }[] = [
-  { id: 0, label: Locales.EE },
+  { id: 0, label: Locales.EN },
   { id: 1, label: Locales.RU },
-  { id: 2, label: Locales.EN },
+  { id: 2, label: Locales.EE },
 ];
 export default function LanguageToggle() {
   const { t } = useTranslation();

@@ -30,24 +30,39 @@ export default function MainChoose() {
         centered
         orientation={isSmallScreen ? "vertical" : "horizontal"}
       >
-        <FavoriteBorderIcon
-          fontSize="large"
-          color="action"
-          className={styles.icons}
+        <Tab
+          icon={
+            <FavoriteBorderIcon
+              fontSize="large"
+              color="action"
+              className={styles.icons}
+            />
+          }
+          label={t("choose1")}
+          className={styles.info}
         />
-        <Tab label={t("choose1")} className={styles.info} />
-        <ThumbUpOffAltIcon
-          fontSize="large"
-          color="action"
-          className={styles.icons}
+        <Tab
+          icon={
+            <ThumbUpOffAltIcon
+              fontSize="large"
+              color="action"
+              className={styles.icons}
+            />
+          }
+          label={t("choose2")}
+          className={styles.info}
         />
-        <Tab label={t("choose2")} className={styles.info} />
-        <AllInclusiveIcon
-          fontSize="large"
-          color="action"
-          className={styles.icons}
+        <Tab
+          icon={
+            <AllInclusiveIcon
+              fontSize="large"
+              color="action"
+              className={styles.icons}
+            />
+          }
+          label={t("choose3")}
+          className={styles.info}
         />
-        <Tab label={t("choose3")} className={styles.info} />
       </Tabs>
     </Box>
   );

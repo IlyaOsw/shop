@@ -6,7 +6,7 @@
   .block {
     text-align: start;
     width: 340px;
-    height: 200px;
+    height: 175px;
     padding: 5px;
     .blockTitle {
       letter-spacing: 1px;
@@ -18,7 +18,7 @@
   }
 }
 @media (max-width: 600px) {
-  .block {
-    margin: -10px auto;
+  .blockTitle {
+    padding-bottom: 0px;
   }
 }

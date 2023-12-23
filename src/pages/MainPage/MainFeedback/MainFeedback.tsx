@@ -58,7 +58,7 @@ export default function MainFeedback() {
       </Typography>
       <StyledRating
         name="highlight-selected-only"
-        defaultValue={3}
+        defaultValue={5}
         IconContainerComponent={IconContainer}
         getLabelText={(value: number) => customIcons[value].label}
         highlightSelectedOnly

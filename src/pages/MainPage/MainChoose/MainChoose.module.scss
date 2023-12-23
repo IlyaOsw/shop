@@ -5,10 +5,10 @@
   cursor: default;
 }
 .info {
-  text-align: start !important;
   font-size: 1.15rem !important;
   background-color: rgb(245, 249, 255) !important;
-  border-radius: 5px;
+  border-radius: 10px !important;
+  margin: 0px 10px 0px 10px !important;
 }
 @media (max-width: 600px) {
   .icons {
