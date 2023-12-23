@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkshop=self.webpackChunkshop||[]).push([[687],{687:(s,e,a)=>{a.r(e),a.d(e,{default:()=>p});a(2791);const t="AirpodsPage_test__M+zgd";var c=a(184);const p=()=>(0,c.jsx)("div",{className:t})}}]);
+//# sourceMappingURL=687.8a32db8e.chunk.js.map

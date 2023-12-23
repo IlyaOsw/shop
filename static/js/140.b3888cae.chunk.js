@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkshop=self.webpackChunkshop||[]).push([[140],{2140:(s,e,t)=>{t.r(e),t.d(e,{default:()=>h});t(2791);const a="ContactsPage_test__lAb6+";var c=t(184);const h=()=>(0,c.jsx)("div",{className:a})}}]);
+//# sourceMappingURL=140.b3888cae.chunk.js.map

@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkshop=self.webpackChunkshop||[]).push([[632],{9632:(s,e,a)=>{a.r(e),a.d(e,{default:()=>h});a(2791);const t="PhonePage_test__qNP1V";var c=a(184);const h=()=>(0,c.jsx)("div",{className:t})}}]);
+//# sourceMappingURL=632.2d7efb16.chunk.js.map

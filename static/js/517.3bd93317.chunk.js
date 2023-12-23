@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkshop=self.webpackChunkshop||[]).push([[517],{9517:(s,e,a)=>{a.r(e),a.d(e,{default:()=>h});a(2791);const t="WatchPage_test__z3zXo";var c=a(184);const h=()=>(0,c.jsx)("div",{className:t})}}]);
+//# sourceMappingURL=517.3bd93317.chunk.js.map
