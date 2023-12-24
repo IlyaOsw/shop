@@ -17,9 +17,6 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
-import HeadphonesIcon from "@mui/icons-material/Headphones";
-import WatchIcon from "@mui/icons-material/Watch";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import PermContactCalendarIcon from "@mui/icons-material/PermContactCalendar";
 import FeedIcon from "@mui/icons-material/Feed";
@@ -34,6 +31,7 @@ import Routing from "../../route/Routing";
 import HelpButton from "../Buttons/HelpButton/HelpButton";
 import Particle from "../../assets/Particle";
 import { useTranslation } from "react-i18next";
+import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 
 const drawerWidth = 240;
 
@@ -106,13 +104,8 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-const accessoriesIcons = [
-  <PhoneIphoneIcon />,
-  <HeadphonesIcon />,
-  <WatchIcon />,
-];
-
 const generalIcons = [
+  <ShoppingBasketIcon />,
   <FeedIcon />,
   <AccountCircleIcon />,
   <PermContactCalendarIcon />,
@@ -124,26 +117,18 @@ const headerIcons = [
   <LoginButton />,
   <HelpButton />,
 ];
-enum LocalesAcc {
-  PHONE = "Phone",
-  HEADPHONES = "Headphones",
-  WATCH = "Watch",
-}
-const accessories: { id: number; label: LocalesAcc }[] = [
-  { id: 0, label: LocalesAcc.PHONE },
-  { id: 1, label: LocalesAcc.HEADPHONES },
-  { id: 2, label: LocalesAcc.WATCH },
-];
 
 enum LocalesNavigation {
+  STORE = "E-Store",
   NEWS = "News",
   CLIENTS = "Clients",
   CONTACTS = "Contacts",
 }
 const navigation: { id: number; label: LocalesNavigation }[] = [
-  { id: 0, label: LocalesNavigation.NEWS },
-  { id: 1, label: LocalesNavigation.CLIENTS },
-  { id: 2, label: LocalesNavigation.CONTACTS },
+  { id: 0, label: LocalesNavigation.STORE },
+  { id: 1, label: LocalesNavigation.NEWS },
+  { id: 2, label: LocalesNavigation.CLIENTS },
+  { id: 3, label: LocalesNavigation.CONTACTS },
 ];
 export default function MiniDrawer() {
   const { t } = useTranslation();
@@ -227,35 +212,6 @@ export default function MiniDrawer() {
         </List>
         <Divider />
         <List>
-          {accessories.map((item, index) => (
-            <ListItem key={item.id} disablePadding sx={{ display: "block" }}>
-              <Link to={`/${item.label}`.toLowerCase()} className={styles.link}>
-                <ListItemButton
-                  sx={{
-                    minHeight: 50,
-                    justifyContent: open ? "initial" : "center",
-                    px: 2.5,
-                  }}
-                >
-                  <ListItemIcon
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : "auto",
-                      justifyContent: "center",
-                    }}
-                  >
-                    {accessoriesIcons[index % accessoriesIcons.length]}
-                  </ListItemIcon>
-                  <ListItemText sx={{ opacity: open ? 1 : 0 }}>
-                    {t(item.label)}
-                  </ListItemText>
-                </ListItemButton>
-              </Link>
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
           {navigation.map((item, index) => (
             <ListItem key={item.id} disablePadding sx={{ display: "block" }}>
               <Link to={`/${item.label}`.toLowerCase()} className={styles.link}>
@@ -280,10 +236,10 @@ export default function MiniDrawer() {
                   </ListItemText>
                 </ListItemButton>
               </Link>
+              <Divider />
             </ListItem>
           ))}
         </List>
-        <Divider />
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1 }}>
         <Particle />
