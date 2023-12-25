@@ -33,7 +33,7 @@ import Particle from "../../assets/Particle";
 import { useTranslation } from "react-i18next";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 
-const drawerWidth = 240;
+const drawerWidth = 250;
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,
@@ -183,13 +183,17 @@ export default function MiniDrawer() {
             )}
           </IconButton>
         </DrawerHeader>
-        <Divider />
         <List>
-          <ListItem disablePadding sx={{ display: "block" }}>
+          <ListItem
+            disablePadding
+            sx={{ display: "block" }}
+            className={styles.test}
+          >
+            <Divider />
             <Link to={`/`} className={styles.link}>
               <ListItemButton
                 sx={{
-                  minHeight: 50,
+                  minHeight: 70,
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
                 }}
@@ -210,14 +214,14 @@ export default function MiniDrawer() {
             </Link>
           </ListItem>
         </List>
-        <Divider />
         <List>
           {navigation.map((item, index) => (
             <ListItem key={item.id} disablePadding sx={{ display: "block" }}>
+              <Divider />
               <Link to={`/${item.label}`.toLowerCase()} className={styles.link}>
                 <ListItemButton
                   sx={{
-                    minHeight: 50,
+                    minHeight: 70,
                     justifyContent: open ? "initial" : "center",
                     px: 2.5,
                   }}
@@ -236,9 +240,9 @@ export default function MiniDrawer() {
                   </ListItemText>
                 </ListItemButton>
               </Link>
-              <Divider />
             </ListItem>
           ))}
+          <Divider />
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1 }}>

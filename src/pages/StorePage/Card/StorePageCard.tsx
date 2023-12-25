@@ -15,8 +15,7 @@ import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import styles from "./StorePageCard.module.scss";
 import { useTranslation } from "react-i18next";
-import { Link, Routes, Route } from "react-router-dom";
-import DetailsPage from "../DetailsPage/DetailsPage";
+import { Link } from "react-router-dom";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -161,32 +160,32 @@ const getCards = () => {
             {item.price}
           </Typography>
         </CardContent>
-        <CardActions disableSpacing>
-          <Checkbox
-            {...label}
-            icon={<FavoriteBorder />}
-            checkedIcon={<Favorite />}
-          />
-          <Checkbox
-            {...label}
-            icon={<BookmarkBorderIcon />}
-            checkedIcon={<BookmarkIcon />}
-          />
-          <ExpandMore
-            expand={expanded[index]}
-            onClick={() => handleExpandClick(index)}
-            aria-expanded={expanded[index]}
-            aria-label="show more"
-          >
-            <ExpandMoreIcon />
-          </ExpandMore>
-        </CardActions>
-        <Collapse in={expanded[index]} timeout="auto" unmountOnExit>
-          <CardContent>
-            <Typography paragraph>{t(item.description)}</Typography>
-          </CardContent>
-        </Collapse>
       </Link>
+      <CardActions disableSpacing>
+        <Checkbox
+          {...label}
+          icon={<FavoriteBorder />}
+          checkedIcon={<Favorite />}
+        />
+        <Checkbox
+          {...label}
+          icon={<BookmarkBorderIcon />}
+          checkedIcon={<BookmarkIcon />}
+        />
+        <ExpandMore
+          expand={expanded[index]}
+          onClick={() => handleExpandClick(index)}
+          aria-expanded={expanded[index]}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </ExpandMore>
+      </CardActions>
+      <Collapse in={expanded[index]} timeout="auto" unmountOnExit>
+        <CardContent>
+          <Typography paragraph>{t(item.description)}</Typography>
+        </CardContent>
+      </Collapse>
     </Card>
   ));
 };
