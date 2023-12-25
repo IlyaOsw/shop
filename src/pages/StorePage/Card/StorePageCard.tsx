@@ -15,6 +15,8 @@ import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import styles from "./StorePageCard.module.scss";
 import { useTranslation } from "react-i18next";
+import { Link, Routes, Route } from "react-router-dom";
+import DetailsPage from "../DetailsPage/DetailsPage";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -34,11 +36,18 @@ const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 enum PhoneDescription {
   IPHONE15PROMAX = "iphone15promax",
+  APPLEWATCH8 = "applewatch8",
+  AIRPODS3 = "airpods3",
   IPHONE14PROMAX = "iphone14promax",
-  IPHONE12PROMAX = "iphone12promax",
+  APPLEWATCH9 = "applewatch9",
+  AIRPODS2GEN = "airpods2gen",
+  APPLEWATCHULTRA = "applewatchultra",
   IPHONE15 = "iphone15",
+  GOOGLEPIXEL = "googlepixel",
+  IPHONE13PRO = "iphone13pro",
+  GALAXYFLIP = "galaxyflip",
 }
-const phones: {
+export const accessories: {
   id: number;
   title: string;
   price: string;
@@ -52,30 +61,77 @@ const phones: {
   },
   {
     id: 1,
+    title: "Apple Watch Series 8 GPS/LTE 45mm",
+    price: "649.00 €",
+    description: PhoneDescription.APPLEWATCH8,
+  },
+  {
+    id: 2,
+    title: "Apple AirPods with Lightning",
+    price: "199.00 €",
+    description: PhoneDescription.AIRPODS3,
+  },
+  {
+    id: 3,
     title: "Apple iPhone 14 Pro Max 1TB",
     price: "1649.00 €",
     description: PhoneDescription.IPHONE14PROMAX,
   },
-
   {
-    id: 2,
-    title: "Apple iPhone 12 Pro 128GB",
-    price: "599.00 €",
-    description: PhoneDescription.IPHONE12PROMAX,
+    id: 4,
+    title: "Nutikell Apple Watch Series 9 GPS/LTE 45mm",
+    price: "899.00 €",
+    description: PhoneDescription.APPLEWATCH9,
   },
   {
-    id: 3,
+    id: 5,
     title: "Apple iPhone 15 128GB",
     price: "949.00 €",
     description: PhoneDescription.IPHONE15,
   },
+  {
+    id: 6,
+    title: "Apple AirPods Pro 2nd gen",
+    price: "279.00 €",
+    description: PhoneDescription.AIRPODS2GEN,
+  },
+  {
+    id: 7,
+    title: "Apple Watch Ultra 2 GPS/LTE 49mm",
+    price: "869.00 €",
+    description: PhoneDescription.APPLEWATCHULTRA,
+  },
+  {
+    id: 8,
+    title: "Apple iPhone 15 128GB",
+    price: "949.00 €",
+    description: PhoneDescription.IPHONE15,
+  },
+  {
+    id: 9,
+    title: "Google Pixel Watch LTE",
+    price: "449.00 €",
+    description: PhoneDescription.GOOGLEPIXEL,
+  },
+  {
+    id: 10,
+    title: "Apple iPhone 13 Pro 128GB",
+    price: "799.00 €",
+    description: PhoneDescription.IPHONE13PRO,
+  },
+  {
+    id: 11,
+    title: "Samsung Galaxy Flip5 5G",
+    price: "827.00 €",
+    description: PhoneDescription.GALAXYFLIP,
+  },
 ];
 
-const getPhones = () => {
+const getCards = () => {
   const { t } = useTranslation();
 
   const [expanded, setExpanded] = React.useState(
-    new Array(phones.length).fill(false)
+    new Array(accessories.length).fill(false)
   );
 
   const handleExpandClick = (index: number) => {
@@ -83,58 +139,60 @@ const getPhones = () => {
     newExpanded[index] = !newExpanded[index];
     setExpanded(newExpanded);
   };
-  return phones.map((item, index) => (
+  return accessories.map((item, index) => (
     <Card sx={{ maxWidth: 300 }} className={styles.card} key={item.id}>
-      <CardMedia
-        component="img"
-        height="100%"
-        image={`${process.env.PUBLIC_URL}/Images/Store/${item.description}.jpg`}
-        alt="Phone"
-        sx={{ p: 1 }}
-      />
-      <CardContent>
-        <Typography variant="h6" color="text.secondary">
-          {item.title}
-        </Typography>
-        <Typography
-          variant="h5"
-          color="text.secondary"
-          className={styles.price}
-        >
-          {item.price}
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <Checkbox
-          {...label}
-          icon={<FavoriteBorder />}
-          checkedIcon={<Favorite />}
+      <Link to={`/${item.description}`} className={styles.link}>
+        <CardMedia
+          component="img"
+          height="100%"
+          image={`${process.env.PUBLIC_URL}/Images/Store/${item.description}.jpg`}
+          alt="Phone"
+          sx={{ p: 1 }}
         />
-        <Checkbox
-          {...label}
-          icon={<BookmarkBorderIcon />}
-          checkedIcon={<BookmarkIcon />}
-        />
-        <ExpandMore
-          expand={expanded[index]}
-          onClick={() => handleExpandClick(index)}
-          aria-expanded={expanded[index]}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
-      </CardActions>
-      <Collapse in={expanded[index]} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>{t(item.description)}</Typography>
+          <Typography variant="h6" color="text.secondary">
+            {item.title}
+          </Typography>
+          <Typography
+            variant="h5"
+            color="text.secondary"
+            className={styles.price}
+          >
+            {item.price}
+          </Typography>
         </CardContent>
-      </Collapse>
+        <CardActions disableSpacing>
+          <Checkbox
+            {...label}
+            icon={<FavoriteBorder />}
+            checkedIcon={<Favorite />}
+          />
+          <Checkbox
+            {...label}
+            icon={<BookmarkBorderIcon />}
+            checkedIcon={<BookmarkIcon />}
+          />
+          <ExpandMore
+            expand={expanded[index]}
+            onClick={() => handleExpandClick(index)}
+            aria-expanded={expanded[index]}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </ExpandMore>
+        </CardActions>
+        <Collapse in={expanded[index]} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph>{t(item.description)}</Typography>
+          </CardContent>
+        </Collapse>
+      </Link>
     </Card>
   ));
 };
 
 const StorePage = () => {
-  return <>{getPhones()}</>;
+  return <>{getCards()}</>;
 };
 
 export default StorePage;
