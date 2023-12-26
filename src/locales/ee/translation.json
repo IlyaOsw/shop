@@ -45,5 +45,12 @@
 	"galaxyflip": "Samsung Galaxy Flip5 on nutitelefon, mis on varustatud ainulaadse vertikaalse kokkuklapitava disainiga, mis võimaldab kasutajal nautida suurt ekraani ilma, et see hõivaks liigselt ruumi. See on suurepärane valik neile, kes hindavad kompaktsust, stiili ja funktsionaalsust - telefon sobib ideaalselt neile, kes soovivad seadet, mis mahub kergesti taskusse, kuid ei tee kompromisse tehnoloogiliste võimaluste osas. Kvaliteetne kaamera, sujuv kasutajaliides ja vastupidav konstruktsioon muudavad selle sobivaks nii igapäevaseks kasutamiseks kui ka sotsiaalmeedia entusiastidele, kes soovivad jäädvustada oma elu parimaid hetki.",
 	"name": "Nimi",
 	"password": "Parool",
-	"login": "Logi sisse"
+	"login": "Logi sisse",
+	"cart": "Ostukorv",
+	"details": "Detailid",
+    "price": "Hind",
+    "quantity": "Kogus",
+    "sum": "Summa",
+	"total": "Kokku",
+	"delete": "Eemalda"
 }

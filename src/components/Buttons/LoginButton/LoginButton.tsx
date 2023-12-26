@@ -1,7 +1,7 @@
 import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
 import PersonIcon from "@mui/icons-material/Person";
-import React, { useRef } from "react";
+import React from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -10,14 +10,14 @@ import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import KeyIcon from "@mui/icons-material/Key";
 import { useTranslation } from "react-i18next";
-import ButtonGroup from "@mui/material/ButtonGroup";
+import CloseButton from "../CloseButton/CloseButton";
 
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 350,
+  width: 320,
   bgcolor: "background.paper",
   border: "1px solid #000",
   borderRadius: "10px",
@@ -43,26 +43,7 @@ export default function LoginButton() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <ButtonGroup
-            aria-label="outlined primary button group"
-            sx={{
-              display: "flex",
-              alignItems: "end",
-              justifyContent: "end",
-            }}
-          >
-            <Button
-              variant="contained"
-              sx={{
-                display: "flex",
-                alignItems: "flex-end",
-                justifyContent: "end",
-              }}
-              onClick={() => handleClose()}
-            >
-              X
-            </Button>
-          </ButtonGroup>
+          {open && <CloseButton onClose={handleClose} />}
           <Box sx={{ "& > :not(style)": { m: 2 } }}>
             <Box sx={{ display: "flex", alignItems: "flex-end" }}>
               <AccountCircle sx={{ color: "action.active", mr: 2, my: 0.5 }} />
@@ -82,7 +63,7 @@ export default function LoginButton() {
               />
             </Box>
           </Box>
-          <Stack direction="row" spacing={2} sx={{ ml: 10, mt: 4 }}>
+          <Stack direction="row" spacing={2} sx={{ ml: 7, mt: 4 }}>
             <Button
               variant="contained"
               endIcon={<SendIcon />}

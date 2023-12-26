@@ -45,6 +45,13 @@
     "galaxyflip": "The Samsung Galaxy Flip5 is a smartphone equipped with a unique vertical foldable design that allows users to enjoy a large screen without occupying too much space. It's an excellent choice for those who value compactness, style, and functionality - a phone that easily fits in the pocket without compromising on technological capabilities. With a high-quality camera, smooth user interface, and durable construction, it is suitable for both everyday use and social media enthusiasts who want to capture their life's best moments.",
     "name": "Name",
     "password": "Password",
-    "login": "Login"
+    "login": "Login",
+    "cart": "Cart",
+    "details": "Details",
+	"price": "Price",
+	"quantity": "Quantity",
+	"sum": "Sum",
+    "total": "Total",
+    "delete": "Delete"
 }
    

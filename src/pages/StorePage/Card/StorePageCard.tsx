@@ -78,7 +78,7 @@ export const accessories: {
   },
   {
     id: 4,
-    title: "Nutikell Apple Watch Series 9 GPS/LTE 45mm",
+    title: "Apple Watch Series 9 GPS/LTE 45mm",
     price: "899.00 €",
     description: PhoneDescription.APPLEWATCH9,
   },
