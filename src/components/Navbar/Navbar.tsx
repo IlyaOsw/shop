@@ -20,7 +20,6 @@ import ListItemText from "@mui/material/ListItemText";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import PermContactCalendarIcon from "@mui/icons-material/PermContactCalendar";
 import FeedIcon from "@mui/icons-material/Feed";
-import HomeButton from "../Buttons/HomeButton/HomeButton";
 import CartButton from "../Buttons/CartButton/CartButton";
 import LoginButton from "../Buttons/LoginButton/LoginButton";
 import ThemeToggle from "../Buttons/ThemeToggle/ThemeToggle";
@@ -105,30 +104,28 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 const generalIcons = [
+  <HomeIcon />,
   <ShoppingBasketIcon />,
   <FeedIcon />,
   <AccountCircleIcon />,
   <PermContactCalendarIcon />,
 ];
 
-const headerIcons = [
-  <HomeButton />,
-  <CartButton />,
-  <LoginButton />,
-  <HelpButton />,
-];
+const headerIcons = [<CartButton />, <LoginButton />, <HelpButton />];
 
 enum LocalesNavigation {
+  HOME = "Home",
   STORE = "E-Store",
   NEWS = "News",
   CLIENTS = "Clients",
   CONTACTS = "Contacts",
 }
 const navigation: { id: number; label: LocalesNavigation }[] = [
-  { id: 0, label: LocalesNavigation.STORE },
-  { id: 1, label: LocalesNavigation.NEWS },
-  { id: 2, label: LocalesNavigation.CLIENTS },
-  { id: 3, label: LocalesNavigation.CONTACTS },
+  { id: 0, label: LocalesNavigation.HOME },
+  { id: 1, label: LocalesNavigation.STORE },
+  { id: 2, label: LocalesNavigation.NEWS },
+  { id: 3, label: LocalesNavigation.CLIENTS },
+  { id: 4, label: LocalesNavigation.CONTACTS },
 ];
 export default function MiniDrawer() {
   const { t } = useTranslation();
@@ -184,44 +181,13 @@ export default function MiniDrawer() {
           </IconButton>
         </DrawerHeader>
         <List>
-          <ListItem
-            disablePadding
-            sx={{ display: "block" }}
-            className={styles.test}
-          >
-            <Divider />
-            <Link to={`/`} className={styles.link}>
-              <ListItemButton
-                sx={{
-                  minHeight: 70,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
-                  }}
-                >
-                  <HomeIcon fontSize="medium" color="action" />
-                </ListItemIcon>
-                <ListItemText sx={{ opacity: open ? 1 : 0 }}>
-                  {t("Home")}
-                </ListItemText>
-              </ListItemButton>
-            </Link>
-          </ListItem>
-        </List>
-        <List>
           {navigation.map((item, index) => (
             <ListItem key={item.id} disablePadding sx={{ display: "block" }}>
               <Divider />
               <Link to={`/${item.label}`.toLowerCase()} className={styles.link}>
                 <ListItemButton
                   sx={{
-                    minHeight: 70,
+                    minHeight: 75,
                     justifyContent: open ? "initial" : "center",
                     px: 2.5,
                   }}

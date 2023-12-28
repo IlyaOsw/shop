@@ -44,9 +44,9 @@ export default function LoginButton() {
       >
         <Box sx={style}>
           {open && <CloseButton onClose={handleClose} />}
-          <Box sx={{ "& > :not(style)": { m: 2 } }}>
+          <Box sx={{ "& > :not(style)": { m: 0 } }}>
             <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-              <AccountCircle sx={{ color: "action.active", mr: 2, my: 0.5 }} />
+              <AccountCircle sx={{ color: "action.active", mr: 2 }} />
               <TextField
                 id="input-with-sx"
                 label={t("name")}
@@ -54,7 +54,7 @@ export default function LoginButton() {
               />
             </Box>
             <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-              <KeyIcon sx={{ color: "action.active", mr: 2, my: 0.5 }} />
+              <KeyIcon sx={{ color: "action.active", mr: 2 }} />
               <TextField
                 type="password"
                 id="input-with-sx"
@@ -63,7 +63,7 @@ export default function LoginButton() {
               />
             </Box>
           </Box>
-          <Stack direction="row" spacing={2} sx={{ ml: 7, mt: 4 }}>
+          <Stack direction="row" spacing={2} sx={{ ml: 10, mt: 5 }}>
             <Button
               variant="contained"
               endIcon={<SendIcon />}
