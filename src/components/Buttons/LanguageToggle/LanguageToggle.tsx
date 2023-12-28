@@ -9,7 +9,6 @@ import Popper from "@mui/material/Popper";
 import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import PublicIcon from "@mui/icons-material/Public";
-import styles from "./LanguageToggle.module.scss";
 import i18n from "../../../i18n";
 import { useTranslation } from "react-i18next";
 
@@ -113,8 +112,8 @@ export default function LanguageToggle() {
                     >
                       <img
                         alt={lang.label}
-                        className={styles.languageIcon}
                         src={`${process.env.PUBLIC_URL}/Images/LanguageIcons/${lang.label}.png`}
+                        style={{ marginRight: "10px", padding: "1px" }}
                       />
                       {t(lang.label)}
                     </MenuItem>

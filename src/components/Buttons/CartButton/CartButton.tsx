@@ -16,18 +16,20 @@ import CloseButton from "../CloseButton/CloseButton";
 import { useTranslation } from "react-i18next";
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
+import styles from "./CartButton.module.scss";
 
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  maxWidth: 800,
+  width: "60%",
   bgcolor: "background.paper",
-  border: "2px solid #000",
+  border: "1px solid #000",
   boxShadow: 24,
   p: 4,
   cursor: "default",
+  borderRadius: "10px",
 };
 
 const TAX_RATE = 0.07;
@@ -82,7 +84,7 @@ export default function CartButton() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box sx={style} className={styles.cart}>
           {open && <CloseButton onClose={handleClose} />}
           <Typography id="modal-modal-title" variant="h6" component="h2">
             {t("cart")}

@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 export default function HomeButton() {
   return (
     <Stack direction="row" alignItems="center" spacing={1}>
-      <Link to="/">
-        <IconButton aria-label="homeicon" size="large">
+      <IconButton aria-label="homeicon" size="large">
+        <Link to="/">
           <HomeIcon fontSize="large" color="action" />
-        </IconButton>
-      </Link>
+        </Link>
+      </IconButton>
     </Stack>
   );
 }

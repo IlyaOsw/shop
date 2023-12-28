@@ -3,6 +3,8 @@ import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 import { t } from "i18next";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -22,7 +24,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       },
       "& + .MuiSwitch-track": {
         opacity: 1,
-        backgroundColor: theme.palette.mode === "dark" ? "#8796A5" : "#aab4be",
+        backgroundColor: theme.palette.mode === "dark" ? "#8796A5" : "#ffffff",
       },
     },
   },
@@ -46,18 +48,22 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
   "& .MuiSwitch-track": {
     opacity: 1,
-    backgroundColor: theme.palette.mode === "dark" ? "#8796A5" : "#aab4be",
+    backgroundColor: theme.palette.mode === "dark" ? "#8796A5" : "#ffffff",
     borderRadius: 20 / 2,
   },
 }));
 
 export default function ThemeToggle() {
   return (
-    <FormGroup>
-      <FormControlLabel
-        label={t("Theme")}
-        control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
-      />
-    </FormGroup>
+    <Stack spacing={2} direction="row">
+      <Button variant="contained">
+        <FormGroup>
+          <FormControlLabel
+            label={t("Theme")}
+            control={<MaterialUISwitch defaultChecked />}
+          />
+        </FormGroup>
+      </Button>
+    </Stack>
   );
 }
