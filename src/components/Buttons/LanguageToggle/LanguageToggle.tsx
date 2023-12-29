@@ -61,7 +61,7 @@ export default function LanguageToggle() {
   };
 
   return (
-    <React.Fragment>
+    <>
       <ButtonGroup
         variant="contained"
         ref={anchorRef}
@@ -124,6 +124,6 @@ export default function LanguageToggle() {
           </Grow>
         )}
       </Popper>
-    </React.Fragment>
+    </>
   );
 }

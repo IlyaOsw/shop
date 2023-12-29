@@ -31,6 +31,7 @@ import HelpButton from "../Buttons/HelpButton/HelpButton";
 import Particle from "../../assets/Particle";
 import { useTranslation } from "react-i18next";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import Timer from "../Timer/Timer";
 
 const drawerWidth = 250;
 
@@ -214,8 +215,9 @@ export default function MiniDrawer() {
       <Box component="main" sx={{ flexGrow: 1 }}>
         <Particle />
         <DrawerHeader />
-        <Box className={styles.toggles} sx={{ height: 40, m: 3 }}>
+        <Box className={styles.toggles}>
           <ThemeToggle />
+          <Timer />
           <LanguageToggle />
         </Box>
         <Box sx={{ m: 1 }}>
