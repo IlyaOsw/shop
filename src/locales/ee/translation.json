@@ -52,5 +52,6 @@
     "quantity": "Kogus",
     "sum": "Summa",
 	"total": "Kokku",
-	"delete": "Eemalda"
+	"delete": "Eemalda",
+	"addedToCart": "Edukalt lisatud ostukorvi."
 }

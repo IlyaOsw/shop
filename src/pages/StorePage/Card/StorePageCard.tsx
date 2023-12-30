@@ -11,14 +11,23 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
-import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
-import BookmarkIcon from "@mui/icons-material/Bookmark";
 import styles from "./StorePageCard.module.scss";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import Alert from "@mui/material/Alert";
+import Stack from "@mui/material/Stack";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Snackbar, { SnackbarOrigin } from "@mui/material/Snackbar";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
+}
+
+interface State extends SnackbarOrigin {
+  open: boolean;
 }
 
 const ExpandMore = styled((props: ExpandMoreProps) => {
@@ -138,56 +147,91 @@ const getCards = () => {
     newExpanded[index] = !newExpanded[index];
     setExpanded(newExpanded);
   };
-  return accessories.map((item, index) => (
-    <Card sx={{ maxWidth: 300 }} className={styles.card} key={item.id}>
-      <Link to={`/${item.description}`} className={styles.link}>
-        <CardMedia
-          component="img"
-          height="100%"
-          image={`${process.env.PUBLIC_URL}/Images/Store/${item.description}.jpg`}
-          alt="Phone"
-          sx={{ p: 1 }}
+
+  const [state, setState] = React.useState<State>({
+    open: false,
+    vertical: "top",
+    horizontal: "center",
+  });
+  const { vertical, horizontal, open } = state;
+
+  const handleClick = (newState: SnackbarOrigin) => () => {
+    setState({ ...newState, open: true });
+  };
+
+  const handleClose = () => {
+    setState({ ...state, open: false });
+  };
+
+  return (
+    <>
+      {accessories.map((item, index) => (
+        <Card sx={{ maxWidth: 300 }} className={styles.card} key={item.id}>
+          <Link to={`/${item.description}`} className={styles.link}>
+            <CardMedia
+              component="img"
+              height="100%"
+              image={`${process.env.PUBLIC_URL}/Images/Store/${item.description}.jpg`}
+              alt="Phone"
+              sx={{ p: 1 }}
+            />
+            <CardContent>
+              <Typography variant="h6" color="text.secondary">
+                {item.title}
+              </Typography>
+              <Typography
+                variant="h5"
+                color="text.secondary"
+                className={styles.price}
+              >
+                {item.price}
+              </Typography>
+            </CardContent>
+          </Link>
+          <CardActions disableSpacing>
+            <Checkbox
+              {...label}
+              icon={<FavoriteBorder color="error" />}
+              checkedIcon={<Favorite color="error" />}
+            />
+            <IconButton
+              color="success"
+              aria-label="add to shopping cart"
+              onClick={handleClick({
+                vertical: "bottom",
+                horizontal: "right",
+              })}
+            >
+              <AddShoppingCartIcon />
+            </IconButton>
+            <ExpandMore
+              expand={expanded[index]}
+              onClick={() => handleExpandClick(index)}
+              aria-expanded={expanded[index]}
+              aria-label="show more"
+            >
+              <ExpandMoreIcon />
+            </ExpandMore>
+          </CardActions>
+          <Collapse in={expanded[index]} timeout="auto" unmountOnExit>
+            <CardContent>
+              <Typography paragraph>{t(item.description)}</Typography>
+            </CardContent>
+          </Collapse>
+        </Card>
+      ))}
+      <Box sx={{ width: 500 }}>
+        <Snackbar
+          anchorOrigin={{ vertical, horizontal }}
+          open={open}
+          onClose={handleClose}
+          message={t("addedToCart")}
+          key={vertical + horizontal}
+          autoHideDuration={3000}
         />
-        <CardContent>
-          <Typography variant="h6" color="text.secondary">
-            {item.title}
-          </Typography>
-          <Typography
-            variant="h5"
-            color="text.secondary"
-            className={styles.price}
-          >
-            {item.price}
-          </Typography>
-        </CardContent>
-      </Link>
-      <CardActions disableSpacing>
-        <Checkbox
-          {...label}
-          icon={<FavoriteBorder />}
-          checkedIcon={<Favorite />}
-        />
-        <Checkbox
-          {...label}
-          icon={<BookmarkBorderIcon />}
-          checkedIcon={<BookmarkIcon />}
-        />
-        <ExpandMore
-          expand={expanded[index]}
-          onClick={() => handleExpandClick(index)}
-          aria-expanded={expanded[index]}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
-      </CardActions>
-      <Collapse in={expanded[index]} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>{t(item.description)}</Typography>
-        </CardContent>
-      </Collapse>
-    </Card>
-  ));
+      </Box>
+    </>
+  );
 };
 
 const StorePage = () => {

@@ -52,6 +52,7 @@
 	"quantity": "Quantity",
 	"sum": "Sum",
     "total": "Total",
-    "delete": "Delete"
+    "delete": "Delete",
+    "addedToCart": "Successfuly added to cart."
 }
    

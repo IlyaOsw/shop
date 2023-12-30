@@ -59,7 +59,7 @@ export default function LoginButton() {
       >
         <Box sx={style}>
           {open && <CloseButton onClose={handleClose} />}
-          <Box sx={{ "& > :not(style)": { m: 0 } }}>
+          <Box sx={{ "& > :not(style)": { m: 1 } }}>
             <Box sx={{ display: "flex", alignItems: "flex-end" }}>
               <AccountCircle sx={{ color: "action.active", mb: 1 }} />
               <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
@@ -93,7 +93,7 @@ export default function LoginButton() {
               </FormControl>
             </Box>
           </Box>
-          <Stack direction="row" spacing={2} sx={{ ml: 10, mt: 5 }}>
+          <Stack direction="row" spacing={2} sx={{ ml: 9, mt: 5 }}>
             <Button
               variant="contained"
               endIcon={<SendIcon />}
