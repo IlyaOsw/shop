@@ -27,10 +27,10 @@ const getAboutBlock = () => {
   return about.map((item) => (
     <Box key={item.id} className={styles.block}>
       <MoreHorizIcon />
-      <Typography variant="h5" className={styles.blockTitle}>
+      <Typography variant="h5" className={styles.title}>
         {t(item.label)}
       </Typography>
-      <Typography variant="h6" className={styles.blockInfo}>
+      <Typography variant="h6" className={styles.info}>
         {t(item.description)}
       </Typography>
     </Box>

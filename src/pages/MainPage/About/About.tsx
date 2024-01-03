@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./MainAbout.module.scss";
+import styles from "./About.module.scss";
 import { Box, Typography } from "@mui/material";
 import AboutBlocks from "./AboutBlocks/AboutBlocks";
 import { useTranslation } from "react-i18next";

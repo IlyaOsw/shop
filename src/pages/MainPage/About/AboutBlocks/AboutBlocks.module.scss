@@ -8,17 +8,17 @@
     width: 340px;
     height: 175px;
     padding: 5px;
-    .blockTitle {
+    .title {
       letter-spacing: 1px;
       padding-bottom: 20px;
     }
-    .blockInfo {
+    .info {
       letter-spacing: 1px;
     }
   }
 }
 @media (max-width: 600px) {
-  .blockTitle {
+  .title {
     padding-bottom: 0px;
   }
 }

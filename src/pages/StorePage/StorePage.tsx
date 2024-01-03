@@ -1,11 +1,11 @@
 import styles from "./StorePage.module.scss";
 import Box from "@mui/material/Box";
-import StorePage from "./Card/StorePageCard";
+import Card from "./Card/Card";
 
-export default function RecipeReviewCard() {
+export default function StorePage() {
   return (
     <Box className={styles.container}>
-      <StorePage />
+      <Card />
     </Box>
   );
 }

@@ -11,16 +11,13 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
-import styles from "./StorePageCard.module.scss";
+import styles from "./Card.module.scss";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import Alert from "@mui/material/Alert";
-import Stack from "@mui/material/Stack";
-import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Snackbar, { SnackbarOrigin } from "@mui/material/Snackbar";
+import { useSelector } from "react-redux";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -42,104 +39,13 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 }));
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
-enum PhoneDescription {
-  IPHONE15PROMAX = "iphone15promax",
-  APPLEWATCH8 = "applewatch8",
-  AIRPODS3 = "airpods3",
-  IPHONE14PROMAX = "iphone14promax",
-  APPLEWATCH9 = "applewatch9",
-  AIRPODS2GEN = "airpods2gen",
-  APPLEWATCHULTRA = "applewatchultra",
-  IPHONE15 = "iphone15",
-  GOOGLEPIXEL = "googlepixel",
-  IPHONE13PRO = "iphone13pro",
-  GALAXYFLIP = "galaxyflip",
-}
-export const accessories: {
-  id: number;
-  title: string;
-  price: string;
-  description: PhoneDescription;
-}[] = [
-  {
-    id: 0,
-    title: "Apple iPhone 15 Pro Max 256GB",
-    price: "1489.00 €",
-    description: PhoneDescription.IPHONE15PROMAX,
-  },
-  {
-    id: 1,
-    title: "Apple Watch Series 8 GPS/LTE 45mm",
-    price: "649.00 €",
-    description: PhoneDescription.APPLEWATCH8,
-  },
-  {
-    id: 2,
-    title: "Apple AirPods with Lightning",
-    price: "199.00 €",
-    description: PhoneDescription.AIRPODS3,
-  },
-  {
-    id: 3,
-    title: "Apple iPhone 14 Pro Max 1TB",
-    price: "1649.00 €",
-    description: PhoneDescription.IPHONE14PROMAX,
-  },
-  {
-    id: 4,
-    title: "Apple Watch Series 9 GPS/LTE 45mm",
-    price: "899.00 €",
-    description: PhoneDescription.APPLEWATCH9,
-  },
-  {
-    id: 5,
-    title: "Apple iPhone 15 128GB",
-    price: "949.00 €",
-    description: PhoneDescription.IPHONE15,
-  },
-  {
-    id: 6,
-    title: "Apple AirPods Pro 2nd gen",
-    price: "279.00 €",
-    description: PhoneDescription.AIRPODS2GEN,
-  },
-  {
-    id: 7,
-    title: "Apple Watch Ultra 2 GPS/LTE 49mm",
-    price: "869.00 €",
-    description: PhoneDescription.APPLEWATCHULTRA,
-  },
-  {
-    id: 8,
-    title: "Apple iPhone 15 128GB",
-    price: "949.00 €",
-    description: PhoneDescription.IPHONE15,
-  },
-  {
-    id: 9,
-    title: "Google Pixel Watch LTE",
-    price: "449.00 €",
-    description: PhoneDescription.GOOGLEPIXEL,
-  },
-  {
-    id: 10,
-    title: "Apple iPhone 13 Pro 128GB",
-    price: "799.00 €",
-    description: PhoneDescription.IPHONE13PRO,
-  },
-  {
-    id: 11,
-    title: "Samsung Galaxy Flip5 5G",
-    price: "827.00 €",
-    description: PhoneDescription.GALAXYFLIP,
-  },
-];
-
-const getCards = () => {
+const StorePageCard = () => {
   const { t } = useTranslation();
 
+  const shopData = useSelector((state: any) => state.shopPage);
+
   const [expanded, setExpanded] = React.useState(
-    new Array(accessories.length).fill(false)
+    new Array(shopData.length).fill(false)
   );
 
   const handleExpandClick = (index: number) => {
@@ -165,12 +71,11 @@ const getCards = () => {
 
   return (
     <>
-      {accessories.map((item, index) => (
-        <Card sx={{ maxWidth: 300 }} className={styles.card} key={item.id}>
+      {shopData.map((item: any, index: number) => (
+        <Card className={styles.card} key={item.id}>
           <Link to={`/${item.description}`} className={styles.link}>
             <CardMedia
               component="img"
-              height="100%"
               image={`${process.env.PUBLIC_URL}/Images/Store/${item.description}.jpg`}
               alt="Phone"
               sx={{ p: 1 }}
@@ -220,7 +125,7 @@ const getCards = () => {
           </Collapse>
         </Card>
       ))}
-      <Box sx={{ width: 500 }}>
+      <Box sx={{ width: "100%" }}>
         <Snackbar
           anchorOrigin={{ vertical, horizontal }}
           open={open}
@@ -234,8 +139,4 @@ const getCards = () => {
   );
 };
 
-const StorePage = () => {
-  return <>{getCards()}</>;
-};
-
-export default StorePage;
+export default StorePageCard;

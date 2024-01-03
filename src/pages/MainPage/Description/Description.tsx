@@ -1,9 +1,8 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { Typography, useMediaQuery, useTheme } from "@mui/material";
-import styles from "./MainChoose.module.scss";
+import styles from "./Description.module.scss";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import AllInclusiveIcon from "@mui/icons-material/AllInclusive";
@@ -20,8 +19,8 @@ export default function MainChoose() {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("lg"));
 
   return (
-    <Box sx={{ width: "100%", bgcolor: "background.paper" }}>
-      <Typography variant="h4" className={styles.whyTitle}>
+    <>
+      <Typography variant="h4" className={styles.title}>
         {t("whyWe")}
       </Typography>
       <Tabs
@@ -64,6 +63,6 @@ export default function MainChoose() {
           className={styles.info}
         />
       </Tabs>
-    </Box>
+    </>
   );
 }

@@ -1,10 +1,10 @@
-import {
-  applyMiddleware,
-  combineReducers,
-  legacy_createStore as createStore,
-} from "redux";
-import { thunk } from "redux-thunk";
+import { createStore, combineReducers } from "redux";
+import shopReducer from "./shop-reducer";
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  shopPage: shopReducer,
+});
 
-export const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer);
+
+export default store;

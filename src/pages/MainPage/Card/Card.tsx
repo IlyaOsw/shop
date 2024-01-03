@@ -4,6 +4,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { t } from "i18next";
+import styles from "./Card.module.scss";
 
 enum Cards {
   CARD1 = "Card1",
@@ -19,11 +20,11 @@ export default function MainCard() {
   return (
     <>
       {cards.map((item) => (
-        <Card key={item.id} style={{ zIndex: 1 }}>
+        <Card className={styles.card} key={item.id}>
           <CardActionArea>
             <CardMedia
               component="img"
-              height="400"
+              height="500"
               src={`${process.env.PUBLIC_URL}/Images/MainPageImages/${item.label}.jpg`}
               alt="green iguana"
             />
