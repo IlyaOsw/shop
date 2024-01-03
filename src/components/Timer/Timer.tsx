@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import { Box } from "@mui/material";
 
-const Timer: React.FC = () => {
+export default function Timer() {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
     const timeInterval = setInterval(() => setTime(new Date()), 1000);
-
     return () => {
       clearInterval(timeInterval);
     };
@@ -23,6 +22,4 @@ const Timer: React.FC = () => {
       </Button>
     </Stack>
   );
-};
-
-export default Timer;
+}

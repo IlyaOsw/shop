@@ -32,6 +32,7 @@ import Particle from "../../assets/Particle";
 import { useTranslation } from "react-i18next";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import Timer from "../Timer/Timer";
+import { useSelector } from "react-redux";
 
 const drawerWidth = 250;
 
@@ -111,28 +112,14 @@ const generalIcons = [
   <AccountCircleIcon />,
   <PermContactCalendarIcon />,
 ];
-
 const headerIcons = [<CartButton />, <LoginButton />, <HelpButton />];
 
-enum LocalesNavigation {
-  HOME = "Home",
-  STORE = "E-Store",
-  NEWS = "News",
-  CLIENTS = "Clients",
-  CONTACTS = "Contacts",
-}
-const navigation: { id: number; label: LocalesNavigation }[] = [
-  { id: 0, label: LocalesNavigation.HOME },
-  { id: 1, label: LocalesNavigation.STORE },
-  { id: 2, label: LocalesNavigation.NEWS },
-  { id: 3, label: LocalesNavigation.CLIENTS },
-  { id: 4, label: LocalesNavigation.CONTACTS },
-];
 export default function MiniDrawer() {
   const { t } = useTranslation();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
+  const navbarData = useSelector((state: any) => state.navbar);
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -182,33 +169,44 @@ export default function MiniDrawer() {
           </IconButton>
         </DrawerHeader>
         <List>
-          {navigation.map((item, index) => (
-            <ListItem key={item.id} disablePadding sx={{ display: "block" }}>
-              <Divider />
-              <Link to={`/${item.label}`.toLowerCase()} className={styles.link}>
-                <ListItemButton
-                  sx={{
-                    minHeight: 75,
-                    justifyContent: open ? "initial" : "center",
-                    px: 2.5,
-                  }}
+          {navbarData.map(
+            (
+              item: {
+                id: React.Key | null | undefined;
+                label: any | string | string[];
+              },
+              index: number
+            ) => (
+              <ListItem key={item.id} disablePadding sx={{ display: "block" }}>
+                <Divider />
+                <Link
+                  to={`/${item.label}`.toLowerCase()}
+                  className={styles.link}
                 >
-                  <ListItemIcon
+                  <ListItemButton
                     sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : "auto",
-                      justifyContent: "center",
+                      minHeight: 75,
+                      justifyContent: open ? "initial" : "center",
+                      px: 2.5,
                     }}
                   >
-                    {generalIcons[index % generalIcons.length]}
-                  </ListItemIcon>
-                  <ListItemText sx={{ opacity: open ? 1 : 0 }}>
-                    {t(item.label)}
-                  </ListItemText>
-                </ListItemButton>
-              </Link>
-            </ListItem>
-          ))}
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : "auto",
+                        justifyContent: "center",
+                      }}
+                    >
+                      {generalIcons[index % generalIcons.length]}
+                    </ListItemIcon>
+                    <ListItemText sx={{ opacity: open ? 1 : 0 }}>
+                      {t(item.label)}
+                    </ListItemText>
+                  </ListItemButton>
+                </Link>
+              </ListItem>
+            )
+          )}
           <Divider />
         </List>
       </Drawer>

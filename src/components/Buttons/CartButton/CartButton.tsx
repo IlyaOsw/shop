@@ -17,6 +17,7 @@ import { useTranslation } from "react-i18next";
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import styles from "./CartButton.module.scss";
+import { useSelector } from "react-redux";
 
 const style = {
   position: "absolute" as "absolute",
@@ -32,47 +33,28 @@ const style = {
   borderRadius: "10px",
 };
 
-const TAX_RATE = 0.07;
-
 function ccyFormat(num: number) {
   return `${num.toFixed(2)}`;
 }
-
-function priceRow(qty: number, unit: number) {
-  return qty * unit;
-}
-
-function createRow(desc: string, qty: number, unit: number) {
-  const price = priceRow(qty, unit);
-  return { desc, qty, unit, price };
-}
-
-interface Row {
-  desc: string;
-  qty: number;
-  unit: number;
-  price: number;
-}
-
-function subtotal(items: readonly Row[]) {
-  return items.map(({ price }) => price).reduce((sum, i) => sum + i, 0);
-}
-
-const rows = [
-  createRow("Apple iPhone 15 Pro Max 256GB", 1, 1489.0),
-  createRow("Apple Watch Series 8 GPS/LTE 45mm", 3, 649.0),
-  createRow("Apple AirPods Pro 2nd gen", 2, 279.0),
-];
-
-const invoiceSubtotal = subtotal(rows);
-const invoiceTaxes = TAX_RATE * invoiceSubtotal;
-const invoiceTotal = invoiceTaxes + invoiceSubtotal;
 
 export default function CartButton() {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const cartData = useSelector((state: any) => state.cart);
+  const invoiceTotal = total(cartData);
+  function total(items: any) {
+    const total = items.reduce(
+      (acc: number, item: { price: number; qty: number }) => {
+        return acc + item.price * item.qty;
+      },
+      0
+    );
+    return total;
+  }
+
   return (
     <Stack direction="row" alignItems="center" spacing={1}>
       <IconButton aria-label="homeicon" size="large" onClick={handleOpen}>
@@ -106,9 +88,9 @@ export default function CartButton() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {rows.map((row) => (
-                  <TableRow key={row.desc}>
-                    <TableCell>{row.desc}</TableCell>
+                {cartData.map((row: any) => (
+                  <TableRow key={row.id}>
+                    <TableCell>{row.name}</TableCell>
                     <TableCell align="right">{row.qty}</TableCell>
                     <TableCell align="right"></TableCell>
                     <TableCell align="right">

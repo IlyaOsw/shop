@@ -56,7 +56,6 @@ export default function LanguageToggle() {
     ) {
       return;
     }
-
     setOpen(false);
   };
 

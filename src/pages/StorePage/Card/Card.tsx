@@ -18,6 +18,7 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Box from "@mui/material/Box";
 import Snackbar, { SnackbarOrigin } from "@mui/material/Snackbar";
 import { useSelector } from "react-redux";
+import Rating from "@mui/material/Rating";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -64,10 +65,10 @@ const StorePageCard = () => {
   const handleClick = (newState: SnackbarOrigin) => () => {
     setState({ ...newState, open: true });
   };
-
   const handleClose = () => {
     setState({ ...state, open: false });
   };
+  const [value, setValue] = React.useState<number | null>(shopData.id);
 
   return (
     <>
@@ -89,10 +90,18 @@ const StorePageCard = () => {
                 color="text.secondary"
                 className={styles.price}
               >
-                {item.price}
+                {item.price} €
               </Typography>
             </CardContent>
           </Link>
+          <Rating
+            name="simple-controlled"
+            value={value}
+            onChange={(event, newValue) => {
+              setValue(newValue);
+            }}
+            sx={{ pl: 2 }}
+          />
           <CardActions disableSpacing>
             <Checkbox
               {...label}
