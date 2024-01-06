@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./FooterLinks.module.scss";
+import styles from "./Links.module.scss";
 import { Box, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
@@ -32,30 +32,29 @@ const links: { id: number; url: string; label: SocialLinks }[] = [
   },
 ];
 
-const getLinks = (): JSX.Element[] =>
-  links.map((link) => (
-    <a
-      href={link.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="me-3"
-      key={link.id}
-    >
-      <img
-        src={process.env.PUBLIC_URL + `/Images/FollowSvgs/${link.label}.svg`}
-        alt={`${link.label} icon`}
-        className={styles.social}
-      />
-    </a>
-  ));
-
 const FooterLinks: React.FC = () => {
   const { t } = useTranslation();
 
   return (
     <Box className={styles.links}>
       <Typography className={styles.follow}>{t("Follow")}</Typography>
-      {getLinks()}
+      {links.map((link) => (
+        <a
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="me-3"
+          key={link.id}
+        >
+          <img
+            src={
+              process.env.PUBLIC_URL + `/Images/FollowSvgs/${link.label}.svg`
+            }
+            alt={`${link.label} icon`}
+            className={styles.social}
+          />
+        </a>
+      ))}
     </Box>
   );
 };

@@ -18,7 +18,6 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import PermContactCalendarIcon from "@mui/icons-material/PermContactCalendar";
 import FeedIcon from "@mui/icons-material/Feed";
 import CartButton from "../Buttons/CartButton/CartButton";
 import LoginButton from "../Buttons/LoginButton/LoginButton";
@@ -110,7 +109,6 @@ const generalIcons = [
   <ShoppingBasketIcon />,
   <FeedIcon />,
   <AccountCircleIcon />,
-  <PermContactCalendarIcon />,
 ];
 const headerIcons = [<CartButton />, <LoginButton />, <HelpButton />];
 

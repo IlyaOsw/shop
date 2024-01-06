@@ -1,14 +1,14 @@
 import React from "react";
 import styles from "./Footer.module.scss";
-import FooterLinks from "./FooterLinks/FooterLinks";
+import Links from "./Links/Links";
 import { Box, Typography } from "@mui/material";
-import FooterContacts from "./FooterContact/FooterContacts";
+import Contacts from "./Contacts/Contacts";
 
 const Footer: React.FC = () => {
   return (
     <Box className={styles.footer}>
-      <FooterContacts />
-      <FooterLinks />
+      <Contacts />
+      <Links />
       <Typography className={styles.copyright}>
         2023 Made by Ilja Ossipov. ©
       </Typography>

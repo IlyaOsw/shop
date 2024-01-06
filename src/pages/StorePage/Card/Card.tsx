@@ -15,17 +15,19 @@ import styles from "./Card.module.scss";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import Box from "@mui/material/Box";
-import Snackbar, { SnackbarOrigin } from "@mui/material/Snackbar";
+import Snackbar from "@mui/material/Snackbar";
 import { useSelector } from "react-redux";
 import Rating from "@mui/material/Rating";
+import MuiAlert, { AlertProps } from "@mui/material/Alert";
+import Slide, { SlideProps } from "@mui/material/Slide";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
 }
 
-interface State extends SnackbarOrigin {
-  open: boolean;
+type TransitionProps = Omit<SlideProps, "direction">;
+function TransitionUp(props: TransitionProps) {
+  return <Slide {...props} direction="up" />;
 }
 
 const ExpandMore = styled((props: ExpandMoreProps) => {
@@ -39,6 +41,22 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
+
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
+  function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  }
+);
+
+export function Media(props: any) {
+  const { loading = false, children } = props;
+
+  return (
+    <Card sx={{ maxWidth: 345, m: 2 }}>
+      {loading ? <>{children}</> : <>{children}</>}
+    </Card>
+  );
+}
 
 const StorePageCard = () => {
   const { t } = useTranslation();
@@ -55,21 +73,29 @@ const StorePageCard = () => {
     setExpanded(newExpanded);
   };
 
-  const [state, setState] = React.useState<State>({
-    open: false,
-    vertical: "top",
-    horizontal: "center",
-  });
-  const { vertical, horizontal, open } = state;
-
-  const handleClick = (newState: SnackbarOrigin) => () => {
-    setState({ ...newState, open: true });
-  };
-  const handleClose = () => {
-    setState({ ...state, open: false });
-  };
   const [value, setValue] = React.useState<number | null>(shopData.id);
 
+  const [open, setOpen] = React.useState(false);
+  const [transition, setTransition] = React.useState<
+    React.ComponentType<TransitionProps> | undefined
+  >(undefined);
+
+  const handleClick =
+    (Transition: React.ComponentType<TransitionProps>) => () => {
+      setTransition(() => Transition);
+      setOpen(true);
+    };
+
+  const handleClose = (
+    event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
   return (
     <>
       {shopData.map((item: any, index: number) => (
@@ -111,10 +137,7 @@ const StorePageCard = () => {
             <IconButton
               color="success"
               aria-label="add to shopping cart"
-              onClick={handleClick({
-                vertical: "bottom",
-                horizontal: "right",
-              })}
+              onClick={handleClick(TransitionUp)}
             >
               <AddShoppingCartIcon />
             </IconButton>
@@ -134,16 +157,24 @@ const StorePageCard = () => {
           </Collapse>
         </Card>
       ))}
-      <Box sx={{ width: "100%" }}>
-        <Snackbar
-          anchorOrigin={{ vertical, horizontal }}
-          open={open}
-          onClose={handleClose}
-          message={t("addedToCart")}
-          key={vertical + horizontal}
-          autoHideDuration={3000}
-        />
-      </Box>
+
+      <Snackbar
+        open={open}
+        autoHideDuration={3000}
+        onClose={handleClose}
+        TransitionComponent={transition}
+        key={transition ? transition.name : ""}
+        sx={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Alert onClose={handleClose} severity="success">
+          {t("addedToCart")}
+        </Alert>
+      </Snackbar>
     </>
   );
 };

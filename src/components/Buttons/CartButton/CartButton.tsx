@@ -18,6 +18,7 @@ import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import styles from "./CartButton.module.scss";
 import { useSelector } from "react-redux";
+import Badge from "@mui/material/Badge";
 
 const style = {
   position: "absolute" as "absolute",
@@ -58,7 +59,9 @@ export default function CartButton() {
   return (
     <Stack direction="row" alignItems="center" spacing={1}>
       <IconButton aria-label="homeicon" size="large" onClick={handleOpen}>
-        <ShoppingCartIcon fontSize="large" color="action" />
+        <Badge badgeContent={cartData.length} color="secondary">
+          <ShoppingCartIcon fontSize="large" color="action" />
+        </Badge>
       </IconButton>
       <Modal
         open={open}

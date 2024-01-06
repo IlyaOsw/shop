@@ -7,9 +7,6 @@ const NewsPage = React.lazy(() => import("../pages/NewsPage/NewsPage"));
 const ClientsPage = React.lazy(
   () => import("../pages/ClientsPage/ClientsPage")
 );
-const ContactsPage = React.lazy(
-  () => import("../pages/ContactsPage/ContactsPage")
-);
 
 const Routing: React.FC = () => {
   return (
@@ -20,7 +17,6 @@ const Routing: React.FC = () => {
         <Route path="/e-store/*" element={<StorePage />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/clients" element={<ClientsPage />} />
-        <Route path="/contacts" element={<ContactsPage />} />
       </Routes>
     </Suspense>
   );
