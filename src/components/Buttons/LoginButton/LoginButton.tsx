@@ -58,7 +58,7 @@ export default function LoginButton() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          {open && <CloseButton onClose={handleClose} />}
+          <CloseButton onClose={handleClose} />
           <Box sx={{ "& > :not(style)": { m: 1 } }}>
             <Box sx={{ display: "flex", alignItems: "flex-end" }}>
               <AccountCircle sx={{ color: "action.active", mb: 1 }} />

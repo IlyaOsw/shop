@@ -54,5 +54,16 @@
     "sum": "Summa",
 	"total": "Kokku",
 	"delete": "Eemalda",
-	"addedToCart": "Edukalt lisatud ostukorvi."
+	"addedToCart": "Edukalt lisatud ostukorvi.",
+	"AddedToFavorites": "Lisatud lemikutesse.",
+	"Faq1question": "Millised on kohaletoimetamise tingimused?",
+	"Faq1answer": "Pakume tasuta kohaletoimetamist kõikidele tellimustele riigi piires. Tavaliselt võtab kohaletoimetamine aega 2 kuni 5 tööpäeva.",
+	"Faq2question": "Kuidas ma saan toote tagastada või vahetada?",
+	"Faq2answer": "Kui toode ei vasta teie ootustele, saate selle tagastada 30 päeva jooksul alates ostukuupäevast. Võtke ühendust meie klienditoega juhiste saamiseks toote tagastamise või vahetamise kohta.",
+	"Faq3question": "Kas teil on toodetele garantii?",
+	"Faq3answer": "Jah, pakume kõikidele toodetele tootja garantii. Garantii kestus sõltub konkreetsest tootest ja on näidatud toote lehel.",
+	"Faq4question": "Kuidas ma saan oma tellimuse staatust kontrollida?",
+	"Faq4answer": "Saate jälgida oma tellimuse staatust oma isiklikus kontos meie veebisaidil. Pärast tellimuse saatmist anname teile jälgimisnumbri, et saaksite jälgida oma saadetise liikumist.",
+	"Faq5question": "Milliseid maksemeetodeid te aktsepteerite?",
+	"Faq5answer": "Me aktsepteerime makseid krediit- ja deebetkaartidega (Visa, Mastercard, American Express) ning elektrooniliste maksesüsteemidega (PayPal, Apple Pay, Google Pay). Valige sobiv makseviis ostulehele."
 }

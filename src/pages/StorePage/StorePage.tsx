@@ -9,17 +9,11 @@ export default function StorePage() {
   const shopData = useSelector((state: any) => state.shopPage);
   const [isLoading, setIsLoading] = React.useState(true);
 
-  // React.useEffect(() => {
-  //   if (shopData && shopData.length > 0) {
-  //     setIsLoading(false);
-  //   }
-  // }, [shopData]);
   React.useEffect(() => {
-    const timer = setTimeout(() => {
+    if (shopData && shopData.length > 0) {
       setIsLoading(false);
-    }, 100);
-    return () => clearTimeout(timer);
-  }, []);
+    }
+  }, [shopData]);
 
   return (
     <Box className={styles.container}>

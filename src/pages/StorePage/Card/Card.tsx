@@ -26,6 +26,7 @@ interface ExpandMoreProps extends IconButtonProps {
 }
 
 type TransitionProps = Omit<SlideProps, "direction">;
+
 function TransitionUp(props: TransitionProps) {
   return <Slide {...props} direction="up" />;
 }
@@ -86,7 +87,7 @@ const StorePageCard = () => {
       setOpen(true);
     };
 
-  const handleClose = (
+  const handleCloseFavorite = (
     event?: React.SyntheticEvent | Event,
     reason?: string
   ) => {
@@ -94,8 +95,30 @@ const StorePageCard = () => {
       return;
     }
 
-    setOpen(false);
+    setOpenFavorite(false);
   };
+
+  const handleCloseCart = (
+    event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpenCart(false);
+  };
+
+  const [openCart, setOpenCart] = React.useState(false);
+  const [openFavorite, setOpenFavorite] = React.useState(false);
+  const [favorites, setFavorites] = React.useState(shopData.map(() => false));
+
+  function toggleFavorite(index: number) {
+    const updatedFavorites = [...favorites];
+    updatedFavorites[index] = !updatedFavorites[index];
+    setFavorites(updatedFavorites);
+  }
+
   return (
     <>
       {shopData.map((item: any, index: number) => (
@@ -133,17 +156,31 @@ const StorePageCard = () => {
               {...label}
               icon={<FavoriteBorder color="error" />}
               checkedIcon={<Favorite color="error" />}
+              onClick={() => {
+                const isCurrentlyFavorite = favorites[index];
+                toggleFavorite(index);
+                if (!isCurrentlyFavorite) {
+                  setOpenFavorite(true);
+                  handleClick(TransitionUp);
+                }
+              }}
+              checked={favorites[index]}
             />
             <IconButton
               color="success"
               aria-label="add to shopping cart"
-              onClick={handleClick(TransitionUp)}
+              onClick={() => {
+                handleClick(TransitionUp);
+                setOpenCart(true);
+              }}
             >
               <AddShoppingCartIcon />
             </IconButton>
             <ExpandMore
               expand={expanded[index]}
-              onClick={() => handleExpandClick(index)}
+              onClick={() => {
+                handleExpandClick(index);
+              }}
               aria-expanded={expanded[index]}
               aria-label="show more"
             >
@@ -158,23 +195,44 @@ const StorePageCard = () => {
         </Card>
       ))}
 
-      <Snackbar
-        open={open}
-        autoHideDuration={3000}
-        onClose={handleClose}
-        TransitionComponent={transition}
-        key={transition ? transition.name : ""}
-        sx={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Alert onClose={handleClose} severity="success">
-          {t("addedToCart")}
-        </Alert>
-      </Snackbar>
+      {openFavorite && (
+        <Snackbar
+          open={openFavorite}
+          autoHideDuration={3000}
+          onClose={() => setOpenFavorite(false)}
+          TransitionComponent={transition}
+          key={transition ? transition.name : ""}
+          sx={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Alert onClose={() => setOpenFavorite(false)} severity="success">
+            {t("AddedToFavorites")}
+          </Alert>
+        </Snackbar>
+      )}
+      {openCart && (
+        <Snackbar
+          open={openCart}
+          autoHideDuration={3000}
+          onClose={handleCloseCart}
+          TransitionComponent={transition}
+          key={transition ? transition.name : ""}
+          sx={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Alert onClose={handleCloseCart} severity="success">
+            {t("addedToCart")}
+          </Alert>
+        </Snackbar>
+      )}
     </>
   );
 };

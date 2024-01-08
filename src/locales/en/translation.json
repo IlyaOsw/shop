@@ -54,6 +54,17 @@
 	"sum": "Sum",
     "total": "Total",
     "delete": "Delete",
-    "addedToCart": "Successfuly added to cart."
+    "addedToCart": "Successfuly added to cart.",
+    "AddedToFavorites": "Added to favorites.",
+    "Faq1question": "What are the delivery terms?",
+    "Faq1answer": "We offer free delivery for all orders within the country. Usually, delivery takes between 2 to 5 business days.",
+    "Faq2question": "How can I return or exchange a product?",
+    "Faq2answer": "If the product doesn't meet your expectations, you can return it within 30 days of purchase. Contact our customer support for instructions on returning or exchanging the product.",
+    "Faq3question": "Do you provide a warranty for your products?",
+    "Faq3answer": "Yes, we offer a manufacturer's warranty on all products. The duration of the warranty depends on the specific product and is indicated on the product page.",
+    "Faq4question": "How can I check the status of my order?",
+    "Faq4answer": "You can track the status of your order in your personal account on our website. After the order is shipped, we'll provide you with a tracking number so you can monitor the progress of your shipment.",
+    "Faq5question": "What payment methods do you accept?",
+    "Faq5answer": "We accept payments via credit/debit cards (Visa, Mastercard, American Express) and electronic payment systems (PayPal, Apple Pay, Google Pay). Choose your preferred payment method on the checkout page."
 }
    
