@@ -1,0 +1,12 @@
+.clientInfo {
+  padding: 10px;
+  .card {
+    min-width: 275px;
+    position: relative;
+    background-color: rgb(242, 248, 252);
+  }
+  .clientName {
+    display: flex;
+    align-items: center;
+  }
+}

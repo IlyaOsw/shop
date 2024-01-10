@@ -15,6 +15,13 @@ const StyledRating = styled(Rating)(({ theme }) => ({
     color: theme.palette.action.disabled,
   },
 }));
+const labels: { [index: string]: string } = {
+  1: "Useless",
+  2: "Poor",
+  3: "Ok",
+  4: "Good",
+  5: "Excellent",
+};
 
 const customIcons: {
   [index: string]: {
@@ -49,8 +56,15 @@ function IconContainer(props: IconContainerProps) {
   return <span {...other}>{customIcons[value].icon}</span>;
 }
 
+function getLabelText(value: number) {
+  return `${value} Star${value !== 1 ? "s" : ""}, ${labels[value]}`;
+}
+
 export default function MainFeedback() {
   const { t } = useTranslation();
+  const [value, setValue] = React.useState<number | null>(4);
+  const [hover, setHover] = React.useState(-1);
+
   return (
     <Box className={styles.feedback} textAlign="center">
       <Typography variant="h4" className={styles.title}>
@@ -58,11 +72,23 @@ export default function MainFeedback() {
       </Typography>
       <StyledRating
         name="highlight-selected-only"
+        value={value}
         defaultValue={5}
         IconContainerComponent={IconContainer}
-        getLabelText={(value: number) => customIcons[value].label}
+        getLabelText={getLabelText}
         highlightSelectedOnly
+        onChange={(event, newValue) => {
+          setValue(newValue);
+        }}
+        onChangeActive={(event, newHover) => {
+          setHover(newHover);
+        }}
       />
+      {value !== null && (
+        <Box className={styles.rating}>
+          {labels[hover !== -1 ? hover : value]}
+        </Box>
+      )}
     </Box>
   );
 }

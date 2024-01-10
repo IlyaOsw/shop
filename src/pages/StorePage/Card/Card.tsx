@@ -87,17 +87,6 @@ const StorePageCard = () => {
       setOpen(true);
     };
 
-  const handleCloseFavorite = (
-    event?: React.SyntheticEvent | Event,
-    reason?: string
-  ) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
-    setOpenFavorite(false);
-  };
-
   const handleCloseCart = (
     event?: React.SyntheticEvent | Event,
     reason?: string
@@ -143,14 +132,6 @@ const StorePageCard = () => {
               </Typography>
             </CardContent>
           </Link>
-          <Rating
-            name="simple-controlled"
-            value={value}
-            onChange={(event, newValue) => {
-              setValue(newValue);
-            }}
-            sx={{ pl: 2 }}
-          />
           <CardActions disableSpacing>
             <Checkbox
               {...label}

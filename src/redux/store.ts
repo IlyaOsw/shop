@@ -1,7 +1,7 @@
 import { legacy_createStore as createStore, combineReducers } from "redux";
-import shopReducer from "./shop-reducer";
-import cartReducer from "./cart-reducer";
-import navbarReducer from "./navbar-reducer";
+import shopReducer from "./reducers/shop-reducer";
+import cartReducer from "./reducers/cart-reducer";
+import navbarReducer from "./reducers/navbar-reducer";
 
 const rootReducer = combineReducers({
   navbar: navbarReducer,
