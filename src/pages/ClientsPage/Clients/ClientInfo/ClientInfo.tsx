@@ -6,14 +6,14 @@ import styles from "./ClientInfo.module.scss";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import MailOutlineOutlinedIcon from "@mui/icons-material/MailOutlineOutlined";
 import PhoneForwardedOutlinedIcon from "@mui/icons-material/PhoneForwardedOutlined";
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
-import NavigationOutlinedIcon from "@mui/icons-material/NavigationOutlined";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
+import FormDialog from "../../../../components/FormDialog/FormDialog";
+import { useTranslation } from "react-i18next";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -72,6 +72,7 @@ function stringAvatar(name: string) {
 
 //@ts-ignore
 const ClientInfo = ({ user }) => {
+  const { t } = useTranslation();
   return (
     <Box key={user.id} className={styles.clientInfo}>
       <Card className={styles.card}>
@@ -96,53 +97,46 @@ const ClientInfo = ({ user }) => {
               {user.name}
             </Typography>
           </Box>
-          <Typography sx={{ pl: 2 }} variant="h6" color="text.secondary">
+          <Typography variant="h6" color="text.secondary">
             <Box sx={{ p: 0.5 }}>
               <MailOutlineOutlinedIcon
                 color="secondary"
                 style={{ marginRight: "5px", marginBottom: "-3px" }}
               />
-              Email: {user.email}
+              {t("email")}: {user.email}
             </Box>
             <Box sx={{ p: 0.5 }}>
               <PhoneForwardedOutlinedIcon
                 color="secondary"
                 style={{ marginRight: "5px", marginBottom: "-3px" }}
               />
-              Phone: {user.phone}
-            </Box>
-            <Box sx={{ p: 0.5 }}>
-              <NavigationOutlinedIcon
-                color="secondary"
-                style={{ marginRight: "5px", marginBottom: "-3px" }}
-              />
-              Street: {user.address.street}
+              {t("phone")}: {user.phone}
             </Box>
             <Box sx={{ p: 0.5 }}>
               <FmdGoodOutlinedIcon
                 color="secondary"
                 style={{ marginRight: "5px", marginBottom: "-3px" }}
               />
-              City: {user.address.city}
+              {t("city")}: {user.address.city}
             </Box>
             <Box sx={{ p: 0.5 }}>
               <ArrowForwardIosOutlinedIcon
                 color="secondary"
                 style={{ marginRight: "5px", marginBottom: "-3px" }}
               />
-              Website: {user.website}
+              {t("website")}: {user.website}
             </Box>
             <Box sx={{ p: 0.5 }}>
               <BusinessOutlinedIcon
                 color="secondary"
                 style={{ marginRight: "5px", marginBottom: "-3px" }}
               />
-              Company: {user.company.name}
+              {t("company")}: {user.company.name}
             </Box>
           </Typography>
         </CardContent>
-        <CardActions sx={{ pl: 3 }}>
-          <Button size="large">Learn More</Button>
+        <CardActions className={styles.share}>
+          <FormDialog />
         </CardActions>
       </Card>
     </Box>

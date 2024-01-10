@@ -6,6 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import FormDialog from "../../components/FormDialog/FormDialog";
 
 const NewsPage: React.FC = () => {
   return (
@@ -27,7 +28,7 @@ const NewsPage: React.FC = () => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Share</Button>
+          <FormDialog />
           <Button size="small">Learn More</Button>
         </CardActions>
       </Card>
@@ -48,7 +49,7 @@ const NewsPage: React.FC = () => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Share</Button>
+          <FormDialog />
           <Button size="small">Learn More</Button>
         </CardActions>
       </Card>
@@ -69,7 +70,7 @@ const NewsPage: React.FC = () => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Share</Button>
+          <FormDialog />
           <Button size="small">Learn More</Button>
         </CardActions>
       </Card>

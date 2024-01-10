@@ -65,5 +65,18 @@
 	"Faq4question": "Kuidas ma saan oma tellimuse staatust kontrollida?",
 	"Faq4answer": "Saate jälgida oma tellimuse staatust oma isiklikus kontos meie veebisaidil. Pärast tellimuse saatmist anname teile jälgimisnumbri, et saaksite jälgida oma saadetise liikumist.",
 	"Faq5question": "Milliseid maksemeetodeid te aktsepteerite?",
-	"Faq5answer": "Me aktsepteerime makseid krediit- ja deebetkaartidega (Visa, Mastercard, American Express) ning elektrooniliste maksesüsteemidega (PayPal, Apple Pay, Google Pay). Valige sobiv makseviis ostulehele."
+	"Faq5answer": "Me aktsepteerime makseid krediit- ja deebetkaartidega (Visa, Mastercard, American Express) ning elektrooniliste maksesüsteemidega (PayPal, Apple Pay, Google Pay). Valige sobiv makseviis ostulehele.",
+	"share": "JAGA",
+	"email": "E-post",
+	"phone": "Telefon",
+	"city": "Linn",
+	"website": "Koduleht",
+	"company": "Ettevõte",
+	"share2": "Jaga",
+	"shareText": "Selle kontakti jagamiseks peate sisestama saaja e-posti aadressi.",
+	"cancel": "Tühista",
+	"emailAddress": "E-posti aadress",
+	"clientsTitle": "Ärikliendid: Ettevõtete Ostjate Loend E-poe",
+	"clientsSubTitle": "Tere tulemast meie püsiklientide kontaktilehele e-poes, kus pakume laias valikus telefone, kellasid ja kõrvaklappe. Allpool on loetletud usaldusväärsete ettevõtete ostjad, kes aktiivselt koostööd teevad:",
+	"clientsDescription": "Ärge kartke võtta ühendust nende ettevõtete esindajatega, et selgitada välja tellimuste detaile, arutada uusi tooteid või muid küsimusi meie tootevaliku kohta. Oleme tänulikud teie pikaajalise koostöö ja huvi eest meie e-poe vastu."	
 }

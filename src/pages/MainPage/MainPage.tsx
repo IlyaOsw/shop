@@ -6,6 +6,7 @@ import Description from "./Description/Description";
 import Feedback from "./Feedback/Feedback";
 import About from "./About/About";
 import { useTranslation } from "react-i18next";
+import Paper from "@mui/material/Paper";
 
 const Main: React.FC = () => {
   const { t } = useTranslation();
@@ -20,7 +21,19 @@ const Main: React.FC = () => {
       <Box className={styles.description}>
         <Description />
       </Box>
-      <About />
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          mt: 3,
+          mb: 3,
+          position: "relative",
+        }}
+      >
+        <Paper elevation={4}>
+          <About />
+        </Paper>
+      </Box>
       <Feedback />
     </>
   );

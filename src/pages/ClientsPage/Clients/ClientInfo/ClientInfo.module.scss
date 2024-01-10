@@ -1,12 +1,20 @@
 .clientInfo {
   padding: 10px;
+  cursor: default;
   .card {
-    min-width: 275px;
+    width: 300px;
+    height: 450px;
+    margin-bottom: 20px;
     position: relative;
-    background-color: rgb(242, 248, 252);
+    background-color: rgb(227, 244, 255);
   }
   .clientName {
     display: flex;
     align-items: center;
   }
+}
+.share {
+  position: absolute;
+  right: 5%;
+  bottom: 1%;
 }

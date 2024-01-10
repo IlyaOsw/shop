@@ -65,6 +65,19 @@
     "Faq4question": "How can I check the status of my order?",
     "Faq4answer": "You can track the status of your order in your personal account on our website. After the order is shipped, we'll provide you with a tracking number so you can monitor the progress of your shipment.",
     "Faq5question": "What payment methods do you accept?",
-    "Faq5answer": "We accept payments via credit/debit cards (Visa, Mastercard, American Express) and electronic payment systems (PayPal, Apple Pay, Google Pay). Choose your preferred payment method on the checkout page."
+    "Faq5answer": "We accept payments via credit/debit cards (Visa, Mastercard, American Express) and electronic payment systems (PayPal, Apple Pay, Google Pay). Choose your preferred payment method on the checkout page.",
+    "share": "SHARE",
+    "email": "Email",
+    "phone": "Phone",
+    "city": "City",
+    "website": "Website",
+    "company": "Company",
+    "share2": "Share",
+    "shareText": "To share this contact, you need to provide the recipient's email address.",
+    "cancel": "Cancel",
+    "emailAddress": "Email Address",
+    "clientsTitle": "Business Clients: List of Company Buyers in E-Store",
+    "clientsSubTitle": "Welcome to the contacts page of our regular business clients in the online store, where we offer a wide range of phones, watches, and headphones. Below is a list of reliable company buyers actively collaborating with us:",
+    "clientsDescription": "Feel free to contact representatives of these companies to clarify order details, discuss new products, or any other questions regarding our product range. We appreciate your long-term partnership and interest in our store."
 }
    
