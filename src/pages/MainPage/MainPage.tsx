@@ -8,11 +8,16 @@ import About from "./About/About";
 import { useTranslation } from "react-i18next";
 import Paper from "@mui/material/Paper";
 
-const Main: React.FC = () => {
+const Main: React.FC = React.memo(() => {
   const { t } = useTranslation();
   return (
     <>
-      <Typography variant="h4" className={styles.title}>
+      <Typography
+        variant="h4"
+        textAlign={"center"}
+        sx={{ m: 3, letterSpacing: "1px" }}
+        className={styles.title}
+      >
         {t("welcome")}
       </Typography>
       <Box className={styles.images}>
@@ -37,6 +42,6 @@ const Main: React.FC = () => {
       <Feedback />
     </>
   );
-};
+});
 
 export default Main;
