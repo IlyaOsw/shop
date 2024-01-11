@@ -66,8 +66,18 @@ export default function MainFeedback() {
   const [hover, setHover] = React.useState(-1);
 
   return (
-    <Box className={styles.feedback} textAlign="center">
-      <Typography variant="h4" className={styles.title}>
+    <Box
+      sx={{
+        margin: "50px",
+      }}
+      textAlign="center"
+    >
+      <Typography
+        variant="h4"
+        sx={{
+          paddingBottom: "20px",
+        }}
+      >
         {t("feedback")}
       </Typography>
       <StyledRating
@@ -84,11 +94,7 @@ export default function MainFeedback() {
           setHover(newHover);
         }}
       />
-      {value !== null && (
-        <Box className={styles.rating}>
-          {labels[hover !== -1 ? hover : value]}
-        </Box>
-      )}
+      {value !== null && <Box>{labels[hover !== -1 ? hover : value]}</Box>}
     </Box>
   );
 }

@@ -1,4 +1,3 @@
-import styles from "./StorePage.module.scss";
 import Box from "@mui/material/Box";
 import Card, { Media } from "./Card/Card";
 import Skeleton from "@mui/material/Skeleton";
@@ -24,11 +23,17 @@ const StorePage: React.FC = React.memo(() => {
         variant="h4"
         textAlign={"center"}
         sx={{ m: 3, letterSpacing: "1px" }}
-        className={styles.title}
       >
         {t("storePage")}
       </Typography>
-      <Box className={styles.container}>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+        }}
+      >
         {shopData.map((item: any, index: number) => {
           if (isLoading) {
             return (

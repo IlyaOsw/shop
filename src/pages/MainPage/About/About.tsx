@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./About.module.scss";
 import { Box, Typography } from "@mui/material";
 import AboutBlocks from "./AboutBlocks/AboutBlocks";
 import { useTranslation } from "react-i18next";
@@ -7,8 +6,8 @@ import { useTranslation } from "react-i18next";
 const MainAbout: React.FC = () => {
   const { t } = useTranslation();
   return (
-    <Box className={styles.about}>
-      <Typography variant="h4" className={styles.whyTitle}>
+    <Box sx={{ textAlign: "center", position: "relative" }}>
+      <Typography variant="h4" sx={{ pt: "20px" }}>
         {t("about")}
       </Typography>
       <AboutBlocks />

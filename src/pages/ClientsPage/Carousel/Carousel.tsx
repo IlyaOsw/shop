@@ -6,7 +6,7 @@ const images = [
   {
     url: `${process.env.PUBLIC_URL}/Images/Clients/clientsImage.jpg`,
     title: "Breakfast",
-    width: "900px",
+    width: "100%",
   },
 ];
 
@@ -68,8 +68,9 @@ export default function Carousel() {
   return (
     <Box
       sx={{
+        display: "flex",
         minWidth: 300,
-        width: "80%",
+        width: "50%",
       }}
     >
       {images.map((image) => (

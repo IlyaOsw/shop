@@ -1,10 +1,9 @@
-import styles from "./Clients.module.scss";
 import { Box } from "@mui/material";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ClientInfo from "./ClientInfo/ClientInfo";
 
-const Clients = () => {
+const Clients: React.FC = () => {
   const [ourClients, setOurClients] = useState([]);
 
   useEffect(() => {
@@ -18,10 +17,19 @@ const Clients = () => {
   }, []);
 
   return (
-    <Box className={styles.clients}>
-      {ourClients.map((user: any) => (
-        <ClientInfo key={user.id} user={user} />
-      ))}
+    <Box
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-around",
+        mt: 5,
+      }}
+    >
+      {ourClients
+        .filter((user: any) => user.id <= 5)
+        .map((user: any) => (
+          <ClientInfo key={user.id} user={user} />
+        ))}
     </Box>
   );
 };

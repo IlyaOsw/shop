@@ -20,25 +20,29 @@ const ClientsPage: React.FC = React.memo(() => {
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "space-between",
-          border: "1px solid black",
+          alignItems: "center",
+          justifyContent: "space-around",
         }}
       >
         <Box
           sx={{
             position: "relative",
-            width: "300px",
+            width: "55vh",
           }}
         >
           <Paper elevation={4}>
-            <Typography variant="h5" textAlign={"center"} sx={{ p: 3 }}>
+            <Typography variant="h5" textAlign={"center"} sx={{ p: 2 }}>
               {t("clientsSubTitle")}
+            </Typography>
+          </Paper>
+          <Paper elevation={4}>
+            <Typography variant="h5" textAlign={"center"} sx={{ p: 2, m: 2 }}>
+              {t("clientsSubTitle2")}
             </Typography>
           </Paper>
         </Box>
         <Carousel />
       </Box>
-
       <Clients />
     </>
   );
