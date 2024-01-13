@@ -16,7 +16,6 @@ const NewsPost: React.FC = ({ post }) => {
     <Box sx={{ display: "flex", justifyContent: " space-around" }}>
       <Card
         sx={{
-          width: "75%",
           m: 2,
           display: "flex",
           justifyContent: " space-around",
@@ -29,7 +28,6 @@ const NewsPost: React.FC = ({ post }) => {
           alt="green iguana"
           height="400"
           image={`${process.env.PUBLIC_URL}/Images/News/news3.jpg`}
-          sx={{ width: "100%" }}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">

@@ -22,8 +22,7 @@ const NewsPage: React.FC = React.memo(() => {
       <Box
         sx={{
           position: "relative",
-          width: "90%",
-          margin: "25px auto",
+          margin: "50px auto",
         }}
       >
         <Paper elevation={4}>

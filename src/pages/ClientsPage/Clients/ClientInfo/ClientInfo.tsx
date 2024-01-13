@@ -2,7 +2,6 @@ import { Box } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import { styled } from "@mui/material/styles";
 import Badge from "@mui/material/Badge";
-import styles from "./ClientInfo.module.scss";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -74,23 +73,27 @@ function stringAvatar(name: string) {
 const ClientInfo = ({ user }) => {
   const { t } = useTranslation();
   return (
-    <Box key={user.id} className={styles.clientInfo}>
-      <Card className={styles.card}>
+    <Box key={user.id}>
+      <Card
+        sx={{
+          width: "300px",
+          height: "450px",
+          marginBottom: "20px",
+          position: "relative",
+        }}
+      >
         <CardContent>
-          <Box className={styles.clientName}>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
             {user.id % 2 === 0 ? (
               <StyledBadge
                 overlap="circular"
                 anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
                 variant="dot"
               >
-                <Avatar
-                  {...stringAvatar(user.name)}
-                  className={styles.avatar}
-                />
+                <Avatar {...stringAvatar(user.name)} />
               </StyledBadge>
             ) : (
-              <Avatar {...stringAvatar(user.name)} className={styles.avatar} />
+              <Avatar {...stringAvatar(user.name)} />
             )}
 
             <Typography variant="h5" sx={{ p: 2 }}>
@@ -135,7 +138,7 @@ const ClientInfo = ({ user }) => {
             </Box>
           </Typography>
         </CardContent>
-        <CardActions className={styles.share}>
+        <CardActions sx={{ position: "absolute", right: "5%", bottom: "1%" }}>
           <FormDialog />
         </CardActions>
       </Card>
