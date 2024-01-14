@@ -2,7 +2,6 @@ import * as React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { Typography, useMediaQuery, useTheme } from "@mui/material";
-import styles from "./Description.module.scss";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import AllInclusiveIcon from "@mui/icons-material/AllInclusive";
@@ -18,9 +17,25 @@ export default function MainChoose() {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("lg"));
 
+  const chooseLabels = [
+    { id: 0, label: "choose1" },
+    { id: 1, label: "choose2" },
+    { id: 2, label: "choose3" },
+  ];
+  const icons = [
+    <FavoriteBorderIcon fontSize="large" color="action" />,
+    <ThumbUpOffAltIcon fontSize="large" color="action" />,
+    <AllInclusiveIcon fontSize="large" color="action" />,
+  ];
   return (
     <>
-      <Typography variant="h4" className={styles.title}>
+      <Typography
+        variant="h4"
+        sx={{
+          textAlign: "center",
+          m: 4,
+        }}
+      >
         {t("whyWe")}
       </Typography>
       <Tabs
@@ -29,39 +44,14 @@ export default function MainChoose() {
         centered
         orientation={isSmallScreen ? "vertical" : "horizontal"}
       >
-        <Tab
-          icon={
-            <FavoriteBorderIcon
-              fontSize="large"
-              color="action"
-              className={styles.icons}
-            />
-          }
-          label={t("choose1")}
-          className={styles.info}
-        />
-        <Tab
-          icon={
-            <ThumbUpOffAltIcon
-              fontSize="large"
-              color="action"
-              className={styles.icons}
-            />
-          }
-          label={t("choose2")}
-          className={styles.info}
-        />
-        <Tab
-          icon={
-            <AllInclusiveIcon
-              fontSize="large"
-              color="action"
-              className={styles.icons}
-            />
-          }
-          label={t("choose3")}
-          className={styles.info}
-        />
+        {chooseLabels.map((item, index) => (
+          <Tab
+            key={item.id}
+            sx={{ fontSize: "16px", m: 2 }}
+            icon={icons[index]}
+            label={t(item.label)}
+          />
+        ))}
       </Tabs>
     </>
   );

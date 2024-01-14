@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import Preloader from "../components/Preloader/Preloader";
 import StorePage from "../pages/StorePage/StorePage";
+
 const MainPage = React.lazy(() => import("../pages/MainPage/MainPage"));
 const NewsPage = React.lazy(() => import("../pages/NewsPage/NewsPage"));
 const ClientsPage = React.lazy(

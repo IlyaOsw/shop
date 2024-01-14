@@ -27,7 +27,7 @@ const ClientsPage: React.FC = React.memo(() => {
         <Box
           sx={{
             position: "relative",
-            width: "50vh",
+            maxWidth: "600px",
           }}
         >
           <Paper elevation={4}>

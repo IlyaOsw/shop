@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import styles from "./Main.module.scss";
 import Card from "./Card/Card";
 import Description from "./Description/Description";
 import Feedback from "./Feedback/Feedback";
@@ -12,26 +11,26 @@ const Main: React.FC = React.memo(() => {
   const { t } = useTranslation();
   return (
     <>
-      <Typography
-        variant="h4"
-        textAlign={"center"}
-        sx={{ m: 3, letterSpacing: "1px" }}
-        className={styles.title}
-      >
+      <Typography variant="h4" sx={{ m: 3, textAlign: "center" }}>
         {t("welcome")}
       </Typography>
-      <Box className={styles.images}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          flexWrap: "wrap",
+        }}
+      >
         <Card />
       </Box>
-      <Box className={styles.description}>
+      <Box>
         <Description />
       </Box>
       <Box
         sx={{
           display: "flex",
           justifyContent: "center",
-          mt: 3,
-          mb: 3,
+          m: 5,
           position: "relative",
         }}
       >

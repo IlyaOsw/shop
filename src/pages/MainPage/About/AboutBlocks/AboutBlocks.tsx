@@ -1,6 +1,5 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
-import styles from "./AboutBlocks.module.scss";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { useTranslation } from "react-i18next";
 
@@ -22,23 +21,33 @@ const about: { id: number; label: AboutTitle; description: AboutInfo }[] = [
   { id: 2, label: AboutTitle.TITLE3, description: AboutInfo.INFO3 },
   { id: 3, label: AboutTitle.TITLE4, description: AboutInfo.INFO4 },
 ];
-const getAboutBlock = () => {
-  const { t } = useTranslation();
-  return about.map((item) => (
-    <Box key={item.id} className={styles.block}>
-      <MoreHorizIcon />
-      <Typography variant="h5" className={styles.title}>
-        {t(item.label)}
-      </Typography>
-      <Typography variant="h6" className={styles.info}>
-        {t(item.description)}
-      </Typography>
-    </Box>
-  ));
-};
-
 const AboutBlocks: React.FC = () => {
-  return <Box className={styles.blocks}>{getAboutBlock()}</Box>;
+  const { t } = useTranslation();
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+      }}
+    >
+      {about.map((item) => (
+        <Box
+          key={item.id}
+          sx={{
+            textAlign: "start",
+            maxWidth: "340px",
+            padding: "10px",
+          }}
+        >
+          <MoreHorizIcon />
+          <Typography variant="h5" sx={{ paddingBottom: "20px" }}>
+            {t(item.label)}
+          </Typography>
+          <Typography variant="h6">{t(item.description)}</Typography>
+        </Box>
+      ))}
+    </Box>
+  );
 };
 
 export default AboutBlocks;

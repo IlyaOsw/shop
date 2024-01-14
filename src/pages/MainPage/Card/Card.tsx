@@ -4,7 +4,6 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { t } from "i18next";
-import styles from "./Card.module.scss";
 
 enum Cards {
   CARD1 = "Card1",
@@ -20,7 +19,7 @@ export default function MainCard() {
   return (
     <>
       {cards.map((item) => (
-        <Card className={styles.card} key={item.id}>
+        <Card sx={{ zIndex: "1", m: 1 }} key={item.id}>
           <CardActionArea>
             <CardMedia
               component="img"
