@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import Card from "./Card/Card";
 import Description from "./Description/Description";
 import Feedback from "./Feedback/Feedback";
@@ -10,7 +10,7 @@ import Paper from "@mui/material/Paper";
 const Main: React.FC = React.memo(() => {
   const { t } = useTranslation();
   return (
-    <>
+    <Container maxWidth="xl">
       <Typography variant="h4" sx={{ m: 3, textAlign: "center" }}>
         {t("welcome")}
       </Typography>
@@ -39,7 +39,7 @@ const Main: React.FC = React.memo(() => {
         </Paper>
       </Box>
       <Feedback />
-    </>
+    </Container>
   );
 });
 

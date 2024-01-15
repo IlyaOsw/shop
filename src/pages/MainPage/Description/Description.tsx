@@ -47,7 +47,7 @@ export default function MainChoose() {
         {chooseLabels.map((item, index) => (
           <Tab
             key={item.id}
-            sx={{ fontSize: "16px", m: 2 }}
+            sx={{ fontSize: "16px", m: 2, background: "white" }}
             icon={icons[index]}
             label={t(item.label)}
           />

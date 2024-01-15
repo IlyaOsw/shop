@@ -6,17 +6,17 @@ const images = [
   {
     url: `${process.env.PUBLIC_URL}/Images/News/news1.jpg`,
     title: "Breakfast",
-    width: "30%",
+    width: "32.7%",
   },
   {
     url: `${process.env.PUBLIC_URL}/Images/News/news2.jpg`,
     title: "Burgers",
-    width: "30%",
+    width: "32.7%",
   },
   {
     url: `${process.env.PUBLIC_URL}/Images/News/news3.jpg`,
     title: "Camera",
-    width: "30%",
+    width: "32.7%",
   },
 ];
 

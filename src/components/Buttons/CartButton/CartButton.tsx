@@ -19,6 +19,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import styles from "./CartButton.module.scss";
 import { useSelector } from "react-redux";
 import Badge from "@mui/material/Badge";
+import Tooltip from "@mui/material/Tooltip";
 
 const style = {
   position: "absolute" as "absolute",
@@ -58,11 +59,13 @@ export default function CartButton() {
 
   return (
     <Stack direction="row" alignItems="center" spacing={1}>
-      <IconButton aria-label="homeicon" size="large" onClick={handleOpen}>
-        <Badge badgeContent={cartData.length} color="secondary">
-          <ShoppingCartIcon fontSize="large" color="action" />
-        </Badge>
-      </IconButton>
+      <Tooltip title={t("cart")} arrow>
+        <IconButton aria-label="homeicon" size="large" onClick={handleOpen}>
+          <Badge badgeContent={cartData.length} color="secondary">
+            <ShoppingCartIcon fontSize="large" color="action" />
+          </Badge>
+        </IconButton>
+      </Tooltip>
       <Modal
         open={open}
         onClose={handleClose}

@@ -1,10 +1,10 @@
 import Box from "@mui/material/Box";
-import Card, { Media } from "./Card/Card";
+import StoreCard, { Media } from "./StoreCard/StoreCard";
 import Skeleton from "@mui/material/Skeleton";
 import React from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 
 const StorePage: React.FC = React.memo(() => {
   const { t } = useTranslation();
@@ -18,7 +18,7 @@ const StorePage: React.FC = React.memo(() => {
   }, [shopData]);
 
   return (
-    <>
+    <Container maxWidth="xl">
       <Typography
         variant="h4"
         textAlign={"center"}
@@ -48,11 +48,11 @@ const StorePage: React.FC = React.memo(() => {
               </Media>
             );
           } else {
-            return <Card key={item.id} />;
+            return <StoreCard key={item.id} />;
           }
         })}
       </Box>
-    </>
+    </Container>
   );
 });
 export default StorePage;

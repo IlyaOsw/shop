@@ -14,6 +14,7 @@ import MuiAccordionSummary, {
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import { useTranslation } from "react-i18next";
 import CloseButton from "../CloseButton/CloseButton";
+import Tooltip from "@mui/material/Tooltip";
 
 const style = {
   position: "absolute" as "absolute",
@@ -54,7 +55,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 
 export default function HelpButton() {
   const { t } = useTranslation();
-  const [expanded, setExpanded] = React.useState<string | false>("panel1");
+  const [expanded, setExpanded] = React.useState<string | false>("");
 
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
@@ -67,10 +68,11 @@ export default function HelpButton() {
 
   return (
     <Stack direction="row" alignItems="center" spacing={1}>
-      <IconButton aria-label="homeicon" size="large" onClick={handleOpen}>
-        <HelpIcon fontSize="large" color="action" />
-      </IconButton>
-
+      <Tooltip title="FAQ" arrow>
+        <IconButton aria-label="homeicon" size="large" onClick={handleOpen}>
+          <HelpIcon fontSize="large" color="action" />
+        </IconButton>
+      </Tooltip>
       <Modal
         open={open}
         onClose={handleClose}
@@ -79,6 +81,9 @@ export default function HelpButton() {
       >
         <Box sx={style}>
           <CloseButton onClose={handleClose} />
+          <Typography variant="h6" sx={{ mt: 2, textAlign: "center" }}>
+            {t("faq")}
+          </Typography>
           <Accordion
             sx={{ mt: 3 }}
             expanded={expanded === "panel1"}

@@ -11,15 +11,15 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
-import styles from "./Card.module.scss";
+import styles from "./StoreCard.module.scss";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Snackbar from "@mui/material/Snackbar";
 import { useSelector } from "react-redux";
-import Rating from "@mui/material/Rating";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
 import Slide, { SlideProps } from "@mui/material/Slide";
+import Tooltip from "@mui/material/Tooltip";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -59,7 +59,7 @@ export function Media(props: any) {
   );
 }
 
-const StorePageCard = () => {
+const StoreCard: React.FC = React.memo(() => {
   const { t } = useTranslation();
 
   const shopData = useSelector((state: any) => state.shopPage);
@@ -73,8 +73,6 @@ const StorePageCard = () => {
     newExpanded[index] = !newExpanded[index];
     setExpanded(newExpanded);
   };
-
-  const [value, setValue] = React.useState<number | null>(shopData.id);
 
   const [open, setOpen] = React.useState(false);
   const [transition, setTransition] = React.useState<
@@ -111,13 +109,12 @@ const StorePageCard = () => {
   return (
     <>
       {shopData.map((item: any, index: number) => (
-        <Card className={styles.card} key={item.id}>
-          <Link to={`/${item.description}`} className={styles.link}>
+        <Card className={styles.card} key={item.id} sx={{ m: 5 }}>
+          <Link to={`/${item.description}`} style={{ textDecoration: "none" }}>
             <CardMedia
               component="img"
               image={`${process.env.PUBLIC_URL}/Images/Store/${item.description}.jpg`}
               alt="Phone"
-              sx={{ p: 1 }}
             />
             <CardContent>
               <Typography variant="h6" color="text.secondary">
@@ -125,38 +122,53 @@ const StorePageCard = () => {
               </Typography>
               <Typography
                 variant="h5"
-                color="text.secondary"
-                className={styles.price}
+                color="text.primary"
+                sx={{
+                  position: "absolute",
+                  bottom: "11%",
+                  left: "5%",
+                }}
               >
                 {item.price} €
               </Typography>
             </CardContent>
           </Link>
-          <CardActions disableSpacing>
-            <Checkbox
-              {...label}
-              icon={<FavoriteBorder color="error" />}
-              checkedIcon={<Favorite color="error" />}
-              onClick={() => {
-                const isCurrentlyFavorite = favorites[index];
-                toggleFavorite(index);
-                if (!isCurrentlyFavorite) {
-                  setOpenFavorite(true);
+          <CardActions
+            disableSpacing
+            sx={{
+              position: "absolute",
+              bottom: "1%",
+              left: "1%",
+            }}
+          >
+            <Tooltip title={t("addToFavorites")} arrow>
+              <Checkbox
+                {...label}
+                icon={<FavoriteBorder color="error" />}
+                checkedIcon={<Favorite color="error" />}
+                onClick={() => {
+                  const isCurrentlyFavorite = favorites[index];
+                  toggleFavorite(index);
+                  if (!isCurrentlyFavorite) {
+                    setOpenFavorite(true);
+                    handleClick(TransitionUp);
+                  }
+                }}
+                checked={favorites[index]}
+              />
+            </Tooltip>
+            <Tooltip title={t("addToCart")} arrow>
+              <IconButton
+                color="success"
+                aria-label="add to shopping cart"
+                onClick={() => {
                   handleClick(TransitionUp);
-                }
-              }}
-              checked={favorites[index]}
-            />
-            <IconButton
-              color="success"
-              aria-label="add to shopping cart"
-              onClick={() => {
-                handleClick(TransitionUp);
-                setOpenCart(true);
-              }}
-            >
-              <AddShoppingCartIcon />
-            </IconButton>
+                  setOpenCart(true);
+                }}
+              >
+                <AddShoppingCartIcon />
+              </IconButton>
+            </Tooltip>
             <ExpandMore
               expand={expanded[index]}
               onClick={() => {
@@ -216,6 +228,6 @@ const StorePageCard = () => {
       )}
     </>
   );
-};
+});
 
-export default StorePageCard;
+export default StoreCard;

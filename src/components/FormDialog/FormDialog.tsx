@@ -8,6 +8,8 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import ShareIcon from "@mui/icons-material/Share";
 import { useTranslation } from "react-i18next";
+import { Box } from "@mui/material";
+import Tooltip from "@mui/material/Tooltip";
 
 export default function FormDialog() {
   const { t } = useTranslation();
@@ -23,10 +25,12 @@ export default function FormDialog() {
 
   return (
     <>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        <ShareIcon />
-        {t("share")}
-      </Button>
+      <Tooltip title={t("share2")} arrow>
+        <Button variant="contained" onClick={handleClickOpen}>
+          <ShareIcon />
+          <Box sx={{ marginLeft: "5px" }}>{t("share")}</Box>
+        </Button>
+      </Tooltip>
       <Dialog
         open={open}
         onClose={handleClose}

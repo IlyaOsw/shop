@@ -73,12 +73,12 @@ function stringAvatar(name: string) {
 const ClientInfo = ({ user }) => {
   const { t } = useTranslation();
   return (
-    <Box key={user.id}>
+    <Box key={user.id} sx={{ margin: "50px 0px" }}>
       <Card
         sx={{
-          width: "300px",
-          height: "450px",
-          marginBottom: "20px",
+          width: "280px",
+          height: "475px",
+          m: 1,
           position: "relative",
         }}
       >
@@ -138,7 +138,13 @@ const ClientInfo = ({ user }) => {
             </Box>
           </Typography>
         </CardContent>
-        <CardActions sx={{ position: "absolute", right: "5%", bottom: "1%" }}>
+        <CardActions
+          sx={{
+            position: "absolute",
+            right: "5%",
+            bottom: "1%",
+          }}
+        >
           <FormDialog />
         </CardActions>
       </Card>

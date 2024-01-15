@@ -55,8 +55,9 @@
     "sum": "Summa",
 	"total": "Kokku",
 	"delete": "Eemalda",
-	"addedToCart": "Edukalt lisatud ostukorvi.",
-	"AddedToFavorites": "Lisatud lemikutesse.",
+	"addedToCart": "Edukalt lisatud ostukorvi",
+	"AddedToFavorites": "Lisatud lemikutesse",
+	"faq": "Korduma kippuvad küsimused",
 	"Faq1question": "Millised on kohaletoimetamise tingimused?",
 	"Faq1answer": "Pakume tasuta kohaletoimetamist kõikidele tellimustele riigi piires. Tavaliselt võtab kohaletoimetamine aega 2 kuni 5 tööpäeva.",
 	"Faq2question": "Kuidas ma saan toote tagastada või vahetada?",
@@ -74,7 +75,7 @@
 	"website": "Koduleht",
 	"company": "Ettevõte",
 	"share2": "Jaga",
-	"shareText": "Selle kontakti jagamiseks peate sisestama saaja e-posti aadressi.",
+	"shareText": "Selle kontakti jagamiseks peate sisestama saaja e-posti aadressi",
 	"cancel": "Tühista",
 	"emailAddress": "E-posti aadress",
 	"clientsTitle": "Ärikliendid: Ettevõtete Ostjate Loend E-poe",
@@ -82,5 +83,10 @@
 	"clientsSubTitle2": "Their trust is a crucial part of our success, and we strive to provide the highest level of service to foster long-term partnerships. We invite you to explore our corporate partners and learn more about how our products and services meet high business standards and requirements.",
 	"clientsDescription": "Ärge kartke võtta ühendust nende ettevõtete esindajatega, et selgitada välja tellimuste detaile, arutada uusi tooteid või muid küsimusi meie tootevaliku kohta. Oleme tänulikud teie pikaajalise koostöö ja huvi eest meie e-poe vastu.",
 	"newsTitle": "Uudised ja Trendid: Kaasaegsete Tehnoloogiate ja Stiilsete Aksessuaaride Maailmas",
-	"newsDesc": "Ole kursis viimaste sündmuste ja suundumustega kellade, telefonide ja kõrvaklappide maailmas! Meie veebipoest leiad kõige värskemad uuendused, uute toodete väljakuulutamised, haaravad tehnoloogilised saavutused ja stiilsed aksessuaarid. Sukeldu innovatsioonide maailma, jälgi viimaseid arenguid ja jaga oma arvamust kaasaegsete tehnoloogiate huviliste kogukonnaga. Sind ootavad põnevad uudised, mis lisavad sinu ellu stiili ja funktsionaalsust. Ole sündmuste keskpunktis koos meiega!"
+	"newsDesc": "Ole kursis viimaste sündmuste ja suundumustega kellade, telefonide ja kõrvaklappide maailmas! Meie veebipoest leiad kõige värskemad uuendused, uute toodete väljakuulutamised, haaravad tehnoloogilised saavutused ja stiilsed aksessuaarid. Sukeldu innovatsioonide maailma, jälgi viimaseid arenguid ja jaga oma arvamust kaasaegsete tehnoloogiate huviliste kogukonnaga. Sind ootavad põnevad uudised, mis lisavad sinu ellu stiili ja funktsionaalsust. Ole sündmuste keskpunktis koos meiega!",
+	"addToFavorites": "Lisa lemmikutesse",
+	"addToCart": "Lisa ostukorvi",
+	"learnMore": "Loe edasi",
+	"like": "Meeldib",
+	"dislike": "Ei meeldi"
 }

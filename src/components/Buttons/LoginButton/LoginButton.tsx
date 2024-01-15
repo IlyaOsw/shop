@@ -16,6 +16,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import Tooltip from "@mui/material/Tooltip";
 
 const style = {
   position: "absolute" as "absolute",
@@ -48,9 +49,11 @@ export default function LoginButton() {
 
   return (
     <Stack direction="row" alignItems="center" justifyContent="end" spacing={1}>
-      <IconButton aria-label="homeicon" size="large" onClick={handleOpen}>
-        <PersonIcon fontSize="large" color="action" />
-      </IconButton>
+      <Tooltip title={t("login")} arrow>
+        <IconButton aria-label="homeicon" size="large" onClick={handleOpen}>
+          <PersonIcon fontSize="large" color="action" />
+        </IconButton>
+      </Tooltip>
       <Modal
         open={open}
         onClose={handleClose}

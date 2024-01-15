@@ -1,6 +1,6 @@
 import React from "react";
 import Clients from "./Clients/Clients";
-import { Box, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import { useTranslation } from "react-i18next";
 import Carousel from "./Carousel/Carousel";
@@ -8,7 +8,7 @@ import Carousel from "./Carousel/Carousel";
 const ClientsPage: React.FC = React.memo(() => {
   const { t } = useTranslation();
   return (
-    <>
+    <Container maxWidth="xl">
       <Typography
         variant="h4"
         textAlign={"center"}
@@ -31,12 +31,12 @@ const ClientsPage: React.FC = React.memo(() => {
           }}
         >
           <Paper elevation={4}>
-            <Typography variant="h5" sx={{ p: 1 }}>
+            <Typography variant="h5" sx={{ p: 1, m: 1 }}>
               {t("clientsSubTitle")}
             </Typography>
           </Paper>
           <Paper elevation={4}>
-            <Typography variant="h5" sx={{ p: 1, m: 2 }}>
+            <Typography variant="h5" sx={{ p: 1, m: 1 }}>
               {t("clientsSubTitle2")}
             </Typography>
           </Paper>
@@ -44,7 +44,7 @@ const ClientsPage: React.FC = React.memo(() => {
         <Carousel />
       </Box>
       <Clients />
-    </>
+    </Container>
   );
 });
 

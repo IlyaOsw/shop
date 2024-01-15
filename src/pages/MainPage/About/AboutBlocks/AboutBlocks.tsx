@@ -35,7 +35,7 @@ const AboutBlocks: React.FC = () => {
           key={item.id}
           sx={{
             textAlign: "start",
-            maxWidth: "340px",
+            maxWidth: "350px",
             padding: "10px",
           }}
         >

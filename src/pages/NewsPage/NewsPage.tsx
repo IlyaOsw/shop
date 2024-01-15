@@ -1,6 +1,6 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
-import { Box, Paper } from "@mui/material";
+import { Box, Container, Paper } from "@mui/material";
 import Carousel from "./Carousel/Carousel";
 import { useTranslation } from "react-i18next";
 import News from "./News/News";
@@ -8,12 +8,8 @@ import News from "./News/News";
 const NewsPage: React.FC = React.memo(() => {
   const { t } = useTranslation();
   return (
-    <Box>
-      <Typography
-        variant="h4"
-        textAlign={"center"}
-        sx={{ m: 3, letterSpacing: "1px" }}
-      >
+    <Container maxWidth="xl">
+      <Typography variant="h4" textAlign={"center"} sx={{ m: 3 }}>
         {t("newsTitle")}
       </Typography>
       <Box>
@@ -32,7 +28,7 @@ const NewsPage: React.FC = React.memo(() => {
         </Paper>
       </Box>
       <News />
-    </Box>
+    </Container>
   );
 });
 

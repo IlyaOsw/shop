@@ -19,7 +19,14 @@ export default function MainCard() {
   return (
     <>
       {cards.map((item) => (
-        <Card sx={{ zIndex: "1", m: 1 }} key={item.id}>
+        <Card
+          sx={{
+            zIndex: "1",
+            m: 2,
+            maxWidth: "710px",
+          }}
+          key={item.id}
+        >
           <CardActionArea>
             <CardMedia
               component="img"
