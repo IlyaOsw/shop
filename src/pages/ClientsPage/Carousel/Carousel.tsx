@@ -70,14 +70,14 @@ export default function Carousel() {
       sx={{
         display: "flex",
         minWidth: 300,
-        width: "50%",
+        width: "55%",
+        mt: 2,
       }}
     >
       {images.map((image) => (
         <ImageButton
           focusRipple
           key={image.title}
-          sx={{ m: 0.5 }}
           style={{
             width: image.width,
           }}

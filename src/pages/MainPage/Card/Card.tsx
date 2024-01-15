@@ -22,7 +22,7 @@ export default function MainCard() {
         <Card
           sx={{
             zIndex: "1",
-            m: 2,
+            m: 0.5,
             maxWidth: "710px",
           }}
           key={item.id}

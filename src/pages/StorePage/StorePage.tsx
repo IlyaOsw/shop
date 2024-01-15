@@ -5,6 +5,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { Container, Typography } from "@mui/material";
+import Filter from "./Filter/Filter";
 
 const StorePage: React.FC = React.memo(() => {
   const { t } = useTranslation();
@@ -26,6 +27,7 @@ const StorePage: React.FC = React.memo(() => {
       >
         {t("storePage")}
       </Typography>
+      <Filter />
       <Box
         sx={{
           display: "flex",

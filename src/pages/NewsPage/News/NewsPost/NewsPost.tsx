@@ -49,6 +49,7 @@ const NewsPost: React.FC = ({ post }) => {
         }}
       >
         <Box>
+          1473
           <Tooltip title={t("like")} arrow>
             <IconButton color="info">
               <ThumbUpOffAltIcon fontSize="large" />
@@ -59,6 +60,7 @@ const NewsPost: React.FC = ({ post }) => {
               <ThumbDownOffAltIcon fontSize="large" />
             </IconButton>
           </Tooltip>
+          278
         </Box>
         <CardActions>
           <FormDialog />

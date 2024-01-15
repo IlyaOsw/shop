@@ -73,12 +73,11 @@ function stringAvatar(name: string) {
 const ClientInfo = ({ user }) => {
   const { t } = useTranslation();
   return (
-    <Box key={user.id} sx={{ margin: "50px 0px" }}>
+    <Box key={user.id} sx={{ margin: "10px 0px" }}>
       <Card
         sx={{
           width: "280px",
           height: "475px",
-          m: 1,
           position: "relative",
         }}
       >

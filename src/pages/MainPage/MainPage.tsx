@@ -30,7 +30,7 @@ const Main: React.FC = React.memo(() => {
         sx={{
           display: "flex",
           justifyContent: "center",
-          m: 5,
+          mt: 5,
           position: "relative",
         }}
       >
