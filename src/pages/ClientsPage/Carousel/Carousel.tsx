@@ -69,7 +69,7 @@ export default function Carousel() {
     <Box
       sx={{
         display: "flex",
-        minWidth: 300,
+        minWidth: 304,
         width: "55%",
         mt: 2,
       }}

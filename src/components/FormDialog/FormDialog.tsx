@@ -26,7 +26,7 @@ export default function FormDialog() {
   return (
     <>
       <Tooltip title={t("share2")} arrow>
-        <Button variant="contained" onClick={handleClickOpen}>
+        <Button variant="outlined" onClick={handleClickOpen}>
           <ShareIcon />
           <Box sx={{ marginLeft: "5px" }}>{t("share")}</Box>
         </Button>

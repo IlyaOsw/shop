@@ -76,8 +76,8 @@ const ClientInfo = ({ user }) => {
     <Box key={user.id} sx={{ margin: "10px 0px" }}>
       <Card
         sx={{
-          width: "280px",
-          height: "475px",
+          width: "300px",
+          height: "400px",
           position: "relative",
         }}
       >
@@ -119,7 +119,7 @@ const ClientInfo = ({ user }) => {
                 color="secondary"
                 style={{ marginRight: "5px", marginBottom: "-3px" }}
               />
-              {t("city")}: {user.address.city}
+              {t("city")}: {user.city}
             </Box>
             <Box sx={{ p: 0.5 }}>
               <ArrowForwardIosOutlinedIcon
@@ -133,7 +133,7 @@ const ClientInfo = ({ user }) => {
                 color="secondary"
                 style={{ marginRight: "5px", marginBottom: "-3px" }}
               />
-              {t("company")}: {user.company.name}
+              {t("company")}: {user.company}
             </Box>
           </Typography>
         </CardContent>

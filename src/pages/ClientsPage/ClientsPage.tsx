@@ -43,7 +43,9 @@ const ClientsPage: React.FC = React.memo(() => {
         </Box>
         <Carousel />
       </Box>
-      <Clients />
+      <Box sx={{ marginBottom: "50px" }}>
+        <Clients />
+      </Box>
     </Container>
   );
 });

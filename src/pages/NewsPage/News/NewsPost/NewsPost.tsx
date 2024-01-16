@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardMedia,
@@ -15,10 +15,17 @@ import IconButton from "@mui/material/IconButton";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import Tooltip from "@mui/material/Tooltip";
+import { NewsPostProps } from "../News";
 
-//@ts-ignore
-const NewsPost: React.FC = ({ post }) => {
+const NewsPost: React.FC<NewsPostProps> = ({
+  id,
+  title,
+  body,
+  likes,
+  dislikes,
+}) => {
   const { t } = useTranslation();
+
   return (
     <Card
       sx={{
@@ -28,17 +35,17 @@ const NewsPost: React.FC = ({ post }) => {
     >
       <CardMedia
         component="img"
-        alt="green iguana"
-        height="400"
-        image={`${process.env.PUBLIC_URL}/Images/News/news1.jpg`}
+        alt="News post"
+        height="450"
+        image={`${process.env.PUBLIC_URL}/Images/News/Posts/${id}.jpg`}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {post.title}
+          {title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {post.body}
-          {post.body}
+          {body}
+          {body}
         </Typography>
       </CardContent>
       <Box
@@ -49,7 +56,10 @@ const NewsPost: React.FC = ({ post }) => {
         }}
       >
         <Box>
-          1473
+          <Button variant="outlined" color="success">
+            {likes}
+          </Button>
+
           <Tooltip title={t("like")} arrow>
             <IconButton color="info">
               <ThumbUpOffAltIcon fontSize="large" />
@@ -60,12 +70,14 @@ const NewsPost: React.FC = ({ post }) => {
               <ThumbDownOffAltIcon fontSize="large" />
             </IconButton>
           </Tooltip>
-          278
+          <Button variant="outlined" color="error">
+            {dislikes}
+          </Button>
         </Box>
         <CardActions>
           <FormDialog />
           <Tooltip title={t("learnMore")} arrow>
-            <Button variant="contained">
+            <Button variant="outlined">
               <MoreVertIcon />
               {t("learnMore")}
             </Button>

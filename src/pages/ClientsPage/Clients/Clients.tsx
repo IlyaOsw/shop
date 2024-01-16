@@ -1,37 +1,27 @@
 import { Box } from "@mui/material";
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ClientInfo from "./ClientInfo/ClientInfo";
+import { useSelector } from "react-redux";
+import { ClientsType } from "../../../redux/reducers/clients-reducer";
 
-const Clients: React.FC = () => {
-  const [ourClients, setOurClients] = useState([]);
-
-  useEffect(() => {
-    const getClients = async () => {
-      const response = await axios.get(
-        "https://jsonplaceholder.typicode.com/users"
-      );
-      setOurClients(response.data);
-    };
-    getClients();
-  }, []);
-
+const Clients: React.FC = React.memo(() => {
+  const clientsData = useSelector(
+    (state: { clients: ClientsType }) => state.clients
+  );
   return (
     <Box
       sx={{
         display: "flex",
         flexWrap: "wrap",
         justifyContent: "space-around",
-        mt: 5,
+        mt: 4,
       }}
     >
-      {ourClients
-        .filter((user: any) => user.id <= 5)
-        .map((user: any) => (
-          <ClientInfo key={user.id} user={user} />
-        ))}
+      {clientsData.map((user: any) => (
+        <ClientInfo key={user.id} user={user} />
+      ))}
     </Box>
   );
-};
+});
 
 export default Clients;

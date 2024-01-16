@@ -1,4 +1,4 @@
-const initialState: { id: number; label: string }[] = [
+const initialState = [
   { id: 0, label: "Home" },
   { id: 1, label: "E-Store" },
   { id: 2, label: "News" },
@@ -9,4 +9,7 @@ const navbarReducer = (state = initialState, action: any) => {
   return state;
 };
 
+export const actions = {};
+
+export type NavbarType = typeof initialState;
 export default navbarReducer;

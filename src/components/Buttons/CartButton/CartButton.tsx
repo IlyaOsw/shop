@@ -20,6 +20,7 @@ import styles from "./CartButton.module.scss";
 import { useSelector } from "react-redux";
 import Badge from "@mui/material/Badge";
 import Tooltip from "@mui/material/Tooltip";
+import { CartType } from "../../../redux/reducers/cart-reducer";
 
 const style = {
   position: "absolute" as "absolute",
@@ -45,7 +46,7 @@ export default function CartButton() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const cartData = useSelector((state: any) => state.cart);
+  const cartData = useSelector((state: { cart: CartType }) => state.cart);
   const invoiceTotal = total(cartData);
   function total(items: any) {
     const total = items.reduce(

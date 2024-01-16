@@ -65,6 +65,7 @@ export default function Filter() {
       sx={{
         flexGrow: 1,
         position: "relative",
+        mb: 5,
       }}
     >
       <AppBar position="static" color="default">

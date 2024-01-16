@@ -7,6 +7,16 @@ import { useTranslation } from "react-i18next";
 import { Container, Typography } from "@mui/material";
 import Filter from "./Filter/Filter";
 
+export interface StoreCardProps {
+  item: {
+    id: number;
+    title: string;
+    price: string;
+    description: string;
+  };
+  index: number;
+}
+
 const StorePage: React.FC = React.memo(() => {
   const { t } = useTranslation();
   const shopData = useSelector((state: any) => state.shopPage);
@@ -36,7 +46,7 @@ const StorePage: React.FC = React.memo(() => {
           flexWrap: "wrap",
         }}
       >
-        {shopData.map((item: any, index: number) => {
+        {shopData.map((item: StoreCardProps["item"], index: number) => {
           if (isLoading) {
             return (
               <Media loading key={index}>
@@ -50,7 +60,7 @@ const StorePage: React.FC = React.memo(() => {
               </Media>
             );
           } else {
-            return <StoreCard key={item.id} />;
+            return <StoreCard key={item.id} item={item} index={index} />;
           }
         })}
       </Box>

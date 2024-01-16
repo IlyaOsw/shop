@@ -31,6 +31,7 @@ import Particle from "../../assets/Particle";
 import { useTranslation } from "react-i18next";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import { useSelector } from "react-redux";
+import { NavbarType } from "../../redux/reducers/navbar-reducer";
 
 const drawerWidth = 250;
 
@@ -116,7 +117,9 @@ export default function MiniDrawer() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
-  const navbarData = useSelector((state: any) => state.navbar);
+  const navbarData = useSelector(
+    (state: { navbar: NavbarType }) => state.navbar
+  );
   const handleDrawerOpen = () => {
     setOpen(true);
   };
