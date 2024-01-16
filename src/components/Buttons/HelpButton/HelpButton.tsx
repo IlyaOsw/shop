@@ -81,7 +81,7 @@ export default function HelpButton() {
       >
         <Box sx={style}>
           <CloseButton onClose={handleClose} />
-          <Typography variant="h6" sx={{ mt: 2, textAlign: "center" }}>
+          <Typography variant="h5" sx={{ mt: 2, textAlign: "center" }}>
             {t("faq")}
           </Typography>
           <Accordion

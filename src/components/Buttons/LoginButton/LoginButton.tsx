@@ -17,6 +17,7 @@ import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Tooltip from "@mui/material/Tooltip";
+import { Typography } from "@mui/material";
 
 const style = {
   position: "absolute" as "absolute",
@@ -62,14 +63,16 @@ export default function LoginButton() {
       >
         <Box sx={style}>
           <CloseButton onClose={handleClose} />
+          <Typography sx={{ mt: 2, textAlign: "center" }} variant="h5">
+            {t("signIn")}
+          </Typography>
+
           <Box sx={{ "& > :not(style)": { m: 1 } }}>
             <Box sx={{ display: "flex", alignItems: "flex-end" }}>
               <AccountCircle sx={{ color: "action.active", mb: 1 }} />
               <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
-                <InputLabel htmlFor="standard-adornment-password">
-                  {t("name")}
-                </InputLabel>
-                <Input id="standard-adornment-password" type="text" />
+                <InputLabel>{t("name")}</InputLabel>
+                <Input type="text" />
               </FormControl>
             </Box>
             <Box sx={{ display: "flex", alignItems: "flex-end" }}>
@@ -96,7 +99,10 @@ export default function LoginButton() {
               </FormControl>
             </Box>
           </Box>
-          <Stack direction="row" spacing={2} sx={{ ml: 9, mt: 5 }}>
+          <Stack
+            direction="row"
+            sx={{ display: "flex", justifyContent: "center" }}
+          >
             <Button
               variant="contained"
               endIcon={<SendIcon />}

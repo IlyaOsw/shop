@@ -4,6 +4,7 @@ import { Box, Button, Tooltip } from "@mui/material";
 import { t } from "i18next";
 import { useSelector } from "react-redux";
 import { NewsType } from "../../../redux/reducers/news-reducer";
+import { useTranslation } from "react-i18next";
 
 export interface NewsPostProps {
   id: number;
@@ -14,37 +15,27 @@ export interface NewsPostProps {
 }
 
 const News: React.FC = () => {
+  const { t } = useTranslation();
   const newsData = useSelector((state: { news: NewsType }) => state.news);
-
-  const [show, setShow] = useState(false);
-
-  function showOlderPosts() {
-    setShow(true);
-  }
+  const [posts, setPosts] = useState(3);
+  const showMorePosts = () => {
+    setPosts((prevPosts) => prevPosts + 3);
+  };
+  const initialPosts = newsData.slice(0, posts);
 
   return (
     <Box>
-      {newsData
-        .filter((post: NewsPostProps) => post.id <= 2)
-        .map((post: NewsPostProps) => (
-          <NewsPost key={post.id} {...post} />
-        ))}
-
-      {show && (
-        <Box>
-          {newsData
-            .filter((post: NewsPostProps) => post.id > 2)
-            .map((post: NewsPostProps) => (
-              <NewsPost key={post.id} {...post} />
-            ))}
-        </Box>
-      )}
+      {initialPosts.map((post: NewsPostProps) => (
+        <NewsPost key={post.id} {...post} />
+      ))}
       <Box sx={{ display: "flex", justifyContent: "center", margin: "50px" }}>
-        <Tooltip title="Show older posts" arrow>
-          <Button variant="contained" onClick={showOlderPosts}>
-            Show older posts
-          </Button>
-        </Tooltip>
+        {posts < newsData.length && (
+          <Tooltip title={t("showMorePosts")} arrow>
+            <Button variant="contained" onClick={showMorePosts}>
+              {t("showMorePosts")}
+            </Button>
+          </Tooltip>
+        )}
       </Box>
     </Box>
   );

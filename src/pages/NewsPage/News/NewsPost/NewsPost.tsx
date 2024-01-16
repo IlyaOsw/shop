@@ -36,7 +36,7 @@ const NewsPost: React.FC<NewsPostProps> = ({
       <CardMedia
         component="img"
         alt="News post"
-        height="450"
+        height="500"
         image={`${process.env.PUBLIC_URL}/Images/News/Posts/${id}.jpg`}
       />
       <CardContent>
@@ -56,17 +56,16 @@ const NewsPost: React.FC<NewsPostProps> = ({
         }}
       >
         <Box>
-          <Button variant="outlined" color="success">
+          <Button variant="outlined" color="info">
             {likes}
           </Button>
-
           <Tooltip title={t("like")} arrow>
             <IconButton color="info">
               <ThumbUpOffAltIcon fontSize="large" />
             </IconButton>
           </Tooltip>
           <Tooltip title={t("dislike")} arrow>
-            <IconButton color="warning">
+            <IconButton color="error">
               <ThumbDownOffAltIcon fontSize="large" />
             </IconButton>
           </Tooltip>
@@ -77,7 +76,7 @@ const NewsPost: React.FC<NewsPostProps> = ({
         <CardActions>
           <FormDialog />
           <Tooltip title={t("learnMore")} arrow>
-            <Button variant="outlined">
+            <Button variant="outlined" color="secondary">
               <MoreVertIcon />
               {t("learnMore")}
             </Button>

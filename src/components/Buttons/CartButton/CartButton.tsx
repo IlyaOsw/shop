@@ -14,9 +14,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import CloseButton from "../CloseButton/CloseButton";
 import { useTranslation } from "react-i18next";
-import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
-import styles from "./CartButton.module.scss";
 import { useSelector } from "react-redux";
 import Badge from "@mui/material/Badge";
 import Tooltip from "@mui/material/Tooltip";
@@ -27,11 +25,9 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "60%",
   bgcolor: "background.paper",
   border: "1px solid #000",
   boxShadow: 24,
-  p: 4,
   cursor: "default",
   borderRadius: "10px",
 };
@@ -73,13 +69,17 @@ export default function CartButton() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} className={styles.cart}>
+        <Box sx={style}>
           {open && <CloseButton onClose={handleClose} />}
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography
+            id="modal-modal-title"
+            variant="h5"
+            sx={{ m: 2, textAlign: "center" }}
+          >
             {t("cart")}
           </Typography>
-          <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 700 }} aria-label="spanning table">
+          <TableContainer component={Paper} sx={{ p: 2 }}>
+            <Table sx={{ minWidth: 400 }} aria-label="spanning table">
               <TableHead>
                 <TableRow>
                   <TableCell align="center" colSpan={3}>
@@ -100,17 +100,11 @@ export default function CartButton() {
                     <TableCell>{row.name}</TableCell>
                     <TableCell align="right">{row.qty}</TableCell>
                     <TableCell align="right"></TableCell>
+                    <TableCell align="right">{ccyFormat(row.price)}€</TableCell>
                     <TableCell align="right">
-                      {ccyFormat(row.price)} €
-                    </TableCell>
-                    <TableCell align="right">
-                      <Button
-                        variant="contained"
-                        id="delete"
-                        startIcon={<DeleteIcon />}
-                      >
-                        {t("delete")}
-                      </Button>
+                      <IconButton aria-label="delete" color="secondary">
+                        <DeleteIcon />
+                      </IconButton>
                     </TableCell>
                   </TableRow>
                 ))}
@@ -118,7 +112,7 @@ export default function CartButton() {
                   <TableCell colSpan={2}></TableCell>
                   <TableCell>{t("total")}</TableCell>
                   <TableCell align="right">
-                    {ccyFormat(invoiceTotal)} €
+                    {ccyFormat(invoiceTotal)}€
                   </TableCell>
                 </TableRow>
               </TableBody>

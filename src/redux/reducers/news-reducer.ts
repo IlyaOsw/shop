@@ -41,6 +41,27 @@ const initialState = [
     likes: 6789,
     dislikes: 890,
   },
+  {
+    id: 6,
+    title: "GHI Fitness Tracker: Your Personal Health Companion",
+    body: "Stay fit and healthy with the new GHI Fitness Tracker, equipped with advanced sensors and personalized health insights to help you achieve your wellness goals.",
+    likes: 3453,
+    dislikes: 527,
+  },
+  {
+    id: 7,
+    title: "LMN Augmented Reality Glasses Transform Your World",
+    body: "Experience the future with LMN Augmented Reality Glasses, providing an immersive blend of virtual and real-world interactions for gaming, productivity, and entertainment.",
+    likes: 2345,
+    dislikes: 462,
+  },
+  {
+    id: 8,
+    title: "PQR Drones Redefine Aerial Photography",
+    body: "Capture breathtaking aerial shots with PQR Drones, featuring state-of-the-art camera systems and intelligent flight modes for both beginners and professional photographers.",
+    likes: 5678,
+    dislikes: 304,
+  },
 ];
 
 const newsReducer = (state = initialState, action: any) => {
