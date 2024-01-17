@@ -101,7 +101,7 @@ export default function LoginButton() {
           </Box>
           <Stack
             direction="row"
-            sx={{ display: "flex", justifyContent: "center" }}
+            sx={{ display: "flex", justifyContent: "center", m: 3 }}
           >
             <Button
               variant="contained"

@@ -10,6 +10,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { useTranslation } from "react-i18next";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -55,6 +56,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Filter() {
+  const { t } = useTranslation();
   const [filter, setFilter] = React.useState("");
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -72,7 +74,7 @@ export default function Filter() {
         <Toolbar
           sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
         >
-          <Typography>Sort by:</Typography>
+          <Typography>{t("sortBy")} </Typography>
           <FormControl
             sx={{
               margin: "0px 20px",
@@ -80,7 +82,7 @@ export default function Filter() {
             }}
           >
             <InputLabel id="demo-simple-select-autowidth-label">
-              Filter
+              {t("filter")}
             </InputLabel>
             <Select
               labelId="demo-simple-select-autowidth-label"
@@ -88,14 +90,14 @@ export default function Filter() {
               value={filter}
               onChange={handleChange}
               autoWidth
-              label="filter"
+              label={t("filter")}
             >
               <MenuItem value={"No filters"}>
-                <em>No filters</em>
+                <em>{t("noFilters")} </em>
               </MenuItem>
-              <MenuItem value={10}>Price ascending</MenuItem>
-              <MenuItem value={21}>Price descending</MenuItem>
-              <MenuItem value={22}>Favorites first</MenuItem>
+              <MenuItem value={10}>{t("priceAscending")}</MenuItem>
+              <MenuItem value={21}>{t("priceDescending")}</MenuItem>
+              <MenuItem value={22}>{t("favoritesFirst")}</MenuItem>
             </Select>
           </FormControl>
           <Search sx={{ m: 2 }}>
@@ -103,7 +105,7 @@ export default function Filter() {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder={t("search")}
               inputProps={{ "aria-label": "search" }}
             />
           </Search>

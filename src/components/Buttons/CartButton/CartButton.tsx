@@ -15,10 +15,8 @@ import Paper from "@mui/material/Paper";
 import CloseButton from "../CloseButton/CloseButton";
 import { useTranslation } from "react-i18next";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { useSelector } from "react-redux";
 import Badge from "@mui/material/Badge";
 import Tooltip from "@mui/material/Tooltip";
-import { CartType } from "../../../redux/reducers/cart-reducer";
 
 const style = {
   position: "absolute" as "absolute",
@@ -42,8 +40,24 @@ export default function CartButton() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const cartData = useSelector((state: { cart: CartType }) => state.cart);
-  const invoiceTotal = total(cartData);
+  const [cart, setCart] = useState([
+    { id: 0, name: "Apple iPhone 15 Pro Max 256GB", qty: 1, price: 1489 },
+    {
+      id: 1,
+      name: "Apple Watch Series 8 GPS/LTE 45mm",
+      qty: 1,
+      price: 649,
+    },
+    { id: 2, name: "Apple AirPods Pro 2nd gen", qty: 1, price: 279 },
+    { id: 3, name: "Apple Watch Ultra 2 GPS/LTE 49mm", qty: 1, price: 869 },
+  ]);
+
+  function removeItem(id: number) {
+    const newCart = cart.filter((item) => item.id !== id);
+    setCart(newCart);
+  }
+
+  const invoiceTotal = total(cart);
   function total(items: any) {
     const total = items.reduce(
       (acc: number, item: { price: number; qty: number }) => {
@@ -58,7 +72,7 @@ export default function CartButton() {
     <Stack direction="row" alignItems="center" spacing={1}>
       <Tooltip title={t("cart")} arrow>
         <IconButton aria-label="homeicon" size="large" onClick={handleOpen}>
-          <Badge badgeContent={cartData.length} color="secondary">
+          <Badge badgeContent={cart.length} color="secondary">
             <ShoppingCartIcon fontSize="large" color="action" />
           </Badge>
         </IconButton>
@@ -70,7 +84,9 @@ export default function CartButton() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          {open && <CloseButton onClose={handleClose} />}
+          <Box sx={{ p: 2 }}>
+            <CloseButton onClose={handleClose} />
+          </Box>
           <Typography
             id="modal-modal-title"
             variant="h5"
@@ -95,14 +111,18 @@ export default function CartButton() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {cartData.map((row: any) => (
+                {cart.map((row: any) => (
                   <TableRow key={row.id}>
                     <TableCell>{row.name}</TableCell>
                     <TableCell align="right">{row.qty}</TableCell>
                     <TableCell align="right"></TableCell>
                     <TableCell align="right">{ccyFormat(row.price)}€</TableCell>
                     <TableCell align="right">
-                      <IconButton aria-label="delete" color="secondary">
+                      <IconButton
+                        aria-label="delete"
+                        color="secondary"
+                        onClick={() => removeItem(row.id)}
+                      >
                         <DeleteIcon />
                       </IconButton>
                     </TableCell>

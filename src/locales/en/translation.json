@@ -80,7 +80,7 @@
     "emailAddress": "Email Address",
     "clientsTitle": "Business Clients: List of Company Buyers in E-Store",
     "clientsSubTitle": "Welcome to the contacts page of our regular business clients in the online store, where we offer a wide range of phones, watches, and headphones. Below is a list of reliable company buyers actively collaborating with us.",
-    "clientsSubTitle2": "Nende usaldus on oluline osa meie edust ning me püüame tagada kõrgeima teenindustaseme, et toetada pikaajalisi partnerlussuhteid. Kutsume teid tutvuma meie ettevõtte partneritega ja saama rohkem teavet selle kohta, kuidas meie tooted ja teenused vastavad kõrgetele äristandarditele ja nõuetele.",
+    "clientsSubTitle2": "Their trust is a crucial part of our success, and we strive to provide the highest level of service to foster long-term partnerships. We invite you to explore our corporate partners and learn more about how our products and services meet high business standards and requirements.",
     "clientsDescription": "Feel free to contact representatives of these companies to clarify order details, discuss new products, or any other questions regarding our product range. We appreciate your long-term partnership and interest in our store.",
     "newsTitle": "News and Trends: In the World of Modern Technologies and Stylish Accessories",
     "newsDesc": "Stay updated on the latest events and trends in the world of watches, phones, and headphones! On the news page of our online store, you will find the freshest updates, announcements of new products, captivating technological achievements, and stylish accessories. Immerse yourself in the world of innovations, keep track of the latest developments, and share your opinion with the community of modern technology enthusiasts. Exciting news awaits you, adding a touch of style and functionality to your life. Be at the center of events with us!",
@@ -90,6 +90,13 @@
     "like": "Like",
     "dislike": "Dislike",
     "signIn": "Sign in",
-    "showMorePosts": "Show more posts"
+    "showMorePosts": "Show more posts",
+    "search": "Search…",
+    "sortBy": "Sort by:",
+    "filter": "Filter",
+    "noFilters": "No filters",
+    "priceAscending": "Price ascending",
+    "priceDescending": "Price descending",
+    "favoritesFirst": "Favorites first"
 }
    
