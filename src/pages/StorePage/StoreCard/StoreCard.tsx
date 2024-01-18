@@ -1,11 +1,9 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import Collapse from "@mui/material/Collapse";
-import IconButton, { IconButtonProps } from "@mui/material/IconButton";
+import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
@@ -21,26 +19,12 @@ import Tooltip from "@mui/material/Tooltip";
 import { ShopType } from "../../../redux/reducers/shop-reducer";
 import { StoreCardProps } from "../StorePage";
 
-interface ExpandMoreProps extends IconButtonProps {
-  expand: boolean;
-}
-
 type TransitionProps = Omit<SlideProps, "direction">;
 
 function TransitionUp(props: TransitionProps) {
   return <Slide {...props} direction="up" />;
 }
 
-const ExpandMore = styled((props: ExpandMoreProps) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-  marginLeft: "auto",
-  transition: theme.transitions.create("transform", {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
@@ -64,10 +48,6 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(({ item, index }) => {
 
   const shopData = useSelector(
     (state: { shopPage: ShopType }) => state.shopPage
-  );
-
-  const [expanded, setExpanded] = React.useState(
-    new Array(shopData.length).fill(false)
   );
 
   const [open, setOpen] = React.useState(false);
@@ -104,7 +84,16 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(({ item, index }) => {
 
   return (
     <>
-      <Card className={styles.card} key={item.id} sx={{ m: 5 }}>
+      <Card
+        key={item.id}
+        sx={{
+          m: 5,
+          position: "relative",
+          maxWidth: "290px",
+          minHeight: "530px",
+          filter: "brightness(98%)",
+        }}
+      >
         <CardMedia
           component="img"
           image={`${process.env.PUBLIC_URL}/Images/Store/${item.description}.jpg`}
@@ -164,11 +153,6 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(({ item, index }) => {
             </IconButton>
           </Tooltip>
         </CardActions>
-        <Collapse in={expanded[index]} timeout="auto" unmountOnExit>
-          <CardContent>
-            <Typography paragraph>{t(item.description)}</Typography>
-          </CardContent>
-        </Collapse>
       </Card>
 
       {openFavorite && (

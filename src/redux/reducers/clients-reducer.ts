@@ -23,17 +23,17 @@ const initialState = [
     email: "support@ecosprinteco.com",
     phone: "+372 5098-1625",
     city: "Pärnu",
-    website: "ecosprinteco.eu",
+    website: "ecosprint.eu",
     company: "Eco Sprint",
   },
   {
     id: 3,
     name: "Anna Pärn",
-    email: "inquiries@innovastream.com",
+    email: "inquiries@innova.com",
     phone: "+372 5839-2047",
     city: "Narva",
-    website: "innovastream.ru",
-    company: "Innova Stream",
+    website: "innova.ru",
+    company: "Innova",
   },
 ];
 

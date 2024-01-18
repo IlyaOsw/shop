@@ -1,5 +1,4 @@
 import * as React from "react";
-import styles from "./Navbar.module.scss";
 import { styled, useTheme, Theme, CSSObject } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
@@ -149,7 +148,7 @@ export default function MiniDrawer() {
             variant="h6"
             noWrap
             component="div"
-            className={styles.title}
+            sx={{ width: "100%" }}
           >
             E-STORE
           </Typography>
@@ -181,7 +180,7 @@ export default function MiniDrawer() {
                 <Divider />
                 <Link
                   to={`/${item.label}`.toLowerCase()}
-                  className={styles.link}
+                  style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <ListItemButton
                     sx={{
@@ -213,7 +212,15 @@ export default function MiniDrawer() {
       <Box component="main" sx={{ flexGrow: 1 }}>
         <Particle />
         <DrawerHeader />
-        <Box className={styles.toggles}>
+        <Box
+          sx={{
+            marginTop: "30px",
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+            flexWrap: "wrap",
+          }}
+        >
           <ThemeToggle />
           <LanguageToggle />
         </Box>

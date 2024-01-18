@@ -28,6 +28,7 @@ const style = {
   boxShadow: 24,
   cursor: "default",
   borderRadius: "10px",
+  overflowY: "auto",
 };
 
 function ccyFormat(num: number) {
@@ -49,7 +50,6 @@ export default function CartButton() {
       price: 649,
     },
     { id: 2, name: "Apple AirPods Pro 2nd gen", qty: 1, price: 279 },
-    { id: 3, name: "Apple Watch Ultra 2 GPS/LTE 49mm", qty: 1, price: 869 },
   ]);
 
   function removeItem(id: number) {
@@ -95,7 +95,7 @@ export default function CartButton() {
             {t("cart")}
           </Typography>
           <TableContainer component={Paper} sx={{ p: 2 }}>
-            <Table sx={{ minWidth: 400 }} aria-label="spanning table">
+            <Table aria-label="spanning table">
               <TableHead>
                 <TableRow>
                   <TableCell align="center" colSpan={3}>
