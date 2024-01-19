@@ -113,8 +113,7 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(({ item, index }) => {
           sx={{
             position: "absolute",
             bottom: 0,
-            left: "50%",
-            transform: "translateX(-50%)",
+            width: "100%",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -133,7 +132,7 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(({ item, index }) => {
                   handleClick(TransitionUp);
                 }
               }}
-              sx={{ height: "35px" }}
+              sx={{ height: "35px", width: "100%" }}
             >
               {t("favorite")}
               <Checkbox
@@ -171,12 +170,6 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(({ item, index }) => {
           onClose={() => setOpenFavorite(false)}
           TransitionComponent={transition}
           key={transition ? transition.name : ""}
-          sx={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
         >
           <Alert onClose={() => setOpenFavorite(false)} severity="success">
             {t("AddedToFavorites")}
@@ -190,12 +183,6 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(({ item, index }) => {
           onClose={handleCloseCart}
           TransitionComponent={transition}
           key={transition ? transition.name : ""}
-          sx={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
         >
           <Alert onClose={handleCloseCart} severity="success">
             {t("addedToCart")}

@@ -70,25 +70,25 @@ export default function CartButton() {
           </Box>
           <DialogTitle
             id="responsive-dialog-title"
-            sx={{ m: 2, textAlign: "center" }}
+            sx={{ m: 1, textAlign: "center", fontSize: "26px" }}
           >
             {t("cart")}
           </DialogTitle>
           <DialogContent>
-            <TableContainer component={Paper}>
+            <TableContainer component={Paper} sx={{ overflowX: "hidden" }}>
               <Table aria-label="spanning table">
                 <TableHead>
                   <TableRow>
-                    <TableCell align="center" colSpan={3}>
+                    <TableCell
+                      align="center"
+                      colSpan={3}
+                      sx={{ fontSize: "22px" }}
+                    >
                       {t("details")}
                     </TableCell>
-                    <TableCell align="right">{t("price")}</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>{t("description")}</TableCell>
-                    <TableCell align="right"></TableCell>
-                    <TableCell align="right"></TableCell>
-                    <TableCell align="right">{t("sum")}</TableCell>
+                    <TableCell align="right" sx={{ fontSize: "22px" }}>
+                      {t("price")}
+                    </TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -115,7 +115,9 @@ export default function CartButton() {
                   ))}
                   <TableRow>
                     <TableCell colSpan={2}></TableCell>
-                    <TableCell>{t("total")}</TableCell>
+                    <TableCell sx={{ fontSize: "22px" }}>
+                      {t("total")}
+                    </TableCell>
                     <TableCell align="right">
                       {ccyFormat(invoiceTotal)}€
                     </TableCell>
