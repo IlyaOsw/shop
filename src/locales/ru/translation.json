@@ -97,5 +97,7 @@
 	"noFilters": "Без фильтров",
 	"priceAscending": "Цена по возрастанию",
 	"priceDescending": "Цена по убыванию",
-	"favoritesFirst": "Избранное вперёд"
+	"favoritesFirst": "Избранное вперёд",
+	"add": "Добавить",
+	"favorite": "Избранное"
 }

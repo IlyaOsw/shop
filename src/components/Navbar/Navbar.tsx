@@ -31,6 +31,7 @@ import { useTranslation } from "react-i18next";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import { useSelector } from "react-redux";
 import { NavbarType } from "../../redux/reducers/navbar-reducer";
+import { CartProvider } from "../../hooks/useCart";
 
 const drawerWidth = 250;
 
@@ -128,106 +129,112 @@ export default function MiniDrawer() {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 2,
-              ...(open && { display: "none" }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ width: "100%" }}
-          >
-            E-STORE
-          </Typography>
-          {headerIcons.map((item, index) => (
-            <React.Fragment key={index}>{item}</React.Fragment>
-          ))}
-        </Toolbar>
-      </AppBar>
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
-          </IconButton>
-        </DrawerHeader>
-        <List>
-          {navbarData.map(
-            (
-              item: {
-                id: React.Key | null | undefined;
-                label: any | string | string[];
-              },
-              index: number
-            ) => (
-              <ListItem key={item.id} disablePadding sx={{ display: "block" }}>
-                <Divider />
-                <Link
-                  to={`/${item.label}`.toLowerCase()}
-                  style={{ textDecoration: "none", color: "inherit" }}
+    <CartProvider>
+      <Box sx={{ display: "flex" }}>
+        <CssBaseline />
+        <AppBar position="fixed" open={open}>
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{
+                marginRight: 2,
+                ...(open && { display: "none" }),
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ width: "100%" }}
+            >
+              E-STORE
+            </Typography>
+            {headerIcons.map((item, index) => (
+              <React.Fragment key={index}>{item}</React.Fragment>
+            ))}
+          </Toolbar>
+        </AppBar>
+        <Drawer variant="permanent" open={open}>
+          <DrawerHeader>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === "rtl" ? (
+                <ChevronRightIcon />
+              ) : (
+                <ChevronLeftIcon />
+              )}
+            </IconButton>
+          </DrawerHeader>
+          <List>
+            {navbarData.map(
+              (
+                item: {
+                  id: React.Key | null | undefined;
+                  label: any | string | string[];
+                },
+                index: number
+              ) => (
+                <ListItem
+                  key={item.id}
+                  disablePadding
+                  sx={{ display: "block" }}
                 >
-                  <ListItemButton
-                    sx={{
-                      minHeight: 75,
-                      justifyContent: open ? "initial" : "center",
-                      px: 2.5,
-                    }}
+                  <Divider />
+                  <Link
+                    to={`/${item.label}`.toLowerCase()}
+                    style={{ textDecoration: "none", color: "inherit" }}
                   >
-                    <ListItemIcon
+                    <ListItemButton
                       sx={{
-                        minWidth: 0,
-                        mr: open ? 3 : "auto",
-                        justifyContent: "center",
+                        minHeight: 75,
+                        justifyContent: open ? "initial" : "center",
+                        px: 2.5,
                       }}
                     >
-                      {generalIcons[index % generalIcons.length]}
-                    </ListItemIcon>
-                    <ListItemText sx={{ opacity: open ? 1 : 0 }}>
-                      {t(item.label)}
-                    </ListItemText>
-                  </ListItemButton>
-                </Link>
-              </ListItem>
-            )
-          )}
-          <Divider />
-        </List>
-      </Drawer>
-      <Box component="main" sx={{ flexGrow: 1 }}>
-        <Particle />
-        <DrawerHeader />
-        <Box
-          sx={{
-            marginTop: "30px",
-            display: "flex",
-            justifyContent: "space-around",
-            alignItems: "center",
-            flexWrap: "wrap",
-          }}
-        >
-          <ThemeToggle />
-          <LanguageToggle />
-        </Box>
-        <Box sx={{ m: 1 }}>
-          <Routing />
+                      <ListItemIcon
+                        sx={{
+                          minWidth: 0,
+                          mr: open ? 3 : "auto",
+                          justifyContent: "center",
+                        }}
+                      >
+                        {generalIcons[index % generalIcons.length]}
+                      </ListItemIcon>
+                      <ListItemText sx={{ opacity: open ? 1 : 0 }}>
+                        {t(item.label)}
+                      </ListItemText>
+                    </ListItemButton>
+                  </Link>
+                </ListItem>
+              )
+            )}
+            <Divider />
+          </List>
+        </Drawer>
+        <Box component="main" sx={{ flexGrow: 1 }}>
+          <Particle />
+          <DrawerHeader />
+          <Box
+            sx={{
+              marginTop: "30px",
+              display: "flex",
+              justifyContent: "space-around",
+              alignItems: "center",
+              flexWrap: "wrap",
+            }}
+          >
+            <ThemeToggle />
+            <LanguageToggle />
+          </Box>
+          <Box sx={{ m: 1 }}>
+            <Routing />
+          </Box>
         </Box>
       </Box>
-    </Box>
+    </CartProvider>
   );
 }

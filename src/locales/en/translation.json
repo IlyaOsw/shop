@@ -97,6 +97,8 @@
     "noFilters": "No filters",
     "priceAscending": "Price ascending",
     "priceDescending": "Price descending",
-    "favoritesFirst": "Favorites first"
+    "favoritesFirst": "Favorites first",
+    "add": "Add",
+    "favorite": "Favorite"
 }
    

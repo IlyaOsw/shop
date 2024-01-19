@@ -97,5 +97,7 @@
 	"noFilters": "Filtreid pole",
 	"priceAscending": "Hinna järgi kasvavalt",
 	"priceDescending": "Hinna järgi kahanevalt",
-	"favoritesFirst": "Lemmikud esimesena"
+	"favoritesFirst": "Lemmikud esimesena",
+	"add": "Lisa",
+	"favorite": "Lemmik"
 }
