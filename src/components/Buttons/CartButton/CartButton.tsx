@@ -70,7 +70,7 @@ export default function CartButton() {
           </Box>
           <DialogTitle
             id="responsive-dialog-title"
-            sx={{ m: 1, textAlign: "center", fontSize: "26px" }}
+            sx={{ m: 1, textAlign: "center", fontSize: "24px" }}
           >
             {t("cart")}
           </DialogTitle>
@@ -82,11 +82,11 @@ export default function CartButton() {
                     <TableCell
                       align="center"
                       colSpan={3}
-                      sx={{ fontSize: "22px" }}
+                      sx={{ fontSize: "20px" }}
                     >
                       {t("details")}
                     </TableCell>
-                    <TableCell align="right" sx={{ fontSize: "22px" }}>
+                    <TableCell align="right" sx={{ fontSize: "20px" }}>
                       {t("price")}
                     </TableCell>
                   </TableRow>
@@ -115,10 +115,10 @@ export default function CartButton() {
                   ))}
                   <TableRow>
                     <TableCell colSpan={2}></TableCell>
-                    <TableCell sx={{ fontSize: "22px" }}>
+                    <TableCell sx={{ fontSize: "20px" }}>
                       {t("total")}
                     </TableCell>
-                    <TableCell align="right">
+                    <TableCell align="right" sx={{ fontSize: "20px" }}>
                       {ccyFormat(invoiceTotal)}€
                     </TableCell>
                   </TableRow>

@@ -55,15 +55,13 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 
 export default function ThemeToggle() {
   return (
-    <Stack spacing={2} direction="row">
-      <Button variant="contained">
-        <FormGroup>
-          <FormControlLabel
-            label={t("Theme")}
-            control={<MaterialUISwitch defaultChecked />}
-          />
-        </FormGroup>
-      </Button>
-    </Stack>
+    <Button variant="contained" sx={{ height: "36.5px" }}>
+      <FormGroup>
+        <FormControlLabel
+          label={t("Theme")}
+          control={<MaterialUISwitch defaultChecked />}
+        />
+      </FormGroup>
+    </Button>
   );
 }

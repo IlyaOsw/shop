@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import NewsPost from "./NewsPost/NewsPost";
 import { Box, Button, Tooltip } from "@mui/material";
-import { t } from "i18next";
 import { useSelector } from "react-redux";
 import { NewsType } from "../../../redux/reducers/news-reducer";
 import { useTranslation } from "react-i18next";
@@ -12,6 +11,8 @@ export interface NewsPostProps {
   body: string;
   likes: number;
   dislikes: number;
+  additionalText1: string;
+  additionalText2: string;
 }
 
 const News: React.FC = () => {

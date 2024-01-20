@@ -1,8 +1,11 @@
+import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
 import HelpIcon from "@mui/icons-material/Help";
 import * as React from "react";
 import Accordion from "@mui/material/Accordion";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
 import { styled } from "@mui/material/styles";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import MuiAccordionSummary, {
@@ -12,11 +15,19 @@ import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import { useTranslation } from "react-i18next";
 import CloseButton from "../CloseButton/CloseButton";
 import Tooltip from "@mui/material/Tooltip";
-import Dialog from "@mui/material/Dialog";
-import DialogContent from "@mui/material/DialogContent";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
-import { Box } from "@mui/material";
+
+const style = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "1px solid #000",
+  borderRadius: "10px",
+  boxShadow: 24,
+  p: 4,
+};
 
 const AccordionSummary = styled((props: AccordionSummaryProps) => (
   <MuiAccordionSummary
@@ -51,15 +62,9 @@ export default function HelpButton() {
       setExpanded(newExpanded ? panel : false);
     };
 
-  const handleOpen = () => setOpen(true);
-
   const [open, setOpen] = React.useState(false);
-  const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <>
@@ -68,20 +73,17 @@ export default function HelpButton() {
           <HelpIcon fontSize="large" color="action" />
         </IconButton>
       </Tooltip>
-      <Dialog
-        fullScreen={fullScreen}
+      <Modal
         open={open}
         onClose={handleClose}
-        aria-labelledby="responsive-dialog-title"
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
       >
-        <Box sx={{ p: 2 }}>
+        <Box sx={style}>
           <CloseButton onClose={handleClose} />
-        </Box>
-        <Typography variant="h5" sx={{ mt: 2, textAlign: "center" }}>
-          {t("faq")}
-        </Typography>
-
-        <DialogContent>
+          <Typography variant="h5" sx={{ mt: 2, textAlign: "center" }}>
+            {t("faq")}
+          </Typography>
           <Accordion
             sx={{ mt: 3 }}
             expanded={expanded === "panel1"}
@@ -153,8 +155,8 @@ export default function HelpButton() {
               <Typography>{t("Faq5answer")}</Typography>
             </AccordionDetails>
           </Accordion>
-        </DialogContent>
-      </Dialog>
+        </Box>
+      </Modal>
     </>
   );
 }

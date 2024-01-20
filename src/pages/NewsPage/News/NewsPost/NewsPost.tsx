@@ -16,6 +16,7 @@ import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import Tooltip from "@mui/material/Tooltip";
 import { NewsPostProps } from "../News";
+import Collapse from "@mui/material/Collapse";
 
 const NewsPost: React.FC<NewsPostProps> = ({
   id,
@@ -23,9 +24,25 @@ const NewsPost: React.FC<NewsPostProps> = ({
   body,
   likes,
   dislikes,
+  additionalText1,
+  additionalText2,
 }) => {
   const { t } = useTranslation();
+  const [expanded, setExpanded] = React.useState(false);
 
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
+
+  const [likesCount, setLikesCount] = useState(likes);
+  const [dislikesCount, setDislikesCount] = useState(dislikes);
+
+  const like = () => {
+    setLikesCount(likesCount + 1);
+  };
+  const dislike = () => {
+    setDislikesCount(dislikesCount + 1);
+  };
   return (
     <Card
       sx={{
@@ -57,30 +74,63 @@ const NewsPost: React.FC<NewsPostProps> = ({
       >
         <Box>
           <Button variant="outlined" color="info">
-            {likes}
+            {likesCount}
           </Button>
           <Tooltip title={t("like")} arrow>
-            <IconButton color="info">
+            <IconButton color="info" onClick={like}>
               <ThumbUpOffAltIcon fontSize="large" />
             </IconButton>
           </Tooltip>
           <Tooltip title={t("dislike")} arrow>
-            <IconButton color="error">
+            <IconButton color="error" onClick={dislike}>
               <ThumbDownOffAltIcon fontSize="large" />
             </IconButton>
           </Tooltip>
           <Button variant="outlined" color="error">
-            {dislikes}
+            {dislikesCount}
           </Button>
         </Box>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph color="text.secondary">
+              {additionalText1}
+            </Typography>
+            <Typography paragraph color="text.secondary">
+              {additionalText2}
+            </Typography>
+          </CardContent>
+        </Collapse>
         <CardActions>
           <FormDialog />
-          <Tooltip title={t("learnMore")} arrow>
-            <Button variant="outlined" color="secondary">
-              <MoreVertIcon />
-              {t("learnMore")}
-            </Button>
-          </Tooltip>
+          <Box
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            {expanded ? (
+              <Tooltip title={t("close")} arrow>
+                <Button
+                  variant="outlined"
+                  color="secondary"
+                  sx={{ marginLeft: "5px" }}
+                >
+                  <MoreVertIcon />
+                  {t("close")}
+                </Button>
+              </Tooltip>
+            ) : (
+              <Tooltip title={t("learnMore")} arrow>
+                <Button
+                  variant="outlined"
+                  color="secondary"
+                  sx={{ marginLeft: "5px" }}
+                >
+                  <MoreVertIcon />
+                  {t("learnMore")}
+                </Button>
+              </Tooltip>
+            )}
+          </Box>
         </CardActions>
       </Box>
     </Card>
