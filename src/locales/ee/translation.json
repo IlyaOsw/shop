@@ -90,7 +90,7 @@
 	"like": "Meeldib",
 	"dislike": "Ei meeldi",
 	"signIn": "Logi sisse",
-	"showMorePosts": "Kuva rohkem postitusi",
+	"showMorePosts": "Kuva rohkem",
 	"search": "Otsing...",
 	"sortBy": "Sorteerimine:",
 	"filter": "Filter",
@@ -100,5 +100,6 @@
 	"favoritesFirst": "Lemmikud esimesena",
 	"add": "Lisa",
 	"favorite": "Lemmik",
-	"close": "Sulge"
+	"close": "Sulge",
+	"next": "Edasi"
 }

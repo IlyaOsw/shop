@@ -30,7 +30,7 @@ export default function MainChoose() {
   return (
     <>
       <Typography
-        variant="h4"
+        variant="h5"
         sx={{
           textAlign: "center",
           m: 4,
@@ -47,7 +47,7 @@ export default function MainChoose() {
         {chooseLabels.map((item, index) => (
           <Tab
             key={item.id}
-            sx={{ fontSize: "16px", m: 2, background: "white" }}
+            sx={{ fontSize: "15px", m: 2, background: "white" }}
             icon={icons[index]}
             label={t(item.label)}
           />

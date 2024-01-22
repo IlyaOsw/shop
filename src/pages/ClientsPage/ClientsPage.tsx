@@ -10,7 +10,7 @@ const ClientsPage: React.FC = React.memo(() => {
   return (
     <Container maxWidth="xl">
       <Typography
-        variant="h4"
+        variant="h5"
         textAlign={"center"}
         sx={{ m: 3, letterSpacing: "1px" }}
       >
@@ -31,12 +31,12 @@ const ClientsPage: React.FC = React.memo(() => {
           }}
         >
           <Paper elevation={4}>
-            <Typography variant="h5" sx={{ p: 1, m: 1 }}>
+            <Typography variant="h6" color="text.secondary" sx={{ p: 1, m: 1 }}>
               {t("clientsSubTitle")}
             </Typography>
           </Paper>
           <Paper elevation={4}>
-            <Typography variant="h5" sx={{ p: 1, m: 1 }}>
+            <Typography variant="h6" color="text.secondary" sx={{ p: 1, m: 1 }}>
               {t("clientsSubTitle2")}
             </Typography>
           </Paper>

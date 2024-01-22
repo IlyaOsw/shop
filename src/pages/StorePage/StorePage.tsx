@@ -31,7 +31,7 @@ const StorePage: React.FC = React.memo(() => {
   return (
     <Container maxWidth="xl">
       <Typography
-        variant="h4"
+        variant="h5"
         textAlign={"center"}
         sx={{ m: 3, letterSpacing: "1px" }}
       >

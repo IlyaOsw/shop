@@ -55,7 +55,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 
 export default function ThemeToggle() {
   return (
-    <Button variant="contained" sx={{ height: "36.5px" }}>
+    <Button variant="contained" sx={{ height: "36px" }}>
       <FormGroup>
         <FormControlLabel
           label={t("Theme")}

@@ -42,7 +42,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     },
   },
 }));
-function stringToColor(string: string) {
+const stringToColor = (string: string) => {
   let hash = 0;
   let i;
 
@@ -58,19 +58,19 @@ function stringToColor(string: string) {
   }
 
   return color;
-}
+};
 
-function stringAvatar(name: string) {
+const stringAvatar = (name: string) => {
   return {
     sx: {
       bgcolor: stringToColor(name),
     },
     children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
   };
-}
+};
 
 //@ts-ignore
-const ClientInfo = ({ user }) => {
+export default function ClientInfo({ user }) {
   const { t } = useTranslation();
   return (
     <Box key={user.id} sx={{ margin: "10px 0px" }}>
@@ -149,6 +149,4 @@ const ClientInfo = ({ user }) => {
       </Card>
     </Box>
   );
-};
-
-export default ClientInfo;
+}

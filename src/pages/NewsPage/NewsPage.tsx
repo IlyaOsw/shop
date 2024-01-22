@@ -9,7 +9,7 @@ const NewsPage: React.FC = React.memo(() => {
   const { t } = useTranslation();
   return (
     <Container maxWidth="xl">
-      <Typography variant="h4" textAlign={"center"} sx={{ m: 3 }}>
+      <Typography variant="h5" textAlign={"center"} sx={{ m: 3 }}>
         {t("newsTitle")}
       </Typography>
       <Box>
@@ -22,7 +22,7 @@ const NewsPage: React.FC = React.memo(() => {
         }}
       >
         <Paper elevation={4}>
-          <Typography variant="h6" sx={{ p: 2 }}>
+          <Typography variant="h6" color="text.secondary" sx={{ p: 2 }}>
             {t("newsDesc")}
           </Typography>
         </Paper>

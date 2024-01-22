@@ -2,7 +2,6 @@ import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
 import PersonIcon from "@mui/icons-material/Person";
 import React from "react";
-import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import Button from "@mui/material/Button";
@@ -18,19 +17,18 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Tooltip from "@mui/material/Tooltip";
 import { Typography } from "@mui/material";
+import Dialog from "@mui/material/Dialog";
+import Slide from "@mui/material/Slide";
+import { TransitionProps } from "@mui/material/transitions";
 
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 320,
-  bgcolor: "background.paper",
-  border: "1px solid #000",
-  borderRadius: "10px",
-  boxShadow: 24,
-  p: 2,
-};
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & {
+    children: React.ReactElement<any, any>;
+  },
+  ref: React.Ref<unknown>
+) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 export default function LoginButton() {
   const { t } = useTranslation();
@@ -55,18 +53,18 @@ export default function LoginButton() {
           <PersonIcon fontSize="large" color="action" />
         </IconButton>
       </Tooltip>
-      <Modal
+      <Dialog
         open={open}
+        TransitionComponent={Transition}
+        keepMounted
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+        aria-describedby="alert-dialog-description"
       >
-        <Box sx={style}>
+        <Box sx={{ m: 3 }}>
           <CloseButton onClose={handleClose} />
           <Typography sx={{ mt: 2, textAlign: "center" }} variant="h5">
             {t("signIn")}
           </Typography>
-
           <Box sx={{ "& > :not(style)": { m: 1 } }}>
             <Box sx={{ display: "flex", alignItems: "flex-end" }}>
               <AccountCircle sx={{ color: "action.active", mb: 1 }} />
@@ -112,7 +110,7 @@ export default function LoginButton() {
             </Button>
           </Stack>
         </Box>
-      </Modal>
+      </Dialog>
     </Stack>
   );
 }

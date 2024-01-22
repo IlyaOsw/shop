@@ -11,7 +11,7 @@ const Main: React.FC = React.memo(() => {
   const { t } = useTranslation();
   return (
     <Container maxWidth="xl">
-      <Typography variant="h4" sx={{ m: 3, textAlign: "center" }}>
+      <Typography variant="h5" sx={{ m: 3, textAlign: "center" }}>
         {t("welcome")}
       </Typography>
       <Box

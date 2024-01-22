@@ -17,6 +17,21 @@ import DialogContent from "@mui/material/DialogContent";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import { Box } from "@mui/material";
+import Button from "@mui/material/Button";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import Slide from "@mui/material/Slide";
+import { TransitionProps } from "@mui/material/transitions";
+
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & {
+    children: React.ReactElement<any, any>;
+  },
+  ref: React.Ref<unknown>
+) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 const AccordionSummary = styled((props: AccordionSummaryProps) => (
   <MuiAccordionSummary
@@ -70,9 +85,11 @@ export default function HelpButton() {
       </Tooltip>
       <Dialog
         fullScreen={fullScreen}
+        TransitionComponent={Transition}
+        keepMounted
         open={open}
         onClose={handleClose}
-        aria-labelledby="responsive-dialog-title"
+        aria-describedby="alert-dialog-slide-description"
       >
         <Box sx={{ p: 2 }}>
           <CloseButton onClose={handleClose} />

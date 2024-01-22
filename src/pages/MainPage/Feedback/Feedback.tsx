@@ -73,7 +73,7 @@ export default function MainFeedback() {
       textAlign="center"
     >
       <Typography
-        variant="h4"
+        variant="h5"
         sx={{
           paddingBottom: "20px",
         }}

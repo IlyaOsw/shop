@@ -21,10 +21,21 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+import Slide from "@mui/material/Slide";
+import { TransitionProps } from "@mui/material/transitions";
 
-function ccyFormat(num: number) {
+const ccyFormat = (num: number) => {
   return `${num.toFixed(2)}`;
-}
+};
+
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & {
+    children: React.ReactElement<any, any>;
+  },
+  ref: React.Ref<unknown>
+) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 export default function CartButton() {
   const { t } = useTranslation();
@@ -63,6 +74,8 @@ export default function CartButton() {
           fullScreen={fullScreen}
           open={open}
           onClose={handleClose}
+          TransitionComponent={Transition}
+          keepMounted
           aria-labelledby="responsive-dialog-title"
         >
           <Box sx={{ p: 2 }}>
@@ -75,7 +88,7 @@ export default function CartButton() {
             {t("cart")}
           </DialogTitle>
           <DialogContent>
-            <TableContainer component={Paper} sx={{ overflowX: "hidden" }}>
+            <TableContainer component={Paper}>
               <Table aria-label="spanning table">
                 <TableHead>
                   <TableRow>
@@ -95,7 +108,6 @@ export default function CartButton() {
                   {cart.map((row: any) => (
                     <TableRow key={row.id}>
                       <TableCell>{row.title}</TableCell>
-                      <TableCell align="right"></TableCell>
                       <TableCell align="right"></TableCell>
                       <TableCell align="right">
                         {ccyFormat(row.price)}€

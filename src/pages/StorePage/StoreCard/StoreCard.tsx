@@ -16,7 +16,7 @@ import Slide, { SlideProps } from "@mui/material/Slide";
 import Tooltip from "@mui/material/Tooltip";
 import { ShopType } from "../../../redux/reducers/shop-reducer";
 import { StoreCardProps } from "../StorePage";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Paper } from "@mui/material";
 import { useCart } from "../../../hooks/useCart";
 
 type TransitionProps = Omit<SlideProps, "direction">;
@@ -86,83 +86,81 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(({ item, index }) => {
 
   return (
     <>
-      <Card
-        key={item.id}
-        sx={{
-          m: 5,
-          position: "relative",
-          maxWidth: "290px",
-          height: "560px",
-        }}
-      >
-        <CardMedia
-          component="img"
-          image={`${process.env.PUBLIC_URL}/Images/Store/${item.description}.jpg`}
-          alt="Phone"
-        />
-        <CardContent>
-          <Typography variant="h6" color="text.secondary">
-            {item.title}
-          </Typography>
-          <Typography variant="h5" color="text.primary">
-            {item.price} €
-          </Typography>
-        </CardContent>
-        <CardActions
-          disableSpacing
+      <Paper elevation={6} sx={{ m: 3 }}>
+        <Card
+          key={item.id}
           sx={{
-            position: "absolute",
-            bottom: 0,
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexWrap: "wrap",
+            position: "relative",
+            maxWidth: "300px",
           }}
         >
-          <Tooltip title={t("addToFavorites")} arrow placement="top">
-            <Button
-              color="error"
-              variant="outlined"
-              onClick={() => {
-                const isCurrentlyFavorite = favorites[index];
-                toggleFavorite(index);
-                if (!isCurrentlyFavorite) {
-                  setOpenFavorite(true);
+          <CardMedia
+            component="img"
+            image={`${process.env.PUBLIC_URL}/Images/Store/${item.description}.jpg`}
+            alt="Phone"
+          />
+          <CardContent>
+            <Typography variant="h6" color="text.secondary">
+              {item.title}
+            </Typography>
+            <Typography variant="h5" color="text.primary">
+              {item.price} €
+            </Typography>
+          </CardContent>
+          <CardActions
+            disableSpacing
+            sx={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-end",
+              flexWrap: "wrap",
+            }}
+          >
+            <Tooltip title={t("addToFavorites")} arrow placement="top">
+              <Button
+                color="error"
+                variant="outlined"
+                onClick={() => {
+                  const isCurrentlyFavorite = favorites[index];
+                  toggleFavorite(index);
+                  if (!isCurrentlyFavorite) {
+                    setOpenFavorite(true);
+                    handleClick(TransitionUp);
+                  }
+                }}
+                sx={{ height: "35px", width: "100%" }}
+              >
+                {t("favorite")}
+                <Checkbox
+                  {...label}
+                  icon={<FavoriteBorder color="error" />}
+                  checkedIcon={<Favorite color="error" />}
+                  checked={favorites[index]}
+                />
+              </Button>
+            </Tooltip>
+            <Tooltip title={t("addToCart")} arrow>
+              <Button
+                variant="outlined"
+                color="success"
+                aria-label="add to shopping cart"
+                onClick={() => {
                   handleClick(TransitionUp);
-                }
-              }}
-              sx={{ height: "35px", width: "100%" }}
-            >
-              {t("favorite")}
-              <Checkbox
-                {...label}
-                icon={<FavoriteBorder color="error" />}
-                checkedIcon={<Favorite color="error" />}
-                checked={favorites[index]}
-              />
-            </Button>
-          </Tooltip>
-          <Tooltip title={t("addToCart")} arrow>
-            <Button
-              variant="outlined"
-              color="success"
-              aria-label="add to shopping cart"
-              onClick={() => {
-                handleClick(TransitionUp);
-                setOpenCart(true);
-                addItem(item);
-              }}
-              sx={{ width: "100%", marginTop: "5px", height: "35px" }}
-            >
-              <Typography>{t("add")}</Typography>
-              <Box sx={{ paddingLeft: "5px" }}>
-                <AddShoppingCartIcon />
-              </Box>
-            </Button>
-          </Tooltip>
-        </CardActions>
-      </Card>
+                  setOpenCart(true);
+                  addItem(item);
+                }}
+                sx={{ width: "100%", marginTop: "5px", height: "35px" }}
+              >
+                <Typography>{t("add")}</Typography>
+                <Box sx={{ paddingLeft: "5px" }}>
+                  <AddShoppingCartIcon />
+                </Box>
+              </Button>
+            </Tooltip>
+          </CardActions>
+        </Card>
+      </Paper>
       {openFavorite && (
         <Snackbar
           open={openFavorite}

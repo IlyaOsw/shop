@@ -43,7 +43,9 @@ const AboutBlocks: React.FC = () => {
           <Typography variant="h5" sx={{ paddingBottom: "20px" }}>
             {t(item.label)}
           </Typography>
-          <Typography variant="h6">{t(item.description)}</Typography>
+          <Typography variant="h6" color="text.secondary">
+            {t(item.description)}
+          </Typography>
         </Box>
       ))}
     </Box>
