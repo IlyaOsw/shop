@@ -15,9 +15,10 @@ import MuiAlert, { AlertProps } from "@mui/material/Alert";
 import Slide, { SlideProps } from "@mui/material/Slide";
 import Tooltip from "@mui/material/Tooltip";
 import { ShopType } from "../../../redux/reducers/shop-reducer";
-import { StoreCardProps } from "../StorePage";
 import { Box, Button, Paper } from "@mui/material";
 import { useCart } from "../../../hooks/useCart";
+import DoneIcon from "@mui/icons-material/Done";
+import { StoreCardProps } from "../Filter/Filter";
 
 type TransitionProps = Omit<SlideProps, "direction">;
 
@@ -52,7 +53,7 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(({ item, index }) => {
     (state: { shopPage: ShopType }) => state.shopPage
   );
 
-  const [open, setOpen] = React.useState(false);
+  const [, setOpen] = React.useState(false);
   const [transition, setTransition] = React.useState<
     React.ComponentType<TransitionProps> | undefined
   >(undefined);
@@ -63,20 +64,14 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(({ item, index }) => {
       setOpen(true);
     };
 
-  const handleCloseCart = (
-    event?: React.SyntheticEvent | Event,
-    reason?: string
-  ) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
-    setOpenCart(false);
-  };
-
   const [openCart, setOpenCart] = React.useState(false);
   const [openFavorite, setOpenFavorite] = React.useState(false);
   const [favorites, setFavorites] = React.useState(shopData.map(() => false));
+  const [disabled, setDisabled] = React.useState(false);
+
+  const disableButton = () => {
+    setDisabled(true);
+  };
 
   function toggleFavorite(index: number) {
     const updatedFavorites = [...favorites];
@@ -86,7 +81,7 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(({ item, index }) => {
 
   return (
     <>
-      <Paper elevation={6} sx={{ m: 3 }}>
+      <Paper elevation={3} sx={{ m: 3 }}>
         <Card
           key={item.id}
           sx={{
@@ -140,24 +135,39 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(({ item, index }) => {
                 />
               </Button>
             </Tooltip>
-            <Tooltip title={t("addToCart")} arrow>
+            {disabled ? (
               <Button
                 variant="outlined"
-                color="success"
+                color="info"
                 aria-label="add to shopping cart"
-                onClick={() => {
-                  handleClick(TransitionUp);
-                  setOpenCart(true);
-                  addItem(item);
-                }}
                 sx={{ width: "100%", marginTop: "5px", height: "35px" }}
               >
-                <Typography>{t("add")}</Typography>
+                <Typography>{t("added")}</Typography>
                 <Box sx={{ paddingLeft: "5px" }}>
-                  <AddShoppingCartIcon />
+                  <DoneIcon />
                 </Box>
               </Button>
-            </Tooltip>
+            ) : (
+              <Tooltip title={t("addToCart")} arrow>
+                <Button
+                  variant="outlined"
+                  color="success"
+                  aria-label="add to shopping cart"
+                  onClick={() => {
+                    handleClick(TransitionUp);
+                    setOpenCart(true);
+                    addItem(item);
+                    disableButton();
+                  }}
+                  sx={{ width: "100%", marginTop: "5px", height: "35px" }}
+                >
+                  <Typography>{t("add")}</Typography>
+                  <Box sx={{ paddingLeft: "5px" }}>
+                    <AddShoppingCartIcon />
+                  </Box>
+                </Button>
+              </Tooltip>
+            )}
           </CardActions>
         </Card>
       </Paper>
@@ -184,7 +194,7 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(({ item, index }) => {
         <Snackbar
           open={openCart}
           autoHideDuration={3000}
-          onClose={handleCloseCart}
+          onClose={() => setOpenCart(false)}
           TransitionComponent={transition}
           key={transition ? transition.name : ""}
           sx={{
@@ -194,7 +204,7 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(({ item, index }) => {
             alignItems: "center",
           }}
         >
-          <Alert onClose={handleCloseCart} severity="success">
+          <Alert onClose={() => setOpenCart(false)} severity="success">
             {t("addedToCart")}
           </Alert>
         </Snackbar>

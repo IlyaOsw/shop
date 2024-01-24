@@ -1,7 +1,6 @@
-import * as React from "react";
+import React from "react";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
@@ -11,6 +10,21 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
+import StoreCard, { Media } from "../StoreCard/StoreCard";
+import { Box } from "@mui/material";
+import Skeleton from "@mui/material/Skeleton";
+import { ShopType } from "../../../redux/reducers/shop-reducer";
+
+export interface StoreCardProps {
+  item: {
+    id: number;
+    title: string;
+    price: number;
+    description: string;
+  };
+  index: number;
+}
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -55,26 +69,46 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function Filter() {
+const Filter: React.FC = React.memo(() => {
+  const shopData = useSelector(
+    (state: { shopPage: ShopType }) => state.shopPage
+  );
+  const [products, setProducts] = React.useState([...shopData]);
+
+  const PriceHighToLow = () => {
+    const sortedList = [...products].sort((a, b) => b.price - a.price);
+    setProducts(sortedList);
+  };
+
+  const PriceLowToHigh = () => {
+    const sortedList = [...products].sort((a, b) => a.price - b.price);
+    setProducts(sortedList);
+  };
+
   const { t } = useTranslation();
   const [filter, setFilter] = React.useState("");
 
   const handleChange = (event: SelectChangeEvent) => {
     setFilter(event.target.value);
   };
+
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    if (shopData && shopData.length > 0) {
+      setIsLoading(false);
+    }
+  }, [shopData]);
+
   return (
-    <Box
-      sx={{
-        flexGrow: 1,
-        position: "relative",
-        mb: 5,
-      }}
-    >
-      <AppBar position="static" color="default">
+    <div>
+      <AppBar position="relative" color="default">
         <Toolbar
           sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
         >
-          <Typography>{t("sortBy")} </Typography>
+          <Typography variant="h6" sx={{ p: 1 }}>
+            {t("sortBy")}
+          </Typography>
           <FormControl
             sx={{
               margin: "0px 20px",
@@ -95,8 +129,12 @@ export default function Filter() {
               <MenuItem value={"No filters"}>
                 <em>{t("noFilters")} </em>
               </MenuItem>
-              <MenuItem value={10}>{t("priceAscending")}</MenuItem>
-              <MenuItem value={21}>{t("priceDescending")}</MenuItem>
+              <MenuItem value={10} onClick={PriceLowToHigh}>
+                {t("priceAscending")}
+              </MenuItem>
+              <MenuItem value={21} onClick={PriceHighToLow}>
+                {t("priceDescending")}
+              </MenuItem>
               <MenuItem value={22}>{t("favoritesFirst")}</MenuItem>
             </Select>
           </FormControl>
@@ -111,6 +149,34 @@ export default function Filter() {
           </Search>
         </Toolbar>
       </AppBar>
-    </Box>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+        }}
+      >
+        {products.map((item: StoreCardProps["item"], index: number) => {
+          if (isLoading) {
+            return (
+              <Media loading key={index}>
+                <Skeleton
+                  animation="wave"
+                  variant="rectangular"
+                  sx={{ height: 400, width: 335, maxWidth: "40vh" }}
+                />
+                <Skeleton animation="wave" height={50} />
+                <Skeleton animation="wave" height={50} width="50%" />
+              </Media>
+            );
+          } else {
+            return <StoreCard key={item.id} item={item} index={index} />;
+          }
+        })}
+      </Box>
+    </div>
   );
-}
+});
+
+export default Filter;
