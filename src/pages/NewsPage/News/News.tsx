@@ -25,7 +25,7 @@ const News: React.FC = () => {
   const initialPosts = newsData.slice(0, posts);
 
   return (
-    <Box>
+    <>
       {initialPosts.map((post: NewsPostProps) => (
         <NewsPost key={post.id} {...post} />
       ))}
@@ -38,7 +38,7 @@ const News: React.FC = () => {
           </Tooltip>
         )}
       </Box>
-    </Box>
+    </>
   );
 };
 

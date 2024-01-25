@@ -3,7 +3,7 @@ const initialState = [
     id: 0,
     title: "New XYZ Smartphone Unveiled",
     body: "Today, XYZ company announced its latest flagship smartphone featuring cutting-edge technologies and an improved camera.",
-    likes: 3456,
+    likes: 4456,
     dislikes: 453,
     additionalText1:
       "Discover a world of possibilities with the new XYZ smartphone. Its advanced features include a high-resolution display, AI-powered camera enhancements, and a sleek, ergonomic design.",
@@ -36,7 +36,7 @@ const initialState = [
     id: 3,
     title: "XYZ Tech Unveils Next-Gen Headphones",
     body: "XYZ Tech has revealed its next-generation headphones, offering advanced noise cancellation and an immersive audio experience for users.",
-    likes: 4567,
+    likes: 5567,
     dislikes: 567,
     additionalText1:
       "Immerse yourself in a world of unparalleled audio quality with XYZ Tech's next-generation headphones. Featuring state-of-the-art noise cancellation technology, these headphones deliver a truly immersive listening experience.",
@@ -69,7 +69,7 @@ const initialState = [
     id: 6,
     title: "GHI Fitness Tracker: Your Personal Health Companion",
     body: "Stay fit and healthy with the new GHI Fitness Tracker, equipped with advanced sensors and personalized health insights to help you achieve your wellness goals.",
-    likes: 3453,
+    likes: 8453,
     dislikes: 527,
     additionalText1:
       "Embark on a journey to better health with GHI's Fitness Tracker. Packed with advanced sensors and personalized insights, this fitness tracker is your dedicated companion on the path to wellness.",
@@ -80,7 +80,7 @@ const initialState = [
     id: 7,
     title: "LMN Augmented Reality Glasses Transform Your World",
     body: "Experience the future with LMN Augmented Reality Glasses, providing an immersive blend of virtual and real-world interactions for gaming, productivity, and entertainment.",
-    likes: 2345,
+    likes: 4345,
     dislikes: 462,
     additionalText1:
       "Step into a new dimension of entertainment and productivity with LMN's Augmented Reality Glasses. These glasses redefine your world by seamlessly integrating virtual and real-world experiences.",
@@ -97,6 +97,39 @@ const initialState = [
       "Elevate your photography to new heights with PQR Drones' advanced camera systems. From panoramic views to intricate details, these drones redefine the art of aerial photography.",
     additionalText2:
       "Whether you're a beginner or a seasoned photographer, PQR Drones offers intelligent flight modes and precision control, making aerial photography an accessible and thrilling experience for all.",
+  },
+  {
+    id: 9,
+    title: "Innovative XYZ Tablet Launch",
+    body: "XYZ announces the launch of its latest tablet, packed with innovative features and a stunning display for an enhanced multimedia experience.",
+    likes: 3453,
+    dislikes: 623,
+    additionalText1:
+      "Immerse yourself in the world of entertainment with the innovative XYZ tablet. The high-resolution display and powerful performance make it the perfect device for multimedia enthusiasts.",
+    additionalText2:
+      "Experience the future of portable computing. XYZ's commitment to innovation is evident in every aspect of the new tablet, providing users with a versatile and powerful device.",
+  },
+  {
+    id: 10,
+    title: "ABC Home Security System Unveiled",
+    body: "ABC introduces a comprehensive home security system, featuring smart cameras, sensors, and a user-friendly interface for enhanced protection and peace of mind.",
+    likes: 7089,
+    dislikes: 536,
+    additionalText1:
+      "Secure your home with ABC's advanced home security system. From smart cameras that keep an eye on every corner to sensors that detect unusual activity, ABC's system sets a new standard for home protection.",
+    additionalText2:
+      "Experience peace of mind with ABC's commitment to home security. The user-friendly interface ensures that you have full control and awareness of your home's safety at all times.",
+  },
+  {
+    id: 11,
+    title: "DEF Virtual Reality Headset for Immersive Experiences",
+    body: "DEF introduces its latest virtual reality headset, providing users with immersive experiences in gaming, simulations, and virtual travel.",
+    likes: 8327,
+    dislikes: 932,
+    additionalText1:
+      "Dive into a world of virtual reality with DEF's cutting-edge headset. Whether you're a gamer seeking intense adventures or someone looking to explore virtual landscapes, DEF's VR headset delivers unparalleled immersion.",
+    additionalText2:
+      "Explore the limitless possibilities of virtual reality. DEF's commitment to pushing the boundaries of technology ensures that users can escape reality and embrace new experiences with their VR headset.",
   },
 ];
 

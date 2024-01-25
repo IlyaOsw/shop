@@ -21,15 +21,15 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export function CartProvider({ children }: CartProviderProps) {
   const [cart, setCart] = useState<CartItem[]>([]);
 
-  function removeItem(id: number) {
+  const removeItem = (id: number) => {
     const newCart = cart.filter((item) => item.id !== id);
     setCart(newCart);
-  }
+  };
 
-  function addItem(newItem: CartItem) {
+  const addItem = (newItem: CartItem) => {
     const newItems = [newItem, ...cart];
     setCart(newItems);
-  }
+  };
 
   return (
     <CartContext.Provider value={{ cart, addItem, removeItem }}>

@@ -61,86 +61,81 @@ export default function CartButton() {
   };
 
   return (
-    <>
-      <Stack direction="row" alignItems="center" spacing={1}>
-        <Tooltip title={t("cart")} arrow>
-          <IconButton aria-label="homeicon" size="large" onClick={handleOpen}>
-            <Badge badgeContent={cart.length} color="secondary">
-              <ShoppingCartIcon fontSize="large" color="action" />
-            </Badge>
-          </IconButton>
-        </Tooltip>
-        <Dialog
-          fullScreen={fullScreen}
-          open={open}
-          onClose={handleClose}
-          TransitionComponent={Transition}
-          keepMounted
-          aria-labelledby="responsive-dialog-title"
+    <Stack direction="row" alignItems="center" spacing={1}>
+      <Tooltip title={t("cart")} arrow>
+        <IconButton aria-label="homeicon" size="large" onClick={handleOpen}>
+          <Badge badgeContent={cart.length} color="secondary">
+            <ShoppingCartIcon fontSize="large" color="action" />
+          </Badge>
+        </IconButton>
+      </Tooltip>
+      <Dialog
+        fullScreen={fullScreen}
+        open={open}
+        onClose={handleClose}
+        TransitionComponent={Transition}
+        keepMounted
+        aria-labelledby="responsive-dialog-title"
+      >
+        <Box sx={{ p: 2 }}>
+          <CloseButton onClose={handleClose} />
+        </Box>
+        <DialogTitle
+          id="responsive-dialog-title"
+          sx={{ m: 1, textAlign: "center", fontSize: "24px" }}
         >
-          <Box sx={{ p: 2 }}>
-            <CloseButton onClose={handleClose} />
-          </Box>
-          <DialogTitle
-            id="responsive-dialog-title"
-            sx={{ m: 1, textAlign: "center", fontSize: "24px" }}
-          >
-            {t("cart")}
-          </DialogTitle>
-          <DialogContent>
-            <TableContainer component={Paper}>
-              <Table aria-label="spanning table">
-                <TableHead>
-                  <TableRow>
-                    <TableCell
-                      colSpan={2}
-                      sx={{ fontSize: "20px", textAlign: "start" }}
-                    >
-                      {t("details")}
-                    </TableCell>
-
-                    <TableCell align="center" sx={{ fontSize: "20px" }}>
-                      {t("price")}
-                    </TableCell>
-                    <TableCell></TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {cart.map((row: any) => (
-                    <TableRow key={row.id}>
-                      <TableCell>{row.title}</TableCell>
-                      <TableCell align="right"></TableCell>
-                      <TableCell align="right">
-                        {ccyFormat(row.price)}€
-                      </TableCell>
-                      <TableCell align="right">
-                        <Tooltip title={t("delete")}>
-                          <IconButton
-                            aria-label="delete"
-                            color="secondary"
-                            onClick={() => removeItem(row.id)}
-                          >
-                            <DeleteIcon />
-                          </IconButton>
-                        </Tooltip>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                  <TableRow>
-                    <TableCell colSpan={2} sx={{ fontSize: "18px" }}>
-                      {t("total")}
-                    </TableCell>
-                    <TableCell></TableCell>
-                    <TableCell align="right" sx={{ fontSize: "18px" }}>
-                      {ccyFormat(invoiceTotal)}€
+          {t("cart")}
+        </DialogTitle>
+        <DialogContent>
+          <TableContainer component={Paper}>
+            <Table aria-label="spanning table">
+              <TableHead>
+                <TableRow>
+                  <TableCell
+                    colSpan={2}
+                    sx={{ fontSize: "20px", textAlign: "start" }}
+                  >
+                    {t("details")}
+                  </TableCell>
+                  <TableCell align="center" sx={{ fontSize: "20px" }}>
+                    {t("price")}
+                  </TableCell>
+                  <TableCell></TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {cart.map((row: any) => (
+                  <TableRow key={row.id}>
+                    <TableCell>{row.title}</TableCell>
+                    <TableCell align="right"></TableCell>
+                    <TableCell align="right">{ccyFormat(row.price)}€</TableCell>
+                    <TableCell align="right">
+                      <Tooltip title={t("delete")}>
+                        <IconButton
+                          aria-label="delete"
+                          color="secondary"
+                          onClick={() => removeItem(row.id)}
+                        >
+                          <DeleteIcon />
+                        </IconButton>
+                      </Tooltip>
                     </TableCell>
                   </TableRow>
-                </TableBody>
-              </Table>
-            </TableContainer>
-          </DialogContent>
-        </Dialog>
-      </Stack>
-    </>
+                ))}
+                <TableRow>
+                  <TableCell colSpan={2} sx={{ fontSize: "18px" }}>
+                    {t("total")}
+                  </TableCell>
+                  <TableCell></TableCell>
+                  <TableCell align="right" sx={{ fontSize: "18px" }}>
+                    {ccyFormat(invoiceTotal)}€
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </DialogContent>
+      </Dialog>
+    </Stack>
   );
 }

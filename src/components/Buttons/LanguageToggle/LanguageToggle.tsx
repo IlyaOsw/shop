@@ -25,16 +25,16 @@ const options: { id: number; label: Locales }[] = [
   { id: 1, label: Locales.RU },
   { id: 2, label: Locales.EE },
 ];
-export default function LanguageToggle() {
+const LanguageToggle: React.FC = React.memo(() => {
   const { t } = useTranslation();
 
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef<HTMLDivElement>(null);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
 
-  const handleClick = () => {
-    console.info(`You clicked ${options[selectedIndex]}`);
-  };
+  React.useEffect(() => {
+    changeLanguage(options[0].label);
+  }, []);
 
   const handleMenuItemClick = (
     event: React.MouseEvent<HTMLLIElement, MouseEvent>,
@@ -66,7 +66,7 @@ export default function LanguageToggle() {
         ref={anchorRef}
         aria-label="split button"
       >
-        <Button onClick={handleClick}>{t(options[selectedIndex].label)}</Button>
+        <Button>{t(options[selectedIndex].label)}</Button>
         <Button
           size="small"
           aria-controls={open ? "split-button-menu" : undefined}
@@ -124,4 +124,5 @@ export default function LanguageToggle() {
       </Popper>
     </>
   );
-}
+});
+export default LanguageToggle;

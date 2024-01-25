@@ -116,6 +116,12 @@ const Filter: React.FC = React.memo(() => {
     setProducts(favoriteFirst);
   };
 
+  const [search, setSearch] = React.useState("");
+
+  const filteredProducts = [...products].filter((product) => {
+    return product.title.toLowerCase().includes(search.toLowerCase());
+  });
+
   return (
     <div>
       <AppBar position="relative" color="default">
@@ -156,7 +162,11 @@ const Filter: React.FC = React.memo(() => {
               </MenuItem>
             </Select>
           </FormControl>
-          <Search sx={{ m: 2 }}>
+          <Search
+            sx={{ m: 1 }}
+            //@ts-ignore
+            onChange={(event) => setSearch(event.target.value)}
+          >
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -175,7 +185,7 @@ const Filter: React.FC = React.memo(() => {
           flexWrap: "wrap",
         }}
       >
-        {products.map((item: StoreCardProps["item"], index: number) => {
+        {filteredProducts.map((item: StoreCardProps["item"], index: number) => {
           if (isLoading) {
             return (
               <Media loading key={index}>
