@@ -22,8 +22,10 @@ export interface StoreCardProps {
     title: string;
     price: number;
     description: string;
+    isFavorite: boolean;
   };
   index: number;
+  toggleFavorite: (productId: number) => void;
 }
 
 const Search = styled("div")(({ theme }) => ({
@@ -63,7 +65,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     [theme.breakpoints.up("sm")]: {
       width: "25ch",
       "&:focus": {
-        width: "35ch",
+        width: "40ch",
       },
     },
   },
@@ -88,17 +90,31 @@ const Filter: React.FC = React.memo(() => {
   const { t } = useTranslation();
   const [filter, setFilter] = React.useState("");
 
-  const handleChange = (event: SelectChangeEvent) => {
+  const handleChange = (event: SelectChangeEvent) =>
     setFilter(event.target.value);
-  };
 
   const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
-    if (shopData && shopData.length > 0) {
-      setIsLoading(false);
-    }
+    if (shopData && shopData.length > 0) setIsLoading(false);
   }, [shopData]);
+
+  const noFilters = () => setProducts(shopData);
+
+  const toggleFavorite = (productId: number) => {
+    setProducts((prevProducts) =>
+      prevProducts.map((product) =>
+        product.id === productId
+          ? { ...product, isFavorite: !product.isFavorite }
+          : product
+      )
+    );
+  };
+
+  const filterFavorites = () => {
+    const favoriteFirst = [...products].filter((product) => product.isFavorite);
+    setProducts(favoriteFirst);
+  };
 
   return (
     <div>
@@ -126,7 +142,7 @@ const Filter: React.FC = React.memo(() => {
               autoWidth
               label={t("filter")}
             >
-              <MenuItem value={"No filters"}>
+              <MenuItem value={"No filters"} onClick={noFilters}>
                 <em>{t("noFilters")} </em>
               </MenuItem>
               <MenuItem value={10} onClick={PriceLowToHigh}>
@@ -135,7 +151,9 @@ const Filter: React.FC = React.memo(() => {
               <MenuItem value={21} onClick={PriceHighToLow}>
                 {t("priceDescending")}
               </MenuItem>
-              <MenuItem value={22}>{t("favoritesFirst")}</MenuItem>
+              <MenuItem value={22} onClick={filterFavorites}>
+                {t("favoritesFirst")}
+              </MenuItem>
             </Select>
           </FormControl>
           <Search sx={{ m: 2 }}>
@@ -153,7 +171,7 @@ const Filter: React.FC = React.memo(() => {
         sx={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: "center",
           flexWrap: "wrap",
         }}
       >
@@ -171,7 +189,14 @@ const Filter: React.FC = React.memo(() => {
               </Media>
             );
           } else {
-            return <StoreCard key={item.id} item={item} index={index} />;
+            return (
+              <StoreCard
+                key={item.id}
+                item={item}
+                index={index}
+                toggleFavorite={toggleFavorite}
+              />
+            );
           }
         })}
       </Box>

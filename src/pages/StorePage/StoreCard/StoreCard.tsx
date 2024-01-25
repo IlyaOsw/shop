@@ -10,11 +10,9 @@ import Favorite from "@mui/icons-material/Favorite";
 import { useTranslation } from "react-i18next";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Snackbar from "@mui/material/Snackbar";
-import { useSelector } from "react-redux";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
 import Slide, { SlideProps } from "@mui/material/Slide";
 import Tooltip from "@mui/material/Tooltip";
-import { ShopType } from "../../../redux/reducers/shop-reducer";
 import { Box, Button, Paper } from "@mui/material";
 import { useCart } from "../../../hooks/useCart";
 import DoneIcon from "@mui/icons-material/Done";
@@ -44,173 +42,172 @@ export function Media(props: any) {
   );
 }
 
-const StoreCard: React.FC<StoreCardProps> = React.memo(({ item, index }) => {
-  const { t } = useTranslation();
-  //@ts-ignore
-  const { addItem } = useCart();
+const StoreCard: React.FC<StoreCardProps> = React.memo(
+  ({ item, toggleFavorite }) => {
+    const { t } = useTranslation();
+    //@ts-ignore
+    const { addItem } = useCart();
 
-  const shopData = useSelector(
-    (state: { shopPage: ShopType }) => state.shopPage
-  );
+    const [, setOpen] = React.useState(false);
+    const [transition, setTransition] = React.useState<
+      React.ComponentType<TransitionProps> | undefined
+    >(undefined);
 
-  const [, setOpen] = React.useState(false);
-  const [transition, setTransition] = React.useState<
-    React.ComponentType<TransitionProps> | undefined
-  >(undefined);
+    const handleClick =
+      (Transition: React.ComponentType<TransitionProps>) => () => {
+        setTransition(() => Transition);
+        setOpen(true);
+      };
 
-  const handleClick =
-    (Transition: React.ComponentType<TransitionProps>) => () => {
-      setTransition(() => Transition);
-      setOpen(true);
+    const [openCart, setOpenCart] = React.useState(false);
+    const [openFavorite, setOpenFavorite] = React.useState(false);
+    const [disabled, setDisabled] = React.useState(false);
+
+    const disableButton = () => setDisabled(true);
+
+    const handleAddToFavorites = () => toggleFavorite(item.id);
+
+    const [favorite, setFavorite] = React.useState(false);
+    const handleFavorite = () => {
+      setFavorite((prev) => !prev);
     };
 
-  const [openCart, setOpenCart] = React.useState(false);
-  const [openFavorite, setOpenFavorite] = React.useState(false);
-  const [favorites, setFavorites] = React.useState(shopData.map(() => false));
-  const [disabled, setDisabled] = React.useState(false);
-
-  const disableButton = () => {
-    setDisabled(true);
-  };
-
-  function toggleFavorite(index: number) {
-    const updatedFavorites = [...favorites];
-    updatedFavorites[index] = !updatedFavorites[index];
-    setFavorites(updatedFavorites);
-  }
-
-  return (
-    <>
-      <Paper elevation={3} sx={{ m: 3 }}>
-        <Card
-          key={item.id}
-          sx={{
-            position: "relative",
-            maxWidth: "300px",
-          }}
-        >
-          <CardMedia
-            component="img"
-            image={`${process.env.PUBLIC_URL}/Images/Store/${item.description}.jpg`}
-            alt="Phone"
-          />
-          <CardContent>
-            <Typography variant="h6" color="text.secondary">
-              {item.title}
-            </Typography>
-            <Typography variant="h5" color="text.primary">
-              {item.price} €
-            </Typography>
-          </CardContent>
-          <CardActions
-            disableSpacing
+    return (
+      <>
+        <Paper elevation={3} sx={{ m: 4 }}>
+          <Card
+            key={item.id}
+            sx={{
+              position: "relative",
+              maxWidth: "300px",
+              maxHeight: "600px",
+            }}
+          >
+            <CardMedia
+              component="img"
+              image={`${process.env.PUBLIC_URL}/Images/Store/${item.description}.jpg`}
+              alt="Phone"
+            />
+            <CardContent>
+              <Typography variant="h6" color="text.secondary">
+                {item.title}
+              </Typography>
+              <Typography variant="h5" color="text.primary">
+                {item.price} €
+              </Typography>
+            </CardContent>
+            <CardActions
+              disableSpacing
+              sx={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "flex-end",
+                flexWrap: "wrap",
+              }}
+            >
+              <Tooltip title={t("addToFavorites")} arrow placement="top">
+                <Button
+                  color="error"
+                  variant="outlined"
+                  onClick={() => {
+                    if (!favorite) {
+                      setOpenFavorite(true);
+                      handleClick(TransitionUp);
+                    }
+                    handleAddToFavorites();
+                    handleFavorite();
+                  }}
+                  sx={{ height: "35px", width: "100%" }}
+                >
+                  {t("favorite")}
+                  <Checkbox
+                    {...label}
+                    icon={<FavoriteBorder color="error" />}
+                    checkedIcon={<Favorite color="error" />}
+                    checked={favorite}
+                    //@ts-ignore
+                    onChange={setFavorite}
+                  />
+                </Button>
+              </Tooltip>
+              {disabled ? (
+                <Button
+                  variant="outlined"
+                  color="info"
+                  aria-label="add to shopping cart"
+                  sx={{ width: "100%", marginTop: "5px", height: "35px" }}
+                >
+                  <Typography>{t("added")}</Typography>
+                  <Box sx={{ paddingLeft: "5px" }}>
+                    <DoneIcon />
+                  </Box>
+                </Button>
+              ) : (
+                <Tooltip title={t("addToCart")} arrow>
+                  <Button
+                    variant="outlined"
+                    color="success"
+                    aria-label="add to shopping cart"
+                    onClick={() => {
+                      handleClick(TransitionUp);
+                      setOpenCart(true);
+                      addItem(item);
+                      disableButton();
+                    }}
+                    sx={{ width: "100%", marginTop: "5px", height: "35px" }}
+                  >
+                    <Typography>{t("add")}</Typography>
+                    <Box sx={{ paddingLeft: "5px" }}>
+                      <AddShoppingCartIcon />
+                    </Box>
+                  </Button>
+                </Tooltip>
+              )}
+            </CardActions>
+          </Card>
+        </Paper>
+        {openFavorite && (
+          <Snackbar
+            open={openFavorite}
+            autoHideDuration={3000}
+            onClose={() => setOpenFavorite(false)}
+            TransitionComponent={transition}
+            key={transition ? transition.name : ""}
             sx={{
               width: "100%",
               display: "flex",
               justifyContent: "center",
-              alignItems: "flex-end",
-              flexWrap: "wrap",
+              alignItems: "center",
             }}
           >
-            <Tooltip title={t("addToFavorites")} arrow placement="top">
-              <Button
-                color="error"
-                variant="outlined"
-                onClick={() => {
-                  const isCurrentlyFavorite = favorites[index];
-                  toggleFavorite(index);
-                  if (!isCurrentlyFavorite) {
-                    setOpenFavorite(true);
-                    handleClick(TransitionUp);
-                  }
-                }}
-                sx={{ height: "35px", width: "100%" }}
-              >
-                {t("favorite")}
-                <Checkbox
-                  {...label}
-                  icon={<FavoriteBorder color="error" />}
-                  checkedIcon={<Favorite color="error" />}
-                  checked={favorites[index]}
-                />
-              </Button>
-            </Tooltip>
-            {disabled ? (
-              <Button
-                variant="outlined"
-                color="info"
-                aria-label="add to shopping cart"
-                sx={{ width: "100%", marginTop: "5px", height: "35px" }}
-              >
-                <Typography>{t("added")}</Typography>
-                <Box sx={{ paddingLeft: "5px" }}>
-                  <DoneIcon />
-                </Box>
-              </Button>
-            ) : (
-              <Tooltip title={t("addToCart")} arrow>
-                <Button
-                  variant="outlined"
-                  color="success"
-                  aria-label="add to shopping cart"
-                  onClick={() => {
-                    handleClick(TransitionUp);
-                    setOpenCart(true);
-                    addItem(item);
-                    disableButton();
-                  }}
-                  sx={{ width: "100%", marginTop: "5px", height: "35px" }}
-                >
-                  <Typography>{t("add")}</Typography>
-                  <Box sx={{ paddingLeft: "5px" }}>
-                    <AddShoppingCartIcon />
-                  </Box>
-                </Button>
-              </Tooltip>
-            )}
-          </CardActions>
-        </Card>
-      </Paper>
-      {openFavorite && (
-        <Snackbar
-          open={openFavorite}
-          autoHideDuration={3000}
-          onClose={() => setOpenFavorite(false)}
-          TransitionComponent={transition}
-          key={transition ? transition.name : ""}
-          sx={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Alert onClose={() => setOpenFavorite(false)} severity="success">
-            {t("AddedToFavorites")}
-          </Alert>
-        </Snackbar>
-      )}
-      {openCart && (
-        <Snackbar
-          open={openCart}
-          autoHideDuration={3000}
-          onClose={() => setOpenCart(false)}
-          TransitionComponent={transition}
-          key={transition ? transition.name : ""}
-          sx={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Alert onClose={() => setOpenCart(false)} severity="success">
-            {t("addedToCart")}
-          </Alert>
-        </Snackbar>
-      )}
-    </>
-  );
-});
+            <Alert onClose={() => setOpenFavorite(false)} severity="success">
+              {t("AddedToFavorites")}
+            </Alert>
+          </Snackbar>
+        )}
+        {openCart && (
+          <Snackbar
+            open={openCart}
+            autoHideDuration={3000}
+            onClose={() => setOpenCart(false)}
+            TransitionComponent={transition}
+            key={transition ? transition.name : ""}
+            sx={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Alert onClose={() => setOpenCart(false)} severity="success">
+              {t("addedToCart")}
+            </Alert>
+          </Snackbar>
+        )}
+      </>
+    );
+  }
+);
 
 export default StoreCard;

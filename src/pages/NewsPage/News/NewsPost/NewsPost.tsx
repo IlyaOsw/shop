@@ -41,18 +41,19 @@ const NewsPost: React.FC<NewsPostProps> = ({
 
   const [likesCount, setLikesCount] = useState(likes);
   const [dislikesCount, setDislikesCount] = useState(dislikes);
-  const [buttonDisabled, setButtonDisabled] = useState(false);
+  const [dislikeButtonDisabled, setDislikeButtonDisabled] = useState(false);
+  const [likeButtonDisabled, setLikeButtonDisabled] = useState(false);
 
   const like = () => {
-    if (!buttonDisabled) {
+    if (!likeButtonDisabled) {
       setLikesCount(likesCount + 1);
-      setButtonDisabled(true);
+      setDislikeButtonDisabled(true);
     }
   };
   const dislike = () => {
-    if (!buttonDisabled) {
+    if (!dislikeButtonDisabled) {
       setDislikesCount(dislikesCount + 1);
-      setButtonDisabled(true);
+      setLikeButtonDisabled(true);
     }
   };
   return (
@@ -92,7 +93,7 @@ const NewsPost: React.FC<NewsPostProps> = ({
             <Tooltip title={t("like")} arrow>
               <Checkbox
                 onClick={like}
-                disabled={buttonDisabled}
+                disabled={likeButtonDisabled}
                 {...label}
                 icon={<ThumbUpOffAltIcon fontSize="large" color="info" />}
                 checkedIcon={<ThumbUpIcon fontSize="large" color="info" />}
@@ -101,7 +102,7 @@ const NewsPost: React.FC<NewsPostProps> = ({
             <Tooltip title={t("dislike")} arrow>
               <Checkbox
                 onClick={dislike}
-                disabled={buttonDisabled}
+                disabled={dislikeButtonDisabled}
                 {...label}
                 icon={<ThumbDownOffAltIcon fontSize="large" color="error" />}
                 checkedIcon={
