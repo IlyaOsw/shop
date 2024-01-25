@@ -1,7 +1,7 @@
 import * as React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import { Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Container, Typography, useMediaQuery, useTheme } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import AllInclusiveIcon from "@mui/icons-material/AllInclusive";
@@ -67,79 +67,81 @@ const Description: React.FC = React.memo(() => {
     { id: 2, label: "choose3" },
   ];
   return (
-    <Box
-      sx={{
-        bgcolor: "background.paper",
-        position: "relative",
-      }}
-    >
-      <Typography
-        variant="h5"
-        sx={{
-          textAlign: "center",
-          m: 4,
-        }}
-      >
-        {t("whyWe")}
-      </Typography>
-      <AppBar position="static" color="info">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="secondary"
-          textColor="inherit"
-          variant="fullWidth"
-          aria-label="full width tabs example"
-          orientation={isSmallScreen ? "vertical" : "horizontal"}
-        >
-          <Tab label={t("chooseTitle1")} {...a11yProps(0)} />
-          <Tab label={t("chooseTitle2")} {...a11yProps(1)} />
-          <Tab label={t("chooseTitle3")} {...a11yProps(2)} />
-        </Tabs>
-      </AppBar>
+    <Container maxWidth="xl">
       <Box
         sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          bgcolor: "background.paper",
+          position: "relative",
         }}
       >
-        {chooseLabels.map((item, index) => (
-          <TabPanel
-            key={item.id}
+        <Typography
+          variant="h5"
+          sx={{
+            textAlign: "center",
+            m: 4,
+          }}
+        >
+          {t("whyWe")}
+        </Typography>
+        <AppBar position="static" color="inherit">
+          <Tabs
             value={value}
-            index={index}
-            dir={theme.direction}
+            onChange={handleChange}
+            indicatorColor="secondary"
+            textColor="inherit"
+            variant="fullWidth"
+            aria-label="full width tabs example"
+            orientation={isSmallScreen ? "vertical" : "horizontal"}
           >
-            <Typography
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
+            <Tab label={t("chooseTitle1")} {...a11yProps(0)} />
+            <Tab label={t("chooseTitle2")} {...a11yProps(1)} />
+            <Tab label={t("chooseTitle3")} {...a11yProps(2)} />
+          </Tabs>
+        </AppBar>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          {chooseLabels.map((item, index) => (
+            <TabPanel
+              key={item.id}
+              value={value}
+              index={index}
+              dir={theme.direction}
             >
-              {icons[index]}
-            </Typography>
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              sx={{ maxWidth: "400px", textAlign: "center", mt: 1 }}
-            >
-              {t(item.label)}
-            </Typography>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <MoreHorizIcon fontSize="large" color="secondary" />
-            </Box>
-          </TabPanel>
-        ))}
+              <Typography
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                {icons[index]}
+              </Typography>
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                sx={{ maxWidth: "400px", textAlign: "center", mt: 1 }}
+              >
+                {t(item.label)}
+              </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <MoreHorizIcon fontSize="large" color="secondary" />
+              </Box>
+            </TabPanel>
+          ))}
+        </Box>
       </Box>
-    </Box>
+    </Container>
   );
 });
 

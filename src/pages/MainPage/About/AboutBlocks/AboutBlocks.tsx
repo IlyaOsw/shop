@@ -36,14 +36,14 @@ const AboutBlocks: React.FC = () => {
           sx={{
             textAlign: "start",
             maxWidth: "350px",
-            padding: "10px",
+            padding: "5px",
           }}
         >
           <MoreHorizIcon />
-          <Typography variant="h5" sx={{ paddingBottom: "20px" }}>
+          <Typography variant="h6" sx={{ paddingBottom: "5px" }}>
             {t(item.label)}
           </Typography>
-          <Typography variant="h6" color="text.secondary">
+          <Typography variant="body1" color="text.secondary">
             {t(item.description)}
           </Typography>
         </Box>

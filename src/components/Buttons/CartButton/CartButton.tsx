@@ -93,15 +93,16 @@ export default function CartButton() {
                 <TableHead>
                   <TableRow>
                     <TableCell
-                      align="center"
-                      colSpan={3}
-                      sx={{ fontSize: "20px" }}
+                      colSpan={2}
+                      sx={{ fontSize: "20px", textAlign: "start" }}
                     >
                       {t("details")}
                     </TableCell>
-                    <TableCell align="right" sx={{ fontSize: "20px" }}>
+
+                    <TableCell align="center" sx={{ fontSize: "20px" }}>
                       {t("price")}
                     </TableCell>
+                    <TableCell></TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -126,11 +127,11 @@ export default function CartButton() {
                     </TableRow>
                   ))}
                   <TableRow>
-                    <TableCell colSpan={2}></TableCell>
-                    <TableCell sx={{ fontSize: "20px" }}>
+                    <TableCell colSpan={2} sx={{ fontSize: "18px" }}>
                       {t("total")}
                     </TableCell>
-                    <TableCell align="right" sx={{ fontSize: "20px" }}>
+                    <TableCell></TableCell>
+                    <TableCell align="right" sx={{ fontSize: "18px" }}>
                       {ccyFormat(invoiceTotal)}€
                     </TableCell>
                   </TableRow>
