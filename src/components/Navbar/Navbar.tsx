@@ -20,18 +20,19 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import FeedIcon from "@mui/icons-material/Feed";
 import CartButton from "../Buttons/CartButton/CartButton";
 import LoginButton from "../Buttons/LoginButton/LoginButton";
-import ThemeToggle from "../Buttons/ThemeToggle/ThemeToggle";
+import { ThemeToggle } from "../Buttons/ThemeToggle/ThemeToggle";
 import LanguageToggle from "../Buttons/LanguageToggle/LanguageToggle";
 import { Link } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import Routing from "../../routes/Routing";
-import HelpButton from "../Buttons/HelpButton/HelpButton";
+import FAQButton from "../Buttons/FAQButton/FAQButton";
 import Particle from "../../assets/Particle";
 import { useTranslation } from "react-i18next";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import { useSelector } from "react-redux";
 import { NavbarType } from "../../redux/reducers/navbar-reducer";
 import { CartProvider } from "../../hooks/useCart";
+import styles from "./Themes.module.scss";
 
 const drawerWidth = 250;
 
@@ -110,7 +111,7 @@ const generalIcons = [
   <FeedIcon />,
   <AccountCircleIcon />,
 ];
-const headerIcons = [<CartButton />, <LoginButton />, <HelpButton />];
+const headerIcons = [<CartButton />, <LoginButton />, <FAQButton />];
 
 export default function MiniDrawer() {
   const { t } = useTranslation();
@@ -127,6 +128,9 @@ export default function MiniDrawer() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const [darkMode, setDarkMode] = React.useState(false);
+  const toggleDarkMode = () => setDarkMode(!darkMode);
 
   return (
     <CartProvider>
@@ -173,7 +177,7 @@ export default function MiniDrawer() {
             {navbarData.map(
               (
                 item: {
-                  id: React.Key | null | undefined;
+                  id: React.Key | null;
                   label: any | string | string[];
                 },
                 index: number
@@ -215,7 +219,13 @@ export default function MiniDrawer() {
             <Divider />
           </List>
         </Drawer>
-        <Box component="main" sx={{ flexGrow: 1 }}>
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+          }}
+          className={darkMode ? styles.darkTheme : styles.lightTheme}
+        >
           <Particle />
           <DrawerHeader />
           <Box
@@ -227,7 +237,7 @@ export default function MiniDrawer() {
               flexWrap: "wrap",
             }}
           >
-            <ThemeToggle />
+            <ThemeToggle toggleDarkMode={toggleDarkMode} />
             <LanguageToggle />
           </Box>
           <Box sx={{ m: 1 }}>

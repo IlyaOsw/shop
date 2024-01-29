@@ -1,10 +1,9 @@
 import { styled } from "@mui/material/styles";
-import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 import { t } from "i18next";
-import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
+import React from "react";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -53,15 +52,17 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
-export default function ThemeToggle() {
+export type ThemeType = {
+  toggleDarkMode: () => void;
+};
+
+export const ThemeToggle: React.FC<ThemeType> = ({ toggleDarkMode }) => {
   return (
     <Button variant="contained" sx={{ height: "36px" }}>
-      <FormGroup>
-        <FormControlLabel
-          label={t("Theme")}
-          control={<MaterialUISwitch defaultChecked />}
-        />
-      </FormGroup>
+      <FormControlLabel
+        label={t("Theme")}
+        control={<MaterialUISwitch onClick={toggleDarkMode} />}
+      />
     </Button>
   );
-}
+};

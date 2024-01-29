@@ -1,135 +1,111 @@
 const initialState = [
   {
     id: 0,
-    title: "New XYZ Smartphone Unveiled",
-    body: "Today, XYZ company announced its latest flagship smartphone featuring cutting-edge technologies and an improved camera.",
+    title: "title1",
+    body: "body1",
     likes: 4456,
     dislikes: 453,
-    additionalText1:
-      "Discover a world of possibilities with the new XYZ smartphone. Its advanced features include a high-resolution display, AI-powered camera enhancements, and a sleek, ergonomic design.",
-    additionalText2:
-      "Experience the future of mobile technology. The XYZ smartphone not only raises the bar for performance but also introduces innovative functionalities that cater to the diverse needs of users.",
+    additionalText1: "text1.1",
+    additionalText2: "text1.2",
   },
   {
     id: 1,
-    title: "ABC Wireless Earbuds: Perfect Sound Without Wires",
-    body: "Introducing the new ABC wireless earbuds - delivering incredible sound quality and long battery life without the hassle of wires.",
+    title: "title2",
+    body: "body2",
     likes: 5678,
     dislikes: 789,
-    additionalText1:
-      "Immerse yourself in a world of pristine sound with ABC's wireless earbuds. These earbuds redefine the audio experience with cutting-edge sound technology and a comfortable, wireless design.",
-    additionalText2:
-      "Say goodbye to tangled wires and hello to unparalleled audio freedom. The ABC wireless earbuds set a new standard for convenience and audio excellence, making them the perfect companion for music lovers on the go.",
+    additionalText1: "text2.1",
+    additionalText2: "text2.2",
   },
   {
     id: 2,
-    title: "Flexible Smartwatch Innovation from DEF",
-    body: "DEF company has introduced its latest breakthrough in wearable technology - flexible smartwatches that adapt to your style seamlessly.",
+    title: "title3",
+    body: "body3",
     likes: 8231,
     dislikes: 234,
-    additionalText1:
-      "Experience the fusion of style and technology with DEF's flexible smartwatches. These innovative wearables not only keep you connected but also complement your unique sense of fashion.",
-    additionalText2:
-      "DEF's commitment to innovation shines through in their flexible smartwatches, providing users with a customizable and versatile accessory that seamlessly integrates into their daily lives.",
+    additionalText1: "text3.1",
+    additionalText2: "text3.2",
   },
   {
     id: 3,
-    title: "XYZ Tech Unveils Next-Gen Headphones",
-    body: "XYZ Tech has revealed its next-generation headphones, offering advanced noise cancellation and an immersive audio experience for users.",
+    title: "title4",
+    body: "body4",
     likes: 5567,
     dislikes: 567,
-    additionalText1:
-      "Immerse yourself in a world of unparalleled audio quality with XYZ Tech's next-generation headphones. Featuring state-of-the-art noise cancellation technology, these headphones deliver a truly immersive listening experience.",
-    additionalText2:
-      "Elevate your audio experience with XYZ Tech's commitment to cutting-edge technology. The next-gen headphones provide users with a perfect blend of comfort, style, and exceptional sound performance.",
+    additionalText1: "text4.1",
+    additionalText2: "text4.2",
   },
   {
     id: 4,
-    title: "Revolutionary Camera Tech in the New DEF Phone",
-    body: "The latest DEF smartphone boasts revolutionary camera technology, promising stunning photos and enhanced low-light performance.",
+    title: "title5",
+    body: "body5",
     likes: 9123,
     dislikes: 243,
-    additionalText1:
-      "Capture life's moments in stunning detail with the revolutionary camera technology in the new DEF smartphone. From vivid landscapes to low-light environments, this phone redefines smartphone photography.",
-    additionalText2:
-      "Embrace the future of mobile photography with DEF's commitment to innovation. The new smartphone sets a benchmark for camera technology, ensuring that every photo you capture is a masterpiece.",
+    additionalText1: "text5.1",
+    additionalText2: "text5.2",
   },
   {
     id: 5,
-    title: "Smart Home Innovations by ABC Electronics",
-    body: "ABC Electronics introduces a range of smart home devices, including smart thermostats and lighting solutions, making homes more connected and efficient.",
+    title: "title6",
+    body: "body6",
     likes: 6789,
     dislikes: 890,
-    additionalText1:
-      "Transform your home into a smart, connected space with ABC Electronics' innovative range of smart home devices. From intelligent thermostats to lighting solutions, ABC Electronics redefines the concept of home automation.",
-    additionalText2:
-      "Experience the convenience and efficiency of a connected home. ABC Electronics' smart home innovations empower users to create a personalized and energy-efficient living environment.",
+    additionalText1: "text6.1",
+    additionalText2: "text6.2",
   },
   {
     id: 6,
-    title: "GHI Fitness Tracker: Your Personal Health Companion",
-    body: "Stay fit and healthy with the new GHI Fitness Tracker, equipped with advanced sensors and personalized health insights to help you achieve your wellness goals.",
+    title: "title7",
+    body: "body7",
     likes: 8453,
     dislikes: 527,
-    additionalText1:
-      "Embark on a journey to better health with GHI's Fitness Tracker. Packed with advanced sensors and personalized insights, this fitness tracker is your dedicated companion on the path to wellness.",
-    additionalText2:
-      "Achieve your fitness goals with precision and guidance. GHI's commitment to health shines through in their Fitness Tracker, ensuring that you stay motivated and informed on your fitness journey.",
+    additionalText1: "text7.1",
+    additionalText2: "text7.2",
   },
   {
     id: 7,
-    title: "LMN Augmented Reality Glasses Transform Your World",
-    body: "Experience the future with LMN Augmented Reality Glasses, providing an immersive blend of virtual and real-world interactions for gaming, productivity, and entertainment.",
+    title: "title8",
+    body: "body8",
     likes: 4345,
     dislikes: 462,
-    additionalText1:
-      "Step into a new dimension of entertainment and productivity with LMN's Augmented Reality Glasses. These glasses redefine your world by seamlessly integrating virtual and real-world experiences.",
-    additionalText2:
-      "Explore the possibilities of augmented reality. LMN's commitment to innovation brings you a pair of glasses that not only entertain but also enhance your daily life with unparalleled interactivity.",
+    additionalText1: "text8.1",
+    additionalText2: "text8.2",
   },
   {
     id: 8,
-    title: "PQR Drones Redefine Aerial Photography",
-    body: "Capture breathtaking aerial shots with PQR Drones, featuring state-of-the-art camera systems and intelligent flight modes for both beginners and professional photographers.",
+    title: "title9",
+    body: "body9",
     likes: 5678,
     dislikes: 304,
-    additionalText1:
-      "Elevate your photography to new heights with PQR Drones' advanced camera systems. From panoramic views to intricate details, these drones redefine the art of aerial photography.",
-    additionalText2:
-      "Whether you're a beginner or a seasoned photographer, PQR Drones offers intelligent flight modes and precision control, making aerial photography an accessible and thrilling experience for all.",
+    additionalText1: "text9.1",
+    additionalText2: "text9.2",
   },
   {
     id: 9,
-    title: "Innovative XYZ Tablet Launch",
-    body: "XYZ announces the launch of its latest tablet, packed with innovative features and a stunning display for an enhanced multimedia experience.",
+    title: "title10",
+    body: "body10",
     likes: 3453,
     dislikes: 623,
-    additionalText1:
-      "Immerse yourself in the world of entertainment with the innovative XYZ tablet. The high-resolution display and powerful performance make it the perfect device for multimedia enthusiasts.",
-    additionalText2:
-      "Experience the future of portable computing. XYZ's commitment to innovation is evident in every aspect of the new tablet, providing users with a versatile and powerful device.",
+    additionalText1: "text10.1",
+    additionalText2: "text10.2",
   },
   {
     id: 10,
-    title: "ABC Home Security System Unveiled",
-    body: "ABC introduces a comprehensive home security system, featuring smart cameras, sensors, and a user-friendly interface for enhanced protection and peace of mind.",
+    title: "title11",
+    body: "body11",
     likes: 7089,
     dislikes: 536,
-    additionalText1:
-      "Secure your home with ABC's advanced home security system. From smart cameras that keep an eye on every corner to sensors that detect unusual activity, ABC's system sets a new standard for home protection.",
-    additionalText2:
-      "Experience peace of mind with ABC's commitment to home security. The user-friendly interface ensures that you have full control and awareness of your home's safety at all times.",
+    additionalText1: "text11.1",
+    additionalText2: "text11.2",
   },
   {
     id: 11,
-    title: "DEF Virtual Reality Headset for Immersive Experiences",
-    body: "DEF introduces its latest virtual reality headset, providing users with immersive experiences in gaming, simulations, and virtual travel.",
+    title: "title12",
+    body: "body12",
     likes: 8327,
     dislikes: 932,
-    additionalText1:
-      "Dive into a world of virtual reality with DEF's cutting-edge headset. Whether you're a gamer seeking intense adventures or someone looking to explore virtual landscapes, DEF's VR headset delivers unparalleled immersion.",
-    additionalText2:
-      "Explore the limitless possibilities of virtual reality. DEF's commitment to pushing the boundaries of technology ensures that users can escape reality and embrace new experiences with their VR headset.",
+    additionalText1: "text12.1",
+    additionalText2: "text12.2",
   },
 ];
 

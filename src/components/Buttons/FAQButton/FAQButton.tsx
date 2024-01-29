@@ -16,11 +16,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import { Box } from "@mui/material";
-import Button from "@mui/material/Button";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
+import { Box, Divider } from "@mui/material";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
 
@@ -97,7 +93,7 @@ export default function HelpButton() {
         <Typography variant="h5" sx={{ mt: 2, textAlign: "center" }}>
           {t("faq")}
         </Typography>
-
+        <Divider sx={{ m: 2 }} />
         <DialogContent>
           <Accordion
             sx={{ mt: 3 }}

@@ -67,7 +67,7 @@ const Description: React.FC = React.memo(() => {
     { id: 2, label: "choose3" },
   ];
   return (
-    <Container maxWidth="xl">
+    <Container>
       <Box
         sx={{
           bgcolor: "background.paper",
@@ -88,7 +88,6 @@ const Description: React.FC = React.memo(() => {
             value={value}
             onChange={handleChange}
             indicatorColor="secondary"
-            textColor="inherit"
             variant="fullWidth"
             aria-label="full width tabs example"
             orientation={isSmallScreen ? "vertical" : "horizontal"}

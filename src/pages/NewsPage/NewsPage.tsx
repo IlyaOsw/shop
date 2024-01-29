@@ -1,6 +1,6 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
-import { Box, Container, Paper } from "@mui/material";
+import { Box, Container, Divider, Paper } from "@mui/material";
 import Carousel from "./Carousel/Carousel";
 import { useTranslation } from "react-i18next";
 import News from "./News/News";
@@ -12,6 +12,7 @@ const NewsPage: React.FC = React.memo(() => {
       <Typography variant="h5" textAlign={"center"} sx={{ m: 3 }}>
         {t("newsTitle")}
       </Typography>
+      <Divider sx={{ m: 2 }} />
       <Box>
         <Carousel />
       </Box>

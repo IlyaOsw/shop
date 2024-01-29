@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Container, Typography } from "@mui/material";
+import { Container, Divider, Typography } from "@mui/material";
 import Filter from "./Filter/Filter";
 
 const StorePage: React.FC = React.memo(() => {
@@ -15,6 +15,7 @@ const StorePage: React.FC = React.memo(() => {
       >
         {t("storePage")}
       </Typography>
+      <Divider sx={{ m: 2 }} />
       <Filter />
     </Container>
   );

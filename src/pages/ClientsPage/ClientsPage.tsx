@@ -1,6 +1,6 @@
 import React from "react";
 import Clients from "./Clients/Clients";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Divider, Typography } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import { useTranslation } from "react-i18next";
 import Carousel from "./Carousel/Carousel";
@@ -16,6 +16,7 @@ const ClientsPage: React.FC = React.memo(() => {
       >
         {t("clientsTitle")}
       </Typography>
+      <Divider sx={{ m: 2 }} />
       <Box
         sx={{
           display: "flex",

@@ -23,6 +23,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
+import { Divider } from "@mui/material";
 
 const ccyFormat = (num: number) => {
   return `${num.toFixed(2)}`;
@@ -86,8 +87,9 @@ export default function CartButton() {
         >
           {t("cart")}
         </DialogTitle>
+        <Divider sx={{ m: 2 }} />
         <DialogContent>
-          <TableContainer component={Paper}>
+          <Paper elevation={3}>
             <Table aria-label="spanning table">
               <TableHead>
                 <TableRow>
@@ -97,6 +99,7 @@ export default function CartButton() {
                   >
                     {t("details")}
                   </TableCell>
+
                   <TableCell align="center" sx={{ fontSize: "20px" }}>
                     {t("price")}
                   </TableCell>
@@ -133,7 +136,7 @@ export default function CartButton() {
                 </TableRow>
               </TableBody>
             </Table>
-          </TableContainer>
+          </Paper>
         </DialogContent>
       </Dialog>
     </Stack>

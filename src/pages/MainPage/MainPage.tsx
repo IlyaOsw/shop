@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Divider, Typography } from "@mui/material";
 import Card from "./Card/Card";
 import Description from "./Description/Description";
 import Feedback from "./Feedback/Feedback";
@@ -14,6 +14,7 @@ const Main: React.FC = React.memo(() => {
       <Typography variant="h5" sx={{ m: 3, textAlign: "center" }}>
         {t("welcome")}
       </Typography>
+      <Divider sx={{ m: 2 }} />
       <Box
         sx={{
           display: "flex",

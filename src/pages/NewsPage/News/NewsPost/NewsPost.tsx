@@ -20,6 +20,8 @@ import Collapse from "@mui/material/Collapse";
 import Checkbox from "@mui/material/Checkbox";
 import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import SendIcon from "@mui/icons-material/Send";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -83,11 +85,10 @@ const NewsPost: React.FC<NewsPostProps> = ({
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {title}
+            {t(title)}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {body}
-            {body}
+            {t(body)}
           </Typography>
         </CardContent>
         <Box
@@ -128,10 +129,10 @@ const NewsPost: React.FC<NewsPostProps> = ({
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
               <Typography paragraph color="text.secondary">
-                {additionalText1}
+                {t(additionalText1)}
               </Typography>
               <Typography paragraph color="text.secondary">
-                {additionalText2}
+                {t(additionalText2)}
               </Typography>
             </CardContent>
           </Collapse>
@@ -149,7 +150,7 @@ const NewsPost: React.FC<NewsPostProps> = ({
                     color="secondary"
                     sx={{ marginLeft: "5px" }}
                   >
-                    <MoreVertIcon />
+                    <KeyboardArrowUpIcon />
                     {t("close")}
                   </Button>
                 </Tooltip>
@@ -160,7 +161,7 @@ const NewsPost: React.FC<NewsPostProps> = ({
                     color="secondary"
                     sx={{ marginLeft: "5px" }}
                   >
-                    <MoreVertIcon />
+                    <SendIcon />
                     {t("learnMore")}
                   </Button>
                 </Tooltip>

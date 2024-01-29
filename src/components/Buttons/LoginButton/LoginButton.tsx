@@ -16,7 +16,7 @@ import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Tooltip from "@mui/material/Tooltip";
-import { Typography } from "@mui/material";
+import { Divider, Typography } from "@mui/material";
 import Dialog from "@mui/material/Dialog";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
@@ -53,6 +53,7 @@ export default function LoginButton() {
           <PersonIcon fontSize="large" color="action" />
         </IconButton>
       </Tooltip>
+
       <Dialog
         open={open}
         TransitionComponent={Transition}
@@ -65,6 +66,7 @@ export default function LoginButton() {
           <Typography sx={{ mt: 2, textAlign: "center" }} variant="h5">
             {t("signIn")}
           </Typography>
+          <Divider sx={{ m: 2 }} />
           <Box sx={{ "& > :not(style)": { m: 1 } }}>
             <Box sx={{ display: "flex", alignItems: "flex-end" }}>
               <AccountCircle sx={{ color: "action.active", mb: 1 }} />

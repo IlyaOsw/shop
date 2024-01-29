@@ -74,21 +74,29 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(
 
     return (
       <>
-        <Paper elevation={3} sx={{ m: 4 }}>
+        <Paper elevation={3} sx={{ m: 3 }}>
           <Card
             key={item.id}
             sx={{
               position: "relative",
               maxWidth: "300px",
-              maxHeight: "600px",
             }}
           >
             <CardMedia
               component="img"
               image={`${process.env.PUBLIC_URL}/Images/Store/${item.description}.jpg`}
               alt="Phone"
+              sx={{
+                width: "100%",
+                height: "400px",
+                objectFit: "contain",
+              }}
             />
-            <CardContent>
+            <CardContent
+              sx={{
+                height: "95px",
+              }}
+            >
               <Typography variant="h6" color="text.secondary">
                 {item.title}
               </Typography>
@@ -104,6 +112,7 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(
                 justifyContent: "center",
                 alignItems: "flex-end",
                 flexWrap: "wrap",
+                height: "100px",
               }}
             >
               <Tooltip title={t("addToFavorites")} arrow placement="top">
@@ -126,8 +135,6 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(
                     icon={<FavoriteBorder color="error" />}
                     checkedIcon={<Favorite color="error" />}
                     checked={favorite}
-                    //@ts-ignore
-                    onChange={setFavorite}
                   />
                 </Button>
               </Tooltip>
@@ -158,7 +165,7 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(
                     sx={{ width: "100%", marginTop: "5px", height: "35px" }}
                   >
                     <Typography>{t("add")}</Typography>
-                    <Box sx={{ paddingLeft: "5px" }}>
+                    <Box sx={{ paddingLeft: "5px", paddingTop: "8px" }}>
                       <AddShoppingCartIcon />
                     </Box>
                   </Button>
@@ -170,7 +177,7 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(
         {openFavorite && (
           <Snackbar
             open={openFavorite}
-            autoHideDuration={3000}
+            autoHideDuration={2000}
             onClose={() => setOpenFavorite(false)}
             TransitionComponent={transition}
             key={transition ? transition.name : ""}
@@ -189,7 +196,7 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(
         {openCart && (
           <Snackbar
             open={openCart}
-            autoHideDuration={3000}
+            autoHideDuration={2000}
             onClose={() => setOpenCart(false)}
             TransitionComponent={transition}
             key={transition ? transition.name : ""}
