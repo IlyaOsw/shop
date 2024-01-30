@@ -1,32 +1,32 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 
-interface CartItem {
+export type CartItemType = {
   id: number;
   title: string;
   price: number;
-}
+};
 
-interface CartContextType {
-  cart: CartItem[];
-  addItem: (newItem: CartItem) => void;
+export type CartContextType = {
+  cart: CartItemType[];
+  addItem: (newItem: CartItemType) => void;
   removeItem: (id: number) => void;
-}
+};
 
-interface CartProviderProps {
+type CartProviderPropsType = {
   children: ReactNode;
-}
+};
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-export function CartProvider({ children }: CartProviderProps) {
-  const [cart, setCart] = useState<CartItem[]>([]);
+export function CartProvider({ children }: CartProviderPropsType) {
+  const [cart, setCart] = useState<CartItemType[]>([]);
 
   const removeItem = (id: number) => {
     const newCart = cart.filter((item) => item.id !== id);
     setCart(newCart);
   };
 
-  const addItem = (newItem: CartItem) => {
+  const addItem = (newItem: CartItemType) => {
     const newItems = [newItem, ...cart];
     setCart(newItems);
   };

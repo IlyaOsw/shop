@@ -10,22 +10,21 @@ import {
   Divider,
 } from "@mui/material";
 import FormDialog from "../../../../components/FormDialog/FormDialog";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { useTranslation } from "react-i18next";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import Tooltip from "@mui/material/Tooltip";
-import { NewsPostProps } from "../News";
+import { NewsPostPropsType } from "../News";
 import Collapse from "@mui/material/Collapse";
 import Checkbox from "@mui/material/Checkbox";
 import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import SendIcon from "@mui/icons-material/Send";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
-const NewsPost: React.FC<NewsPostProps> = ({
+export const NewsPost: React.FC<NewsPostPropsType> = ({
   id,
   title,
   body,
@@ -161,7 +160,7 @@ const NewsPost: React.FC<NewsPostProps> = ({
                     color="secondary"
                     sx={{ marginLeft: "5px" }}
                   >
-                    <SendIcon />
+                    <KeyboardArrowRightIcon />
                     {t("learnMore")}
                   </Button>
                 </Tooltip>
@@ -178,5 +177,3 @@ const NewsPost: React.FC<NewsPostProps> = ({
     </>
   );
 };
-
-export default NewsPost;

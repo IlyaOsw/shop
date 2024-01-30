@@ -3,7 +3,7 @@ import Typography from "@mui/material/Typography";
 import { Box, Container, Divider, Paper } from "@mui/material";
 import Carousel from "./Carousel/Carousel";
 import { useTranslation } from "react-i18next";
-import News from "./News/News";
+import { News } from "./News/News";
 
 const NewsPage: React.FC = React.memo(() => {
   const { t } = useTranslation();

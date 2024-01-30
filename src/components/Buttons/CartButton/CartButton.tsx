@@ -1,11 +1,9 @@
-import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Box from "@mui/material/Box";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
@@ -15,7 +13,6 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import Badge from "@mui/material/Badge";
 import Tooltip from "@mui/material/Tooltip";
 import { useCart } from "../../../hooks/useCart";
-import * as React from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
@@ -24,6 +21,10 @@ import { useTheme } from "@mui/material/styles";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
 import { Divider } from "@mui/material";
+import * as React from "react";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
 
 const ccyFormat = (num: number) => {
   return `${num.toFixed(2)}`;
@@ -38,10 +39,21 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "1px solid #000",
+  pt: 2,
+  px: 4,
+  pb: 3,
+};
+
 export default function CartButton() {
   const { t } = useTranslation();
-
-  const handleOpen = () => setOpen(true);
 
   //@ts-ignore
   const { cart, removeItem } = useCart();
@@ -57,12 +69,15 @@ export default function CartButton() {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const [openModal, setOpenModal] = React.useState(false);
+  const handleClose = () => setOpen(false);
+  const handleOpen = () => setOpen(true);
+
+  const handleCloseModal = () => setOpenModal(false);
+  const handleOpenModal = () => setOpenModal(true);
 
   return (
-    <Stack direction="row" alignItems="center" spacing={1}>
+    <>
       <Tooltip title={t("cart")} arrow>
         <IconButton aria-label="homeicon" size="large" onClick={handleOpen}>
           <Badge badgeContent={cart.length} color="secondary">
@@ -99,7 +114,6 @@ export default function CartButton() {
                   >
                     {t("details")}
                   </TableCell>
-
                   <TableCell align="center" sx={{ fontSize: "20px" }}>
                     {t("price")}
                   </TableCell>
@@ -117,12 +131,56 @@ export default function CartButton() {
                         <IconButton
                           aria-label="delete"
                           color="secondary"
-                          onClick={() => removeItem(row.id)}
+                          onClick={handleOpenModal}
                         >
                           <DeleteIcon />
                         </IconButton>
                       </Tooltip>
                     </TableCell>
+                    {openModal && (
+                      <Modal
+                        open={openModal}
+                        onClose={handleCloseModal}
+                        aria-labelledby="modal-modal-title"
+                        sx={{ backgroundColor: "rgba(0, 0, 0, 0.1)" }}
+                        hideBackdrop
+                      >
+                        <Box sx={style}>
+                          <Typography
+                            id="modal-modal-title"
+                            variant="h6"
+                            sx={{
+                              textAlign: "center",
+                            }}
+                          >
+                            {t("confrimDelete")}
+                          </Typography>
+                          <Box
+                            sx={{
+                              display: "flex",
+                              justifyContent: "space-around",
+                              mt: 2,
+                            }}
+                          >
+                            <Button
+                              variant="outlined"
+                              onClick={handleCloseModal}
+                            >
+                              {t("no")}
+                            </Button>
+                            <Button
+                              variant="outlined"
+                              onClick={() => {
+                                removeItem(row.id);
+                                handleCloseModal();
+                              }}
+                            >
+                              {t("yes")}
+                            </Button>
+                          </Box>
+                        </Box>
+                      </Modal>
+                    )}
                   </TableRow>
                 ))}
                 <TableRow>
@@ -139,6 +197,6 @@ export default function CartButton() {
           </Paper>
         </DialogContent>
       </Dialog>
-    </Stack>
+    </>
   );
 }

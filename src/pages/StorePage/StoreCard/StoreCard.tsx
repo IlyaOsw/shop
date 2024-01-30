@@ -162,7 +162,7 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(
                       addItem(item);
                       disableButton();
                     }}
-                    sx={{ width: "100%", marginTop: "5px", height: "35px" }}
+                    sx={{ width: "100%", height: "35px" }}
                   >
                     <Typography>{t("add")}</Typography>
                     <Box sx={{ paddingLeft: "5px", paddingTop: "8px" }}>

@@ -24,21 +24,17 @@ const Main: React.FC = React.memo(() => {
       >
         <Card />
       </Box>
-      <Box>
-        <Description />
-      </Box>
-      <Box
+      <Description />
+      <Paper
+        elevation={4}
         sx={{
           display: "flex",
-          justifyContent: "center",
           mt: 5,
           position: "relative",
         }}
       >
-        <Paper elevation={4}>
-          <About />
-        </Paper>
-      </Box>
+        <About />
+      </Paper>
       <Feedback />
     </Container>
   );

@@ -153,6 +153,9 @@
     "body9" : "Capture breathtaking aerial shots with PQR Drones, featuring state-of-the-art camera systems and intelligent flight modes for both beginners and professional photographers.",
     "body10" : "XYZ announces the launch of its latest tablet, packed with innovative features and a stunning display for an enhanced multimedia experience.",
     "body11" : "ABC introduces a comprehensive home security system, featuring smart cameras, sensors, and a user-friendly interface for enhanced protection and peace of mind.",
-    "body12" : "DEF introduces its latest virtual reality headset, providing users with immersive experiences in gaming, simulations, and virtual travel."
+    "body12" : "DEF introduces its latest virtual reality headset, providing users with immersive experiences in gaming, simulations, and virtual travel.",
+    "confrimDelete": "Are you sure that you want to delete?",
+    "no": "No",
+    "Yes": "Yes"
 }
    
