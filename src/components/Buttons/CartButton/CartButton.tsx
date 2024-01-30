@@ -130,7 +130,7 @@ export default function CartButton() {
                       <Tooltip title={t("delete")}>
                         <IconButton
                           aria-label="delete"
-                          color="secondary"
+                          color="error"
                           onClick={handleOpenModal}
                         >
                           <DeleteIcon />
@@ -163,13 +163,15 @@ export default function CartButton() {
                             }}
                           >
                             <Button
-                              variant="outlined"
+                              variant="contained"
                               onClick={handleCloseModal}
+                              color="success"
                             >
                               {t("no")}
                             </Button>
                             <Button
-                              variant="outlined"
+                              variant="contained"
+                              color="error"
                               onClick={() => {
                                 removeItem(row.id);
                                 handleCloseModal();
