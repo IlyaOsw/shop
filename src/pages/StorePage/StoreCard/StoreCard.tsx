@@ -117,7 +117,7 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(
             >
               <Tooltip title={t("addToFavorites")} arrow placement="top">
                 <Button
-                  color="error"
+                  color="secondary"
                   variant="outlined"
                   onClick={() => {
                     if (!favorite) {
@@ -132,8 +132,8 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(
                   {t("favorite")}
                   <Checkbox
                     {...label}
-                    icon={<FavoriteBorder color="error" />}
-                    checkedIcon={<Favorite color="error" />}
+                    icon={<FavoriteBorder color="secondary" />}
+                    checkedIcon={<Favorite color="secondary" />}
                     checked={favorite}
                   />
                 </Button>

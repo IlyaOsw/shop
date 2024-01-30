@@ -80,7 +80,7 @@ export default function CartButton() {
     <>
       <Tooltip title={t("cart")} arrow>
         <IconButton aria-label="homeicon" size="large" onClick={handleOpen}>
-          <Badge badgeContent={cart.length} color="secondary">
+          <Badge badgeContent={cart.length} color="error">
             <ShoppingCartIcon fontSize="large" color="action" />
           </Badge>
         </IconButton>
@@ -163,14 +163,7 @@ export default function CartButton() {
                             }}
                           >
                             <Button
-                              variant="contained"
-                              onClick={handleCloseModal}
-                              color="success"
-                            >
-                              {t("no")}
-                            </Button>
-                            <Button
-                              variant="contained"
+                              variant="outlined"
                               color="error"
                               onClick={() => {
                                 removeItem(row.id);
@@ -178,6 +171,13 @@ export default function CartButton() {
                               }}
                             >
                               {t("yes")}
+                            </Button>
+                            <Button
+                              variant="outlined"
+                              onClick={handleCloseModal}
+                              color="success"
+                            >
+                              {t("no")}
                             </Button>
                           </Box>
                         </Box>
