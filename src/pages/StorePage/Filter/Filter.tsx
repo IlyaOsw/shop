@@ -11,7 +11,7 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import StoreCard, { Media } from "../StoreCard/StoreCard";
+import { StoreCard, Media } from "../StoreCard/StoreCard";
 import { Box } from "@mui/material";
 import Skeleton from "@mui/material/Skeleton";
 import { ShopType } from "../../../redux/reducers/shop-reducer";

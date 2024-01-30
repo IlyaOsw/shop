@@ -42,7 +42,7 @@ export function Media(props: any) {
   );
 }
 
-const StoreCard: React.FC<StoreCardProps> = React.memo(
+export const StoreCard: React.FC<StoreCardProps> = React.memo(
   ({ item, toggleFavorite }) => {
     const { t } = useTranslation();
     //@ts-ignore
@@ -68,9 +68,7 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(
     const handleAddToFavorites = () => toggleFavorite(item.id);
 
     const [favorite, setFavorite] = React.useState(false);
-    const handleFavorite = () => {
-      setFavorite((prev) => !prev);
-    };
+    const handleFavorite = () => setFavorite((prev) => !prev);
 
     return (
       <>
@@ -216,5 +214,3 @@ const StoreCard: React.FC<StoreCardProps> = React.memo(
     );
   }
 );
-
-export default StoreCard;
