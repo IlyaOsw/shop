@@ -141,7 +141,7 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
                   variant="outlined"
                   color="info"
                   aria-label="add to shopping cart"
-                  sx={{ width: "100%", marginTop: "5px", height: "35px" }}
+                  sx={{ width: "100%", height: "35px" }}
                 >
                   <Typography>{t("added")}</Typography>
                   <Box sx={{ paddingLeft: "5px" }}>

@@ -13,21 +13,18 @@ const NewsPage: React.FC = React.memo(() => {
         {t("newsTitle")}
       </Typography>
       <Divider sx={{ m: 2 }} />
-      <Box>
-        <Carousel />
-      </Box>
-      <Box
+      <Carousel />
+      <Paper
+        elevation={4}
         sx={{
           position: "relative",
           margin: "50px auto",
         }}
       >
-        <Paper elevation={4}>
-          <Typography variant="h6" color="text.secondary" sx={{ p: 2 }}>
-            {t("newsDesc")}
-          </Typography>
-        </Paper>
-      </Box>
+        <Typography variant="body1" color="text.secondary" sx={{ p: 2 }}>
+          {t("newsDesc")}
+        </Typography>
+      </Paper>
       <News />
     </Container>
   );

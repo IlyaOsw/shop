@@ -69,12 +69,12 @@ export default function CartButton() {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 
-  const [openModal, setOpenModal] = React.useState(false);
+  const [openModal, setOpenModal] = React.useState<number | null>(null);
   const handleClose = () => setOpen(false);
   const handleOpen = () => setOpen(true);
 
-  const handleCloseModal = () => setOpenModal(false);
-  const handleOpenModal = () => setOpenModal(true);
+  const handleCloseModal = () => setOpenModal(null);
+  const handleOpenModal = (itemId: number) => setOpenModal(itemId);
 
   return (
     <>
@@ -114,82 +114,96 @@ export default function CartButton() {
                   >
                     {t("details")}
                   </TableCell>
-                  <TableCell align="center" sx={{ fontSize: "20px" }}>
+                  <TableCell align="right" sx={{ fontSize: "20px" }}>
                     {t("price")}
                   </TableCell>
                   <TableCell></TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {cart.map((row: any) => (
-                  <TableRow key={row.id}>
-                    <TableCell>{row.title}</TableCell>
-                    <TableCell align="right"></TableCell>
-                    <TableCell align="right">{ccyFormat(row.price)}€</TableCell>
-                    <TableCell align="right">
-                      <Tooltip title={t("delete")}>
-                        <IconButton
-                          aria-label="delete"
-                          color="error"
-                          onClick={handleOpenModal}
-                        >
-                          <DeleteIcon />
-                        </IconButton>
-                      </Tooltip>
-                    </TableCell>
-                    {openModal && (
-                      <Modal
-                        open={openModal}
-                        onClose={handleCloseModal}
-                        aria-labelledby="modal-modal-title"
-                        sx={{ backgroundColor: "rgba(0, 0, 0, 0.1)" }}
-                        hideBackdrop
-                      >
-                        <Box sx={style}>
-                          <Typography
-                            id="modal-modal-title"
-                            variant="h6"
-                            sx={{
-                              textAlign: "center",
-                            }}
+                {cart.map(
+                  (row: {
+                    id: number;
+                    title: string;
+                    price: number;
+                    description: string;
+                    isFavorite: boolean;
+                  }) => (
+                    <TableRow key={row.id}>
+                      <TableCell>
+                        <img
+                          style={{ height: "50px", width: "40px" }}
+                          src={`${process.env.PUBLIC_URL}/Images/Store/${row.description}.jpg`}
+                        />
+                      </TableCell>
+                      <TableCell>{row.title}</TableCell>
+                      <TableCell align="right">
+                        {ccyFormat(row.price)}€
+                      </TableCell>
+                      <TableCell align="right">
+                        <Tooltip title={t("delete")}>
+                          <IconButton
+                            aria-label="delete"
+                            color="error"
+                            onClick={() => handleOpenModal(row.id)}
                           >
-                            {t("confrimDelete")}
-                          </Typography>
-                          <Box
-                            sx={{
-                              display: "flex",
-                              justifyContent: "space-around",
-                              mt: 2,
-                            }}
+                            <DeleteIcon />
+                          </IconButton>
+                        </Tooltip>
+                        {openModal === row.id && (
+                          <Modal
+                            open={true}
+                            onClose={handleCloseModal}
+                            aria-labelledby="modal-modal-title"
+                            sx={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
+                            hideBackdrop
                           >
-                            <Button
-                              variant="outlined"
-                              color="error"
-                              onClick={() => {
-                                removeItem(row.id);
-                                handleCloseModal();
-                              }}
-                            >
-                              {t("yes")}
-                            </Button>
-                            <Button
-                              variant="outlined"
-                              onClick={handleCloseModal}
-                              color="success"
-                            >
-                              {t("no")}
-                            </Button>
-                          </Box>
-                        </Box>
-                      </Modal>
-                    )}
-                  </TableRow>
-                ))}
+                            <Box sx={style}>
+                              <Typography
+                                id="modal-modal-title"
+                                variant="h6"
+                                sx={{
+                                  textAlign: "center",
+                                }}
+                              >
+                                {t("confrimDelete")}
+                              </Typography>
+                              <Box
+                                sx={{
+                                  display: "flex",
+                                  justifyContent: "space-around",
+                                  mt: 2,
+                                }}
+                              >
+                                <Button
+                                  variant="outlined"
+                                  color="error"
+                                  onClick={() => {
+                                    removeItem(row.id);
+                                    handleCloseModal();
+                                  }}
+                                >
+                                  {t("yes")}
+                                </Button>
+                                <Button
+                                  variant="outlined"
+                                  onClick={handleCloseModal}
+                                  color="success"
+                                >
+                                  {t("no")}
+                                </Button>
+                              </Box>
+                            </Box>
+                          </Modal>
+                        )}
+                      </TableCell>
+                    </TableRow>
+                  )
+                )}
                 <TableRow>
                   <TableCell colSpan={2} sx={{ fontSize: "18px" }}>
                     {t("total")}
                   </TableCell>
-                  <TableCell></TableCell>
                   <TableCell align="right" sx={{ fontSize: "18px" }}>
                     {ccyFormat(invoiceTotal)}€
                   </TableCell>

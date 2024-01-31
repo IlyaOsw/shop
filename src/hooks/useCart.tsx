@@ -4,6 +4,8 @@ export type CartItemType = {
   id: number;
   title: string;
   price: number;
+  description: string;
+  isFavorite: boolean;
 };
 
 export type CartContextType = {
@@ -27,7 +29,7 @@ export function CartProvider({ children }: CartProviderPropsType) {
   };
 
   const addItem = (newItem: CartItemType) => {
-    const newItems = [newItem, ...cart];
+    const newItems = [...cart, newItem];
     setCart(newItems);
   };
 
