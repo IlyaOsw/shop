@@ -201,7 +201,7 @@ export default function CartButton() {
                   )
                 )}
                 <TableRow>
-                  <TableCell colSpan={2} sx={{ fontSize: "18px" }}>
+                  <TableCell colSpan={3} sx={{ fontSize: "18px" }}>
                     {t("total")}
                   </TableCell>
                   <TableCell align="right" sx={{ fontSize: "18px" }}>
