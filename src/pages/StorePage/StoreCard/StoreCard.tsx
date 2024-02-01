@@ -71,6 +71,8 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
     const [favorite, setFavorite] = React.useState(false);
     const handleFavorite = () => setFavorite((prev) => !prev);
 
+    const buttonStyle = { height: "30px", width: "140px", marginTop: "5px" };
+
     return (
       <>
         <Paper elevation={3} sx={{ mt: 10 }}>
@@ -103,16 +105,13 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
                 {item.price} €
               </Typography>
             </CardContent>
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
+            <Box sx={{ m: 1.5 }}>
               <Button
+                disableRipple
+                disableTouchRipple
                 variant="outlined"
                 color="success"
-                sx={{ height: "30px" }}
+                sx={{ height: "30px", cursor: "default", borderRadius: "15px" }}
               >
                 {t("inStock")}
                 <CheckCircleOutlineIcon sx={{ ml: 1 }}></CheckCircleOutlineIcon>
@@ -138,7 +137,7 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
                     handleAddToFavorites();
                     handleFavorite();
                   }}
-                  sx={{ height: "30px", width: "140px", marginTop: "5px" }}
+                  sx={buttonStyle}
                 >
                   {t("favorite")}
                   <Checkbox
@@ -153,9 +152,9 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
               {disabled ? (
                 <Button
                   variant="contained"
-                  color="info"
+                  color="success"
                   aria-label="add to shopping cart"
-                  sx={{ height: "30px", width: "130px" }}
+                  sx={buttonStyle}
                 >
                   {t("added")}
                   <Box sx={{ paddingLeft: "2px", paddingTop: "3px" }}>
@@ -166,7 +165,7 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
                 <Tooltip title={t("addToCart")} arrow>
                   <Button
                     variant="contained"
-                    color="success"
+                    color="info"
                     aria-label="add to shopping cart"
                     onClick={() => {
                       handleClick(TransitionUp);
@@ -174,7 +173,7 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
                       addItem(item);
                       disableButton();
                     }}
-                    sx={{ height: "30px", width: "130px", marginTop: "5px" }}
+                    sx={buttonStyle}
                   >
                     {t("add")}
                     <Box

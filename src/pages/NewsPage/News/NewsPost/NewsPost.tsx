@@ -69,6 +69,8 @@ export const NewsPost: React.FC<NewsPostPropsType> = ({
     setIsLiked((prevIsLiked) => !prevIsLiked);
   };
 
+  const countStyle = { cursor: "default", borderRadius: "15px" };
+
   return (
     <>
       <Divider sx={{ m: 5 }}>
@@ -109,7 +111,13 @@ export const NewsPost: React.FC<NewsPostPropsType> = ({
           }}
         >
           <Box>
-            <Button variant="outlined" color="info">
+            <Button
+              disableRipple
+              disableTouchRipple
+              variant="outlined"
+              color="info"
+              sx={countStyle}
+            >
               {likesCount}
             </Button>
             <Tooltip title={t("like")} arrow>
@@ -132,7 +140,13 @@ export const NewsPost: React.FC<NewsPostPropsType> = ({
                 }
               />
             </Tooltip>
-            <Button variant="outlined" color="error">
+            <Button
+              disableRipple
+              disableTouchRipple
+              variant="outlined"
+              color="error"
+              sx={countStyle}
+            >
               {dislikesCount}
             </Button>
           </Box>
