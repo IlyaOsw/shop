@@ -28,17 +28,30 @@ const ClientsPage: React.FC = React.memo(() => {
         <Box
           sx={{
             position: "relative",
-            maxWidth: "600px",
+            maxWidth: "500px",
           }}
         >
           <Paper elevation={4}>
-            <Typography variant="h6" color="text.secondary" sx={{ p: 1, m: 1 }}>
+            <Typography variant="body1" color="text.secondary" sx={{ p: 1 }}>
               {t("clientsSubTitle")}
             </Typography>
           </Paper>
           <Paper elevation={4}>
-            <Typography variant="h6" color="text.secondary" sx={{ p: 1, m: 1 }}>
+            <Typography
+              variant="body1"
+              color="text.secondary"
+              sx={{ p: 1, mt: 5 }}
+            >
               {t("clientsSubTitle2")}
+            </Typography>
+          </Paper>
+          <Paper elevation={4}>
+            <Typography
+              variant="body1"
+              color="text.secondary"
+              sx={{ p: 1, mt: 5 }}
+            >
+              {t("clientsSubTitle3")}
             </Typography>
           </Paper>
         </Box>

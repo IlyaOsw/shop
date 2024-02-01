@@ -47,9 +47,7 @@ const style = {
   width: 400,
   bgcolor: "background.paper",
   border: "1px solid #000",
-  pt: 2,
-  px: 4,
-  pb: 3,
+  p: 5,
 };
 
 export default function CartButton() {
@@ -172,25 +170,25 @@ export default function CartButton() {
                                 sx={{
                                   display: "flex",
                                   justifyContent: "space-around",
-                                  mt: 2,
+                                  mt: 4,
                                 }}
                               >
                                 <Button
                                   variant="outlined"
+                                  onClick={handleCloseModal}
+                                  color="primary"
+                                >
+                                  {t("cancel")}
+                                </Button>
+                                <Button
+                                  variant="contained"
                                   color="error"
                                   onClick={() => {
                                     removeItem(row.id);
                                     handleCloseModal();
                                   }}
                                 >
-                                  {t("yes")}
-                                </Button>
-                                <Button
-                                  variant="outlined"
-                                  onClick={handleCloseModal}
-                                  color="success"
-                                >
-                                  {t("no")}
+                                  {t("delete")}
                                 </Button>
                               </Box>
                             </Box>

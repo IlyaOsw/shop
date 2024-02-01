@@ -65,6 +65,7 @@ const LanguageToggle: React.FC = React.memo(() => {
         variant="contained"
         ref={anchorRef}
         aria-label="split button"
+        color="info"
       >
         <Button>{t(options[selectedIndex].label)}</Button>
         <Button

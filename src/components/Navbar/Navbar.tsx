@@ -177,8 +177,8 @@ export default function MiniDrawer() {
             {navbarData.map(
               (
                 item: {
-                  id: React.Key | null;
-                  label: any | string | string[];
+                  id: number;
+                  label: string;
                 },
                 index: number
               ) => (

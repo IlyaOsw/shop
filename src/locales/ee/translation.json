@@ -31,7 +31,7 @@
 	"aboutTitle2": "Investeeringud tulevikku",
 	"aboutInfo2": "Toetame kaasaegsete tehnoloogiate arengut teie heaks.",
 	"aboutTitle3": "Tehnoloogiate ees",
-	"aboutInfo3": "Loome tuleviku teie keskmes koostöös.",
+	"aboutInfo3": "Loome tuleviku teie keskmes koostöös ja innovatsioonis.",
 	"aboutTitle4": "Energia teie seadmetele",
 	"aboutInfo4": "Tehnoloogiad, mis innustavad teie elu.",
 	"description": "Kirjeldus",
@@ -84,6 +84,7 @@
 	"clientsTitle": "Ärikliendid: Ettevõtete Ostjate Loend E-poe",
 	"clientsSubTitle": "Tere tulemast meie püsiklientide kontaktilehele e-poes, kus pakume laias valikus telefone, kellasid ja kõrvaklappe. Allpool on loetletud usaldusväärsete ettevõtete ostjad, kes aktiivselt koostööd teevad.",
 	"clientsSubTitle2": "Nende usaldus on oluline osa meie edust ning me püüame tagada kõrgeima teenindustaseme, et toetada pikaajalisi partnerlussuhteid. Kutsume teid tutvuma meie ettevõtte partneritega ja saama rohkem teavet selle kohta, kuidas meie tooted ja teenused vastavad kõrgetele äristandarditele ja nõuetele.",
+	"clientsSubTitle3": "Julgelt uurige meie äripartnereid ja nende arvustusi. Oleme pühendunud avatud suhtluse hoidmisele meie klientidega. Kui teil on küsimusi või erisoove, on meie pühendunud klienditoe meeskond siin, et teid kiiresti aidata. Aitäh, et valisite meid oma äritehnoloogia pakkuja.",
 	"clientsDescription": "Ärge kartke võtta ühendust nende ettevõtete esindajatega, et selgitada välja tellimuste detaile, arutada uusi tooteid või muid küsimusi meie tootevaliku kohta. Oleme tänulikud teie pikaajalise koostöö ja huvi eest meie e-poe vastu.",
 	"newsTitle": "Uudised ja Trendid: Kaasaegsete Tehnoloogiate ja Stiilsete Aksessuaaride Maailmas",
 	"newsDesc": "Ole kursis viimaste sündmuste ja suundumustega kellade, telefonide ja kõrvaklappide maailmas! Meie veebipoest leiad kõige värskemad uuendused, uute toodete väljakuulutamised, haaravad tehnoloogilised saavutused ja stiilsed aksessuaarid. Sukeldu innovatsioonide maailma, jälgi viimaseid arenguid ja jaga oma arvamust kaasaegsete tehnoloogiate huviliste kogukonnaga. Sind ootavad põnevad uudised, mis lisavad sinu ellu stiili ja funktsionaalsust. Ole sündmuste keskpunktis koos meiega!",
@@ -156,5 +157,6 @@
 	"body12" : "DEF tutvustab oma viimast virtuaalse reaalsuse peakomplekti, pakkudes kasutajatele sukeldumist mängudesse, simulatsioonidesse ja virtuaalsetesse reisidesse.",
 	"confrimDelete": "Kas olete kindel, et soovite toote eemaldada?",
     "no": "Ei",
-    "Yes": "Jah"
+    "Yes": "Jah",
+	"inStock": "Laos"
 }

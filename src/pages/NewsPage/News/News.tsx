@@ -13,6 +13,7 @@ export type NewsPostPropsType = {
   dislikes: number;
   additionalText1: string;
   additionalText2: string;
+  postDate: string;
 };
 
 export const News: React.FC = () => {

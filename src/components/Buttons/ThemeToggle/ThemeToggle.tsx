@@ -58,7 +58,7 @@ export type ThemeType = {
 
 export const ThemeToggle: React.FC<ThemeType> = ({ toggleDarkMode }) => {
   return (
-    <Button variant="contained" sx={{ height: "36px" }}>
+    <Button variant="contained" color="info" sx={{ height: "36px" }}>
       <FormControlLabel
         label={t("Theme")}
         control={<MaterialUISwitch onClick={toggleDarkMode} />}

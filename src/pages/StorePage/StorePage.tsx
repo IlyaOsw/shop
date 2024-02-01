@@ -7,7 +7,7 @@ const StorePage: React.FC = React.memo(() => {
   const { t } = useTranslation();
 
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="xl" sx={{ mb: 10 }}>
       <Typography
         variant="h5"
         textAlign={"center"}

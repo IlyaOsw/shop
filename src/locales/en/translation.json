@@ -31,7 +31,7 @@
     "aboutTitle2": "Investing in the future",
     "aboutInfo2": "Supporting the development of modern technologies for you.",
     "aboutTitle3": "Ahead of technologies",
-    "aboutInfo3": "Creating the future with you together.",
+    "aboutInfo3": "Creating the future at the heart of collaboration and innovation.",
     "aboutTitle4": "Energy for your devices",
     "aboutInfo4": "Transformative technologies that inspire your life.",
     "description": "Description",
@@ -84,6 +84,7 @@
     "clientsTitle": "Business Clients: List of Company Buyers in E-Store",
     "clientsSubTitle": "Welcome to the contacts page of our regular business clients in the online store, where we offer a wide range of phones, watches, and headphones. Below is a list of reliable company buyers actively collaborating with us.",
     "clientsSubTitle2": "Their trust is a crucial part of our success, and we strive to provide the highest level of service to foster long-term partnerships. We invite you to explore our corporate partners and learn more about how our products and services meet high business standards and requirements.",
+    "clientsSubTitle3": "Feel free to explore our corporate partners and their testimonials. We are committed to maintaining open communication with our clients. If you have any inquiries or special requests, our dedicated customer support team is here to assist you promptly. Thank you for choosing us as your business technology provider.",
     "clientsDescription": "Feel free to contact representatives of these companies to clarify order details, discuss new products, or any other questions regarding our product range. We appreciate your long-term partnership and interest in our store.",
     "newsTitle": "News and Trends: In the World of Modern Technologies and Stylish Accessories",
     "newsDesc": "Stay updated on the latest events and trends in the world of watches, phones, and headphones! On the news page of our online store, you will find the freshest updates, announcements of new products, captivating technological achievements, and stylish accessories. Immerse yourself in the world of innovations, keep track of the latest developments, and share your opinion with the community of modern technology enthusiasts. Exciting news awaits you, adding a touch of style and functionality to your life. Be at the center of events with us!",
@@ -154,8 +155,9 @@
     "body10" : "XYZ announces the launch of its latest tablet, packed with innovative features and a stunning display for an enhanced multimedia experience.",
     "body11" : "ABC introduces a comprehensive home security system, featuring smart cameras, sensors, and a user-friendly interface for enhanced protection and peace of mind.",
     "body12" : "DEF introduces its latest virtual reality headset, providing users with immersive experiences in gaming, simulations, and virtual travel.",
-    "confrimDelete": "Are you sure that you want to delete?",
+    "confrimDelete": "Are you sure to delete this item?",
     "no": "No",
-    "Yes": "Yes"
+    "yes": "Yes",
+    "inStock": "In stock"
 }
    

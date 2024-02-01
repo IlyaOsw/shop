@@ -1,7 +1,6 @@
 .contacts {
   display: flex;
   align-items: center;
-  justify-content: center;
   .links {
     text-decoration: none;
     letter-spacing: 2px;
@@ -28,5 +27,10 @@
       right: initial;
       left: 0;
     }
+  }
+}
+@media (max-width: 600px) {
+  .contacts {
+    margin-top: -10px;
   }
 }

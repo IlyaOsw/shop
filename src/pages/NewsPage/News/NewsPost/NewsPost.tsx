@@ -10,7 +10,7 @@ import {
   Divider,
 } from "@mui/material";
 import FormDialog from "../../../../components/FormDialog/FormDialog";
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { useTranslation } from "react-i18next";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
@@ -32,6 +32,7 @@ export const NewsPost: React.FC<NewsPostPropsType> = ({
   dislikes,
   additionalText1,
   additionalText2,
+  postDate,
 }) => {
   const { t } = useTranslation();
   const [expanded, setExpanded] = React.useState(false);
@@ -95,6 +96,11 @@ export const NewsPost: React.FC<NewsPostPropsType> = ({
             {t(body)}
           </Typography>
         </CardContent>
+        <Box sx={{ ml: 2 }}>
+          <Typography variant="body2" color="text.secondary">
+            {postDate}
+          </Typography>
+        </Box>
         <Box
           sx={{
             display: "flex",
@@ -165,7 +171,7 @@ export const NewsPost: React.FC<NewsPostPropsType> = ({
                     color="secondary"
                     sx={{ marginLeft: "5px" }}
                   >
-                    <KeyboardArrowRightIcon />
+                    <KeyboardArrowDownIcon />
                     {t("learnMore")}
                   </Button>
                 </Tooltip>

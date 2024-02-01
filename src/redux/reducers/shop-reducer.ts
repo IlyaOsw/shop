@@ -1,9 +1,9 @@
 const initialState = [
   {
     id: 0,
-    title: "Apple iPhone 15 Pro Max",
-    price: 1489.0,
-    description: "iphone15promax",
+    title: "Apple iPhone 15 Pro",
+    price: 1199.0,
+    description: "iphone15pro",
     isFavorite: false,
   },
   {
@@ -22,9 +22,9 @@ const initialState = [
   },
   {
     id: 3,
-    title: "Apple iPhone 14 Pro Max",
-    price: 1649.0,
-    description: "iphone14promax",
+    title: "Apple iPhone XS Max",
+    price: 339.0,
+    description: "iphonexs",
     isFavorite: false,
   },
   {
@@ -36,7 +36,7 @@ const initialState = [
   },
   {
     id: 5,
-    title: "Apple iPhone 15 128GB",
+    title: "Apple iPhone 15",
     price: 949.0,
     description: "iphone15",
     isFavorite: false,
@@ -64,9 +64,9 @@ const initialState = [
   },
   {
     id: 9,
-    title: "Google Pixel Watch LTE",
-    price: 449.0,
-    description: "googlepixel",
+    title: "Samsung Watch 5",
+    price: 299.0,
+    description: "galaxywatch5",
     isFavorite: false,
   },
   {
@@ -78,7 +78,7 @@ const initialState = [
   },
   {
     id: 11,
-    title: "Samsung Galaxy Flip5 5G",
+    title: "Samsung Galaxy Flip5",
     price: 829.0,
     description: "galaxyflip",
     isFavorite: false,
@@ -92,16 +92,16 @@ const initialState = [
   },
   {
     id: 13,
-    title: "Technics headphones",
-    price: 309.0,
-    description: "Technics",
+    title: "Apple AirPods 2",
+    price: 159.0,
+    description: "airpods2",
     isFavorite: false,
   },
   {
     id: 14,
-    title: "Lenovo Tab M9",
-    price: 119.0,
-    description: "lenovo",
+    title: "Samsung Galaxy S23",
+    price: 699.0,
+    description: "samsungs23",
     isFavorite: false,
   },
   {

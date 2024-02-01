@@ -17,6 +17,7 @@ import { Box, Button, Paper } from "@mui/material";
 import { useCart } from "../../../hooks/useCart";
 import DoneIcon from "@mui/icons-material/Done";
 import { StoreCardProps } from "../Filter/Filter";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
 type TransitionProps = Omit<SlideProps, "direction">;
 
@@ -72,12 +73,12 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
 
     return (
       <>
-        <Paper elevation={3} sx={{ m: 3 }}>
+        <Paper elevation={3} sx={{ mt: 10 }}>
           <Card
             key={item.id}
             sx={{
               position: "relative",
-              maxWidth: "300px",
+              maxWidth: "305px",
             }}
           >
             <CardMedia
@@ -92,7 +93,7 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
             />
             <CardContent
               sx={{
-                height: "95px",
+                height: "85px",
               }}
             >
               <Typography variant="h6" color="text.secondary">
@@ -102,15 +103,27 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
                 {item.price} €
               </Typography>
             </CardContent>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <Button
+                variant="outlined"
+                color="success"
+                sx={{ height: "30px" }}
+              >
+                {t("inStock")}
+                <CheckCircleOutlineIcon sx={{ ml: 1 }}></CheckCircleOutlineIcon>
+              </Button>
+            </Box>
             <CardActions
               disableSpacing
               sx={{
-                width: "100%",
                 display: "flex",
-                justifyContent: "center",
+                justifyContent: "space-around",
                 alignItems: "flex-end",
-                flexWrap: "wrap",
-                height: "100px",
               }}
             >
               <Tooltip title={t("addToFavorites")} arrow placement="top">
@@ -125,10 +138,11 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
                     handleAddToFavorites();
                     handleFavorite();
                   }}
-                  sx={{ height: "35px", width: "100%" }}
+                  sx={{ height: "30px", width: "140px", marginTop: "5px" }}
                 >
                   {t("favorite")}
                   <Checkbox
+                    sx={{ marginLeft: "-5px" }}
                     {...label}
                     icon={<FavoriteBorder color="secondary" />}
                     checkedIcon={<Favorite color="secondary" />}
@@ -138,20 +152,20 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
               </Tooltip>
               {disabled ? (
                 <Button
-                  variant="outlined"
+                  variant="contained"
                   color="info"
                   aria-label="add to shopping cart"
-                  sx={{ width: "100%", height: "35px" }}
+                  sx={{ height: "30px", width: "130px" }}
                 >
-                  <Typography>{t("added")}</Typography>
-                  <Box sx={{ paddingLeft: "5px" }}>
+                  {t("added")}
+                  <Box sx={{ paddingLeft: "2px", paddingTop: "3px" }}>
                     <DoneIcon />
                   </Box>
                 </Button>
               ) : (
                 <Tooltip title={t("addToCart")} arrow>
                   <Button
-                    variant="outlined"
+                    variant="contained"
                     color="success"
                     aria-label="add to shopping cart"
                     onClick={() => {
@@ -160,10 +174,15 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
                       addItem(item);
                       disableButton();
                     }}
-                    sx={{ width: "100%", height: "35px" }}
+                    sx={{ height: "30px", width: "130px", marginTop: "5px" }}
                   >
-                    <Typography>{t("add")}</Typography>
-                    <Box sx={{ paddingLeft: "5px", paddingTop: "8px" }}>
+                    {t("add")}
+                    <Box
+                      sx={{
+                        paddingLeft: "3px",
+                        paddingTop: "8px",
+                      }}
+                    >
                       <AddShoppingCartIcon />
                     </Box>
                   </Button>
