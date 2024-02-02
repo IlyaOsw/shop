@@ -23,6 +23,7 @@ export interface StoreCardProps {
     price: number;
     description: string;
     isFavorite: boolean;
+    isStock: boolean;
   };
   index: number;
   toggleFavorite: (productId: number) => void;

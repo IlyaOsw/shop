@@ -5,6 +5,7 @@ const initialState = [
     price: 1199.0,
     description: "iphone15pro",
     isFavorite: false,
+    isStock: true,
   },
   {
     id: 1,
@@ -12,6 +13,7 @@ const initialState = [
     price: 649.0,
     description: "applewatch8",
     isFavorite: false,
+    isStock: true,
   },
   {
     id: 2,
@@ -19,6 +21,7 @@ const initialState = [
     price: 199.0,
     description: "airpods3",
     isFavorite: false,
+    isStock: true,
   },
   {
     id: 3,
@@ -26,6 +29,7 @@ const initialState = [
     price: 339.0,
     description: "iphonexs",
     isFavorite: false,
+    isStock: false,
   },
   {
     id: 4,
@@ -33,6 +37,7 @@ const initialState = [
     price: 899.0,
     description: "applewatch9",
     isFavorite: false,
+    isStock: true,
   },
   {
     id: 5,
@@ -40,6 +45,7 @@ const initialState = [
     price: 949.0,
     description: "iphone15",
     isFavorite: false,
+    isStock: true,
   },
   {
     id: 6,
@@ -47,6 +53,7 @@ const initialState = [
     price: 279.0,
     description: "airpods2gen",
     isFavorite: false,
+    isStock: false,
   },
   {
     id: 7,
@@ -54,6 +61,7 @@ const initialState = [
     price: 869.0,
     description: "applewatchultra",
     isFavorite: false,
+    isStock: true,
   },
   {
     id: 8,
@@ -61,6 +69,7 @@ const initialState = [
     price: 649.0,
     description: "iphone12promax",
     isFavorite: false,
+    isStock: true,
   },
   {
     id: 9,
@@ -68,6 +77,7 @@ const initialState = [
     price: 299.0,
     description: "galaxywatch5",
     isFavorite: false,
+    isStock: false,
   },
   {
     id: 10,
@@ -75,6 +85,7 @@ const initialState = [
     price: 799.0,
     description: "iphone13pro",
     isFavorite: false,
+    isStock: true,
   },
   {
     id: 11,
@@ -82,6 +93,7 @@ const initialState = [
     price: 829.0,
     description: "galaxyflip",
     isFavorite: false,
+    isStock: true,
   },
   {
     id: 12,
@@ -89,6 +101,7 @@ const initialState = [
     price: 979.0,
     description: "iphone14plus",
     isFavorite: false,
+    isStock: false,
   },
   {
     id: 13,
@@ -96,6 +109,7 @@ const initialState = [
     price: 159.0,
     description: "airpods2",
     isFavorite: false,
+    isStock: true,
   },
   {
     id: 14,
@@ -103,6 +117,7 @@ const initialState = [
     price: 699.0,
     description: "samsungs23",
     isFavorite: false,
+    isStock: true,
   },
   {
     id: 15,
@@ -110,6 +125,7 @@ const initialState = [
     price: 279.0,
     description: "applewatchse",
     isFavorite: false,
+    isStock: true,
   },
 ];
 

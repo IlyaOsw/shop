@@ -5,7 +5,7 @@ import Description from "./Description/Description";
 import Feedback from "./Feedback/Feedback";
 import About from "./About/About";
 import { useTranslation } from "react-i18next";
-import Paper from "@mui/material/Paper";
+import { Logos } from "./Logos/Logos";
 
 const Main: React.FC = React.memo(() => {
   const { t } = useTranslation();
@@ -25,16 +25,8 @@ const Main: React.FC = React.memo(() => {
         <Card />
       </Box>
       <Description />
-      <Paper
-        elevation={4}
-        sx={{
-          display: "flex",
-          mt: 5,
-          position: "relative",
-        }}
-      >
-        <About />
-      </Paper>
+      <Logos />
+      <About />
       <Feedback />
     </Container>
   );

@@ -158,5 +158,9 @@
 	"confrimDelete": "Kas olete kindel, et soovite toote eemaldada?",
     "no": "Ei",
     "Yes": "Jah",
-	"inStock": "Laos"
+	"inStock": "Laos",
+	"inStockTip": "Toode on laos",
+	"outOfStock": "Läbimüüdud",
+	"outOfStockTip": "Toodet pole laos",
+	"ourPartners": "Meie partnerid"
 }

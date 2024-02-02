@@ -35,8 +35,8 @@ const AboutBlocks: React.FC = () => {
           key={item.id}
           sx={{
             textAlign: "start",
-            maxWidth: "350px",
-            padding: "5px",
+            maxWidth: "300px",
+            padding: "10px",
           }}
         >
           <MoreHorizIcon />

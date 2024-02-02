@@ -18,6 +18,7 @@ import { useCart } from "../../../hooks/useCart";
 import DoneIcon from "@mui/icons-material/Done";
 import { StoreCardProps } from "../Filter/Filter";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
 type TransitionProps = Omit<SlideProps, "direction">;
 
@@ -106,16 +107,41 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
               </Typography>
             </CardContent>
             <Box sx={{ m: 1.5 }}>
-              <Button
-                disableRipple
-                disableTouchRipple
-                variant="outlined"
-                color="success"
-                sx={{ height: "30px", cursor: "default", borderRadius: "15px" }}
-              >
-                {t("inStock")}
-                <CheckCircleOutlineIcon sx={{ ml: 1 }}></CheckCircleOutlineIcon>
-              </Button>
+              {item.isStock ? (
+                <Tooltip title={t("inStockTip")} arrow placement="right">
+                  <Button
+                    disableRipple
+                    disableTouchRipple
+                    variant="outlined"
+                    color="success"
+                    sx={{
+                      height: "30px",
+                      cursor: "default",
+                      borderRadius: "15px",
+                    }}
+                  >
+                    {t("inStock")}
+                    <CheckCircleOutlineIcon sx={{ ml: 1 }} />
+                  </Button>
+                </Tooltip>
+              ) : (
+                <Tooltip title={t("outOfStockTip")} arrow placement="right">
+                  <Button
+                    disableRipple
+                    disableTouchRipple
+                    variant="contained"
+                    color="error"
+                    sx={{
+                      height: "30px",
+                      cursor: "default",
+                      borderRadius: "15px",
+                    }}
+                  >
+                    {t("outOfStock")}
+                    <HighlightOffIcon sx={{ ml: 1 }} />
+                  </Button>
+                </Tooltip>
+              )}
             </Box>
             <CardActions
               disableSpacing
@@ -125,7 +151,7 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
                 alignItems: "flex-end",
               }}
             >
-              <Tooltip title={t("addToFavorites")} arrow placement="top">
+              <Tooltip title={t("addToFavorites")} arrow>
                 <Button
                   color="secondary"
                   variant="outlined"
@@ -157,6 +183,19 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
                   sx={buttonStyle}
                 >
                   {t("added")}
+                  <Box sx={{ paddingLeft: "2px", paddingTop: "3px" }}>
+                    <DoneIcon />
+                  </Box>
+                </Button>
+              ) : !item.isStock ? (
+                <Button
+                  variant="outlined"
+                  color="success"
+                  disabled
+                  aria-label="add to shopping cart"
+                  sx={buttonStyle}
+                >
+                  {t("add")}
                   <Box sx={{ paddingLeft: "2px", paddingTop: "3px" }}>
                     <DoneIcon />
                   </Box>

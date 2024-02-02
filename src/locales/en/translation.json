@@ -158,6 +158,10 @@
     "confrimDelete": "Are you sure to delete this item?",
     "no": "No",
     "yes": "Yes",
-    "inStock": "In stock"
+    "inStock": "In stock",
+    "inStockTip": "Product is in stock",
+    "outOfStock": "Out of stock",
+    "outOfStockTip": "Product is out of stock",
+    "ourPartners": "Our partners"
 }
    
