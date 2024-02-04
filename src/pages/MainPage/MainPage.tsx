@@ -6,11 +6,13 @@ import Feedback from "./Feedback/Feedback";
 import About from "./About/About";
 import { useTranslation } from "react-i18next";
 import { Logos } from "./Logos/Logos";
+import { CustomSkeleton } from "../../components/CustomSkeleton/CustomSkeleton";
 
 const Main: React.FC = React.memo(() => {
   const { t } = useTranslation();
   return (
     <Container maxWidth="xl">
+      {/* <CustomSkeleton /> */}
       <Typography variant="h5" sx={{ m: 3, textAlign: "center" }}>
         {t("welcome")}
       </Typography>

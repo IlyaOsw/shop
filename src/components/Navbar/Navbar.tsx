@@ -24,7 +24,7 @@ import { ThemeToggle } from "../Buttons/ThemeToggle/ThemeToggle";
 import LanguageToggle from "../Buttons/LanguageToggle/LanguageToggle";
 import { Link } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
-import Routing from "../../routes/Routing";
+import { Routing } from "../../routes/Routing";
 import FAQButton from "../Buttons/FAQButton/FAQButton";
 import Particle from "../../assets/Particle";
 import { useTranslation } from "react-i18next";

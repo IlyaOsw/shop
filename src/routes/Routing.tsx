@@ -1,17 +1,16 @@
 import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import Preloader from "../components/Preloader/Preloader";
 import StorePage from "../pages/StorePage/StorePage";
-
+import { CustomSkeleton } from "../components/CustomSkeleton/CustomSkeleton";
 const MainPage = React.lazy(() => import("../pages/MainPage/MainPage"));
 const NewsPage = React.lazy(() => import("../pages/NewsPage/NewsPage"));
 const ClientsPage = React.lazy(
   () => import("../pages/ClientsPage/ClientsPage")
 );
 
-const Routing: React.FC = () => {
+export const Routing: React.FC = () => {
   return (
-    <Suspense fallback={<Preloader />}>
+    <Suspense fallback={<CustomSkeleton />}>
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/home" element={<MainPage />} />
@@ -22,5 +21,3 @@ const Routing: React.FC = () => {
     </Suspense>
   );
 };
-
-export default Routing;

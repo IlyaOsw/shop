@@ -14,7 +14,6 @@ const cards: { id: number; label: Cards; description: string }[] = [
   { id: 0, label: Cards.CARD1, description: "cardInfo1" },
   { id: 1, label: Cards.CARD2, description: "cardInfo2" },
 ];
-
 export default function MainCard() {
   return (
     <>

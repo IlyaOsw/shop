@@ -37,11 +37,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
 export function Media(props: any) {
   const { loading = false, children } = props;
 
-  return (
-    <Card sx={{ maxWidth: 345, m: 2 }}>
-      {loading ? <>{children}</> : <>{children}</>}
-    </Card>
-  );
+  return <Card sx={{ maxWidth: 345, m: 2 }}>{loading && <>{children}</>}</Card>;
 }
 
 export const StoreCard: React.FC<StoreCardProps> = React.memo(
