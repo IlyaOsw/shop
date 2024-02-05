@@ -9,7 +9,7 @@ import Popper from "@mui/material/Popper";
 import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import PublicIcon from "@mui/icons-material/Public";
-import i18n from "../../../i18n";
+import i18n from "../../i18n";
 import { useTranslation } from "react-i18next";
 
 enum Locales {
@@ -25,9 +25,8 @@ const options: { id: number; label: Locales }[] = [
   { id: 1, label: Locales.RU },
   { id: 2, label: Locales.EE },
 ];
-const LanguageToggle: React.FC = React.memo(() => {
+export const LanguageToggle: React.FC = React.memo(() => {
   const { t } = useTranslation();
-
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef<HTMLDivElement>(null);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -45,10 +44,7 @@ const LanguageToggle: React.FC = React.memo(() => {
     changeLanguage(options[index].label);
   };
 
-  const handleToggle = () => {
-    setOpen((prevOpen) => !prevOpen);
-  };
-
+  const handleToggle = () => setOpen((prevOpen) => !prevOpen);
   const handleClose = (event: Event) => {
     if (
       anchorRef.current &&
@@ -126,4 +122,3 @@ const LanguageToggle: React.FC = React.memo(() => {
     </>
   );
 });
-export default LanguageToggle;

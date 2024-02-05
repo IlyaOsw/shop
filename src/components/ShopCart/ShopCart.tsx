@@ -7,12 +7,12 @@ import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import CloseButton from "../CloseButton/CloseButton";
+import { CloseButton } from "../CloseButton/CloseButton";
 import { useTranslation } from "react-i18next";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Badge from "@mui/material/Badge";
 import Tooltip from "@mui/material/Tooltip";
-import { useCart } from "../../../hooks/useCart";
+import { useCart } from "../../hooks/useCart";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
@@ -26,9 +26,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 
-const ccyFormat = (num: number) => {
-  return `${num.toFixed(2)}`;
-};
+const ccyFormat = (num: number) => `${num.toFixed(2)}`;
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -50,27 +48,23 @@ const style = {
   p: 5,
 };
 
-export default function CartButton() {
+export const ShopCart: React.FC = () => {
   const { t } = useTranslation();
-
+  const theme = useTheme();
   //@ts-ignore
   const { cart, removeItem } = useCart();
-  const invoiceTotal = total(cart);
+  const [open, setOpen] = React.useState(false);
+  const [openModal, setOpenModal] = React.useState<number | null>(null);
+  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 
-  function total(items: any) {
+  const total = (items: any) => {
     return items.reduce((acc: number, item: { price: number }) => {
       return acc + item.price;
     }, 0);
-  }
-
-  const [open, setOpen] = React.useState(false);
-  const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
-
-  const [openModal, setOpenModal] = React.useState<number | null>(null);
+  };
+  const invoiceTotal = total(cart);
   const handleClose = () => setOpen(false);
   const handleOpen = () => setOpen(true);
-
   const handleCloseModal = () => setOpenModal(null);
   const handleOpenModal = (itemId: number) => setOpenModal(itemId);
 
@@ -213,4 +207,4 @@ export default function CartButton() {
       </Dialog>
     </>
   );
-}
+};

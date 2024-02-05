@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./Footer.module.scss";
-import Links from "./Links/Links";
+import { Links } from "./Links/Links";
 import { Box, Typography } from "@mui/material";
-import Contacts from "./Contacts/Contacts";
+import { Contacts } from "./Contacts/Contacts";
 
 const Footer: React.FC = () => {
   return (

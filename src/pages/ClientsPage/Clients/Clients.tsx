@@ -1,10 +1,10 @@
 import { Box } from "@mui/material";
 import React from "react";
-import ClientInfo from "./ClientInfo/ClientInfo";
+import { ClientInfo } from "./ClientInfo/ClientInfo";
 import { useSelector } from "react-redux";
 import { ClientsType } from "../../../redux/reducers/clients-reducer";
 
-const Clients: React.FC = React.memo(() => {
+export const Clients: React.FC = React.memo(() => {
   const clientsData = useSelector(
     (state: { clients: ClientsType }) => state.clients
   );
@@ -18,10 +18,9 @@ const Clients: React.FC = React.memo(() => {
       }}
     >
       {clientsData.map((user: any) => (
+        //@ts-ignore
         <ClientInfo key={user.id} user={user} />
       ))}
     </Box>
   );
 });
-
-export default Clients;

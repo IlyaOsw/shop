@@ -9,7 +9,7 @@ import {
   Box,
   Divider,
 } from "@mui/material";
-import FormDialog from "../../../../components/FormDialog/FormDialog";
+import { FormDialog } from "../../../../components/FormDialog/FormDialog";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { useTranslation } from "react-i18next";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
@@ -36,16 +36,13 @@ export const NewsPost: React.FC<NewsPostPropsType> = ({
 }) => {
   const { t } = useTranslation();
   const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
-
   const [likesCount, setLikesCount] = useState(likes);
   const [dislikesCount, setDislikesCount] = useState(dislikes);
   const [dislikeButtonDisabled, setDislikeButtonDisabled] = useState(false);
   const [likeButtonDisabled, setLikeButtonDisabled] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
+
+  const handleExpandClick = () => setExpanded(!expanded);
 
   const toggleLike = () => {
     if (isLiked) {

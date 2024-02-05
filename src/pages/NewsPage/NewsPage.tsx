@@ -7,6 +7,7 @@ import { News } from "./News/News";
 
 const NewsPage: React.FC = React.memo(() => {
   const { t } = useTranslation();
+
   return (
     <Container maxWidth="xl">
       <Typography variant="h5" textAlign={"center"} sx={{ m: 3 }}>

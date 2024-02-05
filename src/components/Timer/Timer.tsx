@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import { Box } from "@mui/material";
 
-export default function Timer() {
+export const Timer: React.FC = () => {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -22,4 +22,4 @@ export default function Timer() {
       </Button>
     </Stack>
   );
-}
+};

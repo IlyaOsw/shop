@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Paper, Typography } from "@mui/material";
-import AboutBlocks from "./AboutBlocks/AboutBlocks";
+import { AboutBlocks, AboutInfo, AboutTitle } from "./AboutBlocks/AboutBlocks";
 import { useTranslation } from "react-i18next";
 
 const MainAbout: React.FC = () => {
@@ -20,7 +20,13 @@ const MainAbout: React.FC = () => {
           alignItems: "center",
         }}
       >
-        <AboutBlocks />
+        <AboutBlocks
+          item={{
+            id: 0,
+            label: AboutTitle.TITLE1,
+            description: AboutInfo.INFO1,
+          }}
+        />
       </Paper>
     </Container>
   );

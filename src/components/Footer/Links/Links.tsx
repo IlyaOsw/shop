@@ -1,6 +1,6 @@
-import React from "react";
 import styles from "./Links.module.scss";
 import { Box, Typography } from "@mui/material";
+import React from "react";
 import { useTranslation } from "react-i18next";
 
 enum SocialLinks {
@@ -32,7 +32,7 @@ const links: { id: number; url: string; label: SocialLinks }[] = [
   },
 ];
 
-const FooterLinks: React.FC = () => {
+export const Links: React.FC = () => {
   const { t } = useTranslation();
 
   return (
@@ -58,5 +58,3 @@ const FooterLinks: React.FC = () => {
     </Box>
   );
 };
-
-export default FooterLinks;

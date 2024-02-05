@@ -18,15 +18,15 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import FeedIcon from "@mui/icons-material/Feed";
-import CartButton from "../Buttons/CartButton/CartButton";
-import LoginButton from "../Buttons/LoginButton/LoginButton";
-import { ThemeToggle } from "../Buttons/ThemeToggle/ThemeToggle";
-import LanguageToggle from "../Buttons/LanguageToggle/LanguageToggle";
+import { ShopCart } from "../ShopCart/ShopCart";
+import { Login } from "../Login/Login";
+import { ThemeToggle } from "../ThemeToggle/ThemeToggle";
+import { LanguageToggle } from "../LanguageToggle/LanguageToggle";
 import { Link } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import { Routing } from "../../routes/Routing";
-import FAQButton from "../Buttons/FAQButton/FAQButton";
-import Particle from "../../assets/Particle";
+import { FAQ } from "../FAQ/FAQ";
+import { Particle } from "../Particle/Particle";
 import { useTranslation } from "react-i18next";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import { useSelector } from "react-redux";
@@ -111,25 +111,19 @@ const generalIcons = [
   <FeedIcon />,
   <AccountCircleIcon />,
 ];
-const headerIcons = [<CartButton />, <LoginButton />, <FAQButton />];
+const headerIcons = [<ShopCart />, <Login />, <FAQ />];
 
-export default function MiniDrawer() {
+export const Navbar: React.FC = () => {
   const { t } = useTranslation();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-
+  const [darkMode, setDarkMode] = React.useState(false);
   const navbarData = useSelector(
     (state: { navbar: NavbarType }) => state.navbar
   );
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
 
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
-
-  const [darkMode, setDarkMode] = React.useState(false);
+  const handleDrawerOpen = () => setOpen(true);
+  const handleDrawerClose = () => setOpen(false);
   const toggleDarkMode = () => setDarkMode(!darkMode);
 
   return (
@@ -247,4 +241,4 @@ export default function MiniDrawer() {
       </Box>
     </CartProvider>
   );
-}
+};

@@ -4,7 +4,6 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import EmailIcon from "@mui/icons-material/Email";
 import styles from "./Contacts.module.scss";
 import { t } from "i18next";
-import React from "react";
 
 enum Contact {
   LOCATION = "location",
@@ -42,7 +41,7 @@ const icons = [
   <EmailIcon fontSize="large" color="action" />,
 ];
 
-const Contacts: React.FC = () => {
+export const Contacts: React.FC = () => {
   return (
     <>
       {contacts.map((item, index) => (
@@ -60,5 +59,3 @@ const Contacts: React.FC = () => {
     </>
   );
 };
-
-export default Contacts;

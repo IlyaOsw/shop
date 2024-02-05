@@ -7,7 +7,6 @@ import SentimentSatisfiedIcon from "@mui/icons-material/SentimentSatisfied";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAltOutlined";
 import SentimentVerySatisfiedIcon from "@mui/icons-material/SentimentVerySatisfied";
 import { Box, Typography } from "@mui/material";
-import styles from "./Feedback.module.scss";
 import { useTranslation } from "react-i18next";
 
 const StyledRating = styled(Rating)(({ theme }) => ({

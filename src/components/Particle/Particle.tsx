@@ -2,7 +2,7 @@ import Particles from "react-particles";
 import { useCallback } from "react";
 import { loadSlim } from "tsparticles-slim";
 
-export default function Particle() {
+export const Particle: React.FC = () => {
   const particlesInit = useCallback(async (engine: any) => {
     await loadSlim(engine);
   }, []);
@@ -85,4 +85,4 @@ export default function Particle() {
       }}
     />
   );
-}
+};

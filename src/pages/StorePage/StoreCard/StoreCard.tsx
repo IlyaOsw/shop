@@ -34,19 +34,16 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
   }
 );
 
-export function Media(props: any) {
-  const { loading = false, children } = props;
-
-  return <Card sx={{ maxWidth: 345, m: 2 }}>{loading && <>{children}</>}</Card>;
-}
-
 export const StoreCard: React.FC<StoreCardProps> = React.memo(
   ({ item, toggleFavorite }) => {
     const { t } = useTranslation();
     //@ts-ignore
     const { addItem } = useCart();
-
     const [, setOpen] = React.useState(false);
+    const [openCart, setOpenCart] = React.useState(false);
+    const [openFavorite, setOpenFavorite] = React.useState(false);
+    const [disabled, setDisabled] = React.useState(false);
+    const [favorite, setFavorite] = React.useState(false);
     const [transition, setTransition] = React.useState<
       React.ComponentType<TransitionProps> | undefined
     >(undefined);
@@ -57,15 +54,8 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
         setOpen(true);
       };
 
-    const [openCart, setOpenCart] = React.useState(false);
-    const [openFavorite, setOpenFavorite] = React.useState(false);
-    const [disabled, setDisabled] = React.useState(false);
-
     const disableButton = () => setDisabled(true);
-
     const handleAddToFavorites = () => toggleFavorite(item.id);
-
-    const [favorite, setFavorite] = React.useState(false);
     const handleFavorite = () => setFavorite((prev) => !prev);
 
     const buttonStyle = { height: "30px", width: "140px", marginTop: "5px" };

@@ -11,17 +11,12 @@ import { useTranslation } from "react-i18next";
 import { Box } from "@mui/material";
 import Tooltip from "@mui/material/Tooltip";
 
-export default function FormDialog() {
+export const FormDialog: React.FC = () => {
   const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const handleClickOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <>
@@ -68,4 +63,4 @@ export default function FormDialog() {
       </Dialog>
     </>
   );
-}
+};

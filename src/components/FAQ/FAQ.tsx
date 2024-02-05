@@ -10,7 +10,7 @@ import MuiAccordionSummary, {
 } from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import { useTranslation } from "react-i18next";
-import CloseButton from "../CloseButton/CloseButton";
+import { CloseButton } from "../CloseButton/CloseButton";
 import Tooltip from "@mui/material/Tooltip";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
@@ -53,24 +53,19 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTop: "1px solid rgba(0, 0, 0, .125)",
 }));
 
-export default function HelpButton() {
+export const FAQ: React.FC = () => {
   const { t } = useTranslation();
+  const theme = useTheme();
   const [expanded, setExpanded] = React.useState<string | false>("");
+  const [open, setOpen] = React.useState(false);
+  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
       setExpanded(newExpanded ? panel : false);
     };
-
-  const handleOpen = () => setOpen(true);
-
-  const [open, setOpen] = React.useState(false);
-  const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   return (
     <>
@@ -170,4 +165,4 @@ export default function HelpButton() {
       </Dialog>
     </>
   );
-}
+};

@@ -1,15 +1,14 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import React from "react";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import { useTranslation } from "react-i18next";
+import { Block } from "./Block/Block";
 
-enum AboutTitle {
+export enum AboutTitle {
   TITLE1 = "aboutTitle1",
   TITLE2 = "aboutTitle2",
   TITLE3 = "aboutTitle3",
   TITLE4 = "aboutTitle4",
 }
-enum AboutInfo {
+export enum AboutInfo {
   INFO1 = "aboutInfo1",
   INFO2 = "aboutInfo2",
   INFO3 = "aboutInfo3",
@@ -21,8 +20,16 @@ const about: { id: number; label: AboutTitle; description: AboutInfo }[] = [
   { id: 2, label: AboutTitle.TITLE3, description: AboutInfo.INFO3 },
   { id: 3, label: AboutTitle.TITLE4, description: AboutInfo.INFO4 },
 ];
-const AboutBlocks: React.FC = () => {
-  const { t } = useTranslation();
+
+export type AboutBlocksType = {
+  item: {
+    id: number;
+    label: AboutTitle;
+    description: AboutInfo;
+  };
+};
+
+export const AboutBlocks: React.FC<AboutBlocksType> = () => {
   return (
     <Box
       sx={{
@@ -31,25 +38,8 @@ const AboutBlocks: React.FC = () => {
       }}
     >
       {about.map((item) => (
-        <Box
-          key={item.id}
-          sx={{
-            textAlign: "start",
-            maxWidth: "300px",
-            padding: "10px",
-          }}
-        >
-          <MoreHorizIcon />
-          <Typography variant="h6" sx={{ paddingBottom: "5px" }}>
-            {t(item.label)}
-          </Typography>
-          <Typography variant="body1" color="text.secondary">
-            {t(item.description)}
-          </Typography>
-        </Box>
+        <Block item={item} />
       ))}
     </Box>
   );
 };
-
-export default AboutBlocks;

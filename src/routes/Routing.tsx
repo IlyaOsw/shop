@@ -1,8 +1,8 @@
 import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import StorePage from "../pages/StorePage/StorePage";
 import { CustomSkeleton } from "../components/CustomSkeleton/CustomSkeleton";
 const MainPage = React.lazy(() => import("../pages/MainPage/MainPage"));
+const StorePage = React.lazy(() => import("../pages/StorePage/StorePage"));
 const NewsPage = React.lazy(() => import("../pages/NewsPage/NewsPage"));
 const ClientsPage = React.lazy(
   () => import("../pages/ClientsPage/ClientsPage")

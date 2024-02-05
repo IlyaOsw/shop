@@ -11,7 +11,7 @@ import PhoneForwardedOutlinedIcon from "@mui/icons-material/PhoneForwardedOutlin
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
-import FormDialog from "../../../../components/FormDialog/FormDialog";
+import { FormDialog } from "../../../../components/FormDialog/FormDialog";
 import { useTranslation } from "react-i18next";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -70,7 +70,7 @@ const stringAvatar = (name: string) => {
 };
 
 //@ts-ignore
-export default function ClientInfo({ user }) {
+export const ClientInfo: React.FC = ({ user }) => {
   const { t } = useTranslation();
   return (
     <Box key={user.id} sx={{ margin: "10px 0px" }}>
@@ -149,4 +149,4 @@ export default function ClientInfo({ user }) {
       </Card>
     </Box>
   );
-}
+};

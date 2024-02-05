@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import KeyIcon from "@mui/icons-material/Key";
 import { useTranslation } from "react-i18next";
-import CloseButton from "../CloseButton/CloseButton";
+import { CloseButton } from "../CloseButton/CloseButton";
 import Input from "@mui/material/Input";
 import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -30,7 +30,7 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function LoginButton() {
+export const Login: React.FC = () => {
   const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -105,6 +105,7 @@ export default function LoginButton() {
           >
             <Button
               variant="contained"
+              color="info"
               endIcon={<SendIcon />}
               onClick={() => handleClose()}
             >
@@ -115,4 +116,4 @@ export default function LoginButton() {
       </Dialog>
     </Stack>
   );
-}
+};

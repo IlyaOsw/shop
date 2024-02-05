@@ -11,9 +11,8 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { StoreCard, Media } from "../StoreCard/StoreCard";
+import { StoreCard } from "../StoreCard/StoreCard";
 import { Box } from "@mui/material";
-import Skeleton from "@mui/material/Skeleton";
 import { ShopType } from "../../../redux/reducers/shop-reducer";
 
 export interface StoreCardProps {
@@ -73,34 +72,33 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const Filter: React.FC = React.memo(() => {
+  const { t } = useTranslation();
   const shopData = useSelector(
     (state: { shopPage: ShopType }) => state.shopPage
   );
   const [products, setProducts] = React.useState([...shopData]);
+  const noFilters = () => setProducts(shopData);
+  const [filter, setFilter] = React.useState("");
+  const [search, setSearch] = React.useState("");
 
   const PriceHighToLow = () => {
     const sortedList = [...products].sort((a, b) => b.price - a.price);
     setProducts(sortedList);
   };
-
   const PriceLowToHigh = () => {
     const sortedList = [...products].sort((a, b) => a.price - b.price);
     setProducts(sortedList);
   };
-
-  const { t } = useTranslation();
-  const [filter, setFilter] = React.useState("");
+  const filterFavorites = () => {
+    const favoriteFirst = [...products].filter((product) => product.isFavorite);
+    setProducts(favoriteFirst);
+  };
+  const filteredProducts = [...products].filter((product) => {
+    return product.title.toLowerCase().includes(search.toLowerCase());
+  });
 
   const handleChange = (event: SelectChangeEvent) =>
     setFilter(event.target.value);
-
-  const [isLoading, setIsLoading] = React.useState(true);
-
-  React.useEffect(() => {
-    if (shopData && shopData.length > 0) setIsLoading(false);
-  }, [shopData]);
-
-  const noFilters = () => setProducts(shopData);
 
   const toggleFavorite = (productId: number) => {
     setProducts((prevProducts) =>
@@ -111,17 +109,6 @@ const Filter: React.FC = React.memo(() => {
       )
     );
   };
-
-  const filterFavorites = () => {
-    const favoriteFirst = [...products].filter((product) => product.isFavorite);
-    setProducts(favoriteFirst);
-  };
-
-  const [search, setSearch] = React.useState("");
-
-  const filteredProducts = [...products].filter((product) => {
-    return product.title.toLowerCase().includes(search.toLowerCase());
-  });
 
   return (
     <div>
@@ -186,30 +173,14 @@ const Filter: React.FC = React.memo(() => {
           flexWrap: "wrap",
         }}
       >
-        {filteredProducts.map((item: StoreCardProps["item"], index: number) => {
-          if (isLoading) {
-            return (
-              <Media loading key={index}>
-                <Skeleton
-                  animation="wave"
-                  variant="rectangular"
-                  sx={{ height: 400, width: 335, maxWidth: "40vh" }}
-                />
-                <Skeleton animation="wave" height={50} />
-                <Skeleton animation="wave" height={50} width="50%" />
-              </Media>
-            );
-          } else {
-            return (
-              <StoreCard
-                key={item.id}
-                item={item}
-                index={index}
-                toggleFavorite={toggleFavorite}
-              />
-            );
-          }
-        })}
+        {filteredProducts.map((item: StoreCardProps["item"], index: number) => (
+          <StoreCard
+            key={item.id}
+            item={item}
+            index={index}
+            toggleFavorite={toggleFavorite}
+          />
+        ))}
       </Box>
     </div>
   );

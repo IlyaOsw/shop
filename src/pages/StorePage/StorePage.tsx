@@ -3,7 +3,8 @@ import { useTranslation } from "react-i18next";
 import { Container, Divider, Typography } from "@mui/material";
 import Filter from "./Filter/Filter";
 
-const StorePage: React.FC = React.memo(() => {
+const StorePage: React.FC = () => {
+  console.log("STOREPAGE");
   const { t } = useTranslation();
 
   return (
@@ -19,5 +20,5 @@ const StorePage: React.FC = React.memo(() => {
       <Filter />
     </Container>
   );
-});
+};
 export default StorePage;

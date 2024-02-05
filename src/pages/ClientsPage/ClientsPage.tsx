@@ -1,12 +1,13 @@
 import React from "react";
-import Clients from "./Clients/Clients";
+import { Clients } from "./Clients/Clients";
 import { Box, Container, Divider, Typography } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import { useTranslation } from "react-i18next";
-import Carousel from "./Carousel/Carousel";
+import { Carousel } from "./Carousel/Carousel";
 
-const ClientsPage: React.FC = React.memo(() => {
+const ClientsPage: React.FC = () => {
   const { t } = useTranslation();
+
   return (
     <Container maxWidth="xl">
       <Typography
@@ -62,6 +63,6 @@ const ClientsPage: React.FC = React.memo(() => {
       </Box>
     </Container>
   );
-});
+};
 
 export default ClientsPage;

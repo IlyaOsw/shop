@@ -64,7 +64,7 @@ const ImageBackdrop = styled("span")(({ theme }) => ({
   transition: theme.transitions.create("opacity"),
 }));
 
-export default function Carousel() {
+export const Carousel: React.FC = () => {
   return (
     <Box
       sx={{
@@ -89,4 +89,4 @@ export default function Carousel() {
       ))}
     </Box>
   );
-}
+};

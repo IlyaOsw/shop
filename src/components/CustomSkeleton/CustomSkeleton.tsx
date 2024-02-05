@@ -3,7 +3,7 @@ import Skeleton from "@mui/material/Skeleton";
 import React from "react";
 import { Container } from "@mui/material";
 
-export function CustomSkeleton() {
+export const CustomSkeleton: React.FC = () => {
   const [loading] = React.useState(true);
   return (
     <Container maxWidth="xl">
@@ -31,4 +31,4 @@ export function CustomSkeleton() {
       )}
     </Container>
   );
-}
+};
