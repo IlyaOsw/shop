@@ -4,8 +4,8 @@ import { styled } from "@mui/material/styles";
 
 const images = [
   {
+    id: 0,
     url: `${process.env.PUBLIC_URL}/Images/Clients/clientsImage.jpg`,
-    title: "Breakfast",
     width: "100%",
   },
 ];
@@ -70,14 +70,14 @@ export const Carousel: React.FC = () => {
       sx={{
         display: "flex",
         minWidth: 304,
-        width: "55%",
+        width: "60%",
         mt: 2,
       }}
     >
       {images.map((image) => (
         <ImageButton
           focusRipple
-          key={image.title}
+          key={image.id}
           style={{
             width: image.width,
           }}

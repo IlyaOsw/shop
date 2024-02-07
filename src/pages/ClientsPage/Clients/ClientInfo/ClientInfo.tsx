@@ -2,9 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import {
   Box,
-  styled,
   Avatar,
-  Badge,
   Card,
   CardActions,
   CardContent,
@@ -17,60 +15,7 @@ import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutl
 import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
 import { FormDialog } from "../../../../components/FormDialog/FormDialog";
 
-const StyledBadge = styled(Badge)(({ theme }) => ({
-  "& .MuiBadge-badge": {
-    backgroundColor: "#44b700",
-    color: "#44b700",
-    boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
-    "&::after": {
-      position: "absolute",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      borderRadius: "50%",
-      animation: "ripple 1.2s infinite ease-in-out",
-      border: "1px solid currentColor",
-      content: '""',
-    },
-  },
-  "@keyframes ripple": {
-    "0%": {
-      transform: "scale(.8)",
-      opacity: 1,
-    },
-    "100%": {
-      transform: "scale(2.4)",
-      opacity: 0,
-    },
-  },
-}));
-const stringToColor = (string: string) => {
-  let hash = 0;
-  let i;
-
-  for (i = 0; i < string.length; i += 1) {
-    hash = string.charCodeAt(i) + ((hash << 5) - hash);
-  }
-
-  let color = "#";
-
-  for (i = 0; i < 3; i += 1) {
-    const value = (hash >> (i * 8)) & 0xff;
-    color += `00${value.toString(16)}`.slice(-2);
-  }
-
-  return color;
-};
-
-const stringAvatar = (name: string) => {
-  return {
-    sx: {
-      bgcolor: stringToColor(name),
-    },
-    children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
-  };
-};
+const iconStyle = { marginRight: "5px", marginBottom: "-3px" };
 
 //@ts-ignore
 export const ClientInfo: React.FC = ({ user }) => {
@@ -86,56 +31,36 @@ export const ClientInfo: React.FC = ({ user }) => {
       >
         <CardContent>
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            {user.id % 2 === 0 ? (
-              <StyledBadge
-                overlap="circular"
-                anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-                variant="dot"
-              >
-                <Avatar {...stringAvatar(user.name)} />
-              </StyledBadge>
-            ) : (
-              <Avatar {...stringAvatar(user.name)} />
-            )}
-
+            <Avatar
+              sx={{ width: 56, height: 56 }}
+              src={`${process.env.PUBLIC_URL}/Images/ClientAvatars/${user.avatar}.jpg`}
+            />
             <Typography variant="h5" sx={{ p: 2 }}>
               {user.name}
             </Typography>
           </Box>
           <Typography variant="h6" color="text.secondary">
             <Box sx={{ p: 0.5 }}>
-              <MailOutlineOutlinedIcon
-                color="secondary"
-                style={{ marginRight: "5px", marginBottom: "-3px" }}
-              />
+              <MailOutlineOutlinedIcon color="secondary" style={iconStyle} />
               {t("email")}: {user.email}
             </Box>
             <Box sx={{ p: 0.5 }}>
-              <PhoneForwardedOutlinedIcon
-                color="secondary"
-                style={{ marginRight: "5px", marginBottom: "-3px" }}
-              />
+              <PhoneForwardedOutlinedIcon color="secondary" style={iconStyle} />
               {t("phone")}: {user.phone}
             </Box>
             <Box sx={{ p: 0.5 }}>
-              <FmdGoodOutlinedIcon
-                color="secondary"
-                style={{ marginRight: "5px", marginBottom: "-3px" }}
-              />
+              <FmdGoodOutlinedIcon color="secondary" style={iconStyle} />
               {t("city")}: {user.city}
             </Box>
             <Box sx={{ p: 0.5 }}>
               <ArrowForwardIosOutlinedIcon
                 color="secondary"
-                style={{ marginRight: "5px", marginBottom: "-3px" }}
+                style={iconStyle}
               />
               {t("website")}: {user.website}
             </Box>
             <Box sx={{ p: 0.5 }}>
-              <BusinessOutlinedIcon
-                color="secondary"
-                style={{ marginRight: "5px", marginBottom: "-3px" }}
-              />
+              <BusinessOutlinedIcon color="secondary" style={iconStyle} />
               {t("company")}: {user.company}
             </Box>
           </Typography>

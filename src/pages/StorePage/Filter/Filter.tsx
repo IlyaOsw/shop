@@ -5,10 +5,12 @@ import {
   alpha,
   AppBar,
   Box,
+  Button,
   FormControl,
   InputBase,
   InputLabel,
   MenuItem,
+  Paper,
   Select,
   SelectChangeEvent,
   styled,
@@ -16,6 +18,7 @@ import {
   Typography,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import { StoreCard } from "../StoreCard/StoreCard";
 import { ShopType } from "../../../redux/reducers/shop-reducer";
 
@@ -81,22 +84,33 @@ const Filter: React.FC = React.memo(() => {
     (state: { shopPage: ShopType }) => state.shopPage
   );
   const [products, setProducts] = React.useState([...shopData]);
-  const noFilters = () => setProducts(shopData);
   const [filter, setFilter] = React.useState("");
   const [search, setSearch] = React.useState("");
+  const [empty, setEmpty] = React.useState(false);
+
+  const noFilters = () => setProducts(shopData);
 
   const PriceHighToLow = () => {
     const sortedList = [...products].sort((a, b) => b.price - a.price);
     setProducts(sortedList);
   };
+
   const PriceLowToHigh = () => {
     const sortedList = [...products].sort((a, b) => a.price - b.price);
     setProducts(sortedList);
   };
+
   const filterFavorites = () => {
     const favoriteFirst = [...products].filter((product) => product.isFavorite);
-    setProducts(favoriteFirst);
+    if (favoriteFirst.length > 0) {
+      setProducts(favoriteFirst);
+      setEmpty(false);
+    } else {
+      setProducts(favoriteFirst);
+      setEmpty(true);
+    }
   };
+
   const filteredProducts = [...products].filter((product) => {
     return product.title.toLowerCase().includes(search.toLowerCase());
   });
@@ -186,6 +200,44 @@ const Filter: React.FC = React.memo(() => {
           />
         ))}
       </Box>
+      {empty && (
+        <Box sx={{ height: "100vh", position: "relative" }}>
+          <Paper elevation={4}>
+            <Box
+              sx={{
+                textAlign: "center",
+                mt: 5,
+                p: 1,
+              }}
+            >
+              <Typography variant="h6" color="error" sx={{ mt: 2 }}>
+                {t("noFavorites")}
+              </Typography>
+              <SentimentVeryDissatisfiedIcon color="error" />
+            </Box>
+            <Box
+              sx={{
+                textAlign: "center",
+                p: 1,
+              }}
+            >
+              <Typography variant="h6" color="text.secondary">
+                {t("continueShopping")}
+                <Box>
+                  <Button
+                    variant="contained"
+                    sx={{ mt: 2 }}
+                    onClick={noFilters}
+                    color="success"
+                  >
+                    {t("here")}
+                  </Button>
+                </Box>
+              </Typography>
+            </Box>
+          </Paper>
+        </Box>
+      )}
     </div>
   );
 });

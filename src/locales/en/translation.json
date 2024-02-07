@@ -162,6 +162,9 @@
     "inStockTip": "Product is in stock",
     "outOfStock": "Out of stock",
     "outOfStockTip": "Product is out of stock",
-    "ourPartners": "Our partners"
+    "ourPartners": "Our partners",
+    "noFavorites": "Unfortunately, no items have been added to favorites.",
+    "continueShopping": "To continue your shopping, please click",
+    "here": "here"
 }
    

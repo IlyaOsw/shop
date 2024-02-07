@@ -162,5 +162,8 @@
 	"inStockTip": "Toode on laos",
 	"outOfStock": "Läbimüüdud",
 	"outOfStockTip": "Toodet pole laos",
-	"ourPartners": "Meie partnerid"
+	"ourPartners": "Meie partnerid",
+	"noFavorites": "Kahjuks pole lemmikutesse ühtegi toodet lisatud.",
+	"continueShopping": "Jätkamiseks vajutage palun",
+	"here": "siia"
 }

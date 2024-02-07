@@ -18,7 +18,7 @@ const MainPage: React.FC = React.memo(() => {
       <Box
         sx={{
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "space-around",
           flexWrap: "wrap",
         }}
       >

@@ -1,6 +1,7 @@
 const initialState = [
   {
     id: 0,
+    avatar: "martin",
     name: "Martin Tammiks",
     email: "info@techlightconnect.com",
     phone: "+372 5678-1234",
@@ -10,6 +11,7 @@ const initialState = [
   },
   {
     id: 1,
+    avatar: "kristina",
     name: "Kristina Veski",
     email: "contact@globalinfo.com",
     phone: "+372 5450-3218",
@@ -19,6 +21,7 @@ const initialState = [
   },
   {
     id: 2,
+    avatar: "alan",
     name: "Alan Laas",
     email: "support@ecosprinteco.com",
     phone: "+372 5098-1625",
@@ -28,6 +31,7 @@ const initialState = [
   },
   {
     id: 3,
+    avatar: "anna",
     name: "Anna Pärn",
     email: "inquiries@innova.com",
     phone: "+372 5839-2047",

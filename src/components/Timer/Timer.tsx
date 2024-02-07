@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
+import { Container, Paper, Typography } from "@mui/material";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 
 export const Timer: React.FC = () => {
@@ -15,11 +14,30 @@ export const Timer: React.FC = () => {
   }, []);
 
   return (
-    <Stack spacing={2} direction="row">
-      <Button variant="contained">
-        <AccessTimeIcon />
-        <Box sx={{ p: 2 }}>{time.toLocaleTimeString()}</Box>
-      </Button>
-    </Stack>
+    <Container maxWidth="xl">
+      <Paper
+        elevation={6}
+        sx={{
+          position: "relative",
+          margin: "50px auto 50px auto",
+          p: 1,
+          width: "30vh",
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "50px",
+          }}
+        >
+          <AccessTimeIcon color="secondary" fontSize="large" />
+          <Typography color="secondary" sx={{ ml: 1, fontSize: "20px" }}>
+            {time.toLocaleTimeString()}
+          </Typography>
+        </Box>
+      </Paper>
+    </Container>
   );
 };

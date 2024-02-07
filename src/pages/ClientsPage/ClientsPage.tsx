@@ -4,6 +4,7 @@ import { Box, Container, Divider, Typography } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import { Clients } from "./Clients/Clients";
 import { Carousel } from "./Carousel/Carousel";
+import { Timer } from "../../components/Timer/Timer";
 
 const ClientsPage: React.FC = () => {
   const { t } = useTranslation();
@@ -58,6 +59,7 @@ const ClientsPage: React.FC = () => {
         </Box>
         <Carousel />
       </Box>
+      <Timer />
       <Box sx={{ marginBottom: "50px" }}>
         <Clients />
       </Box>
