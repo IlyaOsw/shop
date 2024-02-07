@@ -1,10 +1,10 @@
-import { Box, Typography } from "@mui/material";
 import React from "react";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { useTranslation } from "react-i18next";
+import { Box, Typography } from "@mui/material";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { AboutBlocksType } from "../AboutBlocks";
 
-export const Block: React.FC<AboutBlocksType> = ({ item }) => {
+export const AboutItem: React.FC<AboutBlocksType> = ({ item }) => {
   const { t } = useTranslation();
 
   return (

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import styles from "./ScrollToTop.module.scss";
 import { Box } from "@mui/material";
+import styles from "./ScrollToTop.module.scss";
 
 export const ScrollToTop: React.FC = () => {
   const [isHidden, setIsHidden] = useState(true);

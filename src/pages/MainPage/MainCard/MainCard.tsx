@@ -1,9 +1,10 @@
+import { t } from "i18next";
+import React from "react";
 import Card from "@mui/material/Card";
+import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
-import { t } from "i18next";
 
 enum Cards {
   CARD1 = "Card1",
@@ -14,7 +15,7 @@ const cards: { id: number; label: Cards; description: string }[] = [
   { id: 0, label: Cards.CARD1, description: "cardInfo1" },
   { id: 1, label: Cards.CARD2, description: "cardInfo2" },
 ];
-export default function MainCard() {
+export const MainCard: React.FC = () => {
   return (
     <>
       {cards.map((item) => (
@@ -46,4 +47,4 @@ export default function MainCard() {
       ))}
     </>
   );
-}
+};

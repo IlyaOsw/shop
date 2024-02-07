@@ -1,8 +1,8 @@
-import { Box, Typography } from "@mui/material";
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { Box, Typography } from "@mui/material";
 
-export const Logos: React.FC = React.memo(() => {
+export const Logos: React.FC = () => {
   const { t } = useTranslation();
   const logoStyle = {
     height: "70px",
@@ -51,4 +51,4 @@ export const Logos: React.FC = React.memo(() => {
       </Box>
     </>
   );
-});
+};

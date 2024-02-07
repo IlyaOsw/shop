@@ -1,9 +1,9 @@
-import { styled } from "@mui/material/styles";
+import React from "react";
+import Button from "@mui/material/Button";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
+import { styled } from "@mui/material/styles";
 import { t } from "i18next";
-import Button from "@mui/material/Button";
-import React from "react";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,

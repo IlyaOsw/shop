@@ -1,24 +1,24 @@
 import * as React from "react";
-import Card from "@mui/material/Card";
-import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Typography from "@mui/material/Typography";
-import Checkbox from "@mui/material/Checkbox";
-import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
-import Favorite from "@mui/icons-material/Favorite";
 import { useTranslation } from "react-i18next";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { Box, Button, Paper } from "@mui/material";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Checkbox from "@mui/material/Checkbox";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
 import Slide, { SlideProps } from "@mui/material/Slide";
+import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
-import { Box, Button, Paper } from "@mui/material";
-import { useCart } from "../../../hooks/useCart";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
+import Favorite from "@mui/icons-material/Favorite";
 import DoneIcon from "@mui/icons-material/Done";
-import { StoreCardProps } from "../Filter/Filter";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
+import { useCart } from "../../../hooks/useCart";
+import { StoreCardProps } from "../Filter/Filter";
 
 type TransitionProps = Omit<SlideProps, "direction">;
 

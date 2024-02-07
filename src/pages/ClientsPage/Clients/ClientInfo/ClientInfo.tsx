@@ -1,18 +1,21 @@
-import { Box } from "@mui/material";
-import Avatar from "@mui/material/Avatar";
-import { styled } from "@mui/material/styles";
-import Badge from "@mui/material/Badge";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
+import React from "react";
+import { useTranslation } from "react-i18next";
+import {
+  Box,
+  styled,
+  Avatar,
+  Badge,
+  Card,
+  CardActions,
+  CardContent,
+  Typography,
+} from "@mui/material";
 import MailOutlineOutlinedIcon from "@mui/icons-material/MailOutlineOutlined";
 import PhoneForwardedOutlinedIcon from "@mui/icons-material/PhoneForwardedOutlined";
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
 import { FormDialog } from "../../../../components/FormDialog/FormDialog";
-import { useTranslation } from "react-i18next";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {

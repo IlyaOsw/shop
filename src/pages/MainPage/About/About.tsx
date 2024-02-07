@@ -1,7 +1,7 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Container, Paper, Typography } from "@mui/material";
 import { AboutBlocks, AboutInfo, AboutTitle } from "./AboutBlocks/AboutBlocks";
-import { useTranslation } from "react-i18next";
 
 const MainAbout: React.FC = () => {
   const { t } = useTranslation();

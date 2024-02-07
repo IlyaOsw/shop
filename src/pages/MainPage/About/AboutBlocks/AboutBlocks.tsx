@@ -1,6 +1,6 @@
-import { Box } from "@mui/material";
 import React from "react";
-import { Block } from "./Block/Block";
+import { Box } from "@mui/material";
+import { AboutItem } from "./AboutItem/AboutItem";
 
 export enum AboutTitle {
   TITLE1 = "aboutTitle1",
@@ -38,7 +38,7 @@ export const AboutBlocks: React.FC<AboutBlocksType> = () => {
       }}
     >
       {about.map((item) => (
-        <Block item={item} />
+        <AboutItem item={item} key={item.id} />
       ))}
     </Box>
   );

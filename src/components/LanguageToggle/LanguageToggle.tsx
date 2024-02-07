@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useTranslation } from "react-i18next";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
@@ -10,7 +11,6 @@ import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import PublicIcon from "@mui/icons-material/Public";
 import i18n from "../../i18n";
-import { useTranslation } from "react-i18next";
 
 enum Locales {
   EN = "en",

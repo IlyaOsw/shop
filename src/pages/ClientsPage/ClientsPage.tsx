@@ -1,8 +1,8 @@
 import React from "react";
-import { Clients } from "./Clients/Clients";
+import { useTranslation } from "react-i18next";
 import { Box, Container, Divider, Typography } from "@mui/material";
 import Paper from "@mui/material/Paper";
-import { useTranslation } from "react-i18next";
+import { Clients } from "./Clients/Clients";
 import { Carousel } from "./Carousel/Carousel";
 
 const ClientsPage: React.FC = () => {

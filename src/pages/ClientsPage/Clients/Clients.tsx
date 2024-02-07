@@ -1,7 +1,7 @@
-import { Box } from "@mui/material";
 import React from "react";
-import { ClientInfo } from "./ClientInfo/ClientInfo";
 import { useSelector } from "react-redux";
+import { Box } from "@mui/material";
+import { ClientInfo } from "./ClientInfo/ClientInfo";
 import { ClientsType } from "../../../redux/reducers/clients-reducer";
 
 export const Clients: React.FC = React.memo(() => {

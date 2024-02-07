@@ -1,23 +1,26 @@
-import IconButton from "@mui/material/IconButton";
-import HelpIcon from "@mui/icons-material/Help";
 import * as React from "react";
-import Accordion from "@mui/material/Accordion";
-import Typography from "@mui/material/Typography";
-import { styled } from "@mui/material/styles";
+import { useTranslation } from "react-i18next";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import {
+  Box,
+  Divider,
+  IconButton,
+  Typography,
+  Tooltip,
+  Dialog,
+  DialogContent,
+} from "@mui/material";
+import Slide from "@mui/material/Slide";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
+import HelpIcon from "@mui/icons-material/Help";
+import { styled } from "@mui/material/styles";
+import Accordion from "@mui/material/Accordion";
 import MuiAccordionSummary, {
   AccordionSummaryProps,
 } from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
-import { useTranslation } from "react-i18next";
 import { CloseButton } from "../CloseButton/CloseButton";
-import Tooltip from "@mui/material/Tooltip";
-import Dialog from "@mui/material/Dialog";
-import DialogContent from "@mui/material/DialogContent";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
-import { Box, Divider } from "@mui/material";
-import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
 
 const Transition = React.forwardRef(function Transition(

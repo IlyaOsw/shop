@@ -1,26 +1,26 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
-  CardActions,
-  Button,
   Box,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Checkbox,
+  Collapse,
   Divider,
+  Tooltip,
+  Typography,
 } from "@mui/material";
 import { FormDialog } from "../../../../components/FormDialog/FormDialog";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { useTranslation } from "react-i18next";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
-import Tooltip from "@mui/material/Tooltip";
-import { NewsPostPropsType } from "../News";
-import Collapse from "@mui/material/Collapse";
-import Checkbox from "@mui/material/Checkbox";
-import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { NewsPostPropsType } from "../News";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 

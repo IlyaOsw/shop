@@ -1,6 +1,6 @@
+import React from "react";
 import Typography from "@mui/material/Typography";
 import Skeleton from "@mui/material/Skeleton";
-import React from "react";
 import { Container } from "@mui/material";
 
 export const CustomSkeleton: React.FC = () => {

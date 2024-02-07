@@ -4,7 +4,6 @@ import { Container, Divider, Typography } from "@mui/material";
 import Filter from "./Filter/Filter";
 
 const StorePage: React.FC = () => {
-  console.log("STOREPAGE");
   const { t } = useTranslation();
 
   return (

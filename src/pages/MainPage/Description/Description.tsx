@@ -1,13 +1,15 @@
 import * as React from "react";
+import { useTranslation } from "react-i18next";
+import { useMediaQuery, useTheme } from "@mui/material";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import { Container, Typography, useMediaQuery, useTheme } from "@mui/material";
+import Typography from "@mui/material/Typography";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import AllInclusiveIcon from "@mui/icons-material/AllInclusive";
-import { useTranslation } from "react-i18next";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
 interface TabPanelProps {
@@ -44,7 +46,7 @@ function a11yProps(index: number) {
   };
 }
 
-const Description: React.FC = React.memo(() => {
+export const Description: React.FC = () => {
   const { t } = useTranslation();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
@@ -142,6 +144,4 @@ const Description: React.FC = React.memo(() => {
       </Box>
     </Container>
   );
-});
-
-export default Description;
+};

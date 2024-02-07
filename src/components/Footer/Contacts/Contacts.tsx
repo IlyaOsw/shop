@@ -1,9 +1,10 @@
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import { Stack, IconButton, Box } from "@mui/material";
-import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-import EmailIcon from "@mui/icons-material/Email";
-import styles from "./Contacts.module.scss";
 import { t } from "i18next";
+import React from "react";
+import { Box, IconButton, Stack } from "@mui/material";
+import EmailIcon from "@mui/icons-material/Email";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import styles from "./Contacts.module.scss";
 
 enum Contact {
   LOCATION = "location",

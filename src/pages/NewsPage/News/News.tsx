@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { NewsPost } from "./NewsPost/NewsPost";
+import { useTranslation } from "react-i18next";
 import { Box, Button, Tooltip } from "@mui/material";
 import { useSelector } from "react-redux";
 import { NewsType } from "../../../redux/reducers/news-reducer";
-import { useTranslation } from "react-i18next";
+import { NewsPost } from "./NewsPost/NewsPost";
 
 export type NewsPostPropsType = {
   id: number;

@@ -1,7 +1,7 @@
-import styles from "./Links.module.scss";
-import { Box, Typography } from "@mui/material";
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { Box, Typography } from "@mui/material";
+import styles from "./Links.module.scss";
 
 enum SocialLinks {
   LINKEDIN = "Linkedin",

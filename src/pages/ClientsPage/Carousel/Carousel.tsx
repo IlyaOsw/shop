@@ -1,6 +1,6 @@
-import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import ButtonBase from "@mui/material/ButtonBase";
+import { styled } from "@mui/material/styles";
 
 const images = [
   {

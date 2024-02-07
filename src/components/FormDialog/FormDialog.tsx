@@ -1,15 +1,15 @@
 import * as React from "react";
+import { useTranslation } from "react-i18next";
+import { Box } from "@mui/material";
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import ShareIcon from "@mui/icons-material/Share";
-import { useTranslation } from "react-i18next";
-import { Box } from "@mui/material";
+import TextField from "@mui/material/TextField";
 import Tooltip from "@mui/material/Tooltip";
+import ShareIcon from "@mui/icons-material/Share";
 
 export const FormDialog: React.FC = () => {
   const { t } = useTranslation();
