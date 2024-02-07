@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Container, Paper, Typography } from "@mui/material";
+import { Box, Container, Paper, Typography } from "@mui/material";
 import { AboutBlocks, AboutInfo, AboutTitle } from "./AboutBlocks/AboutBlocks";
 
 const MainAbout: React.FC = () => {
@@ -10,14 +10,15 @@ const MainAbout: React.FC = () => {
       <Typography variant="h5" sx={{ mt: 5 }}>
         {t("about")}
       </Typography>
-      <Paper
-        elevation={4}
+      <Box
         sx={{
+          bgcolor: "background.paper",
           display: "flex",
           mt: 5,
-          position: "relative",
           justifyContent: "space-around",
           alignItems: "center",
+          position: "relative",
+          color: "inherit",
         }}
       >
         <AboutBlocks
@@ -27,7 +28,7 @@ const MainAbout: React.FC = () => {
             description: AboutInfo.INFO1,
           }}
         />
-      </Paper>
+      </Box>
     </Container>
   );
 };

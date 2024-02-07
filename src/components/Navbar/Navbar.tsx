@@ -144,6 +144,7 @@ export const Navbar: React.FC = () => {
             >
               <MenuIcon />
             </IconButton>
+
             <Typography
               variant="h6"
               noWrap

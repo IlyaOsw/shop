@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Container, Divider, Typography } from "@mui/material";
-import Filter from "./Filter/Filter";
+import { Filter } from "./Filter/Filter";
 
 const StorePage: React.FC = () => {
   const { t } = useTranslation();

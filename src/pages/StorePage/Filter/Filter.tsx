@@ -17,6 +17,9 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
 import SearchIcon from "@mui/icons-material/Search";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import { StoreCard } from "../StoreCard/StoreCard";
@@ -78,17 +81,18 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const Filter: React.FC = React.memo(() => {
+export const Filter: React.FC = React.memo(() => {
   const { t } = useTranslation();
   const shopData = useSelector(
     (state: { shopPage: ShopType }) => state.shopPage
   );
   const [products, setProducts] = React.useState([...shopData]);
+  const [originalProducts] = React.useState([...shopData]);
   const [filter, setFilter] = React.useState("");
   const [search, setSearch] = React.useState("");
   const [empty, setEmpty] = React.useState(false);
 
-  const noFilters = () => setProducts(shopData);
+  const noFilters = () => setProducts(originalProducts);
 
   const PriceHighToLow = () => {
     const sortedList = [...products].sort((a, b) => b.price - a.price);
@@ -101,7 +105,7 @@ const Filter: React.FC = React.memo(() => {
   };
 
   const filterFavorites = () => {
-    const favoriteFirst = [...products].filter((product) => product.isFavorite);
+    const favoriteFirst = products.filter((product) => product.isFavorite);
     if (favoriteFirst.length > 0) {
       setProducts(favoriteFirst);
       setEmpty(false);
@@ -111,12 +115,33 @@ const Filter: React.FC = React.memo(() => {
     }
   };
 
-  const filteredProducts = [...products].filter((product) => {
+  const filteredProducts = products.filter((product) => {
     return product.title.toLowerCase().includes(search.toLowerCase());
   });
 
-  const handleChange = (event: SelectChangeEvent) =>
-    setFilter(event.target.value);
+  const showOnlyPhone = () => {
+    const phonesId = [0, 3, 5, 8, 10, 11, 12, 14];
+    const onlyPhones = originalProducts.filter((product) =>
+      phonesId.includes(product.id)
+    );
+    setProducts(onlyPhones);
+  };
+
+  const showOnlyHeadphones = () => {
+    const headphonesId = [2, 6, 13];
+    const onlyHeadphones = originalProducts.filter((product) =>
+      headphonesId.includes(product.id)
+    );
+    setProducts(onlyHeadphones);
+  };
+
+  const showOnlyWatches = () => {
+    const watchesId = [1, 4, 7, 9, 15];
+    const onlyWatches = originalProducts.filter((product) =>
+      watchesId.includes(product.id)
+    );
+    setProducts(onlyWatches);
+  };
 
   const toggleFavorite = (productId: number) => {
     setProducts((prevProducts) =>
@@ -127,12 +152,18 @@ const Filter: React.FC = React.memo(() => {
       )
     );
   };
+  const handleChange = (event: SelectChangeEvent) =>
+    setFilter(event.target.value);
 
   return (
-    <div>
+    <Box>
       <AppBar position="relative" color="default">
         <Toolbar
-          sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-around",
+          }}
         >
           <Typography variant="h6" sx={{ p: 1 }}>
             {t("sortBy")}
@@ -154,9 +185,6 @@ const Filter: React.FC = React.memo(() => {
               autoWidth
               label={t("filter")}
             >
-              <MenuItem value={"No filters"} onClick={noFilters}>
-                <em>{t("noFilters")} </em>
-              </MenuItem>
               <MenuItem value={10} onClick={PriceLowToHigh}>
                 {t("priceAscending")}
               </MenuItem>
@@ -181,8 +209,56 @@ const Filter: React.FC = React.memo(() => {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={noFilters}
+            sx={{ m: 1 }}
+          >
+            {t("noFilters")}
+          </Button>
         </Toolbar>
       </AppBar>
+      <Box
+        sx={{
+          height: "100px",
+          width: "100%",
+          mt: 2,
+          position: "relative",
+          bgcolor: "background.paper",
+          color: "inherit",
+        }}
+      >
+        <Typography variant="h6" sx={{ textAlign: "center", mb: 2 }}>
+          {t("showOnly")}
+        </Typography>
+        <RadioGroup
+          row
+          aria-labelledby="demo-form-control-label-placement"
+          name="position"
+          defaultValue="top"
+          sx={{
+            display: "flex",
+            justifyContent: "space-around",
+          }}
+        >
+          <FormControlLabel
+            value="Phones"
+            control={<Radio onClick={showOnlyPhone} />}
+            label="Phones"
+          />
+          <FormControlLabel
+            value="Headphones"
+            control={<Radio onClick={showOnlyHeadphones} />}
+            label="Headphones"
+          />
+          <FormControlLabel
+            value="Watches"
+            control={<Radio onClick={showOnlyWatches} />}
+            label="Watches"
+          />
+        </RadioGroup>
+      </Box>
       <Box
         sx={{
           display: "flex",
@@ -210,7 +286,7 @@ const Filter: React.FC = React.memo(() => {
                 p: 1,
               }}
             >
-              <Typography variant="h6" color="error" sx={{ mt: 2 }}>
+              <Typography variant="h5" color="error" sx={{ mt: 2 }}>
                 {t("noFavorites")}
               </Typography>
               <SentimentVeryDissatisfiedIcon color="error" />
@@ -238,8 +314,6 @@ const Filter: React.FC = React.memo(() => {
           </Paper>
         </Box>
       )}
-    </div>
+    </Box>
   );
 });
-
-export default Filter;
