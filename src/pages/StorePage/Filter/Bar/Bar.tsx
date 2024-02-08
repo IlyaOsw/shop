@@ -12,10 +12,7 @@ import {
   InputBase,
   styled,
   SelectChangeEvent,
-  Box,
-  Paper,
 } from "@mui/material";
-import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 
 import SearchIcon from "@mui/icons-material/Search";
 import { useTranslation } from "react-i18next";
@@ -67,15 +64,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export const Bar: React.FC<BarPropsType> = ({
   setProducts,
-  originalProducts,
   products,
   setSearch,
+  filterFavorites,
+  noFilters,
+  setSelectedOption,
 }) => {
   const { t } = useTranslation();
   const [filter, setFilter] = React.useState("");
-  const [empty, setEmpty] = React.useState(false);
-
-  const noFilters = () => setProducts(originalProducts);
 
   const PriceHighToLow = () => {
     const sortedList = [...products].sort((a, b) => b.price - a.price);
@@ -85,19 +81,6 @@ export const Bar: React.FC<BarPropsType> = ({
   const PriceLowToHigh = () => {
     const sortedList = [...products].sort((a, b) => a.price - b.price);
     setProducts(sortedList);
-  };
-
-  const filterFavorites = () => {
-    const favoriteFirst = products.filter(
-      (product: { isFavorite: boolean }) => product.isFavorite
-    );
-    if (favoriteFirst.length > 0) {
-      setProducts(favoriteFirst);
-      setEmpty(false);
-    } else {
-      setProducts(originalProducts);
-      setEmpty(true);
-    }
   };
 
   const handleChange = (event: SelectChangeEvent) =>
@@ -157,52 +140,17 @@ export const Bar: React.FC<BarPropsType> = ({
           </Search>
           <Button
             variant="contained"
-            color="secondary"
-            onClick={noFilters}
+            color="info"
+            onClick={() => {
+              noFilters();
+              setSelectedOption("");
+            }}
             sx={{ m: 1 }}
           >
             {t("noFilters")}
           </Button>
         </Toolbar>
       </AppBar>
-      {empty && (
-        <Box sx={{ height: "100vh", position: "relative" }}>
-          <Paper elevation={4}>
-            <Box
-              sx={{
-                textAlign: "center",
-                mt: 5,
-                p: 1,
-              }}
-            >
-              <Typography variant="h5" color="error" sx={{ mt: 2 }}>
-                {t("noFavorites")}
-              </Typography>
-              <SentimentVeryDissatisfiedIcon color="error" />
-            </Box>
-            <Box
-              sx={{
-                textAlign: "center",
-                p: 1,
-              }}
-            >
-              <Typography variant="h6" color="text.secondary">
-                {t("continueShopping")}
-                <Box>
-                  <Button
-                    variant="contained"
-                    sx={{ mt: 2 }}
-                    onClick={() => setEmpty(false)}
-                    color="success"
-                  >
-                    {t("here")}
-                  </Button>
-                </Box>
-              </Typography>
-            </Box>
-          </Paper>
-        </Box>
-      )}
     </>
   );
 };

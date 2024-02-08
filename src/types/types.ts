@@ -19,13 +19,17 @@ export type StoreCardProps = {
 export type ShowOnlyPropsType = {
   setProducts: (products: Product[]) => void;
   originalProducts: Product[];
+  selectedOption: string;
+  handleCheckboxChange: (value: React.SetStateAction<string>) => void;
 };
 
 export type BarPropsType = {
   setProducts: (products: Product[]) => void;
-  originalProducts: Product[];
   products: Product[];
   setSearch: (search: string) => void;
+  filterFavorites: () => void;
+  noFilters: () => void;
+  setSelectedOption: (selectedOption: string) => void;
 };
 
 export type TransitionProps = Omit<SlideProps, "direction">;

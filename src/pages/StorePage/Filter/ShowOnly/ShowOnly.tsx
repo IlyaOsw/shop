@@ -6,16 +6,17 @@ import {
   FormGroup,
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import React, { useState } from "react";
+import React from "react";
 
 import { ShowOnlyPropsType } from "../../../../types/types";
 
 export const ShowOnly: React.FC<ShowOnlyPropsType> = ({
   setProducts,
   originalProducts,
+  selectedOption,
+  handleCheckboxChange,
 }) => {
   const { t } = useTranslation();
-  const [selectedOption, setSelectedOption] = useState("");
 
   const showOnlyPhones = () => {
     const phonesId = [0, 3, 5, 8, 10, 11, 12, 14];
@@ -48,19 +49,9 @@ export const ShowOnly: React.FC<ShowOnlyPropsType> = ({
     setProducts(inStock);
   };
 
-  const handleCheckboxChange = (value: React.SetStateAction<string>) => {
-    if (selectedOption === value) {
-      setSelectedOption("");
-    } else {
-      setSelectedOption(value);
-    }
-  };
-
   return (
     <Box
       sx={{
-        height: "100px",
-        width: "100%",
         mt: 2,
         position: "relative",
         bgcolor: "background.paper",
@@ -74,13 +65,14 @@ export const ShowOnly: React.FC<ShowOnlyPropsType> = ({
         row
         sx={{
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "space-around",
         }}
       >
         <FormControlLabel
+          sx={{ ml: -0.5 }}
           control={
             <Checkbox
-              color="success"
+              color="info"
               checked={selectedOption === "InStock"}
               onClick={showInStock}
               onChange={() => handleCheckboxChange("InStock")}
@@ -89,9 +81,10 @@ export const ShowOnly: React.FC<ShowOnlyPropsType> = ({
           label={t("InStock")}
         />
         <FormControlLabel
+          sx={{ pl: 6 }}
           control={
             <Checkbox
-              color="success"
+              color="info"
               checked={selectedOption === "Watches"}
               onClick={showOnlyWatches}
               onChange={() => handleCheckboxChange("Watches")}
@@ -102,7 +95,7 @@ export const ShowOnly: React.FC<ShowOnlyPropsType> = ({
         <FormControlLabel
           control={
             <Checkbox
-              color="success"
+              color="info"
               checked={selectedOption === "Headphones"}
               onClick={showOnlyHeadphones}
               onChange={() => handleCheckboxChange("Headphones")}
@@ -114,7 +107,7 @@ export const ShowOnly: React.FC<ShowOnlyPropsType> = ({
         <FormControlLabel
           control={
             <Checkbox
-              color="success"
+              color="info"
               checked={selectedOption === "Phones"}
               onClick={showOnlyPhones}
               onChange={() => handleCheckboxChange("Phones")}
