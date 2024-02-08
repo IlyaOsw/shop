@@ -95,7 +95,7 @@ export const Bar: React.FC<BarPropsType> = ({
       setProducts(favoriteFirst);
       setEmpty(false);
     } else {
-      setProducts(favoriteFirst);
+      setProducts(originalProducts);
       setEmpty(true);
     }
   };
@@ -104,66 +104,67 @@ export const Bar: React.FC<BarPropsType> = ({
     setFilter(event.target.value);
 
   return (
-    <AppBar position="relative" color="default">
-      <Toolbar
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "space-around",
-        }}
-      >
-        <Typography variant="h6" sx={{ p: 1 }}>
-          {t("sortBy")}
-        </Typography>
-        <FormControl
+    <>
+      <AppBar position="relative" color="default">
+        <Toolbar
           sx={{
-            margin: "0px 20px",
-            minWidth: 200,
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-around",
           }}
         >
-          <InputLabel id="demo-simple-select-autowidth-label">
-            {t("filter")}
-          </InputLabel>
-          <Select
-            labelId="demo-simple-select-autowidth-label"
-            id="demo-simple-select-autowidth"
-            value={filter}
-            onChange={handleChange}
-            autoWidth
-            label={t("filter")}
+          <Typography variant="h6" sx={{ p: 1 }}>
+            {t("sortBy")}
+          </Typography>
+          <FormControl
+            sx={{
+              minWidth: 180,
+            }}
           >
-            <MenuItem value={10} onClick={PriceLowToHigh}>
-              {t("priceAscending")}
-            </MenuItem>
-            <MenuItem value={21} onClick={PriceHighToLow}>
-              {t("priceDescending")}
-            </MenuItem>
-            <MenuItem value={22} onClick={filterFavorites}>
-              {t("favoritesFirst")}
-            </MenuItem>
-          </Select>
-        </FormControl>
-        <Search sx={{ m: 1 }}>
-          <SearchIconWrapper>
-            <SearchIcon />
-          </SearchIconWrapper>
-          <StyledInputBase
-            placeholder={t("search")}
-            inputProps={{ "aria-label": "search" }}
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-              setSearch(event.target.value)
-            }
-          />
-        </Search>
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={noFilters}
-          sx={{ m: 1 }}
-        >
-          {t("noFilters")}
-        </Button>
-      </Toolbar>
+            <InputLabel id="demo-simple-select-autowidth-label">
+              {t("filter")}
+            </InputLabel>
+            <Select
+              labelId="demo-simple-select-autowidth-label"
+              id="demo-simple-select-autowidth"
+              value={filter}
+              onChange={handleChange}
+              autoWidth
+              label={t("filter")}
+            >
+              <MenuItem value={10} onClick={PriceLowToHigh}>
+                {t("priceAscending")}
+              </MenuItem>
+              <MenuItem value={21} onClick={PriceHighToLow}>
+                {t("priceDescending")}
+              </MenuItem>
+              <MenuItem value={22} onClick={filterFavorites}>
+                {t("favoritesFirst")}
+              </MenuItem>
+            </Select>
+          </FormControl>
+          <Search sx={{ m: 1 }}>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder={t("search")}
+              inputProps={{ "aria-label": "search" }}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                setSearch(event.target.value)
+              }
+            />
+          </Search>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={noFilters}
+            sx={{ m: 1 }}
+          >
+            {t("noFilters")}
+          </Button>
+        </Toolbar>
+      </AppBar>
       {empty && (
         <Box sx={{ height: "100vh", position: "relative" }}>
           <Paper elevation={4}>
@@ -191,7 +192,7 @@ export const Bar: React.FC<BarPropsType> = ({
                   <Button
                     variant="contained"
                     sx={{ mt: 2 }}
-                    onClick={noFilters}
+                    onClick={() => setEmpty(false)}
                     color="success"
                   >
                     {t("here")}
@@ -202,6 +203,6 @@ export const Bar: React.FC<BarPropsType> = ({
           </Paper>
         </Box>
       )}
-    </AppBar>
+    </>
   );
 };

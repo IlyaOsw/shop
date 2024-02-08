@@ -63,10 +63,15 @@ export const ShopCart: React.FC = () => {
       return acc + item.price;
     }, 0);
   };
+
   const invoiceTotal = total(cart);
+
   const handleClose = () => setOpen(false);
+
   const handleOpen = () => setOpen(true);
+
   const handleCloseModal = () => setOpenModal(null);
+
   const handleOpenModal = (itemId: number) => setOpenModal(itemId);
 
   return (
