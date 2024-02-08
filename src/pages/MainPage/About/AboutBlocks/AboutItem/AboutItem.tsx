@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Box, Typography } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+
 import { AboutBlocksType } from "../AboutBlocks";
 
 export const AboutItem: React.FC<AboutBlocksType> = ({ item }) => {

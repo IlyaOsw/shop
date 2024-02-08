@@ -2,14 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Box, Typography } from "@mui/material";
 
-enum LogoLabel {
-  SAMSUNG = "samsung",
-  APPLE = "apple",
-  LENOVO = "lenovo",
-  XIAOMI = "xiaomi",
-  SONY = "sony",
-  HUAWEI = "huawei",
-}
+import { LogoLabel } from "../../../types/types";
 
 const logoImages: { id: number; label: LogoLabel }[] = [
   { id: 0, label: LogoLabel.SAMSUNG },
@@ -43,6 +36,7 @@ export const Logos: React.FC = () => {
             key={logo.id}
             style={{ height: "70px", width: "130px", marginTop: "30px" }}
             src={`${process.env.PUBLIC_URL}/Images/Logos/${logo.label}.svg`}
+            alt={logo.label}
           />
         ))}
       </Box>

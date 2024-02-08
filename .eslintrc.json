@@ -1,4 +1,5 @@
 {
+  "extends": ["react-app", "react-app/jest"],
   "parserOptions": {
     "ecmaVersion": 2015,
     "sourceType": "module",
@@ -9,7 +10,27 @@
   "plugins": ["prettier", "import", "react"],
   "rules": {
     "import/no-unresolved": "off",
+    "no-unused-expressions": "off",
+    "no-sequences": "off",
+    "no-mixed-operators": "off",
     "no-console": "warn",
-    "quotes": ["warn", "double"]
+    "quotes": ["warn", "double"],
+    // "max-len": ["warn", { "code": 120 }],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
+        "newlines-between": "always-and-inside-groups"
+      }
+    ]
   }
 }

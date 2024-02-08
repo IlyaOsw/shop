@@ -10,13 +10,10 @@ import Popper from "@mui/material/Popper";
 import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import PublicIcon from "@mui/icons-material/Public";
-import i18n from "../../i18n";
 
-enum Locales {
-  EN = "en",
-  EE = "ee",
-  RU = "ru",
-}
+import i18n from "../../i18n";
+import { Locales } from "../../types/types";
+
 const changeLanguage = (language: Locales): void => {
   i18n.changeLanguage(language);
 };

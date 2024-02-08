@@ -12,12 +12,7 @@ import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import AllInclusiveIcon from "@mui/icons-material/AllInclusive";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
-interface TabPanelProps {
-  children?: React.ReactNode;
-  dir?: string;
-  index: number;
-  value: number;
-}
+import { TabPanelProps } from "../../../types/types";
 
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;

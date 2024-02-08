@@ -2,9 +2,11 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Box, Container, Divider, Typography } from "@mui/material";
 import Paper from "@mui/material/Paper";
+
+import { Timer } from "../../components/Timer/Timer";
+
 import { Clients } from "./Clients/Clients";
 import { Carousel } from "./Carousel/Carousel";
-import { Timer } from "../../components/Timer/Timer";
 
 const ClientsPage: React.FC = () => {
   const { t } = useTranslation();

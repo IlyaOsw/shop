@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box } from "@mui/material";
+
 import styles from "./ScrollToTop.module.scss";
 
 export const ScrollToTop: React.FC = () => {
@@ -28,7 +29,7 @@ export const ScrollToTop: React.FC = () => {
     >
       <img
         alt="Arrow up"
-        src={process.env.PUBLIC_URL + `/Images/ArrowIcon/ArrowUp.png`}
+        src={process.env.PUBLIC_URL + "/Images/ArrowIcon/ArrowUp.png"}
       />
     </Box>
   );

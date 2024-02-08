@@ -4,9 +4,6 @@
     "ru": "Russian",
     "welcome": "Your Digital Path to New Experiences!",
     "Home": "Home page",
-    "Phone": "Phone",
-	"Headphones": "Headphones",
-	"Watch": "Watch",
     "News": "News",
 	"Clients": "Clients",
 	"Contacts": "Contacts",
@@ -166,6 +163,10 @@
     "noFavorites": "Unfortunately, no items have been added to favorites.",
     "continueShopping": "To continue your shopping, please click",
     "here": "here",
-    "showOnly": "Show only"
+    "showOnly": "Show only",
+    "Phones": "Phones",
+    "Headphones": "Headphones",
+    "Watches": "Watches",
+    "InStock": "In stock"
 }
    

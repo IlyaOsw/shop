@@ -1,22 +1,10 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState } from "react";
 
-export type CartItemType = {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  isFavorite: boolean;
-};
-
-export type CartContextType = {
-  cart: CartItemType[];
-  addItem: (newItem: CartItemType) => void;
-  removeItem: (id: number) => void;
-};
-
-type CartProviderPropsType = {
-  children: ReactNode;
-};
+import {
+  CartContextType,
+  CartItemType,
+  CartProviderPropsType,
+} from "../types/types";
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 

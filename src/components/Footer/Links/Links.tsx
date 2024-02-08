@@ -1,14 +1,11 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Box, Typography } from "@mui/material";
+
+import { SocialLinks } from "../../../types/types";
+
 import styles from "./Links.module.scss";
 
-enum SocialLinks {
-  LINKEDIN = "Linkedin",
-  FACEBOOK = "Facebook",
-  INSTAGRAM = "Instagram",
-  GITHUB = "Github",
-}
 const links: { id: number; url: string; label: SocialLinks }[] = [
   {
     id: 1,

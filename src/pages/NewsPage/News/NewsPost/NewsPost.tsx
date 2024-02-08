@@ -13,14 +13,16 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import { FormDialog } from "../../../../components/FormDialog/FormDialog";
+
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { NewsPostPropsType } from "../News";
+
+import { FormDialog } from "../../../../components/FormDialog/FormDialog";
+import { NewsPostPropsType } from "../../../../types/types";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -46,10 +48,10 @@ export const NewsPost: React.FC<NewsPostPropsType> = ({
 
   const toggleLike = () => {
     if (isLiked) {
-      setLikesCount((prevLikes) => prevLikes - 1);
+      setLikesCount((prevLikes: number) => prevLikes - 1);
       setDislikeButtonDisabled(false);
     } else {
-      setLikesCount((prevLikes) => prevLikes + 1);
+      setLikesCount((prevLikes: number) => prevLikes + 1);
       setDislikeButtonDisabled(true);
     }
     setIsLiked((prevIsLiked) => !prevIsLiked);
@@ -57,10 +59,10 @@ export const NewsPost: React.FC<NewsPostPropsType> = ({
 
   const toggleDislike = () => {
     if (isLiked) {
-      setDislikesCount((prevLikes) => prevLikes - 1);
+      setDislikesCount((prevLikes: number) => prevLikes - 1);
       setLikeButtonDisabled(false);
     } else {
-      setDislikesCount((prevLikes) => prevLikes + 1);
+      setDislikesCount((prevLikes: number) => prevLikes + 1);
       setLikeButtonDisabled(true);
     }
     setIsLiked((prevIsLiked) => !prevIsLiked);

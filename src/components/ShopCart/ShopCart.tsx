@@ -23,6 +23,7 @@ import Modal from "@mui/material/Modal";
 import Slide from "@mui/material/Slide";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+
 import { CloseButton } from "../CloseButton/CloseButton";
 import { useCart } from "../../hooks/useCart";
 
@@ -126,6 +127,7 @@ export const ShopCart: React.FC = () => {
                         <img
                           style={{ height: "50px", width: "40px" }}
                           src={`${process.env.PUBLIC_URL}/Images/Store/${row.description}.jpg`}
+                          alt={row.description}
                         />
                       </TableCell>
                       <TableCell>{row.title}</TableCell>

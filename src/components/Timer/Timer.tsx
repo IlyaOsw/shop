@@ -33,7 +33,7 @@ export const Timer: React.FC = () => {
           }}
         >
           <AccessTimeIcon color="secondary" fontSize="large" />
-          <Typography color="secondary" sx={{ ml: 1, fontSize: "20px" }}>
+          <Typography color="secondary" sx={{ ml: 1, fontSize: "18px" }}>
             {time.toLocaleTimeString()}
           </Typography>
         </Box>

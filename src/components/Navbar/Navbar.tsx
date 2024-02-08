@@ -23,6 +23,7 @@ import FeedIcon from "@mui/icons-material/Feed";
 import HomeIcon from "@mui/icons-material/Home";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import { Theme, useTheme, styled, CSSObject } from "@mui/material/styles";
+
 import { ThemeToggle } from "../ThemeToggle/ThemeToggle";
 import { LanguageToggle } from "../LanguageToggle/LanguageToggle";
 import { ShopCart } from "../ShopCart/ShopCart";
@@ -32,6 +33,7 @@ import { FAQ } from "../FAQ/FAQ";
 import { Particle } from "../Particle/Particle";
 import { CartProvider } from "../../hooks/useCart";
 import { NavbarType } from "../../redux/reducers/navbar-reducer";
+
 import styles from "./Themes.module.scss";
 
 const drawerWidth = 250;
@@ -144,7 +146,6 @@ export const Navbar: React.FC = () => {
             >
               <MenuIcon />
             </IconButton>
-
             <Typography
               variant="h6"
               noWrap

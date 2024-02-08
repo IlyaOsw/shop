@@ -8,7 +8,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Checkbox from "@mui/material/Checkbox";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
-import Slide, { SlideProps } from "@mui/material/Slide";
+import Slide from "@mui/material/Slide";
 import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
@@ -17,10 +17,9 @@ import Favorite from "@mui/icons-material/Favorite";
 import DoneIcon from "@mui/icons-material/Done";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
-import { useCart } from "../../../hooks/useCart";
-import { StoreCardProps } from "../Filter/Filter";
 
-type TransitionProps = Omit<SlideProps, "direction">;
+import { useCart } from "../../../hooks/useCart";
+import { StoreCardProps, TransitionProps } from "../../../types/types";
 
 function TransitionUp(props: TransitionProps) {
   return <Slide {...props} direction="up" />;

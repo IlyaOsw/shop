@@ -15,12 +15,14 @@ import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Tooltip from "@mui/material/Tooltip";
-import { CloseButton } from "../CloseButton/CloseButton";
+
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import Dialog from "@mui/material/Dialog";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
+
+import { CloseButton } from "../CloseButton/CloseButton";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -54,7 +56,6 @@ export const Login: React.FC = () => {
           <PersonIcon fontSize="large" color="action" />
         </IconButton>
       </Tooltip>
-
       <Dialog
         open={open}
         TransitionComponent={Transition}

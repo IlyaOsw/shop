@@ -4,9 +4,6 @@
 	"ru": "Vene",
 	"welcome": "Teie digitaalne tee uutele elamustele!",
 	"Home": "Avaleht",
-	"Phone": "Telefonid",
-	"Headphones": "Kõrvaklapid",
-	"Watch": "Kellad",
 	"News": "Uudised",
 	"Clients": "Kliendid",
 	"Contacts": "Kontakt",
@@ -166,5 +163,9 @@
 	"noFavorites": "Kahjuks pole lemmikutesse ühtegi toodet lisatud.",
 	"continueShopping": "Jätkamiseks vajutage palun",
 	"here": "siia",
-	"showOnly": "Näita ainult"
+	"showOnly": "Näita ainult",
+	"Phones": "Telefonid",
+	"Headphones": "Kõrvaklapid",
+	"Watches": "Kellad",
+	"InStock": "Laos"
 }

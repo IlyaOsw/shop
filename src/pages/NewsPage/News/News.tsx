@@ -2,19 +2,12 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Box, Button, Tooltip } from "@mui/material";
 import { useSelector } from "react-redux";
-import { NewsType } from "../../../redux/reducers/news-reducer";
-import { NewsPost } from "./NewsPost/NewsPost";
 
-export type NewsPostPropsType = {
-  id: number;
-  title: string;
-  body: string;
-  likes: number;
-  dislikes: number;
-  additionalText1: string;
-  additionalText2: string;
-  postDate: string;
-};
+import { NewsType } from "../../../redux/reducers/news-reducer";
+
+import { NewsPostPropsType } from "../../../types/types";
+
+import { NewsPost } from "./NewsPost/NewsPost";
 
 export const News: React.FC = () => {
   const { t } = useTranslation();

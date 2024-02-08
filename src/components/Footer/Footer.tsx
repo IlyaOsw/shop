@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
+
 import styles from "./Footer.module.scss";
 import { Contacts } from "./Contacts/Contacts";
 import { Links } from "./Links/Links";

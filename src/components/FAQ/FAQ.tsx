@@ -20,8 +20,10 @@ import MuiAccordionSummary, {
   AccordionSummaryProps,
 } from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
-import { CloseButton } from "../CloseButton/CloseButton";
+
 import { TransitionProps } from "@mui/material/transitions";
+
+import { CloseButton } from "../CloseButton/CloseButton";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {

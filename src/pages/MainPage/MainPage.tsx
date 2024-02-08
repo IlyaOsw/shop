@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Box, Container, Divider, Typography } from "@mui/material";
+
 import { MainCard } from "./MainCard/MainCard";
 import { Description } from "./Description/Description";
 import Feedback from "./Feedback/Feedback";

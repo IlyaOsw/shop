@@ -1,5 +1,5 @@
-import { t } from "i18next";
 import React from "react";
+import { t } from "i18next";
 import Card from "@mui/material/Card";
 import { Paper } from "@mui/material";
 import CardActionArea from "@mui/material/CardActionArea";
@@ -7,14 +7,9 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 
-enum Cards {
-  CARD1 = "Card1",
-  CARD2 = "Card2",
-}
-
-const cards: { id: number; label: Cards; description: string }[] = [
-  { id: 0, label: Cards.CARD1, description: "cardInfo1" },
-  { id: 1, label: Cards.CARD2, description: "cardInfo2" },
+const cards: { id: number; label: string; description: string }[] = [
+  { id: 0, label: "Card1", description: "cardInfo1" },
+  { id: 1, label: "Card2", description: "cardInfo2" },
 ];
 
 export const MainCard: React.FC = () => {

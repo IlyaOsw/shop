@@ -4,13 +4,11 @@ import { Box, IconButton, Stack } from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+
+import { Contact } from "../../../types/types";
+
 import styles from "./Contacts.module.scss";
 
-enum Contact {
-  LOCATION = "location",
-  PHONE = "phone",
-  MAIL = "mail",
-}
 const contacts: {
   id: number;
   label: Contact;

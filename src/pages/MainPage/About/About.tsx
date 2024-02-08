@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Box, Container, Paper, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
+
 import { AboutBlocks, AboutInfo, AboutTitle } from "./AboutBlocks/AboutBlocks";
 
 const MainAbout: React.FC = () => {

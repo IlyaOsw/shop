@@ -3,9 +3,7 @@ import Button from "@mui/material/Button";
 import CloseIcon from "@mui/icons-material/Close";
 import { Box } from "@mui/material";
 
-interface CloseButtonProps {
-  onClose: () => void;
-}
+import { CloseButtonProps } from "../../types/types";
 
 export const CloseButton: React.FC<CloseButtonProps> = ({ onClose }) => {
   return (
