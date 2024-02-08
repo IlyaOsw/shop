@@ -234,7 +234,6 @@ export const Filter: React.FC = React.memo(() => {
         </Typography>
         <RadioGroup
           row
-          aria-labelledby="demo-form-control-label-placement"
           name="position"
           defaultValue="top"
           sx={{

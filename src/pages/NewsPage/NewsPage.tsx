@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Container, Divider, Paper, Typography } from "@mui/material";
-import Carousel from "./Carousel/Carousel";
+import { Carousel } from "./Carousel/Carousel";
 import { News } from "./News/News";
 
 const NewsPage: React.FC = React.memo(() => {
@@ -15,7 +15,7 @@ const NewsPage: React.FC = React.memo(() => {
       <Divider sx={{ m: 2 }} />
       <Carousel />
       <Paper
-        elevation={4}
+        elevation={6}
         sx={{
           position: "relative",
           margin: "50px auto",

@@ -4,18 +4,18 @@ import ButtonBase from "@mui/material/ButtonBase";
 
 const images = [
   {
+    id: 0,
     url: `${process.env.PUBLIC_URL}/Images/News/news1.jpg`,
-    title: "Breakfast",
     width: "32.7%",
   },
   {
+    id: 1,
     url: `${process.env.PUBLIC_URL}/Images/News/news2.jpg`,
-    title: "Burgers",
     width: "32.7%",
   },
   {
+    id: 2,
     url: `${process.env.PUBLIC_URL}/Images/News/news3.jpg`,
-    title: "Camera",
     width: "32.7%",
   },
 ];
@@ -74,7 +74,7 @@ const ImageBackdrop = styled("span")(({ theme }) => ({
   transition: theme.transitions.create("opacity"),
 }));
 
-export default function ButtonBaseDemo() {
+export const Carousel: React.FC = () => {
   return (
     <Box
       sx={{
@@ -88,7 +88,7 @@ export default function ButtonBaseDemo() {
       {images.map((image) => (
         <ImageButton
           focusRipple
-          key={image.title}
+          key={image.id}
           sx={{ m: 0.5 }}
           style={{
             width: image.width,
@@ -96,9 +96,8 @@ export default function ButtonBaseDemo() {
         >
           <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
           <ImageBackdrop className="MuiImageBackdrop-root" />
-          <Image></Image>
         </ImageButton>
       ))}
     </Box>
   );
-}
+};
