@@ -85,7 +85,7 @@ export const Filter: React.FC = React.memo(() => {
         sx={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: "center",
           flexWrap: "wrap",
         }}
       >

@@ -19,7 +19,7 @@ export const ShowOnly: React.FC<ShowOnlyPropsType> = ({
   const { t } = useTranslation();
 
   const showOnlyPhones = () => {
-    const phonesId = [0, 3, 5, 8, 10, 11, 12, 14];
+    const phonesId = [0, 3, 5, 8, 10, 11, 12, 14, 18];
     const onlyPhones = originalProducts.filter((product: { id: number }) =>
       phonesId.includes(product.id)
     );
@@ -27,7 +27,7 @@ export const ShowOnly: React.FC<ShowOnlyPropsType> = ({
   };
 
   const showOnlyHeadphones = () => {
-    const headphonesId = [2, 6, 13];
+    const headphonesId = [2, 6, 13, 16, 19];
     const onlyHeadphones = originalProducts.filter((product: { id: number }) =>
       headphonesId.includes(product.id)
     );
@@ -35,7 +35,7 @@ export const ShowOnly: React.FC<ShowOnlyPropsType> = ({
   };
 
   const showOnlyWatches = () => {
-    const watchesId = [1, 4, 7, 9, 15];
+    const watchesId = [1, 4, 7, 9, 15, 17];
     const onlyWatches = originalProducts.filter((product: { id: number }) =>
       watchesId.includes(product.id)
     );

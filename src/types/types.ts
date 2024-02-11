@@ -45,6 +45,13 @@ export type NewsPostPropsType = {
   postDate: string;
 };
 
+export type TabPanelProps = {
+  children?: React.ReactNode;
+  dir?: string;
+  index: number;
+  value: number;
+};
+
 export enum LogoLabel {
   SAMSUNG = "samsung",
   APPLE = "apple",
@@ -53,13 +60,6 @@ export enum LogoLabel {
   SONY = "sony",
   HUAWEI = "huawei",
 }
-
-export type TabPanelProps = {
-  children?: React.ReactNode;
-  dir?: string;
-  index: number;
-  value: number;
-};
 
 export enum AboutTitle {
   TITLE1 = "aboutTitle1",

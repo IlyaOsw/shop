@@ -127,6 +127,38 @@ const initialState = [
     isFavorite: false,
     isStock: true,
   },
+  {
+    id: 16,
+    title: "Jabra Elite 10",
+    price: 199.0,
+    description: "jabra",
+    isFavorite: false,
+    isStock: false,
+  },
+  {
+    id: 17,
+    title: "Amazfit GTS 4",
+    price: 169.0,
+    description: "amazfit",
+    isFavorite: false,
+    isStock: true,
+  },
+  {
+    id: 18,
+    title: "Samsung Galaxy Fold5",
+    price: 1349.0,
+    description: "samsunggalaxyfold5",
+    isFavorite: false,
+    isStock: true,
+  },
+  {
+    id: 19,
+    title: "Huawei FreeBuds Pro 2",
+    price: 194.0,
+    description: "huaweifreebuds",
+    isFavorite: false,
+    isStock: true,
+  },
 ];
 
 const shopReducer = (state = initialState, action: any) => {

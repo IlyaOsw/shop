@@ -21,9 +21,7 @@ export const AboutItem: React.FC<AboutBlocksType> = ({ item }) => {
       <Typography variant="h6" sx={{ paddingBottom: "5px" }}>
         {t(item.label)}
       </Typography>
-      <Typography variant="body1" color="text.secondary">
-        {t(item.description)}
-      </Typography>
+      <Typography variant="body2">{t(item.description)}</Typography>
     </Box>
   );
 };

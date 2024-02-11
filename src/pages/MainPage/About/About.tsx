@@ -13,12 +13,10 @@ const MainAbout: React.FC = () => {
       </Typography>
       <Box
         sx={{
-          bgcolor: "background.paper",
           display: "flex",
           mt: 5,
           justifyContent: "space-around",
           alignItems: "center",
-          position: "relative",
           color: "inherit",
         }}
       >

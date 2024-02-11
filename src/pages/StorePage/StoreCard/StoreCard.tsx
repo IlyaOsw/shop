@@ -61,27 +61,32 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
 
     return (
       <>
-        <Paper elevation={3} sx={{ mt: 10 }}>
+        <Paper elevation={3} sx={{ m: 2, mt: 5 }}>
           <Card
             key={item.id}
             sx={{
               position: "relative",
-              maxWidth: "305px",
+              maxWidth: "250px",
             }}
           >
             <CardMedia
               component="img"
               image={`${process.env.PUBLIC_URL}/Images/Store/${item.description}.jpg`}
-              alt="Phone"
+              alt={item.title}
               sx={{
-                width: "100%",
-                height: "400px",
+                margin: "0 auto",
+                width: "90%",
+                height: "350px",
                 objectFit: "contain",
               }}
             />
             <CardContent
               sx={{
-                height: "85px",
+                height: "55px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
               <Typography variant="h6" color="text.secondary">
@@ -91,7 +96,14 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
                 {item.price} €
               </Typography>
             </CardContent>
-            <Box sx={{ m: 1.5 }}>
+            <Box
+              sx={{
+                m: 1,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
               {item.isStock ? (
                 <Tooltip title={t("inStockTip")} arrow placement="right">
                   <Button
