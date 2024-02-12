@@ -10,7 +10,7 @@ const logoImages: { id: number; label: LogoLabel }[] = [
   { id: 2, label: LogoLabel.LENOVO },
   { id: 3, label: LogoLabel.XIAOMI },
   { id: 4, label: LogoLabel.SONY },
-  { id: 5, label: LogoLabel.HUAWEI },
+  { id: 5, label: LogoLabel.ASUS },
 ];
 
 export const Logos: React.FC = () => {

@@ -1,7 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Box, Container, Divider, Typography } from "@mui/material";
-import Paper from "@mui/material/Paper";
 
 import { Timer } from "../../components/Timer/Timer";
 
@@ -13,11 +12,7 @@ const ClientsPage: React.FC = () => {
 
   return (
     <Container maxWidth="xl">
-      <Typography
-        variant="h5"
-        textAlign={"center"}
-        sx={{ m: 3, letterSpacing: "1px" }}
-      >
+      <Typography variant="h5" textAlign={"center"} sx={{ m: 3 }}>
         {t("clientsTitle")}
       </Typography>
       <Divider sx={{ m: 2 }} />
@@ -31,33 +26,20 @@ const ClientsPage: React.FC = () => {
       >
         <Box
           sx={{
-            position: "relative",
             maxWidth: "500px",
           }}
         >
-          <Paper elevation={4}>
-            <Typography variant="body1" color="text.secondary" sx={{ p: 1 }}>
-              {t("clientsSubTitle")}
-            </Typography>
-          </Paper>
-          <Paper elevation={4}>
-            <Typography
-              variant="body1"
-              color="text.secondary"
-              sx={{ p: 1, mt: 5 }}
-            >
-              {t("clientsSubTitle2")}
-            </Typography>
-          </Paper>
-          <Paper elevation={4}>
-            <Typography
-              variant="body1"
-              color="text.secondary"
-              sx={{ p: 1, mt: 5 }}
-            >
-              {t("clientsSubTitle3")}
-            </Typography>
-          </Paper>
+          <Typography variant="body1" sx={{ p: 1 }}>
+            {t("clientsSubTitle")}
+          </Typography>
+
+          <Typography variant="body1" sx={{ p: 1, mt: 5 }}>
+            {t("clientsSubTitle2")}
+          </Typography>
+
+          <Typography variant="body1" sx={{ p: 1, mt: 5 }}>
+            {t("clientsSubTitle3")}
+          </Typography>
         </Box>
         <Carousel />
       </Box>

@@ -18,20 +18,11 @@ export const ShowOnly: React.FC<ShowOnlyPropsType> = ({
 }) => {
   const { t } = useTranslation();
 
-  const showOnlyPhones = () => {
-    const phonesId = [0, 3, 5, 8, 10, 11, 12, 14, 18];
-    const onlyPhones = originalProducts.filter((product: { id: number }) =>
-      phonesId.includes(product.id)
+  const showInStock = () => {
+    const inStock = originalProducts.filter(
+      (product: { isStock: boolean }) => product.isStock
     );
-    setProducts(onlyPhones);
-  };
-
-  const showOnlyHeadphones = () => {
-    const headphonesId = [2, 6, 13, 16, 19];
-    const onlyHeadphones = originalProducts.filter((product: { id: number }) =>
-      headphonesId.includes(product.id)
-    );
-    setProducts(onlyHeadphones);
+    setProducts(inStock);
   };
 
   const showOnlyWatches = () => {
@@ -42,22 +33,29 @@ export const ShowOnly: React.FC<ShowOnlyPropsType> = ({
     setProducts(onlyWatches);
   };
 
-  const showInStock = () => {
-    const inStock = originalProducts.filter(
-      (product: { isStock: boolean }) => product.isStock
+  const showOnlyHeadphones = () => {
+    const headphonesId = [2, 6, 13, 16, 19];
+    const onlyHeadphones = originalProducts.filter((product: { id: number }) =>
+      headphonesId.includes(product.id)
     );
-    setProducts(inStock);
+    setProducts(onlyHeadphones);
+  };
+
+  const showOnlyPhones = () => {
+    const phonesId = [0, 3, 5, 8, 10, 11, 12, 14, 18];
+    const onlyPhones = originalProducts.filter((product: { id: number }) =>
+      phonesId.includes(product.id)
+    );
+    setProducts(onlyPhones);
+  };
+
+  const checkBoxStyle = {
+    color: "#0288d1",
+    "&.Mui-checked": { color: "#0288d1" },
   };
 
   return (
-    <Box
-      sx={{
-        mt: 2,
-        position: "relative",
-        bgcolor: "background.paper",
-        color: "inherit",
-      }}
-    >
+    <Box sx={{ mt: 2 }}>
       <Typography variant="h6" sx={{ textAlign: "center", mb: 2 }}>
         {t("showOnly")}
       </Typography>
@@ -72,7 +70,7 @@ export const ShowOnly: React.FC<ShowOnlyPropsType> = ({
           sx={{ ml: -0.5 }}
           control={
             <Checkbox
-              color="info"
+              sx={checkBoxStyle}
               checked={selectedOption === "InStock"}
               onClick={showInStock}
               onChange={() => handleCheckboxChange("InStock")}
@@ -84,6 +82,7 @@ export const ShowOnly: React.FC<ShowOnlyPropsType> = ({
           sx={{ pl: 6 }}
           control={
             <Checkbox
+              sx={checkBoxStyle}
               color="info"
               checked={selectedOption === "Watches"}
               onClick={showOnlyWatches}
@@ -95,6 +94,7 @@ export const ShowOnly: React.FC<ShowOnlyPropsType> = ({
         <FormControlLabel
           control={
             <Checkbox
+              sx={checkBoxStyle}
               color="info"
               checked={selectedOption === "Headphones"}
               onClick={showOnlyHeadphones}
@@ -107,6 +107,7 @@ export const ShowOnly: React.FC<ShowOnlyPropsType> = ({
         <FormControlLabel
           control={
             <Checkbox
+              sx={checkBoxStyle}
               color="info"
               checked={selectedOption === "Phones"}
               onClick={showOnlyPhones}

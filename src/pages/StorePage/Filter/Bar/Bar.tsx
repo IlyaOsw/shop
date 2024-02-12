@@ -88,15 +88,22 @@ export const Bar: React.FC<BarPropsType> = ({
 
   return (
     <>
-      <AppBar position="relative" color="default">
+      <AppBar
+        position="relative"
+        color="inherit"
+        sx={{
+          width: "fit-content",
+          margin: "0 auto",
+        }}
+      >
         <Toolbar
           sx={{
             display: "flex",
             flexWrap: "wrap",
-            justifyContent: "space-around",
+            justifyContent: "center",
           }}
         >
-          <Typography variant="h6" sx={{ p: 1 }}>
+          <Typography variant="h6" color={"#555555"} sx={{ p: 1 }}>
             {t("sortBy")}
           </Typography>
           <FormControl

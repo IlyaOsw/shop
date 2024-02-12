@@ -67,7 +67,6 @@ export const Description: React.FC = () => {
     <Container>
       <Box
         sx={{
-          // bgcolor: "background.paper",
           position: "relative",
         }}
       >
@@ -80,7 +79,7 @@ export const Description: React.FC = () => {
         >
           {t("whyWe")}
         </Typography>
-        <AppBar position="static" color="default">
+        <AppBar position="static" color="inherit">
           <Tabs
             value={value}
             onChange={handleChange}

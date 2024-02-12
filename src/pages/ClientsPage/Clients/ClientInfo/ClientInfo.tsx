@@ -40,28 +40,25 @@ export const ClientInfo: React.FC = ({ user }) => {
               {user.name}
             </Typography>
           </Box>
-          <Typography variant="h6" color="text.secondary">
+          <Typography variant="h6" color="text.info">
             <Box sx={{ p: 0.5 }}>
-              <MailOutlineOutlinedIcon color="secondary" style={iconStyle} />
+              <MailOutlineOutlinedIcon color="info" style={iconStyle} />
               {t("email")}: {user.email}
             </Box>
             <Box sx={{ p: 0.5 }}>
-              <PhoneForwardedOutlinedIcon color="secondary" style={iconStyle} />
+              <PhoneForwardedOutlinedIcon color="info" style={iconStyle} />
               {t("phone")}: {user.phone}
             </Box>
             <Box sx={{ p: 0.5 }}>
-              <FmdGoodOutlinedIcon color="secondary" style={iconStyle} />
+              <FmdGoodOutlinedIcon color="info" style={iconStyle} />
               {t("city")}: {user.city}
             </Box>
             <Box sx={{ p: 0.5 }}>
-              <ArrowForwardIosOutlinedIcon
-                color="secondary"
-                style={iconStyle}
-              />
+              <ArrowForwardIosOutlinedIcon color="info" style={iconStyle} />
               {t("website")}: {user.website}
             </Box>
             <Box sx={{ p: 0.5 }}>
-              <BusinessOutlinedIcon color="secondary" style={iconStyle} />
+              <BusinessOutlinedIcon color="info" style={iconStyle} />
               {t("company")}: {user.company}
             </Box>
           </Typography>

@@ -58,7 +58,7 @@ export enum LogoLabel {
   LENOVO = "lenovo",
   XIAOMI = "xiaomi",
   SONY = "sony",
-  HUAWEI = "huawei",
+  ASUS = "asus",
 }
 
 export enum AboutTitle {
