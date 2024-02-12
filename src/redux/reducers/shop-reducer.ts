@@ -5,7 +5,7 @@ const initialState = [
     price: 1199.0,
     description: "iphone15pro",
     isFavorite: false,
-    isStock: true,
+    isStock: false,
   },
   {
     id: 1,
@@ -29,7 +29,7 @@ const initialState = [
     price: 339.0,
     description: "iphonexs",
     isFavorite: false,
-    isStock: false,
+    isStock: true,
   },
   {
     id: 4,

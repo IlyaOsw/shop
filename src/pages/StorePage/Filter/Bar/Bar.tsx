@@ -87,77 +87,72 @@ export const Bar: React.FC<BarPropsType> = ({
     setFilter(event.target.value);
 
   return (
-    <>
-      <AppBar
-        position="relative"
-        color="inherit"
+    <Toolbar
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+      }}
+    >
+      <Typography variant="h6" sx={{ p: 1 }}>
+        {t("sortBy")}
+      </Typography>
+      <FormControl
         sx={{
-          width: "fit-content",
-          margin: "0 auto",
+          minWidth: 160,
+          m: 1,
         }}
       >
-        <Toolbar
+        <InputLabel
           sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
+            color: "inherit",
           }}
         >
-          <Typography variant="h6" color={"#555555"} sx={{ p: 1 }}>
-            {t("sortBy")}
-          </Typography>
-          <FormControl
-            sx={{
-              minWidth: 180,
-            }}
-          >
-            <InputLabel id="demo-simple-select-autowidth-label">
-              {t("filter")}
-            </InputLabel>
-            <Select
-              labelId="demo-simple-select-autowidth-label"
-              id="demo-simple-select-autowidth"
-              value={filter}
-              onChange={handleChange}
-              autoWidth
-              label={t("filter")}
-            >
-              <MenuItem value={10} onClick={PriceLowToHigh}>
-                {t("priceAscending")}
-              </MenuItem>
-              <MenuItem value={21} onClick={PriceHighToLow}>
-                {t("priceDescending")}
-              </MenuItem>
-              <MenuItem value={22} onClick={filterFavorites}>
-                {t("favoritesFirst")}
-              </MenuItem>
-            </Select>
-          </FormControl>
-          <Search sx={{ m: 1 }}>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder={t("search")}
-              inputProps={{ "aria-label": "search" }}
-              onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                setSearch(event.target.value)
-              }
-            />
-          </Search>
-          <Button
-            variant="contained"
-            color="info"
-            onClick={() => {
-              noFilters();
-              setSelectedOption("");
-            }}
-            sx={{ m: 1 }}
-          >
-            {t("noFilters")}
-          </Button>
-        </Toolbar>
-      </AppBar>
-    </>
+          {t("filter")}
+        </InputLabel>
+        <Select
+          value={filter}
+          onChange={handleChange}
+          autoWidth
+          label={t("filter")}
+          sx={{
+            color: "inherit",
+          }}
+        >
+          <MenuItem value={10} onClick={PriceLowToHigh}>
+            {t("priceAscending")}
+          </MenuItem>
+          <MenuItem value={21} onClick={PriceHighToLow}>
+            {t("priceDescending")}
+          </MenuItem>
+          <MenuItem value={22} onClick={filterFavorites}>
+            {t("favoritesFirst")}
+          </MenuItem>
+        </Select>
+      </FormControl>
+      <Search sx={{ m: 1 }}>
+        <SearchIconWrapper>
+          <SearchIcon />
+        </SearchIconWrapper>
+        <StyledInputBase
+          placeholder={t("search")}
+          inputProps={{ "aria-label": "search" }}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setSearch(event.target.value)
+          }
+        />
+      </Search>
+      <Button
+        variant="contained"
+        color="info"
+        onClick={() => {
+          noFilters();
+          setSelectedOption("");
+        }}
+        sx={{ m: 1 }}
+      >
+        {t("noFilters")}
+      </Button>
+    </Toolbar>
   );
 };
