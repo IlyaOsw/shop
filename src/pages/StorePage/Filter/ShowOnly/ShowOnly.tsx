@@ -1,14 +1,12 @@
-import {
-  Box,
-  Typography,
-  FormControlLabel,
-  Checkbox,
-  FormGroup,
-} from "@mui/material";
+import { Box, Typography, FormControlLabel } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import React from "react";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
 
 import { ShowOnlyPropsType } from "../../../../types/types";
+
+import styles from "./ShowOnly.module.scss";
 
 export const ShowOnly: React.FC<ShowOnlyPropsType> = ({
   setProducts,
@@ -56,67 +54,68 @@ export const ShowOnly: React.FC<ShowOnlyPropsType> = ({
 
   return (
     <Box sx={{ mt: 2 }}>
-      <Typography variant="h6" sx={{ textAlign: "center", mb: 2 }}>
+      <Typography variant="h6" sx={{ textAlign: "center" }}>
         {t("showOnly")}
       </Typography>
-      <FormGroup
+      <RadioGroup
         row
-        sx={{
-          alignItems: "center",
-          justifyContent: "space-around",
-        }}
+        aria-labelledby="demo-form-control-label-placement"
+        name="position"
+        className={styles.showOnlyBlock}
       >
         <FormControlLabel
-          sx={{ ml: -0.5 }}
+          value="InStock"
+          className={styles.radioBtn}
           control={
-            <Checkbox
+            <Radio
               sx={checkBoxStyle}
-              checked={selectedOption === "InStock"}
               onClick={showInStock}
+              checked={selectedOption === "InStock"}
               onChange={() => handleCheckboxChange("InStock")}
             />
           }
           label={t("InStock")}
         />
         <FormControlLabel
-          sx={{ pl: 6 }}
+          value="Phones"
+          className={styles.radioBtn}
           control={
-            <Checkbox
+            <Radio
               sx={checkBoxStyle}
-              color="info"
-              checked={selectedOption === "Watches"}
+              onClick={showOnlyPhones}
+              checked={selectedOption === "Phones"}
+              onChange={() => handleCheckboxChange("Phones")}
+            />
+          }
+          label={t("Phones")}
+        />
+        <FormControlLabel
+          value="Watches"
+          className={styles.radioBtn}
+          control={
+            <Radio
+              sx={checkBoxStyle}
               onClick={showOnlyWatches}
+              checked={selectedOption === "Watches"}
               onChange={() => handleCheckboxChange("Watches")}
             />
           }
           label={t("Watches")}
         />
         <FormControlLabel
+          value="Headphones"
+          className={styles.radioBtn}
           control={
-            <Checkbox
+            <Radio
               sx={checkBoxStyle}
-              color="info"
-              checked={selectedOption === "Headphones"}
               onClick={showOnlyHeadphones}
+              checked={selectedOption === "Headphones"}
               onChange={() => handleCheckboxChange("Headphones")}
             />
           }
           label={t("Headphones")}
         />
-
-        <FormControlLabel
-          control={
-            <Checkbox
-              sx={checkBoxStyle}
-              color="info"
-              checked={selectedOption === "Phones"}
-              onClick={showOnlyPhones}
-              onChange={() => handleCheckboxChange("Phones")}
-            />
-          }
-          label={t("Phones")}
-        />
-      </FormGroup>
+      </RadioGroup>
     </Box>
   );
 };

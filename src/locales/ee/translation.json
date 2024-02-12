@@ -167,5 +167,8 @@
 	"Phones": "Telefonid",
 	"Headphones": "Kõrvaklapid",
 	"Watches": "Kellad",
-	"InStock": "Laos"
+	"InStock": "Laos",
+	"getNewLetter": "Hankige viimased uudiskirja värskendused",
+	"enterMail": "Sisestage e-posti aadress",
+	"subscribe": "Telli"
 }

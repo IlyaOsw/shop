@@ -16,7 +16,7 @@ export const MainCard: React.FC = () => {
   return (
     <>
       {cards.map((item) => (
-        <Paper elevation={6} key={item.id} sx={{ mt: 3 }}>
+        <Paper elevation={3} key={item.id} sx={{ mt: 3 }}>
           <Card
             sx={{
               position: "relative",

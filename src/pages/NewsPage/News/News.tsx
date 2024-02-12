@@ -26,7 +26,7 @@ export const News: React.FC = () => {
       <Box sx={{ display: "flex", justifyContent: "center", margin: "50px" }}>
         {posts < newsData.length && (
           <Tooltip title={t("showMorePosts")} arrow>
-            <Button variant="contained" onClick={showMorePosts}>
+            <Button variant="contained" color="info" onClick={showMorePosts}>
               {t("showMorePosts")}
             </Button>
           </Tooltip>

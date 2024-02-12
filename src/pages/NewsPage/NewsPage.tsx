@@ -4,6 +4,7 @@ import { Container, Divider, Typography } from "@mui/material";
 
 import { Carousel } from "./Carousel/Carousel";
 import { News } from "./News/News";
+import { Subscribe } from "./Subscribe/Subscribe";
 
 const NewsPage: React.FC = () => {
   const { t } = useTranslation();
@@ -18,6 +19,7 @@ const NewsPage: React.FC = () => {
       <Typography variant="body1" sx={{ p: 2, margin: "50px auto" }}>
         {t("newsDesc")}
       </Typography>
+      <Subscribe />
       <News />
     </Container>
   );

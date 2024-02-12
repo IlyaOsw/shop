@@ -1,0 +1,19 @@
+.showOnlyBlock {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.radioBtn {
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .showOnlyBlock {
+    margin-left: 25px;
+    justify-content: flex-start;
+  }
+  .radioBtn {
+    flex-basis: calc(50% - 10px);
+  }
+}
