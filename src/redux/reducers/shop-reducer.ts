@@ -1,4 +1,6 @@
-const initialState = [
+import { ProductType } from "../../types/types";
+
+const initialState: ProductType[] = [
   {
     id: 0,
     title: "Apple iPhone 15 Pro",
@@ -161,7 +163,7 @@ const initialState = [
   },
 ];
 
-const shopReducer = (state = initialState, action: any) => {
+const shopReducer = (state: ProductType[] = initialState, action: any) => {
   return state;
 };
 

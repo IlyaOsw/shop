@@ -23,7 +23,7 @@ export const News: React.FC = () => {
       {initialPosts.map((post: NewsPostPropsType) => (
         <NewsPost key={post.id} {...post} />
       ))}
-      <Box sx={{ display: "flex", justifyContent: "center", margin: "50px" }}>
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
         {posts < newsData.length && (
           <Tooltip title={t("showMorePosts")} arrow>
             <Button variant="contained" color="info" onClick={showMorePosts}>

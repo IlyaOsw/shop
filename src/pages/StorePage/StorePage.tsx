@@ -16,7 +16,7 @@ const StorePage: React.FC = () => {
       >
         {t("storePage")}
       </Typography>
-      <Divider sx={{ m: 2 }} />
+      <Divider sx={{ m: 2 }} color="lightgray" />
       <Filter />
     </Container>
   );

@@ -39,7 +39,7 @@ export const MainCard: React.FC = () => {
                 </Typography>
               </CardContent>
             </CardActionArea>
-          </Card>{" "}
+          </Card>
         </Paper>
       ))}
     </>

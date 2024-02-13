@@ -12,7 +12,7 @@ import SentimentVerySatisfiedIcon from "@mui/icons-material/SentimentVerySatisfi
 
 const StyledRating = styled(Rating)(({ theme }) => ({
   "& .MuiRating-iconEmpty .MuiSvgIcon-root": {
-    color: theme.palette.action.active,
+    color: theme.palette.info.main,
   },
 }));
 const labels: { [index: string]: string } = {

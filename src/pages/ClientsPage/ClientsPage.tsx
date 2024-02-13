@@ -15,7 +15,7 @@ const ClientsPage: React.FC = () => {
       <Typography variant="h5" textAlign={"center"} sx={{ m: 3 }}>
         {t("clientsTitle")}
       </Typography>
-      <Divider sx={{ m: 2 }} />
+      <Divider sx={{ m: 2 }} color="lightgray" />
       <Box
         sx={{
           display: "flex",
@@ -44,9 +44,7 @@ const ClientsPage: React.FC = () => {
         <Carousel />
       </Box>
       <Timer />
-      <Box sx={{ marginBottom: "50px" }}>
-        <Clients />
-      </Box>
+      <Clients />
     </Container>
   );
 };

@@ -1,7 +1,7 @@
 import { SlideProps } from "@mui/material";
 import { ReactNode } from "react";
 
-export type Product = {
+export type ProductType = {
   id: number;
   title: string;
   price: number;
@@ -10,22 +10,33 @@ export type Product = {
   isStock: boolean;
 };
 
+export type ClientType = {
+  id: number;
+  avatar: string;
+  name: string;
+  email: string;
+  phone: string;
+  city: string;
+  website: string;
+  company: string;
+};
+
 export type StoreCardProps = {
-  item: Product;
+  item: ProductType;
   index: number;
   toggleFavorite: (productId: number) => void;
 };
 
 export type ShowOnlyPropsType = {
-  setProducts: (products: Product[]) => void;
-  originalProducts: Product[];
+  setProducts: (products: ProductType[]) => void;
+  originalProducts: ProductType[];
   selectedOption: string;
   handleCheckboxChange: (value: React.SetStateAction<string>) => void;
 };
 
 export type BarPropsType = {
-  setProducts: (products: Product[]) => void;
-  products: Product[];
+  setProducts: (products: ProductType[]) => void;
+  products: ProductType[];
   setSearch: (search: string) => void;
   filterFavorites: () => void;
   noFilters: () => void;
@@ -86,12 +97,6 @@ export enum SocialLinks {
   FACEBOOK = "Facebook",
   INSTAGRAM = "Instagram",
   GITHUB = "Github",
-}
-
-export enum Contact {
-  LOCATION = "location",
-  PHONE = "phone",
-  MAIL = "mail",
 }
 
 export type CartItemType = {

@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { useMediaQuery, useTheme } from "@mui/material";
-import AppBar from "@mui/material/AppBar";
+import { Divider, useMediaQuery, useTheme } from "@mui/material";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Tabs from "@mui/material/Tabs";
@@ -34,13 +33,6 @@ function TabPanel(props: TabPanelProps) {
   );
 }
 
-function a11yProps(index: number) {
-  return {
-    id: `full-width-tab-${index}`,
-    "aria-controls": `full-width-tabpanel-${index}`,
-  };
-}
-
 export const Description: React.FC = () => {
   const { t } = useTranslation();
   const theme = useTheme();
@@ -53,9 +45,9 @@ export const Description: React.FC = () => {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("lg"));
 
   const icons = [
-    <FavoriteBorderIcon fontSize="large" color="secondary" />,
-    <ThumbUpOffAltIcon fontSize="large" color="secondary" />,
-    <AllInclusiveIcon fontSize="large" color="secondary" />,
+    <FavoriteBorderIcon fontSize="large" color="primary" />,
+    <ThumbUpOffAltIcon fontSize="large" color="primary" />,
+    <AllInclusiveIcon fontSize="large" color="primary" />,
   ];
 
   const chooseLabels: { id: number; label: string }[] = [
@@ -79,20 +71,26 @@ export const Description: React.FC = () => {
         >
           {t("whyWe")}
         </Typography>
-        <AppBar position="static" color="inherit">
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            indicatorColor="secondary"
-            variant="fullWidth"
-            aria-label="full width tabs example"
-            orientation={isSmallScreen ? "vertical" : "horizontal"}
-          >
-            <Tab label={t("chooseTitle1")} {...a11yProps(0)} />
-            <Tab label={t("chooseTitle2")} {...a11yProps(1)} />
-            <Tab label={t("chooseTitle3")} {...a11yProps(2)} />
-          </Tabs>
-        </AppBar>
+        <Divider sx={{ m: 2 }} color="lightgray" />
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          variant="fullWidth"
+          orientation={isSmallScreen ? "vertical" : "horizontal"}
+        >
+          <Tab
+            label={t("chooseTitle1")}
+            sx={{ color: theme.palette.info.light }}
+          />
+          <Tab
+            label={t("chooseTitle2")}
+            sx={{ color: theme.palette.info.light }}
+          />
+          <Tab
+            label={t("chooseTitle3")}
+            sx={{ color: theme.palette.info.light }}
+          />
+        </Tabs>
         <Box
           sx={{
             display: "flex",
@@ -129,7 +127,7 @@ export const Description: React.FC = () => {
                   justifyContent: "center",
                 }}
               >
-                <MoreHorizIcon fontSize="large" color="secondary" />
+                <MoreHorizIcon fontSize="large" color="primary" />
               </Box>
             </TabPanel>
           ))}

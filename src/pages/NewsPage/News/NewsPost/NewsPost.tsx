@@ -72,7 +72,7 @@ export const NewsPost: React.FC<NewsPostPropsType> = ({
 
   return (
     <>
-      <Divider sx={{ m: 5 }}>
+      <Divider sx={{ m: 2 }}>
         <Typography variant="subtitle1">{t("next")}</Typography>
       </Divider>
       <Card

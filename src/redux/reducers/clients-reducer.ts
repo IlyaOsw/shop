@@ -1,4 +1,6 @@
-const initialState = [
+import { ClientType } from "../../types/types";
+
+const initialState: ClientType[] = [
   {
     id: 0,
     avatar: "martin",
@@ -41,7 +43,7 @@ const initialState = [
   },
 ];
 
-const clientsReducer = (state = initialState, action: any) => {
+const clientsReducer = (state: ClientType[] = initialState, action: any) => {
   return state;
 };
 

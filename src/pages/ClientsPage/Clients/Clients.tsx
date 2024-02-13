@@ -6,23 +6,22 @@ import { ClientsType } from "../../../redux/reducers/clients-reducer";
 
 import { ClientInfo } from "./ClientInfo/ClientInfo";
 
-export const Clients: React.FC = React.memo(() => {
+export const Clients: React.FC = () => {
   const clientsData = useSelector(
     (state: { clients: ClientsType }) => state.clients
   );
+
   return (
     <Box
       sx={{
         display: "flex",
         flexWrap: "wrap",
-        justifyContent: "space-around",
-        mt: 4,
+        justifyContent: "space-between",
       }}
     >
-      {clientsData.map((user: any) => (
-        //@ts-ignore
+      {clientsData.map((user) => (
         <ClientInfo key={user.id} user={user} />
       ))}
     </Box>
   );
-});
+};

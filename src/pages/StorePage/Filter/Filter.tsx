@@ -9,7 +9,7 @@ import { StoreCard } from "../StoreCard/StoreCard";
 
 import { ShopType } from "../../../redux/reducers/shop-reducer";
 
-import { Product } from "../../../types/types";
+import { ProductType } from "../../../types/types";
 
 import { ShowOnly } from "./ShowOnly/ShowOnly";
 import { Bar } from "./Bar/Bar";
@@ -89,7 +89,7 @@ export const Filter: React.FC = React.memo(() => {
           flexWrap: "wrap",
         }}
       >
-        {filteredProducts.map((item: Product, index: number) => (
+        {filteredProducts.map((item: ProductType, index: number) => (
           <StoreCard
             key={item.id}
             item={item}

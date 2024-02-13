@@ -15,7 +15,7 @@ const MainPage: React.FC = React.memo(() => {
       <Typography variant="h5" sx={{ m: 3, textAlign: "center" }}>
         {t("welcome")}
       </Typography>
-      <Divider sx={{ m: 2 }} />
+      <Divider sx={{ m: 2 }} color="lightgray" />
       <Box
         sx={{
           display: "flex",

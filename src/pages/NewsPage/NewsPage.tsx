@@ -14,7 +14,7 @@ const NewsPage: React.FC = () => {
       <Typography variant="h5" textAlign={"center"} sx={{ m: 3 }}>
         {t("newsTitle")}
       </Typography>
-      <Divider sx={{ m: 2 }} />
+      <Divider sx={{ m: 2 }} color="lightgray" />
       <Carousel />
       <Typography variant="body1" sx={{ p: 2, margin: "50px auto" }}>
         {t("newsDesc")}
