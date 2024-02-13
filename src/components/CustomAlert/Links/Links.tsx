@@ -1,6 +1,6 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
-import { Box, Typography } from "@mui/material";
+import { Box, Tooltip } from "@mui/material";
+import { Link } from "react-router-dom";
 
 import { SocialLinks } from "../../../types/types";
 
@@ -30,27 +30,25 @@ const links: { id: number; url: string; label: SocialLinks }[] = [
 ];
 
 export const Links: React.FC = () => {
-  const { t } = useTranslation();
-
   return (
     <Box className={styles.links}>
-      <Typography className={styles.follow}>{t("Follow")}</Typography>
       {links.map((link) => (
-        <a
-          href={link.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="me-3"
-          key={link.id}
-        >
-          <img
-            src={
-              process.env.PUBLIC_URL + `/Images/FollowSvgs/${link.label}.svg`
-            }
-            alt={`${link.label} icon`}
-            className={styles.social}
-          />
-        </a>
+        <Tooltip title={link.label} key={link.id}>
+          <Link
+            to={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="me-3"
+          >
+            <img
+              src={
+                process.env.PUBLIC_URL + `/Images/FollowSvgs/${link.label}.svg`
+              }
+              alt={`${link.label} icon`}
+              className={styles.social}
+            />
+          </Link>
+        </Tooltip>
       ))}
     </Box>
   );

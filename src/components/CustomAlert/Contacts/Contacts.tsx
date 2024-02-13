@@ -1,9 +1,11 @@
 import { t } from "i18next";
 import React from "react";
-import { Box, IconButton, Stack } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+
+import { Link } from "react-router-dom";
 
 import { Contact } from "../../../types/types";
 
@@ -35,9 +37,9 @@ const contacts: {
   },
 ];
 const icons = [
-  <LocationOnIcon fontSize="large" color="action" />,
-  <LocalPhoneIcon fontSize="large" color="action" />,
-  <EmailIcon fontSize="large" color="action" />,
+  <LocationOnIcon fontSize="medium" color="action" />,
+  <LocalPhoneIcon fontSize="medium" color="action" />,
+  <EmailIcon fontSize="medium" color="action" />,
 ];
 
 export const Contacts: React.FC = () => {
@@ -45,14 +47,18 @@ export const Contacts: React.FC = () => {
     <>
       {contacts.map((item, index) => (
         <Box key={item.id} className={styles.contacts}>
-          <Stack alignItems="center" spacing={1}>
-            <IconButton aria-label="homeicon" size="large">
-              {icons[index]}
-            </IconButton>
-          </Stack>
-          <a href={item.link} className={styles.links}>
+          <IconButton
+            aria-label="homeicon"
+            size="large"
+            disableRipple
+            disableTouchRipple
+            style={{ cursor: "default" }}
+          >
+            {icons[index]}
+          </IconButton>
+          <Link to={item.link} className={styles.links}>
             {t(item.name)}
-          </a>
+          </Link>
         </Box>
       ))}
     </>

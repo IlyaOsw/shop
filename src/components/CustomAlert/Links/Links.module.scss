@@ -1,0 +1,9 @@
+.social {
+  transition: all 0.3s;
+  height: 45px;
+  width: 45px;
+  &:hover {
+    transform: scale(1.1);
+    filter: brightness(120%);
+  }
+}
