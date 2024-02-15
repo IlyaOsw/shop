@@ -10,7 +10,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import MuiDrawer from "@mui/material/Drawer";
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
+import MuiAppBar from "@mui/material/AppBar";
 import { Divider } from "@mui/material";
 import Toolbar from "@mui/material/Toolbar";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -33,6 +33,8 @@ import { FAQ } from "../FAQ/FAQ";
 import { Particle } from "../Particle/Particle";
 import { CartProvider } from "../../hooks/useCart";
 import { NavbarType } from "../../redux/reducers/navbar-reducer";
+
+import { AppBarProps } from "../../types/types";
 
 import styles from "./Themes.module.scss";
 
@@ -67,10 +69,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 
   ...theme.mixins.toolbar,
 }));
-
-interface AppBarProps extends MuiAppBarProps {
-  open?: boolean;
-}
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
@@ -108,10 +106,10 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 const generalIcons = [
-  <HomeIcon />,
-  <ShoppingBasketIcon />,
-  <FeedIcon />,
-  <AccountCircleIcon />,
+  <HomeIcon color="primary" />,
+  <ShoppingBasketIcon color="primary" />,
+  <FeedIcon color="primary" />,
+  <AccountCircleIcon color="primary" />,
 ];
 const headerIcons = [<ShopCart />, <Login />, <FAQ />];
 
@@ -120,6 +118,7 @@ export const Navbar: React.FC = () => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [darkMode, setDarkMode] = React.useState(false);
+
   const navbarData = useSelector(
     (state: { navbar: NavbarType }) => state.navbar
   );

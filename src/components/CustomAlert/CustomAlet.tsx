@@ -34,9 +34,7 @@ export const CustomAlert: React.FC = () => {
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
   const [open, setOpen] = React.useState(false);
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const handleClose = () => setOpen(false);
 
   React.useEffect(() => {
     setOpen(true);

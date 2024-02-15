@@ -1,5 +1,6 @@
 import { SlideProps } from "@mui/material";
 import { ReactNode } from "react";
+import { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 
 export type ProductType = {
   id: number;
@@ -105,6 +106,7 @@ export type CartItemType = {
   price: number;
   description: string;
   isFavorite: boolean;
+  isStock: boolean;
 };
 
 export type CartContextType = {
@@ -120,3 +122,7 @@ export type CartProviderPropsType = {
 export type CloseButtonProps = {
   onClose: () => void;
 };
+
+export interface AppBarProps extends MuiAppBarProps {
+  open?: boolean;
+}

@@ -28,7 +28,4 @@ export function CartProvider({ children }: CartProviderPropsType) {
   );
 }
 
-export function useCart() {
-  const context = useContext(CartContext);
-  return context;
-}
+export const useCart = () => useContext(CartContext);
