@@ -12,10 +12,11 @@ import { useTranslation } from "react-i18next";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
+
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  backgroundColor: alpha(theme.palette.common.white, 0.25),
   "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    backgroundColor: alpha(theme.palette.common.white, 0.35),
   },
   width: "100%",
   [theme.breakpoints.up("sm")]: {
@@ -58,17 +59,14 @@ export const Subscribe: React.FC = () => {
   return (
     <Box
       sx={{
-        width: "100%",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         flexWrap: "wrap",
-        p: 1,
         position: "relative",
-        borderRadius: "4px",
       }}
     >
-      <Typography variant="h6" sx={{ mr: 5, ml: 1 }}>
+      <Typography variant="h6" sx={{ textAlign: "center" }}>
         {t("getNewLetter")}
       </Typography>
       <Box
@@ -77,6 +75,8 @@ export const Subscribe: React.FC = () => {
           justifyContent: "center",
           alignItems: "center",
           flexWrap: "wrap",
+          mt: 2,
+          mb: 2,
         }}
       >
         <Search sx={{ m: 1 }}>

@@ -77,7 +77,7 @@ export const NewsPost: React.FC<NewsPostPropsType> = ({
       </Divider>
       <Card
         sx={{
-          position: " relative",
+          position: "relative",
           mb: 2,
         }}
       >

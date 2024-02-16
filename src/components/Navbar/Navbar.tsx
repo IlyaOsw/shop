@@ -106,10 +106,10 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 const generalIcons = [
-  <HomeIcon color="primary" />,
-  <ShoppingBasketIcon color="primary" />,
-  <FeedIcon color="primary" />,
-  <AccountCircleIcon color="primary" />,
+  <HomeIcon color="info" />,
+  <ShoppingBasketIcon color="info" />,
+  <FeedIcon color="info" />,
+  <AccountCircleIcon color="info" />,
 ];
 const headerIcons = [<ShopCart />, <Login />, <FAQ />];
 
