@@ -3,8 +3,6 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import CloseIcon from "@mui/icons-material/Close";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
@@ -49,21 +47,7 @@ export const CustomAlert: React.FC = () => {
       onClose={handleClose}
     >
       <AppBar sx={{ position: "relative" }}>
-        <Toolbar
-          sx={{
-            display: "flex",
-            justifyContent: "flex-end",
-          }}
-        >
-          <IconButton
-            edge="start"
-            color="inherit"
-            onClick={handleClose}
-            aria-label="close"
-          >
-            <CloseIcon />
-          </IconButton>
-        </Toolbar>
+        <Toolbar />
       </AppBar>
       <Box
         sx={{
@@ -83,7 +67,7 @@ export const CustomAlert: React.FC = () => {
           <SentimentSatisfiedAltIcon color="info" fontSize="large" />
         </Box>
         <Typography variant="body1">
-          Welcome to my pet-project, where I can demonstrate to you my skills!
+          Welcome to my pet-project, where I can demonstrate you my skills!
         </Typography>
         <Typography variant="body1" sx={{ mt: 2 }}>
           I`m from Estonia and specialize in front-end development.
@@ -95,7 +79,7 @@ export const CustomAlert: React.FC = () => {
             </Button>
           </Tooltip>
         </Box>
-        <Typography variant="body1" sx={{ mt: 5 }}>
+        <Typography variant="body1" sx={{ mt: 5, mb: 2 }}>
           To visit my personal website, please
         </Typography>
         <Button variant="outlined" color="info">
@@ -112,8 +96,7 @@ export const CustomAlert: React.FC = () => {
             </Link>
           </Tooltip>
         </Button>
-
-        <Typography variant="body1" sx={{ mt: 2 }}>
+        <Typography variant="body1" sx={{ mt: 3, mb: 2 }}>
           Follow my social media
         </Typography>
         <Links />

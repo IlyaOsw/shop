@@ -55,7 +55,7 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
         <Paper
           key={item.id}
           elevation={3}
-          sx={{ m: 2, mt: 5, position: "relative", width: "250px" }}
+          sx={{ m: 2, mt: 5, position: "relative", width: "265px" }}
         >
           <CardMedia
             component="img"
@@ -101,7 +101,6 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
                     sx={{
                       height: "30px",
                       cursor: "default",
-                      borderRadius: "15px",
                     }}
                   >
                     {t("inStock")}
@@ -118,7 +117,6 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
                     sx={{
                       height: "30px",
                       cursor: "default",
-                      borderRadius: "15px",
                     }}
                   >
                     {t("outOfStock")}
@@ -133,7 +131,7 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
             sx={{
               display: "flex",
               justifyContent: "space-around",
-              alignItems: "flex-end",
+              mt: 2,
             }}
           >
             <Tooltip title={t("addToFavorites")} arrow>
@@ -151,7 +149,7 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
               >
                 {t("favorite")}
                 <Checkbox
-                  sx={{ marginLeft: "-9px" }}
+                  sx={{ marginLeft: "-10px" }}
                   {...label}
                   icon={<FavoriteBorder color="secondary" />}
                   checkedIcon={<Favorite color="secondary" />}

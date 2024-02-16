@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Box, Typography } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 
 import { LogoLabel } from "../../../types/types";
 
@@ -8,7 +8,7 @@ const logoImages: { id: number; label: LogoLabel }[] = [
   { id: 0, label: LogoLabel.SAMSUNG },
   { id: 1, label: LogoLabel.APPLE },
   { id: 2, label: LogoLabel.LENOVO },
-  { id: 3, label: LogoLabel.XIAOMI },
+  { id: 3, label: LogoLabel.LG },
   { id: 4, label: LogoLabel.SONY },
   { id: 5, label: LogoLabel.ASUS },
 ];
@@ -18,9 +18,10 @@ export const Logos: React.FC = () => {
 
   return (
     <>
-      <Typography variant="h5" sx={{ textAlign: "center" }}>
+      <Typography variant="h5" sx={{ textAlign: "center", m: 5 }}>
         {t("ourPartners")}
       </Typography>
+      <Divider sx={{ m: 2 }} color="lightgray" />
       <Box
         sx={{
           display: "flex",

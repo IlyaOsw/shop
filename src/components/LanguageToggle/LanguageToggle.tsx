@@ -60,22 +60,22 @@ export const LanguageToggle: React.FC = React.memo(() => {
         aria-label="split button"
         color="info"
       >
-        <Button>{t(options[selectedIndex].label)}</Button>
         <Button
           size="small"
           aria-controls={open ? "split-button-menu" : undefined}
           aria-expanded={open ? "true" : undefined}
-          aria-label="select merge strategy"
           aria-haspopup="menu"
           onClick={handleToggle}
+          sx={{ height: "36px", padding: "6px 16px" }}
         >
-          <PublicIcon />
+          {t(options[selectedIndex].label)}
+          <PublicIcon sx={{ ml: "5px" }} />
           <ArrowDropDownIcon />
         </Button>
       </ButtonGroup>
       <Popper
         sx={{
-          zIndex: 2,
+          zIndex: 1,
         }}
         open={open}
         anchorEl={anchorRef.current}
@@ -91,7 +91,12 @@ export const LanguageToggle: React.FC = React.memo(() => {
                 placement === "bottom" ? "center top" : "center bottom",
             }}
           >
-            <Paper>
+            <Paper
+              sx={{
+                zIndex: 1,
+                width: "155px",
+              }}
+            >
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList id="split-button-menu" autoFocusItem>
                   {options.map((lang) => (

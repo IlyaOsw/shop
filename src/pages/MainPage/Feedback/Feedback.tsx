@@ -68,9 +68,10 @@ export default function MainFeedback() {
   return (
     <Box
       sx={{
-        margin: "50px",
+        mt: 5,
+        mb: 5,
+        textAlign: "center",
       }}
-      textAlign="center"
     >
       <Typography
         variant="h5"

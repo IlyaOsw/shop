@@ -165,7 +165,7 @@ export const ShopCart: React.FC = () => {
                                   textAlign: "center",
                                 }}
                               >
-                                {t("confrimDelete")}
+                                {t("confrimDelete")} {row.title}?
                               </Typography>
                               <Box
                                 sx={{

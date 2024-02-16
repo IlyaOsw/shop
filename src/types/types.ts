@@ -68,7 +68,7 @@ export enum LogoLabel {
   SAMSUNG = "samsung",
   APPLE = "apple",
   LENOVO = "lenovo",
-  XIAOMI = "xiaomi",
+  LG = "lg",
   SONY = "sony",
   ASUS = "asus",
 }

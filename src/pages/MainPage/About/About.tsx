@@ -1,14 +1,14 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 import { AboutBlocks, AboutInfo, AboutTitle } from "./AboutBlocks/AboutBlocks";
 
-const MainAbout: React.FC = () => {
+export const About: React.FC = () => {
   const { t } = useTranslation();
   return (
-    <Container maxWidth="xl" sx={{ textAlign: "center", position: "relative" }}>
-      <Typography variant="h5" sx={{ mt: 5 }}>
+    <Box sx={{ textAlign: "center", position: "relative" }}>
+      <Typography variant="h5" sx={{ m: 5 }}>
         {t("about")}
       </Typography>
       <Box
@@ -16,8 +16,6 @@ const MainAbout: React.FC = () => {
           display: "flex",
           mt: 5,
           justifyContent: "space-around",
-          alignItems: "center",
-          color: "inherit",
         }}
       >
         <AboutBlocks
@@ -28,8 +26,6 @@ const MainAbout: React.FC = () => {
           }}
         />
       </Box>
-    </Container>
+    </Box>
   );
 };
-
-export default MainAbout;

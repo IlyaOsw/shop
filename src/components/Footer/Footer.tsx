@@ -5,10 +5,10 @@ export const Footer: React.FC = () => {
   return (
     <Box
       sx={{
-        height: "40px",
+        height: "50px",
         backgroundColor: "#1976d2",
         position: "relative",
-        pt: 2,
+        width: "100%",
       }}
     ></Box>
   );

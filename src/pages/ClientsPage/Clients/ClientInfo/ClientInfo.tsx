@@ -1,5 +1,4 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
 import {
   Box,
   Avatar,
@@ -17,10 +16,9 @@ import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
 import { FormDialog } from "../../../../components/FormDialog/FormDialog";
 import { ClientType } from "../../../../types/types";
 
-const iconStyle = { marginRight: "5px", marginBottom: "-3px" };
+const iconStyle = { marginRight: "7px", marginBottom: "-4px" };
 
 export const ClientInfo: React.FC<{ user: ClientType }> = ({ user }) => {
-  const { t } = useTranslation();
   return (
     <Box
       key={user.id}
@@ -41,25 +39,25 @@ export const ClientInfo: React.FC<{ user: ClientType }> = ({ user }) => {
           </Typography>
         </Box>
         <Typography variant="h6" color="text.info">
-          <Box sx={{ p: 0.5 }}>
+          <Box sx={{ p: 0.75 }}>
             <MailOutlineOutlinedIcon color="info" style={iconStyle} />
-            {t("email")}: {user.email}
+            {user.email}
           </Box>
-          <Box sx={{ p: 0.5 }}>
+          <Box sx={{ p: 0.75 }}>
             <PhoneForwardedOutlinedIcon color="info" style={iconStyle} />
-            {t("phone")}: {user.phone}
+            {user.phone}
           </Box>
-          <Box sx={{ p: 0.5 }}>
+          <Box sx={{ p: 0.75 }}>
             <FmdGoodOutlinedIcon color="info" style={iconStyle} />
-            {t("city")}: {user.city}
+            {user.city}
           </Box>
-          <Box sx={{ p: 0.5 }}>
+          <Box sx={{ p: 0.75 }}>
             <ArrowForwardIosOutlinedIcon color="info" style={iconStyle} />
-            {t("website")}: {user.website}
+            {user.website}
           </Box>
-          <Box sx={{ p: 0.5 }}>
+          <Box sx={{ p: 0.75 }}>
             <BusinessOutlinedIcon color="info" style={iconStyle} />
-            {t("company")}: {user.company}
+            {user.company}
           </Box>
         </Typography>
       </CardContent>
@@ -67,7 +65,7 @@ export const ClientInfo: React.FC<{ user: ClientType }> = ({ user }) => {
         sx={{
           display: "flex",
           justifyContent: "start",
-          ml: 1.5,
+          ml: 2,
         }}
       >
         <FormDialog />

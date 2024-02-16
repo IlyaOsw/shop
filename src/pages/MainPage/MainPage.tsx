@@ -5,7 +5,7 @@ import { Box, Container, Divider, Typography } from "@mui/material";
 import { MainCard } from "./MainCard/MainCard";
 import { Description } from "./Description/Description";
 import Feedback from "./Feedback/Feedback";
-import About from "./About/About";
+import { About } from "./About/About";
 import { Logos } from "./Logos/Logos";
 
 const MainPage: React.FC = React.memo(() => {

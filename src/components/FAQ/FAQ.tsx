@@ -15,11 +15,13 @@ import Slide from "@mui/material/Slide";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import HelpIcon from "@mui/icons-material/Help";
 import { styled } from "@mui/material/styles";
-import Accordion from "@mui/material/Accordion";
+
 import MuiAccordionSummary, {
   AccordionSummaryProps,
 } from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
+
+import MuiAccordion, { AccordionProps } from "@mui/material/Accordion";
 
 import { TransitionProps } from "@mui/material/transitions";
 
@@ -33,6 +35,18 @@ const Transition = React.forwardRef(function Transition(
 ) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
+
+const Accordion = styled((props: AccordionProps) => (
+  <MuiAccordion disableGutters elevation={0} square {...props} />
+))(({ theme }) => ({
+  border: `1px solid ${theme.palette.divider}`,
+  "&:not(:last-child)": {
+    borderBottom: 0,
+  },
+  "&::before": {
+    display: "none",
+  },
+}));
 
 const AccordionSummary = styled((props: AccordionSummaryProps) => (
   <MuiAccordionSummary
@@ -90,13 +104,12 @@ export const FAQ: React.FC = () => {
         <Box sx={{ p: 2 }}>
           <CloseButton onClose={handleClose} />
         </Box>
-        <Typography variant="h5" sx={{ mt: 2, textAlign: "center" }}>
+        <Typography variant="h5" sx={{ textAlign: "center" }}>
           {t("faq")}
         </Typography>
         <Divider sx={{ m: 2 }} />
         <DialogContent>
           <Accordion
-            sx={{ mt: 3 }}
             expanded={expanded === "panel1"}
             onChange={handleChange("panel1")}
           >

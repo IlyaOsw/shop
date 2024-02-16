@@ -145,12 +145,7 @@ export const Navbar: React.FC = () => {
             >
               <MenuIcon />
             </IconButton>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ width: "100%" }}
-            >
+            <Typography variant="h6" noWrap sx={{ width: "100%" }}>
               E-STORE
             </Typography>
             {headerIcons.map((item, index) => (
@@ -189,7 +184,7 @@ export const Navbar: React.FC = () => {
                   >
                     <ListItemButton
                       sx={{
-                        minHeight: 75,
+                        minHeight: 80,
                         justifyContent: open ? "initial" : "center",
                         px: 2.5,
                       }}

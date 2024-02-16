@@ -1,9 +1,9 @@
 import React from "react";
 import Button from "@mui/material/Button";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 import { styled } from "@mui/material/styles";
 import { t } from "i18next";
+import { Typography } from "@mui/material";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -58,11 +58,14 @@ export type ThemeType = {
 
 export const ThemeToggle: React.FC<ThemeType> = ({ toggleDarkMode }) => {
   return (
-    <Button variant="contained" color="info" sx={{ height: "36px" }}>
-      <FormControlLabel
-        label={t("Theme")}
-        control={<MaterialUISwitch onClick={toggleDarkMode} />}
-      />
+    <Button
+      variant="contained"
+      color="info"
+      sx={{ height: "36px" }}
+      onClick={toggleDarkMode}
+    >
+      <MaterialUISwitch sx={{ ml: "-10px" }} />
+      <Typography>{t("Theme")}</Typography>
     </Button>
   );
 };

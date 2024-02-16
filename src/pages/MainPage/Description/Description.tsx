@@ -9,7 +9,6 @@ import Typography from "@mui/material/Typography";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import AllInclusiveIcon from "@mui/icons-material/AllInclusive";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
 import { TabPanelProps } from "../../../types/types";
 
@@ -120,15 +119,6 @@ export const Description: React.FC = () => {
               >
                 {t(item.label)}
               </Typography>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <MoreHorizIcon fontSize="large" color="primary" />
-              </Box>
             </TabPanel>
           ))}
         </Box>
