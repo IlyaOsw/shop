@@ -182,5 +182,9 @@
 	"7january2024": "7. Jaanuar 2024",
 	"3january2024": "3. Jaanuar 2024",
 	"30december2023": "30. Detsember 2023",
-	"28december2023": "28. Detsember 2023"
+	"28december2023": "28. Detsember 2023",
+	"leaveComment": "Palun jätke oma kommentaar siia",
+	"send": "Saada",
+	"sendComment": "Vajutage, et saata kommentaar",
+	"commentSended": "Aitäh kommentaari eest!"
 }

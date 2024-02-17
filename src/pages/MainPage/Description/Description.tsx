@@ -115,7 +115,12 @@ export const Description: React.FC = () => {
               </Typography>
               <Typography
                 variant="body2"
-                sx={{ maxWidth: "400px", textAlign: "center", mt: 1 }}
+                sx={{
+                  maxWidth: "400px",
+                  height: "220px",
+                  textAlign: "center",
+                  mt: 2,
+                }}
               >
                 {t(item.label)}
               </Typography>

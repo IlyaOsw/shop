@@ -38,7 +38,7 @@ import { AppBarProps } from "../../types/types";
 
 import styles from "./Themes.module.scss";
 
-const drawerWidth = 250;
+const drawerWidth = 235;
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,

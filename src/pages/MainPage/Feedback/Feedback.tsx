@@ -10,9 +10,11 @@ import SentimentSatisfiedIcon from "@mui/icons-material/SentimentSatisfied";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAltOutlined";
 import SentimentVerySatisfiedIcon from "@mui/icons-material/SentimentVerySatisfied";
 
+import { CommentForm } from "./CommentForm/CommentForm";
+
 const StyledRating = styled(Rating)(({ theme }) => ({
   "& .MuiRating-iconEmpty .MuiSvgIcon-root": {
-    color: theme.palette.info.main,
+    color: theme.palette.grey[400],
   },
 }));
 const labels: { [index: string]: string } = {
@@ -62,8 +64,11 @@ function getLabelText(value: number) {
 
 export default function MainFeedback() {
   const { t } = useTranslation();
-  const [value, setValue] = React.useState<number | null>(4);
+  const [value, setValue] = React.useState<number | null>(5);
   const [hover, setHover] = React.useState(-1);
+  const [active, setActive] = React.useState(false);
+
+  const commentHandler = () => setActive(true);
 
   return (
     <Box
@@ -94,8 +99,10 @@ export default function MainFeedback() {
         onChangeActive={(event, newHover) => {
           setHover(newHover);
         }}
+        onClick={commentHandler}
       />
       {value !== null && <Box>{labels[hover !== -1 ? hover : value]}</Box>}
+      {active && <CommentForm />}
     </Box>
   );
 }

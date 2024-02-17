@@ -7,7 +7,12 @@ import { AboutBlocks, AboutInfo, AboutTitle } from "./AboutBlocks/AboutBlocks";
 export const About: React.FC = () => {
   const { t } = useTranslation();
   return (
-    <Box sx={{ textAlign: "center", position: "relative" }}>
+    <Box
+      sx={{
+        textAlign: "center",
+        position: "relative",
+      }}
+    >
       <Typography variant="h5" sx={{ m: 5 }}>
         {t("about")}
       </Typography>

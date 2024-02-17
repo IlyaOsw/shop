@@ -6,7 +6,6 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Checkbox from "@mui/material/Checkbox";
 import Snackbar from "@mui/material/Snackbar";
-import MuiAlert, { AlertProps } from "@mui/material/Alert";
 import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
@@ -18,14 +17,9 @@ import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
 import { useCart } from "../../../hooks/useCart";
 import { StoreCardProps, TransitionProps } from "../../../types/types";
+import { SnackbarAlert } from "../../../components/SnackbarAlert/SnackbarAlert";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
-
-const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
-  function Alert(props, ref) {
-    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-  }
-);
 
 export const StoreCard: React.FC<StoreCardProps> = React.memo(
   ({ item, toggleFavorite }) => {
@@ -223,9 +217,12 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
               alignItems: "center",
             }}
           >
-            <Alert onClose={() => setOpenFavorite(false)} severity="success">
+            <SnackbarAlert
+              onClose={() => setOpenFavorite(false)}
+              severity="success"
+            >
               {t("AddedToFavorites")}
-            </Alert>
+            </SnackbarAlert>
           </Snackbar>
         )}
         {openCart && (
@@ -242,9 +239,12 @@ export const StoreCard: React.FC<StoreCardProps> = React.memo(
               alignItems: "center",
             }}
           >
-            <Alert onClose={() => setOpenCart(false)} severity="success">
+            <SnackbarAlert
+              onClose={() => setOpenCart(false)}
+              severity="success"
+            >
               {t("addedToCart")}
-            </Alert>
+            </SnackbarAlert>
           </Snackbar>
         )}
       </>
