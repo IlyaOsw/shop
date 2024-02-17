@@ -10,16 +10,16 @@ export const Particle: React.FC = () => {
   const particlesLoaded = useCallback(async () => {}, []);
   return (
     <Particles
-      style={{ position: "absolute", zIndex: -1 }}
+      // style={{ position: "absolute", zIndex: -1 }}
       id="tsparticles"
       init={particlesInit}
       loaded={particlesLoaded}
       options={{
-        background: {
-          color: {
-            value: "black",
-          },
-        },
+        // background: {
+        //   color: {
+        //     value: "black",
+        //   },
+        // },
         fpsLimit: 120,
         interactivity: {
           events: {

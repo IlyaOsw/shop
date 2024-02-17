@@ -97,7 +97,7 @@ export const NewsPost: React.FC<NewsPostPropsType> = ({
         </CardContent>
         <Box sx={{ ml: 2 }}>
           <Typography variant="body2" color="text.secondary">
-            {postDate}
+            {t(postDate)}
           </Typography>
         </Box>
         <Box

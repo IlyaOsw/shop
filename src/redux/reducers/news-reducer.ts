@@ -7,7 +7,7 @@ const initialState = [
     dislikes: 453,
     additionalText1: "text1.1",
     additionalText2: "text1.2",
-    postDate: "2.02.2024",
+    postDate: "2february2024",
   },
   {
     id: 1,
@@ -17,7 +17,7 @@ const initialState = [
     dislikes: 789,
     additionalText1: "text2.1",
     additionalText2: "text2.2",
-    postDate: "30.01.2024",
+    postDate: "30january2024",
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ const initialState = [
     dislikes: 234,
     additionalText1: "text3.1",
     additionalText2: "text3.2",
-    postDate: "27.01.2024",
+    postDate: "27january2024",
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ const initialState = [
     dislikes: 567,
     additionalText1: "text4.1",
     additionalText2: "text4.2",
-    postDate: "25.01.2024",
+    postDate: "25january2024",
   },
   {
     id: 4,
@@ -47,7 +47,7 @@ const initialState = [
     dislikes: 243,
     additionalText1: "text5.1",
     additionalText2: "text5.2",
-    postDate: "22.01.2024",
+    postDate: "22january2024",
   },
   {
     id: 5,
@@ -57,7 +57,7 @@ const initialState = [
     dislikes: 890,
     additionalText1: "text6.1",
     additionalText2: "text6.2",
-    postDate: "17.01.2024",
+    postDate: "17january2024",
   },
   {
     id: 6,
@@ -67,7 +67,7 @@ const initialState = [
     dislikes: 527,
     additionalText1: "text7.1",
     additionalText2: "text7.2",
-    postDate: "15.01.2024",
+    postDate: "15january2024",
   },
   {
     id: 7,
@@ -77,7 +77,7 @@ const initialState = [
     dislikes: 462,
     additionalText1: "text8.1",
     additionalText2: "text8.2",
-    postDate: "10.01.2024",
+    postDate: "10january2024",
   },
   {
     id: 8,
@@ -87,7 +87,7 @@ const initialState = [
     dislikes: 304,
     additionalText1: "text9.1",
     additionalText2: "text9.2",
-    postDate: "7.01.2024",
+    postDate: "7january2024",
   },
   {
     id: 9,
@@ -97,7 +97,7 @@ const initialState = [
     dislikes: 623,
     additionalText1: "text10.1",
     additionalText2: "text10.2",
-    postDate: "3.01.2024",
+    postDate: "3january2024",
   },
   {
     id: 10,
@@ -107,7 +107,7 @@ const initialState = [
     dislikes: 536,
     additionalText1: "text11.1",
     additionalText2: "text11.2",
-    postDate: "30.12.2023",
+    postDate: "30december2023",
   },
   {
     id: 11,
@@ -117,7 +117,7 @@ const initialState = [
     dislikes: 932,
     additionalText1: "text12.1",
     additionalText2: "text12.2",
-    postDate: "28.12.2023",
+    postDate: "28december2023",
   },
 ];
 
