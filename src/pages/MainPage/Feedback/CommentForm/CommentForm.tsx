@@ -19,7 +19,7 @@ const CustomTextField = styled(TextField)({
 export const CommentForm: React.FC = () => {
   const { t } = useTranslation();
   const [commentContent, setCommentContent] = React.useState("");
-  const [sendSnackbar, setSnackbar] = React.useState(false);
+  const [snackbar, setSnackbar] = React.useState(false);
 
   const [transition] = React.useState<
     React.ComponentType<TransitionProps> | undefined
@@ -37,7 +37,7 @@ export const CommentForm: React.FC = () => {
     <Box
       component="form"
       sx={{
-        "& .MuiTextField-root": { mt: 3, mb: 3, width: "30ch" },
+        "& .MuiTextField-root": { mt: 3, mb: 3, width: "33ch" },
       }}
       noValidate
       autoComplete="off"
@@ -53,7 +53,7 @@ export const CommentForm: React.FC = () => {
           rows={5}
           variant="outlined"
           InputLabelProps={{
-            style: { color: "#1976d2" },
+            style: { color: "gray" },
           }}
         />
       </Box>
@@ -62,9 +62,9 @@ export const CommentForm: React.FC = () => {
           {t("send")}
         </Button>
       </Tooltip>
-      {sendSnackbar && (
+      {snackbar && (
         <Snackbar
-          open={sendSnackbar}
+          open={snackbar}
           autoHideDuration={2000}
           onClose={() => setSnackbar(false)}
           TransitionComponent={transition}

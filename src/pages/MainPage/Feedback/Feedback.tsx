@@ -53,14 +53,14 @@ const customIcons: {
   },
 };
 
-function IconContainer(props: IconContainerProps) {
+const IconContainer = (props: IconContainerProps) => {
   const { value, ...other } = props;
   return <span {...other}>{customIcons[value].icon}</span>;
-}
+};
 
-function getLabelText(value: number) {
+const getLabelText = (value: number) => {
   return `${value} Star${value !== 1 ? "s" : ""}, ${labels[value]}`;
-}
+};
 
 export default function MainFeedback() {
   const { t } = useTranslation();
@@ -68,7 +68,14 @@ export default function MainFeedback() {
   const [hover, setHover] = React.useState(-1);
   const [active, setActive] = React.useState(false);
 
-  const commentHandler = () => setActive(true);
+  const commentHandler = () => {
+    window.scroll({
+      left: 0,
+      top: document.body.scrollHeight,
+      behavior: "smooth",
+    });
+    setActive(true);
+  };
 
   return (
     <Box
