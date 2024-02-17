@@ -10,7 +10,14 @@ export const Particle: React.FC = () => {
   const particlesLoaded = useCallback(async () => {}, []);
   return (
     <Particles
-      // style={{ position: "absolute", zIndex: -1 }}
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        zIndex: -1,
+      }}
       id="tsparticles"
       init={particlesInit}
       loaded={particlesLoaded}
