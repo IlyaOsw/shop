@@ -3,20 +3,19 @@ import {
   Button,
   FormControl,
   InputLabel,
-  MenuItem,
-  Select,
   Toolbar,
   Typography,
   alpha,
   InputBase,
   styled,
-  SelectChangeEvent,
 } from "@mui/material";
 
 import SearchIcon from "@mui/icons-material/Search";
 import { useTranslation } from "react-i18next";
 
 import { BarPropsType } from "../../../../types/types";
+
+import { CustomSelect } from "./CustomSelect/CustomSelect";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -70,20 +69,6 @@ export const Bar: React.FC<BarPropsType> = ({
   setSelectedOption,
 }) => {
   const { t } = useTranslation();
-  const [filter, setFilter] = React.useState("");
-
-  const PriceHighToLow = () => {
-    const sortedList = [...products].sort((a, b) => b.price - a.price);
-    setProducts(sortedList);
-  };
-
-  const PriceLowToHigh = () => {
-    const sortedList = [...products].sort((a, b) => a.price - b.price);
-    setProducts(sortedList);
-  };
-
-  const handleChange = (event: SelectChangeEvent) =>
-    setFilter(event.target.value);
 
   return (
     <Toolbar
@@ -109,25 +94,11 @@ export const Bar: React.FC<BarPropsType> = ({
         >
           {t("filter")}
         </InputLabel>
-        <Select
-          value={filter}
-          onChange={handleChange}
-          autoWidth
-          label={t("filter")}
-          sx={{
-            color: "inherit",
-          }}
-        >
-          <MenuItem value={10} onClick={PriceLowToHigh}>
-            {t("priceAscending")}
-          </MenuItem>
-          <MenuItem value={21} onClick={PriceHighToLow}>
-            {t("priceDescending")}
-          </MenuItem>
-          <MenuItem value={22} onClick={filterFavorites}>
-            {t("favoritesFirst")}
-          </MenuItem>
-        </Select>
+        <CustomSelect
+          products={products}
+          setProducts={setProducts}
+          filterFavorites={filterFavorites}
+        />
       </FormControl>
       <Search sx={{ m: 1 }}>
         <SearchIconWrapper>

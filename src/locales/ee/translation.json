@@ -186,5 +186,6 @@
 	"leaveComment": "Palun jätke oma kommentaar siia",
 	"send": "Saada",
 	"sendComment": "Vajutage, et saata kommentaar",
-	"commentSended": "Aitäh kommentaari eest!"
+	"commentSended": "Aitäh kommentaari eest!",
+	"noEmptyField": "See väli ei saa olla tühi!"
 }

@@ -35,6 +35,22 @@ export type ShowOnlyPropsType = {
   handleCheckboxChange: (value: React.SetStateAction<string>) => void;
 };
 
+export type CommentFormPropsType = {
+  commentContent: string;
+  setCommentContent: (commentContent: string) => void;
+};
+
+export type CustomSelectPropsType = {
+  products: ProductType[];
+  setProducts: (products: ProductType[]) => void;
+  filterFavorites: () => void;
+};
+
+export type EmptyBoxPropsType = {
+  noFilters: () => void;
+  setSelectedOption: (selectedOption: string) => void;
+};
+
 export type BarPropsType = {
   setProducts: (products: ProductType[]) => void;
   products: ProductType[];
@@ -42,6 +58,11 @@ export type BarPropsType = {
   filterFavorites: () => void;
   noFilters: () => void;
   setSelectedOption: (selectedOption: string) => void;
+};
+
+export type ErrorMessagePropsType = {
+  open: boolean;
+  setOpen: (open: boolean) => void;
 };
 
 export type TransitionProps = Omit<SlideProps, "direction">;

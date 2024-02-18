@@ -26,7 +26,12 @@ export const News: React.FC = () => {
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         {posts < newsData.length && (
           <Tooltip title={t("showMorePosts")} arrow>
-            <Button variant="contained" color="info" onClick={showMorePosts}>
+            <Button
+              variant="contained"
+              color="info"
+              onClick={showMorePosts}
+              sx={{ mb: 3 }}
+            >
               {t("showMorePosts")}
             </Button>
           </Tooltip>

@@ -1,0 +1,49 @@
+import React from "react";
+import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
+import { useTranslation } from "react-i18next";
+
+import { CustomSelectPropsType } from "../../../../../types/types";
+
+export const CustomSelect: React.FC<CustomSelectPropsType> = ({
+  products,
+  setProducts,
+  filterFavorites,
+}) => {
+  const { t } = useTranslation();
+
+  const [filter, setFilter] = React.useState("");
+
+  const PriceHighToLow = () => {
+    const sortedList = [...products].sort((a, b) => b.price - a.price);
+    setProducts(sortedList);
+  };
+
+  const PriceLowToHigh = () => {
+    const sortedList = [...products].sort((a, b) => a.price - b.price);
+    setProducts(sortedList);
+  };
+
+  const handleChange = (event: SelectChangeEvent) =>
+    setFilter(event.target.value);
+  return (
+    <Select
+      value={filter}
+      onChange={handleChange}
+      autoWidth
+      label={t("filter")}
+      sx={{
+        color: "inherit",
+      }}
+    >
+      <MenuItem value={10} onClick={PriceLowToHigh}>
+        {t("priceAscending")}
+      </MenuItem>
+      <MenuItem value={21} onClick={PriceHighToLow}>
+        {t("priceDescending")}
+      </MenuItem>
+      <MenuItem value={22} onClick={filterFavorites}>
+        {t("favoritesFirst")}
+      </MenuItem>
+    </Select>
+  );
+};

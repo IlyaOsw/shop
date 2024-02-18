@@ -1,9 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Box, Button, Paper, Typography } from "@mui/material";
-import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
-
-import { t } from "i18next";
+import { Box } from "@mui/material";
 
 import { StoreCard } from "../StoreCard/StoreCard";
 
@@ -13,8 +10,9 @@ import { ProductType } from "../../../types/types";
 
 import { ShowOnly } from "./ShowOnly/ShowOnly";
 import { Bar } from "./Bar/Bar";
+import { EmptyBox } from "./EmptyBox/EmptyBox";
 
-export const Filter: React.FC = React.memo(() => {
+export const Filter: React.FC = () => {
   const shopData = useSelector(
     (state: { shopPage: ShopType }) => state.shopPage
   );
@@ -99,46 +97,8 @@ export const Filter: React.FC = React.memo(() => {
         ))}
       </Box>
       {empty && (
-        <Box sx={{ height: "100vh", position: "relative" }}>
-          <Paper elevation={4}>
-            <Box
-              sx={{
-                textAlign: "center",
-                mt: 5,
-                p: 1,
-              }}
-            >
-              <Typography variant="h5" color="error" sx={{ mt: 2 }}>
-                {t("noFavorites")}
-              </Typography>
-              <SentimentVeryDissatisfiedIcon color="error" />
-            </Box>
-            <Box
-              sx={{
-                textAlign: "center",
-                p: 1,
-              }}
-            >
-              <Typography variant="h6" color="text.secondary">
-                {t("continueShopping")}
-                <Box>
-                  <Button
-                    variant="contained"
-                    sx={{ mt: 2 }}
-                    onClick={() => {
-                      noFilters();
-                      setSelectedOption("");
-                    }}
-                    color="info"
-                  >
-                    {t("here")}
-                  </Button>
-                </Box>
-              </Typography>
-            </Box>
-          </Paper>
-        </Box>
+        <EmptyBox noFilters={noFilters} setSelectedOption={setSelectedOption} />
       )}
     </Box>
   );
-});
+};

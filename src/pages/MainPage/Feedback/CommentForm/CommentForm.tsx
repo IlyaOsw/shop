@@ -1,33 +1,30 @@
 import { Box, Button, Snackbar, Tooltip, Typography } from "@mui/material";
 import React from "react";
-import TextField from "@mui/material/TextField";
-import { styled } from "@mui/system";
+
 import { useTranslation } from "react-i18next";
 import { TransitionProps } from "@mui/material/transitions";
 
 import { SnackbarAlert } from "../../../../components/SnackbarAlert/SnackbarAlert";
 
-const CustomTextField = styled(TextField)({
-  "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-    borderColor: "lightgray",
-  },
-  "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-    borderColor: "lightgray",
-  },
-});
+import { Textarea } from "./Textarea/Textarea";
+import { ErrorMessage } from "./ErrorMessage/ErrorMessage";
 
 export const CommentForm: React.FC = () => {
   const { t } = useTranslation();
   const [commentContent, setCommentContent] = React.useState("");
   const [snackbar, setSnackbar] = React.useState(false);
 
+  const [error, setError] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
+
   const [transition] = React.useState<
     React.ComponentType<TransitionProps> | undefined
   >(undefined);
 
   const clearContent = () => {
-    if (commentContent.length === 0) {
-      alert("Field cannot be empty");
+    if (commentContent.trim().length === 0) {
+      setError(true);
+      setOpen(true);
     } else {
       setCommentContent("");
       setSnackbar(true);
@@ -43,25 +40,16 @@ export const CommentForm: React.FC = () => {
       autoComplete="off"
     >
       <Typography sx={{ mt: 3 }}>{t("leaveComment")}</Typography>
-      <Box>
-        <CustomTextField
-          value={commentContent}
-          onChange={(e) => setCommentContent(e.target.value)}
-          id="outlined-multiline-static"
-          label="Comment"
-          multiline
-          rows={5}
-          variant="outlined"
-          InputLabelProps={{
-            style: { color: "gray" },
-          }}
-        />
-      </Box>
-      <Tooltip title={t("sendComment")} arrow placement="right">
+      <Textarea
+        commentContent={commentContent}
+        setCommentContent={setCommentContent}
+      />
+      <Tooltip title={t("sendComment")} arrow>
         <Button variant="contained" onClick={clearContent}>
           {t("send")}
         </Button>
       </Tooltip>
+      {error && <ErrorMessage open={open} setOpen={setOpen} />}
       {snackbar && (
         <Snackbar
           open={snackbar}

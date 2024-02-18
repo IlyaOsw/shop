@@ -186,6 +186,7 @@
     "leaveComment": "Please leave your comment here",
     "send": "Send",
     "sendComment": "Click to send a comment",
-    "commentSended": "Thank you for your comment!"
+    "commentSended": "Thank you for your comment!",
+    "noEmptyField": "  This field cannot be empty!"
 }
    
