@@ -1,5 +1,11 @@
 import React from "react";
-import { MenuItem, Select, SelectChangeEvent } from "@mui/material";
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+} from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 import { CustomSelectPropsType } from "../../../../../types/types";
@@ -26,24 +32,43 @@ export const CustomSelect: React.FC<CustomSelectPropsType> = ({
   const handleChange = (event: SelectChangeEvent) =>
     setFilter(event.target.value);
   return (
-    <Select
-      value={filter}
-      onChange={handleChange}
-      autoWidth
-      label={t("filter")}
+    <FormControl
       sx={{
-        color: "inherit",
+        minWidth: 160,
+        m: 1,
+        "& .MuiOutlinedInput-root": {
+          "& fieldset": {
+            borderColor: "gray",
+          },
+        },
       }}
     >
-      <MenuItem value={10} onClick={PriceLowToHigh}>
-        {t("priceAscending")}
-      </MenuItem>
-      <MenuItem value={21} onClick={PriceHighToLow}>
-        {t("priceDescending")}
-      </MenuItem>
-      <MenuItem value={22} onClick={filterFavorites}>
-        {t("favoritesFirst")}
-      </MenuItem>
-    </Select>
+      <InputLabel
+        sx={{
+          color: "inherit",
+        }}
+      >
+        {t("filter")}
+      </InputLabel>
+      <Select
+        value={filter}
+        onChange={handleChange}
+        autoWidth
+        label={t("filter")}
+        sx={{
+          color: "inherit",
+        }}
+      >
+        <MenuItem value={10} onClick={PriceLowToHigh}>
+          {t("priceAscending")}
+        </MenuItem>
+        <MenuItem value={21} onClick={PriceHighToLow}>
+          {t("priceDescending")}
+        </MenuItem>
+        <MenuItem value={22} onClick={filterFavorites}>
+          {t("favoritesFirst")}
+        </MenuItem>
+      </Select>
+    </FormControl>
   );
 };

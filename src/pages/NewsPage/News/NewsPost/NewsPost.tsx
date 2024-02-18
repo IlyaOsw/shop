@@ -1,30 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import {
   Box,
-  Button,
   Card,
   CardActions,
   CardContent,
   CardMedia,
-  Checkbox,
   Collapse,
   Divider,
-  Tooltip,
   Typography,
 } from "@mui/material";
-
-import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
-import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
-import ThumbUpIcon from "@mui/icons-material/ThumbUp";
-import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 import { FormDialog } from "../../../../components/FormDialog/FormDialog";
 import { NewsPostPropsType } from "../../../../types/types";
 
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
+import { LikesBlock } from "./LikesBlock/LikesBlock";
+import { LearnMore } from "./LearnMore/LearnMore";
 
 export const NewsPost: React.FC<NewsPostPropsType> = ({
   id,
@@ -37,38 +28,8 @@ export const NewsPost: React.FC<NewsPostPropsType> = ({
   postDate,
 }) => {
   const { t } = useTranslation();
+
   const [expanded, setExpanded] = React.useState(false);
-  const [likesCount, setLikesCount] = useState(likes);
-  const [dislikesCount, setDislikesCount] = useState(dislikes);
-  const [dislikeButtonDisabled, setDislikeButtonDisabled] = useState(false);
-  const [likeButtonDisabled, setLikeButtonDisabled] = useState(false);
-  const [isLiked, setIsLiked] = useState(false);
-
-  const handleExpandClick = () => setExpanded(!expanded);
-
-  const toggleLike = () => {
-    if (isLiked) {
-      setLikesCount((prevLikes: number) => prevLikes - 1);
-      setDislikeButtonDisabled(false);
-    } else {
-      setLikesCount((prevLikes: number) => prevLikes + 1);
-      setDislikeButtonDisabled(true);
-    }
-    setIsLiked((prevIsLiked) => !prevIsLiked);
-  };
-
-  const toggleDislike = () => {
-    if (isLiked) {
-      setDislikesCount((prevLikes: number) => prevLikes - 1);
-      setLikeButtonDisabled(false);
-    } else {
-      setDislikesCount((prevLikes: number) => prevLikes + 1);
-      setLikeButtonDisabled(true);
-    }
-    setIsLiked((prevIsLiked) => !prevIsLiked);
-  };
-
-  const countStyle = { cursor: "default", borderRadius: "15px" };
 
   return (
     <>
@@ -107,46 +68,7 @@ export const NewsPost: React.FC<NewsPostPropsType> = ({
             flexWrap: "wrap",
           }}
         >
-          <Box>
-            <Button
-              disableRipple
-              disableTouchRipple
-              variant="outlined"
-              color="info"
-              sx={countStyle}
-            >
-              {likesCount}
-            </Button>
-            <Tooltip title={t("like")} arrow>
-              <Checkbox
-                onClick={toggleLike}
-                disabled={likeButtonDisabled}
-                {...label}
-                icon={<ThumbUpOffAltIcon fontSize="large" color="info" />}
-                checkedIcon={<ThumbUpIcon fontSize="large" color="info" />}
-              />
-            </Tooltip>
-            <Tooltip title={t("dislike")} arrow>
-              <Checkbox
-                onClick={toggleDislike}
-                disabled={dislikeButtonDisabled}
-                {...label}
-                icon={<ThumbDownOffAltIcon fontSize="large" color="error" />}
-                checkedIcon={
-                  <ThumbDownAltIcon fontSize="large" color="error" />
-                }
-              />
-            </Tooltip>
-            <Button
-              disableRipple
-              disableTouchRipple
-              variant="outlined"
-              color="error"
-              sx={countStyle}
-            >
-              {dislikesCount}
-            </Button>
-          </Box>
+          <LikesBlock likes={likes} dislikes={dislikes} />
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
               <Typography paragraph color="text.secondary">
@@ -159,35 +81,7 @@ export const NewsPost: React.FC<NewsPostPropsType> = ({
           </Collapse>
           <CardActions>
             <FormDialog />
-            <Box
-              onClick={handleExpandClick}
-              aria-expanded={expanded}
-              aria-label="show more"
-            >
-              {expanded ? (
-                <Tooltip title={t("close")} arrow>
-                  <Button
-                    variant="outlined"
-                    color="secondary"
-                    sx={{ marginLeft: "5px" }}
-                  >
-                    <KeyboardArrowUpIcon />
-                    {t("close")}
-                  </Button>
-                </Tooltip>
-              ) : (
-                <Tooltip title={t("learnMore")} arrow>
-                  <Button
-                    variant="outlined"
-                    color="secondary"
-                    sx={{ marginLeft: "5px" }}
-                  >
-                    <KeyboardArrowDownIcon />
-                    {t("learnMore")}
-                  </Button>
-                </Tooltip>
-              )}
-            </Box>
+            <LearnMore expanded={expanded} setExpanded={setExpanded} />
           </CardActions>
         </Box>
       </Card>

@@ -1,8 +1,6 @@
 import React from "react";
 import {
   Button,
-  FormControl,
-  InputLabel,
   Toolbar,
   Typography,
   alpha,
@@ -81,25 +79,11 @@ export const Bar: React.FC<BarPropsType> = ({
       <Typography variant="h6" sx={{ p: 1 }}>
         {t("sortBy")}
       </Typography>
-      <FormControl
-        sx={{
-          minWidth: 160,
-          m: 1,
-        }}
-      >
-        <InputLabel
-          sx={{
-            color: "inherit",
-          }}
-        >
-          {t("filter")}
-        </InputLabel>
-        <CustomSelect
-          products={products}
-          setProducts={setProducts}
-          filterFavorites={filterFavorites}
-        />
-      </FormControl>
+      <CustomSelect
+        products={products}
+        setProducts={setProducts}
+        filterFavorites={filterFavorites}
+      />
       <Search sx={{ m: 1 }}>
         <SearchIconWrapper>
           <SearchIcon />

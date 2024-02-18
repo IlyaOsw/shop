@@ -51,6 +51,16 @@ export type EmptyBoxPropsType = {
   setSelectedOption: (selectedOption: string) => void;
 };
 
+export type LikesBlockPropsType = {
+  likes: number;
+  dislikes: number;
+};
+
+export type LearnMorePropsType = {
+  expanded: boolean;
+  setExpanded: (expanded: boolean) => void;
+};
+
 export type BarPropsType = {
   setProducts: (products: ProductType[]) => void;
   products: ProductType[];

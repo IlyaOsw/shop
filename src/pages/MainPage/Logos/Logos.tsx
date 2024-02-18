@@ -18,7 +18,7 @@ export const Logos: React.FC = () => {
 
   return (
     <>
-      <Typography variant="h5" sx={{ textAlign: "center", m: 5 }}>
+      <Typography variant="h5" sx={{ textAlign: "center" }}>
         {t("ourPartners")}
       </Typography>
       <Divider sx={{ m: 2 }} color="lightgray" />

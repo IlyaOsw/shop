@@ -11,10 +11,13 @@ import { ErrorMessage } from "./ErrorMessage/ErrorMessage";
 
 export const CommentForm: React.FC = () => {
   const { t } = useTranslation();
+
   const [commentContent, setCommentContent] = React.useState("");
+
   const [snackbar, setSnackbar] = React.useState(false);
 
   const [error, setError] = React.useState(false);
+
   const [open, setOpen] = React.useState(false);
 
   const [transition] = React.useState<

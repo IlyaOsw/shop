@@ -23,6 +23,7 @@ export const ErrorMessage: React.FC<ErrorMessagePropsType> = ({
   setOpen,
 }) => {
   const handleClose = () => setOpen(false);
+
   return (
     <Modal open={open} onClose={handleClose}>
       <Box sx={style}>

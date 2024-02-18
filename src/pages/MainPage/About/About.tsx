@@ -13,7 +13,7 @@ export const About: React.FC = () => {
         position: "relative",
       }}
     >
-      <Typography variant="h5" sx={{ m: 5 }}>
+      <Typography variant="h5" sx={{ mt: 10 }}>
         {t("about")}
       </Typography>
       <Box

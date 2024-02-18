@@ -65,7 +65,7 @@ export const Description: React.FC = () => {
           variant="h5"
           sx={{
             textAlign: "center",
-            m: 4,
+            m: 5,
           }}
         >
           {t("whyWe")}
