@@ -29,7 +29,7 @@ export const EmptyBox: React.FC<EmptyBoxPropsType> = ({
           p: 1,
         }}
       >
-        <Typography variant="h6" color="text.secondary">
+        <Typography variant="h6">
           {t("continueShopping")}
           <Box>
             <Button

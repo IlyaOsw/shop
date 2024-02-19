@@ -53,7 +53,7 @@ export const ShopCart: React.FC = () => {
   const { t } = useTranslation();
   const theme = useTheme();
   //@ts-ignore
-  const { cart, removeItem } = useCart();
+  const { cart, removeItem, disableCartButton } = useCart();
   const [open, setOpen] = React.useState(false);
   const [openModal, setOpenModal] = React.useState<number | null>(null);
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
@@ -187,6 +187,7 @@ export const ShopCart: React.FC = () => {
                                   onClick={() => {
                                     removeItem(row.id);
                                     handleCloseModal();
+                                    disableCartButton(row.id, false);
                                   }}
                                 >
                                   {t("delete")}

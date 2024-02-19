@@ -80,7 +80,9 @@ export const FAQ: React.FC = () => {
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   const handleOpen = () => setOpen(true);
+
   const handleClose = () => setOpen(false);
+
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
       setExpanded(newExpanded ? panel : false);

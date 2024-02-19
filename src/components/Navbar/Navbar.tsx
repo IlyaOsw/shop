@@ -124,7 +124,9 @@ export const Navbar: React.FC = () => {
   );
 
   const handleDrawerOpen = () => setOpen(true);
+
   const handleDrawerClose = () => setOpen(false);
+
   const toggleDarkMode = () => setDarkMode(!darkMode);
 
   return (

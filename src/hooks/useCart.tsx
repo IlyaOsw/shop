@@ -1,4 +1,6 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
+
+import React from "react";
 
 import {
   CartContextType,
@@ -8,8 +10,17 @@ import {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-export function CartProvider({ children }: CartProviderPropsType) {
-  const [cart, setCart] = useState<CartItemType[]>([]);
+export const CartProvider = ({ children }: CartProviderPropsType) => {
+  const [cart, setCart] = React.useState<CartItemType[]>([]);
+  const [disabledButtons, setDisabledButtons] = React.useState<{
+    [key: string]: boolean;
+  }>({});
+
+  const disableCartButton = (id: string, value: boolean) => {
+    setDisabledButtons((prevDisabledButtons) => {
+      return { ...prevDisabledButtons, [id]: value };
+    });
+  };
 
   const removeItem = (id: number) => {
     const newCart = cart.filter((item) => item.id !== id);
@@ -22,10 +33,13 @@ export function CartProvider({ children }: CartProviderPropsType) {
   };
 
   return (
-    <CartContext.Provider value={{ cart, addItem, removeItem }}>
+    <CartContext.Provider
+      //@ts-ignore
+      value={{ cart, addItem, removeItem, disableCartButton, disabledButtons }}
+    >
       {children}
     </CartContext.Provider>
   );
-}
+};
 
 export const useCart = () => useContext(CartContext);

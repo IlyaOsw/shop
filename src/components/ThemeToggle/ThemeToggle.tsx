@@ -5,6 +5,8 @@ import { styled } from "@mui/material/styles";
 import { t } from "i18next";
 import { Typography } from "@mui/material";
 
+import { ThemeType } from "../../types/types";
+
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
   height: 34,
@@ -51,10 +53,6 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     borderRadius: 20 / 2,
   },
 }));
-
-export type ThemeType = {
-  toggleDarkMode: () => void;
-};
 
 export const ThemeToggle: React.FC<ThemeType> = ({ toggleDarkMode }) => {
   return (

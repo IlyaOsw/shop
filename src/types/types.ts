@@ -22,6 +22,10 @@ export type ClientType = {
   company: string;
 };
 
+export type ThemeType = {
+  toggleDarkMode: () => void;
+};
+
 export type StoreCardProps = {
   item: ProductType;
   index: number;

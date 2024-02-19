@@ -5,6 +5,7 @@ import styles from "./ScrollToTop.module.scss";
 
 export const ScrollToTop: React.FC = () => {
   const [isHidden, setIsHidden] = useState(true);
+
   const scrollToTop = (): void => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };

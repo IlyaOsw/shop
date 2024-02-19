@@ -42,6 +42,7 @@ export const LanguageToggle: React.FC = React.memo(() => {
   };
 
   const handleToggle = () => setOpen((prevOpen) => !prevOpen);
+
   const handleClose = (event: Event) => {
     if (
       anchorRef.current &&

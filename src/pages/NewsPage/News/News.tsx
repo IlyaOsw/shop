@@ -13,9 +13,9 @@ export const News: React.FC = () => {
   const { t } = useTranslation();
   const newsData = useSelector((state: { news: NewsType }) => state.news);
   const [posts, setPosts] = useState(3);
-  const showMorePosts = () => {
-    setPosts((prevPosts) => prevPosts + 3);
-  };
+
+  const showMorePosts = () => setPosts((prevPosts) => prevPosts + 3);
+
   const initialPosts = newsData.slice(0, posts);
 
   return (

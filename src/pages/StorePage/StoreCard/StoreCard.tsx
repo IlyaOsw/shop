@@ -27,21 +27,17 @@ export const StoreCard: React.FC<StoreCardProps> = ({
 }) => {
   const { t } = useTranslation();
   //@ts-ignore
-  const { addItem } = useCart();
-
+  const { addItem, disableCartButton, disabledButtons } = useCart();
   const [openCart, setOpenCart] = React.useState(false);
-
   const [openFavorite, setOpenFavorite] = React.useState(false);
-
-  const [disabled, setDisabled] = React.useState(false);
-
+  // const [disabled, setDisabled] = React.useState(false);
   const [favorite, setFavorite] = React.useState(false);
 
   const [transition] = React.useState<
     React.ComponentType<TransitionProps> | undefined
   >(undefined);
 
-  const disableButton = () => setDisabled(true);
+  // const disableButton = () => setDisabled(true);
 
   const handleAddToFavorites = () => toggleFavorite(item.id);
 
@@ -160,11 +156,11 @@ export const StoreCard: React.FC<StoreCardProps> = ({
               />
             </Button>
           </Tooltip>
-          {disabled ? (
+          {disabledButtons[item.id] ? (
             <Button
               variant="contained"
               color="success"
-              aria-label="add to shopping cart"
+              aria-label="added to shopping cart"
               sx={buttonStyle}
             >
               {t("added")}
@@ -177,7 +173,6 @@ export const StoreCard: React.FC<StoreCardProps> = ({
               variant="outlined"
               color="success"
               disabled
-              aria-label="add to shopping cart"
               sx={buttonStyle}
             >
               {t("add")}
@@ -190,11 +185,10 @@ export const StoreCard: React.FC<StoreCardProps> = ({
               <Button
                 variant="contained"
                 color="info"
-                aria-label="add to shopping cart"
                 onClick={() => {
                   setOpenCart(true);
                   addItem(item);
-                  disableButton();
+                  disableCartButton(item.id, true);
                 }}
                 sx={buttonStyle}
               >

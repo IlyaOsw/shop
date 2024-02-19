@@ -15,14 +15,10 @@ export const LikesBlock: React.FC<LikesBlockPropsType> = ({
   dislikes,
 }) => {
   const [isLiked, setIsLiked] = React.useState(false);
-
   const [likesCount, setLikesCount] = React.useState(likes);
-
   const [dislikesCount, setDislikesCount] = React.useState(dislikes);
-
   const [dislikeButtonDisabled, setDislikeButtonDisabled] =
     React.useState(false);
-
   const [likeButtonDisabled, setLikeButtonDisabled] = React.useState(false);
 
   const toggleLike = () => {

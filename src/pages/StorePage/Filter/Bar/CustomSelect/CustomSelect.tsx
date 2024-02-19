@@ -16,7 +16,6 @@ export const CustomSelect: React.FC<CustomSelectPropsType> = ({
   filterFavorites,
 }) => {
   const { t } = useTranslation();
-
   const [filter, setFilter] = React.useState("");
 
   const PriceHighToLow = () => {
@@ -31,6 +30,7 @@ export const CustomSelect: React.FC<CustomSelectPropsType> = ({
 
   const handleChange = (event: SelectChangeEvent) =>
     setFilter(event.target.value);
+
   return (
     <FormControl
       sx={{
