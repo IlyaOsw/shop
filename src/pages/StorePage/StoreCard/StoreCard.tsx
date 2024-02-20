@@ -30,14 +30,11 @@ export const StoreCard: React.FC<StoreCardProps> = ({
   const { addItem, disableCartButton, disabledButtons } = useCart();
   const [openCart, setOpenCart] = React.useState(false);
   const [openFavorite, setOpenFavorite] = React.useState(false);
-  // const [disabled, setDisabled] = React.useState(false);
   const [favorite, setFavorite] = React.useState(false);
 
   const [transition] = React.useState<
     React.ComponentType<TransitionProps> | undefined
   >(undefined);
-
-  // const disableButton = () => setDisabled(true);
 
   const handleAddToFavorites = () => toggleFavorite(item.id);
 
@@ -47,6 +44,8 @@ export const StoreCard: React.FC<StoreCardProps> = ({
     height: "30px",
     width: "140px",
     marginTop: "5px",
+    marginLeft: "5px",
+    borderRadius: "25px",
   };
 
   return (
@@ -54,7 +53,7 @@ export const StoreCard: React.FC<StoreCardProps> = ({
       <Paper
         key={item.id}
         elevation={3}
-        sx={{ m: 2, mt: 5, position: "relative", width: "265px" }}
+        sx={{ m: 1, mt: 5, position: "relative", width: "280px" }}
       >
         <CardMedia
           component="img"
@@ -100,6 +99,7 @@ export const StoreCard: React.FC<StoreCardProps> = ({
                   sx={{
                     height: "30px",
                     cursor: "default",
+                    borderRadius: "25px",
                   }}
                 >
                   {t("inStock")}
@@ -116,6 +116,7 @@ export const StoreCard: React.FC<StoreCardProps> = ({
                   sx={{
                     height: "30px",
                     cursor: "default",
+                    borderRadius: "25px",
                   }}
                 >
                   {t("outOfStock")}

@@ -14,7 +14,12 @@ export const CloseButton: React.FC<CloseButtonProps> = ({ onClose }) => {
         justifyContent: "end",
       }}
     >
-      <Button variant="contained" color="info" onClick={onClose}>
+      <Button
+        variant="contained"
+        color="info"
+        onClick={onClose}
+        sx={{ borderRadius: "25px" }}
+      >
         <CloseIcon />
       </Button>
     </Box>

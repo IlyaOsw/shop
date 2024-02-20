@@ -103,7 +103,7 @@ export const Bar: React.FC<BarPropsType> = ({
           noFilters();
           setSelectedOption("");
         }}
-        sx={{ m: 1 }}
+        sx={{ m: 1, borderRadius: "25px" }}
       >
         {t("noFilters")}
       </Button>

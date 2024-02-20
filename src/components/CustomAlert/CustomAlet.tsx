@@ -74,7 +74,12 @@ export const CustomAlert: React.FC = () => {
         </Typography>
         <Box sx={{ mt: 5 }}>
           <Tooltip title={"Continue"}>
-            <Button variant="contained" color="info" onClick={handleClose}>
+            <Button
+              variant="contained"
+              color="info"
+              onClick={handleClose}
+              sx={{ borderRadius: "25px" }}
+            >
               Continue
             </Button>
           </Tooltip>
@@ -82,7 +87,7 @@ export const CustomAlert: React.FC = () => {
         <Typography variant="body1" sx={{ mt: 5, mb: 2 }}>
           To visit my personal website, please
         </Typography>
-        <Button variant="outlined" color="info">
+        <Button variant="outlined" color="info" sx={{ borderRadius: "25px" }}>
           <Tooltip title={"Click"}>
             <Link
               to={"https://ilyaosw.github.io/IljaOssipov/"}

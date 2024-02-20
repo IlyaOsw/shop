@@ -110,6 +110,7 @@ export const Login: React.FC = () => {
               color="info"
               endIcon={<SendIcon />}
               onClick={() => handleClose()}
+              sx={{ borderRadius: "25px" }}
             >
               {t("login")}
             </Button>

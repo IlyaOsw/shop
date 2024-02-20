@@ -61,7 +61,7 @@ export const ThemeToggle: React.FC<ThemeType> = ({ toggleDarkMode }) => {
       disableRipple
       disableTouchRipple
       color="info"
-      sx={{ height: "36px" }}
+      sx={{ height: "36px", borderRadius: "25px" }}
     >
       <Typography>{t("Theme")}</Typography>
       <MaterialUISwitch onClick={toggleDarkMode} />

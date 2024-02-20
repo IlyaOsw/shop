@@ -22,7 +22,12 @@ export const FormDialog: React.FC = () => {
   return (
     <>
       <Tooltip title={t("share2")} arrow>
-        <Button variant="contained" color="info" onClick={handleClickOpen}>
+        <Button
+          variant="contained"
+          color="info"
+          onClick={handleClickOpen}
+          sx={{ borderRadius: "20px" }}
+        >
           <ShareIcon />
           <Box sx={{ marginLeft: "5px" }}>{t("share")}</Box>
         </Button>

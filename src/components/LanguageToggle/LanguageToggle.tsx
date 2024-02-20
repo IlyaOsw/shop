@@ -58,7 +58,7 @@ export const LanguageToggle: React.FC = React.memo(() => {
       <ButtonGroup
         variant="contained"
         ref={anchorRef}
-        aria-label="split button"
+        sx={{ borderRadius: "25px" }}
         color="info"
       >
         <Button
@@ -67,7 +67,7 @@ export const LanguageToggle: React.FC = React.memo(() => {
           aria-expanded={open ? "true" : undefined}
           aria-haspopup="menu"
           onClick={handleToggle}
-          sx={{ height: "36px", padding: "6px 16px" }}
+          sx={{ height: "36px", padding: "6px 16px", borderRadius: "25px" }}
         >
           {t(options[selectedIndex].label)}
           <PublicIcon sx={{ ml: "5px" }} />
@@ -104,7 +104,9 @@ export const LanguageToggle: React.FC = React.memo(() => {
                     <MenuItem
                       key={lang.id}
                       selected={lang.id === selectedIndex}
-                      onClick={(event) => {
+                      onClick={(
+                        event: React.MouseEvent<HTMLLIElement, MouseEvent>
+                      ) => {
                         handleMenuItemClick(event, lang.id);
                       }}
                     >

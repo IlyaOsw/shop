@@ -48,7 +48,11 @@ export const CommentForm: React.FC = () => {
         setCommentContent={setCommentContent}
       />
       <Tooltip title={t("sendComment")} arrow>
-        <Button variant="contained" onClick={clearContent}>
+        <Button
+          variant="contained"
+          onClick={clearContent}
+          sx={{ borderRadius: "25px" }}
+        >
           {t("send")}
         </Button>
       </Tooltip>

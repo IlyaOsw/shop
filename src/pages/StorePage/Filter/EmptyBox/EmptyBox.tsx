@@ -34,7 +34,7 @@ export const EmptyBox: React.FC<EmptyBoxPropsType> = ({
           <Box>
             <Button
               variant="contained"
-              sx={{ mt: 2 }}
+              sx={{ mt: 2, borderRadius: "25px" }}
               onClick={() => {
                 noFilters();
                 setSelectedOption("");

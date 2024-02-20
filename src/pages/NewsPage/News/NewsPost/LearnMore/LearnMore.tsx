@@ -13,6 +13,8 @@ export const LearnMore: React.FC<LearnMorePropsType> = ({
 }) => {
   const handleExpandClick = () => setExpanded(!expanded);
 
+  const buttonsStyle = { marginLeft: "5px", borderRadius: "25px" };
+
   return (
     <Box
       onClick={handleExpandClick}
@@ -21,22 +23,14 @@ export const LearnMore: React.FC<LearnMorePropsType> = ({
     >
       {expanded ? (
         <Tooltip title={t("close")} arrow>
-          <Button
-            variant="outlined"
-            color="secondary"
-            sx={{ marginLeft: "5px" }}
-          >
+          <Button variant="outlined" color="secondary" style={buttonsStyle}>
             <KeyboardArrowUpIcon />
             {t("close")}
           </Button>
         </Tooltip>
       ) : (
         <Tooltip title={t("learnMore")} arrow>
-          <Button
-            variant="outlined"
-            color="secondary"
-            sx={{ marginLeft: "5px" }}
-          >
+          <Button variant="outlined" color="secondary" style={buttonsStyle}>
             <KeyboardArrowDownIcon />
             {t("learnMore")}
           </Button>

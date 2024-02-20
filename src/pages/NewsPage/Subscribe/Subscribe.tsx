@@ -88,7 +88,11 @@ export const Subscribe: React.FC = () => {
             inputProps={{ "aria-label": "search" }}
           />
         </Search>
-        <Button variant="contained" color="info" sx={{ height: "50px" }}>
+        <Button
+          variant="contained"
+          color="info"
+          sx={{ height: "50px", borderRadius: "25px" }}
+        >
           {t("subscribe")}
         </Button>
       </Box>

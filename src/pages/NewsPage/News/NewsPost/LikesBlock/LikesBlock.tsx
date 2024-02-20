@@ -4,7 +4,7 @@ import React from "react";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
-import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
+import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 
 import { LikesBlockPropsType } from "../../../../../types/types";
 
@@ -43,7 +43,7 @@ export const LikesBlock: React.FC<LikesBlockPropsType> = ({
     setIsLiked((prevIsLiked) => !prevIsLiked);
   };
 
-  const countStyle = { cursor: "default", borderRadius: "15px" };
+  const countStyle = { cursor: "default", borderRadius: "25px" };
   return (
     <Box>
       <Button
@@ -70,7 +70,7 @@ export const LikesBlock: React.FC<LikesBlockPropsType> = ({
           disabled={dislikeButtonDisabled}
           {...label}
           icon={<ThumbDownOffAltIcon fontSize="large" color="error" />}
-          checkedIcon={<ThumbDownAltIcon fontSize="large" color="error" />}
+          checkedIcon={<ThumbDownIcon fontSize="large" color="error" />}
         />
       </Tooltip>
       <Button

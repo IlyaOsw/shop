@@ -170,6 +170,23 @@ export const ShopCart: React.FC = () => {
                               <Box
                                 sx={{
                                   display: "flex",
+                                  justifyContent: "center",
+                                  m: 2,
+                                }}
+                              >
+                                <img
+                                  style={{
+                                    height: "100px",
+                                    width: "80px",
+                                  }}
+                                  src={`${process.env.PUBLIC_URL}/Images/Store/${row.description}.jpg`}
+                                  alt={row.description}
+                                />
+                              </Box>
+
+                              <Box
+                                sx={{
+                                  display: "flex",
                                   justifyContent: "space-around",
                                   mt: 4,
                                 }}
@@ -178,6 +195,7 @@ export const ShopCart: React.FC = () => {
                                   variant="outlined"
                                   onClick={handleCloseModal}
                                   color="primary"
+                                  sx={{ borderRadius: "25px" }}
                                 >
                                   {t("cancel")}
                                 </Button>
@@ -189,6 +207,7 @@ export const ShopCart: React.FC = () => {
                                     handleCloseModal();
                                     disableCartButton(row.id, false);
                                   }}
+                                  sx={{ borderRadius: "25px" }}
                                 >
                                   {t("delete")}
                                 </Button>

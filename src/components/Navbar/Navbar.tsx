@@ -133,7 +133,7 @@ export const Navbar: React.FC = () => {
     <CartProvider>
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
-        <AppBar position="fixed" open={open}>
+        <AppBar position="fixed" open={open} color="info">
           <Toolbar>
             <IconButton
               color="inherit"
@@ -222,11 +222,10 @@ export const Navbar: React.FC = () => {
           <DrawerHeader />
           <Box
             sx={{
-              marginTop: "30px",
+              mt: 5,
+              mb: 5,
               display: "flex",
               justifyContent: "space-around",
-              alignItems: "center",
-              flexWrap: "wrap",
             }}
           >
             <ThemeToggle toggleDarkMode={toggleDarkMode} />
