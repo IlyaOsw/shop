@@ -2,6 +2,8 @@ import {
   Box,
   Button,
   InputBase,
+  Snackbar,
+  Tooltip,
   Typography,
   alpha,
   styled,
@@ -9,6 +11,11 @@ import {
 import React from "react";
 import EastIcon from "@mui/icons-material/East";
 import { useTranslation } from "react-i18next";
+
+import { TransitionProps } from "@mui/material/transitions";
+
+import { ErrorMessage } from "../../../components/ErrorMessage/ErrorMessage";
+import { SnackbarAlert } from "../../../components/SnackbarAlert/SnackbarAlert";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -56,6 +63,24 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export const Subscribe: React.FC = () => {
   const { t } = useTranslation();
+  const [value, setValue] = React.useState("");
+  const [error, setError] = React.useState(false);
+  const [snackbar, setSnackbar] = React.useState(false);
+
+  const [transition] = React.useState<
+    React.ComponentType<TransitionProps> | undefined
+  >(undefined);
+
+  const clearInput = () => {
+    if (value.trim().length === 0) {
+      setError(true);
+    } else {
+      setValue("");
+      setError(false);
+      setSnackbar(true);
+    }
+  };
+
   return (
     <Box
       sx={{
@@ -86,16 +111,41 @@ export const Subscribe: React.FC = () => {
           <StyledInputBase
             placeholder={t("enterMail")}
             inputProps={{ "aria-label": "search" }}
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
           />
         </Search>
-        <Button
-          variant="contained"
-          color="info"
-          sx={{ height: "50px", borderRadius: "25px" }}
-        >
-          {t("subscribe")}
-        </Button>
+        <Tooltip title={t("subscribeToUpdates")} arrow>
+          <Button
+            variant="contained"
+            color="info"
+            sx={{ height: "50px", borderRadius: "25px" }}
+            onClick={clearInput}
+          >
+            {t("subscribe")}
+          </Button>
+        </Tooltip>
       </Box>
+      {error && <ErrorMessage />}
+      {snackbar && (
+        <Snackbar
+          open={snackbar}
+          autoHideDuration={2000}
+          onClose={() => setSnackbar(false)}
+          TransitionComponent={transition}
+          key={transition ? transition.name : ""}
+          sx={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <SnackbarAlert onClose={() => setSnackbar(false)}>
+            {t("subscribed")}
+          </SnackbarAlert>
+        </Snackbar>
+      )}
     </Box>
   );
 };

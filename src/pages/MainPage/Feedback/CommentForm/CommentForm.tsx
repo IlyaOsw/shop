@@ -28,6 +28,7 @@ export const CommentForm: React.FC = () => {
     } else {
       setCommentContent("");
       setSnackbar(true);
+      setError(false);
     }
   };
   return (
