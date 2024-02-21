@@ -187,5 +187,9 @@
 	"send": "Saada",
 	"sendComment": "Vajutage, et saata kommentaar",
 	"commentSended": "Aitäh kommentaari eest!",
-	"noEmptyField": "See väli ei saa olla tühi!"
+	"noEmptyField": "See väli ei saa olla tühi!",
+	"stepperTitle": "Kuidas saada meie äriliseks partneriks?",
+	"stepperDescription1": "Võtke meiega ühendust, et arutada oma vajadusi.",
+	"stepperDescription2": "Kohandame lahenduse vastavalt teie nõuetele.",
+	"stepperDescription3": "Kinnitage ja nautige esmaklassilist teenindust."
 }

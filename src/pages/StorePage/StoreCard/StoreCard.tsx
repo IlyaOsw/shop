@@ -62,7 +62,7 @@ export const StoreCard: React.FC<StoreCardProps> = ({
           sx={{
             margin: "0 auto",
             width: "85%",
-            height: "350px",
+            height: "370px",
             objectFit: "contain",
           }}
         />

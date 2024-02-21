@@ -3,8 +3,6 @@ import { t } from "i18next";
 import React from "react";
 import ErrorIcon from "@mui/icons-material/Error";
 
-import { ErrorMessagePropsType } from "../../../../../types/types";
-
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
@@ -18,10 +16,8 @@ const style = {
   textAlign: "center",
 };
 
-export const ErrorMessage: React.FC<ErrorMessagePropsType> = ({
-  open,
-  setOpen,
-}) => {
+export const ErrorMessage: React.FC = () => {
+  const [open, setOpen] = React.useState(true);
   const handleClose = () => setOpen(false);
 
   return (
@@ -31,7 +27,11 @@ export const ErrorMessage: React.FC<ErrorMessagePropsType> = ({
         <Typography variant="h6" color={"red"}>
           {t("noEmptyField")}
         </Typography>
-        <Button variant="contained" onClick={handleClose} sx={{ mt: 3 }}>
+        <Button
+          variant="contained"
+          onClick={handleClose}
+          sx={{ mt: 3, borderRadius: "25px" }}
+        >
           {t("close")}
         </Button>
       </Box>

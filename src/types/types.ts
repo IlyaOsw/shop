@@ -74,11 +74,6 @@ export type BarPropsType = {
   setSelectedOption: (selectedOption: string) => void;
 };
 
-export type ErrorMessagePropsType = {
-  open: boolean;
-  setOpen: (open: boolean) => void;
-};
-
 export type TransitionProps = Omit<SlideProps, "direction">;
 
 export type NewsPostPropsType = {

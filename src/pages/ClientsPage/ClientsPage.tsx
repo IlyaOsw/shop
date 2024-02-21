@@ -6,6 +6,7 @@ import { Timer } from "../../components/Timer/Timer";
 
 import { Clients } from "./Clients/Clients";
 import { Carousel } from "./Carousel/Carousel";
+import { CustomStepper } from "./CustomStepper/CustomStepper";
 
 const ClientsPage: React.FC = () => {
   const { t } = useTranslation();
@@ -44,6 +45,7 @@ const ClientsPage: React.FC = () => {
         <Carousel />
       </Box>
       <Timer />
+      <CustomStepper />
       <Clients />
     </Container>
   );

@@ -18,7 +18,7 @@ export const Timer: React.FC = () => {
       sx={{
         display: "flex",
         justifyContent: "center",
-        margin: "50px auto",
+        margin: "75px auto",
       }}
     >
       <AccessTimeIcon color="info" fontSize="large" />
