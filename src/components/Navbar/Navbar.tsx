@@ -111,7 +111,6 @@ const generalIcons = [
   <FeedIcon color="info" />,
   <AccountCircleIcon color="info" />,
 ];
-const headerIcons = [<ShopCart />, <Login />, <FAQ />];
 
 export const Navbar: React.FC = () => {
   const { t } = useTranslation();
@@ -150,9 +149,9 @@ export const Navbar: React.FC = () => {
             <Typography variant="h6" noWrap sx={{ width: "100%" }}>
               E-STORE
             </Typography>
-            {headerIcons.map((item, index) => (
-              <React.Fragment key={index}>{item}</React.Fragment>
-            ))}
+            <ShopCart />
+            <Login />
+            <FAQ />
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>

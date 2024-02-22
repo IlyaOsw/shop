@@ -96,10 +96,10 @@ export type TabPanelProps = {
 
 export enum LogoLabel {
   SAMSUNG = "samsung",
-  APPLE = "apple",
+  GIGABYTE = "gigabyte",
   LENOVO = "lenovo",
-  LG = "lg",
-  SONY = "sony",
+  INTEL = "intel",
+  PHILIPS = "philips",
   ASUS = "asus",
 }
 

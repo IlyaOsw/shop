@@ -2,14 +2,19 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Box, Container, Divider, Typography } from "@mui/material";
 
-import { MainCard } from "./MainCard/MainCard";
+import { Cards } from "./Cards/Cards";
 import { Description } from "./Description/Description";
 import Feedback from "./Feedback/Feedback";
 import { About } from "./About/About";
-import { Logos } from "./Logos/Logos";
+import { Partners } from "./Partners/Partners";
 
 const MainPage: React.FC = React.memo(() => {
   const { t } = useTranslation();
+
+  React.useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   return (
     <Container maxWidth="xl">
       <Typography variant="h5" sx={{ m: 3, textAlign: "center" }}>
@@ -23,10 +28,10 @@ const MainPage: React.FC = React.memo(() => {
           flexWrap: "wrap",
         }}
       >
-        <MainCard />
+        <Cards />
       </Box>
       <Description />
-      <Logos />
+      <Partners />
       <About />
       <Feedback />
     </Container>

@@ -13,7 +13,7 @@ import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
 
-import { FormDialog } from "../../../../components/FormDialog/FormDialog";
+import { ShareButton } from "../../../../components/ShareButton/ShareButton";
 import { ClientType } from "../../../../types/types";
 
 const iconStyle = { marginRight: "7px", marginBottom: "-4px" };
@@ -24,12 +24,11 @@ export const ClientInfo: React.FC<{ user: ClientType }> = ({ user }) => {
       key={user.id}
       sx={{
         height: "400px",
-        position: "relative",
       }}
     >
       <Divider color="lightgray" />
       <CardContent>
-        <Box sx={{ display: "flex", alignItems: "center" }}>
+        <Box sx={{ display: "flex" }}>
           <Avatar
             sx={{ width: 56, height: 56 }}
             src={`${process.env.PUBLIC_URL}/Images/ClientAvatars/${user.avatar}.jpg`}
@@ -38,7 +37,7 @@ export const ClientInfo: React.FC<{ user: ClientType }> = ({ user }) => {
             {user.name}
           </Typography>
         </Box>
-        <Typography variant="h6" color="text.info">
+        <Typography variant="h6">
           <Box sx={{ p: 0.75 }}>
             <MailOutlineOutlinedIcon color="info" style={iconStyle} />
             {user.email}
@@ -63,12 +62,10 @@ export const ClientInfo: React.FC<{ user: ClientType }> = ({ user }) => {
       </CardContent>
       <CardActions
         sx={{
-          display: "flex",
-          justifyContent: "start",
           ml: 2,
         }}
       >
-        <FormDialog />
+        <ShareButton />
       </CardActions>
     </Box>
   );

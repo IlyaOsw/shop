@@ -6,14 +6,14 @@ import { LogoLabel } from "../../../types/types";
 
 const logoImages: { id: number; label: LogoLabel }[] = [
   { id: 0, label: LogoLabel.SAMSUNG },
-  { id: 1, label: LogoLabel.APPLE },
+  { id: 1, label: LogoLabel.GIGABYTE },
   { id: 2, label: LogoLabel.LENOVO },
-  { id: 3, label: LogoLabel.LG },
-  { id: 4, label: LogoLabel.SONY },
+  { id: 3, label: LogoLabel.INTEL },
+  { id: 4, label: LogoLabel.PHILIPS },
   { id: 5, label: LogoLabel.ASUS },
 ];
 
-export const Logos: React.FC = () => {
+export const Partners: React.FC = () => {
   const { t } = useTranslation();
 
   return (
@@ -26,7 +26,6 @@ export const Logos: React.FC = () => {
         sx={{
           display: "flex",
           justifyContent: "space-around",
-          alignItems: "center",
           flexWrap: "wrap",
           margin: "20px 0px",
           position: "relative",

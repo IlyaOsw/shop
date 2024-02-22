@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import { FormDialog } from "../../../../components/FormDialog/FormDialog";
+import { ShareButton } from "../../../../components/ShareButton/ShareButton";
 import { NewsPostPropsType } from "../../../../types/types";
 
 import { LikesBlock } from "./LikesBlock/LikesBlock";
@@ -80,7 +80,7 @@ export const NewsPost: React.FC<NewsPostPropsType> = ({
             </CardContent>
           </Collapse>
           <CardActions>
-            <FormDialog />
+            <ShareButton />
             <LearnMore expanded={expanded} setExpanded={setExpanded} />
           </CardActions>
         </Box>

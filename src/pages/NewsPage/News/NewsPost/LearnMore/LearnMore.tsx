@@ -16,21 +16,17 @@ export const LearnMore: React.FC<LearnMorePropsType> = ({
   const buttonsStyle = { marginLeft: "5px", borderRadius: "25px" };
 
   return (
-    <Box
-      onClick={handleExpandClick}
-      aria-expanded={expanded}
-      aria-label="show more"
-    >
+    <Box onClick={handleExpandClick} aria-expanded={expanded}>
       {expanded ? (
         <Tooltip title={t("close")} arrow>
-          <Button variant="outlined" color="secondary" style={buttonsStyle}>
+          <Button variant="contained" color="secondary" style={buttonsStyle}>
             <KeyboardArrowUpIcon />
             {t("close")}
           </Button>
         </Tooltip>
       ) : (
         <Tooltip title={t("learnMore")} arrow>
-          <Button variant="outlined" color="secondary" style={buttonsStyle}>
+          <Button variant="contained" color="secondary" style={buttonsStyle}>
             <KeyboardArrowDownIcon />
             {t("learnMore")}
           </Button>

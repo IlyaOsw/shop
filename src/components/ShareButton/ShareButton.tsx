@@ -11,7 +11,7 @@ import TextField from "@mui/material/TextField";
 import Tooltip from "@mui/material/Tooltip";
 import ShareIcon from "@mui/icons-material/Share";
 
-export const FormDialog: React.FC = () => {
+export const ShareButton: React.FC = () => {
   const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
 

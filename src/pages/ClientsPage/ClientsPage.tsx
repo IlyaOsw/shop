@@ -5,11 +5,15 @@ import { Box, Container, Divider, Typography } from "@mui/material";
 import { Timer } from "../../components/Timer/Timer";
 
 import { Clients } from "./Clients/Clients";
-import { Carousel } from "./Carousel/Carousel";
+import { Image } from "./Image/Image";
 import { CustomStepper } from "./CustomStepper/CustomStepper";
 
 const ClientsPage: React.FC = () => {
   const { t } = useTranslation();
+
+  React.useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   return (
     <Container maxWidth="xl">
@@ -30,19 +34,11 @@ const ClientsPage: React.FC = () => {
             maxWidth: "500px",
           }}
         >
-          <Typography variant="body1" sx={{ p: 1 }}>
-            {t("clientsSubTitle")}
-          </Typography>
-
-          <Typography variant="body1" sx={{ p: 1, mt: 5 }}>
-            {t("clientsSubTitle2")}
-          </Typography>
-
-          <Typography variant="body1" sx={{ p: 1, mt: 5 }}>
-            {t("clientsSubTitle3")}
-          </Typography>
+          <Typography>{t("clientsSubTitle")}</Typography>
+          <Typography sx={{ mt: 5, mb: 5 }}>{t("clientsSubTitle2")}</Typography>
+          <Typography>{t("clientsSubTitle3")}</Typography>
         </Box>
-        <Carousel />
+        <Image />
       </Box>
       <Timer />
       <CustomStepper />

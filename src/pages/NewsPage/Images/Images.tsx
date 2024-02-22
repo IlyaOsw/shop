@@ -6,17 +6,17 @@ const images = [
   {
     id: 0,
     url: `${process.env.PUBLIC_URL}/Images/News/news1.jpg`,
-    width: "32.7%",
+    width: "32%",
   },
   {
     id: 1,
     url: `${process.env.PUBLIC_URL}/Images/News/news2.jpg`,
-    width: "32.7%",
+    width: "32%",
   },
   {
     id: 2,
     url: `${process.env.PUBLIC_URL}/Images/News/news3.jpg`,
-    width: "32.7%",
+    width: "32%",
   },
 ];
 
@@ -62,7 +62,7 @@ const ImageBackdrop = styled("span")(({ theme }) => ({
   transition: theme.transitions.create("opacity"),
 }));
 
-export const Carousel: React.FC = () => {
+export const Images: React.FC = () => {
   return (
     <Box
       sx={{

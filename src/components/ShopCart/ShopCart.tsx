@@ -27,8 +27,6 @@ import { useTheme } from "@mui/material/styles";
 import { CloseButton } from "../CloseButton/CloseButton";
 import { useCart } from "../../hooks/useCart";
 
-const ccyFormat = (num: number) => `${num.toFixed(2)}`;
-
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
     children: React.ReactElement<any, any>;
@@ -64,6 +62,8 @@ export const ShopCart: React.FC = () => {
     }, 0);
   };
 
+  const ccyFormat = (num: number) => `${num.toFixed(2)}`;
+
   const invoiceTotal = total(cart);
 
   const handleClose = () => setOpen(false);
@@ -89,21 +89,17 @@ export const ShopCart: React.FC = () => {
         onClose={handleClose}
         TransitionComponent={Transition}
         keepMounted
-        aria-labelledby="responsive-dialog-title"
       >
         <Box sx={{ p: 2 }}>
           <CloseButton onClose={handleClose} />
         </Box>
-        <DialogTitle
-          id="responsive-dialog-title"
-          sx={{ m: 1, textAlign: "center", fontSize: "24px" }}
-        >
+        <DialogTitle sx={{ m: 1, textAlign: "center", fontSize: "24px" }}>
           {t("cart")}
         </DialogTitle>
         <Divider sx={{ m: 2 }} />
         <DialogContent>
           <Paper elevation={3}>
-            <Table aria-label="spanning table">
+            <Table>
               <TableHead>
                 <TableRow>
                   <TableCell
@@ -125,7 +121,6 @@ export const ShopCart: React.FC = () => {
                     title: string;
                     price: number;
                     description: string;
-                    isFavorite: boolean;
                   }) => (
                     <TableRow key={row.id}>
                       <TableCell>
@@ -183,7 +178,6 @@ export const ShopCart: React.FC = () => {
                                   alt={row.description}
                                 />
                               </Box>
-
                               <Box
                                 sx={{
                                   display: "flex",
@@ -220,10 +214,10 @@ export const ShopCart: React.FC = () => {
                   )
                 )}
                 <TableRow>
-                  <TableCell colSpan={3} sx={{ fontSize: "18px" }}>
+                  <TableCell colSpan={3} sx={{ fontSize: "22px" }}>
                     {t("total")}
                   </TableCell>
-                  <TableCell align="right" sx={{ fontSize: "18px" }}>
+                  <TableCell align="right" sx={{ fontSize: "22px" }}>
                     {ccyFormat(invoiceTotal)}€
                   </TableCell>
                 </TableRow>

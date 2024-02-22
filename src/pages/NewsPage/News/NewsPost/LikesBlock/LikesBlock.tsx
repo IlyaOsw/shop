@@ -8,8 +8,6 @@ import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 
 import { LikesBlockPropsType } from "../../../../../types/types";
 
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
-
 export const LikesBlock: React.FC<LikesBlockPropsType> = ({
   likes,
   dislikes,
@@ -59,7 +57,6 @@ export const LikesBlock: React.FC<LikesBlockPropsType> = ({
         <Checkbox
           onClick={toggleLike}
           disabled={likeButtonDisabled}
-          {...label}
           icon={<ThumbUpOffAltIcon fontSize="large" color="info" />}
           checkedIcon={<ThumbUpIcon fontSize="large" color="info" />}
         />
@@ -68,7 +65,6 @@ export const LikesBlock: React.FC<LikesBlockPropsType> = ({
         <Checkbox
           onClick={toggleDislike}
           disabled={dislikeButtonDisabled}
-          {...label}
           icon={<ThumbDownOffAltIcon fontSize="large" color="error" />}
           checkedIcon={<ThumbDownIcon fontSize="large" color="error" />}
         />

@@ -7,6 +7,10 @@ import { Filter } from "./Filter/Filter";
 const StorePage: React.FC = () => {
   const { t } = useTranslation();
 
+  React.useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   return (
     <Container maxWidth="xl" sx={{ mb: 10 }}>
       <Typography

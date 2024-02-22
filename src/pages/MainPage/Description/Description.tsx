@@ -59,13 +59,13 @@ export const Description: React.FC = () => {
       <Box
         sx={{
           position: "relative",
+          mt: 10,
         }}
       >
         <Typography
           variant="h5"
           sx={{
             textAlign: "center",
-            m: 5,
           }}
         >
           {t("whyWe")}
@@ -117,7 +117,7 @@ export const Description: React.FC = () => {
                 variant="body2"
                 sx={{
                   maxWidth: "400px",
-                  height: "220px",
+                  height: "200px",
                   textAlign: "center",
                   mt: 2,
                 }}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box } from "@mui/material";
+import NorthIcon from "@mui/icons-material/North";
 
 import styles from "./ScrollToTop.module.scss";
 
@@ -28,10 +29,7 @@ export const ScrollToTop: React.FC = () => {
       onClick={scrollToTop}
       className={`${styles.scrollBtn} ${isHidden ? styles.hidden : ""}`}
     >
-      <img
-        alt="Arrow up"
-        src={process.env.PUBLIC_URL + "/Images/ArrowIcon/ArrowUp.png"}
-      />
+      <NorthIcon fontSize="large" color="primary" />
     </Box>
   );
 };

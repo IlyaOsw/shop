@@ -12,7 +12,7 @@ const cards: { id: number; label: string; description: string }[] = [
   { id: 1, label: "Card2", description: "cardInfo2" },
 ];
 
-export const MainCard: React.FC = () => {
+export const Cards: React.FC = () => {
   return (
     <>
       {cards.map((item) => (
