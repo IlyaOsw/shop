@@ -52,8 +52,8 @@ export const Login: React.FC = () => {
   return (
     <Stack direction="row" alignItems="center" justifyContent="end" spacing={1}>
       <Tooltip title={t("login")} arrow>
-        <IconButton aria-label="homeicon" size="large" onClick={handleOpen}>
-          <PersonIcon fontSize="large" color="action" />
+        <IconButton size="large" onClick={handleOpen}>
+          <PersonIcon fontSize="large" />
         </IconButton>
       </Tooltip>
       <Dialog

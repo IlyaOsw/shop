@@ -67,7 +67,7 @@ export const CustomAlert: React.FC = () => {
           <SentimentSatisfiedAltIcon color="info" fontSize="large" />
         </Box>
         <Typography variant="body1">
-          Welcome to my pet-project, where I can demonstrate you my skills!
+          Welcome to my pet-project, where I can demonstrate my skills!
         </Typography>
         <Typography variant="body1" sx={{ mt: 2 }}>
           I`m from Estonia and specialize in front-end development.

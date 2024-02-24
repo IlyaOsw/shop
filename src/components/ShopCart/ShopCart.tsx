@@ -77,9 +77,9 @@ export const ShopCart: React.FC = () => {
   return (
     <>
       <Tooltip title={t("cart")} arrow>
-        <IconButton aria-label="homeicon" size="large" onClick={handleOpen}>
+        <IconButton size="large" onClick={handleOpen}>
           <Badge badgeContent={cart.length} color="error">
-            <ShoppingCartIcon fontSize="large" color="action" />
+            <ShoppingCartIcon fontSize="large" />
           </Badge>
         </IconButton>
       </Tooltip>

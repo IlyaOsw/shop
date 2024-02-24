@@ -36,6 +36,8 @@ import { NavbarType } from "../../redux/reducers/navbar-reducer";
 
 import { AppBarProps } from "../../types/types";
 
+import { Chat } from "../Chat/Chat";
+
 import styles from "./Themes.module.scss";
 
 const drawerWidth = 235;
@@ -150,6 +152,7 @@ export const Navbar: React.FC = () => {
               E-STORE
             </Typography>
             <ShopCart />
+            <Chat />
             <Login />
             <FAQ />
           </Toolbar>
@@ -197,7 +200,7 @@ export const Navbar: React.FC = () => {
                           justifyContent: "center",
                         }}
                       >
-                        {generalIcons[index % generalIcons.length]}
+                        {generalIcons[index]}
                       </ListItemIcon>
                       <ListItemText sx={{ opacity: open ? 1 : 0 }}>
                         {t(item.label)}
@@ -211,17 +214,15 @@ export const Navbar: React.FC = () => {
           </List>
         </Drawer>
         <Box
-          component="main"
           sx={{
             flexGrow: 1,
           }}
           className={darkMode ? styles.darkTheme : styles.lightTheme}
         >
           <Particle />
-          <DrawerHeader />
           <Box
             sx={{
-              mt: 5,
+              mt: 15,
               mb: 5,
               display: "flex",
               justifyContent: "space-around",

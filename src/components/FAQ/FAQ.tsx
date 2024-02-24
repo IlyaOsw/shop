@@ -91,8 +91,8 @@ export const FAQ: React.FC = () => {
   return (
     <>
       <Tooltip title="FAQ" arrow>
-        <IconButton aria-label="homeicon" size="large" onClick={handleOpen}>
-          <HelpIcon fontSize="large" color="action" />
+        <IconButton size="large" onClick={handleOpen}>
+          <HelpIcon fontSize="large" />
         </IconButton>
       </Tooltip>
       <Dialog
@@ -101,7 +101,6 @@ export const FAQ: React.FC = () => {
         keepMounted
         open={open}
         onClose={handleClose}
-        aria-describedby="alert-dialog-slide-description"
       >
         <Box sx={{ p: 2 }}>
           <CloseButton onClose={handleClose} />
@@ -115,10 +114,7 @@ export const FAQ: React.FC = () => {
             expanded={expanded === "panel1"}
             onChange={handleChange("panel1")}
           >
-            <AccordionSummary
-              aria-controls="panel1d-content"
-              id="panel1d-header"
-            >
+            <AccordionSummary id="panel1d-header">
               <Typography>{t("Faq1question")}</Typography>
             </AccordionSummary>
             <AccordionDetails>
@@ -129,10 +125,7 @@ export const FAQ: React.FC = () => {
             expanded={expanded === "panel2"}
             onChange={handleChange("panel2")}
           >
-            <AccordionSummary
-              aria-controls="panel2d-content"
-              id="panel2d-header"
-            >
+            <AccordionSummary id="panel2d-header">
               <Typography>{t("Faq2question")}</Typography>
             </AccordionSummary>
             <AccordionDetails>
@@ -143,10 +136,7 @@ export const FAQ: React.FC = () => {
             expanded={expanded === "panel3"}
             onChange={handleChange("panel3")}
           >
-            <AccordionSummary
-              aria-controls="panel3d-content"
-              id="panel3d-header"
-            >
+            <AccordionSummary id="panel3d-header">
               <Typography>{t("Faq3question")}</Typography>
             </AccordionSummary>
             <AccordionDetails>
@@ -157,10 +147,7 @@ export const FAQ: React.FC = () => {
             expanded={expanded === "panel4"}
             onChange={handleChange("panel4")}
           >
-            <AccordionSummary
-              aria-controls="panel4d-content"
-              id="panel4d-header"
-            >
+            <AccordionSummary id="panel4d-header">
               <Typography>{t("Faq4question")}</Typography>
             </AccordionSummary>
             <AccordionDetails>
@@ -171,10 +158,7 @@ export const FAQ: React.FC = () => {
             expanded={expanded === "panel5"}
             onChange={handleChange("panel5")}
           >
-            <AccordionSummary
-              aria-controls="panel5d-content"
-              id="panel5d-header"
-            >
+            <AccordionSummary id="panel5d-header">
               <Typography>{t("Faq5question")}</Typography>
             </AccordionSummary>
             <AccordionDetails>

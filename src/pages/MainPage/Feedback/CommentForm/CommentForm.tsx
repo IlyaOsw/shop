@@ -22,7 +22,7 @@ export const CommentForm: React.FC = () => {
   >(undefined);
 
   const clearContent = () => {
-    if (commentContent.trim().length === 0) {
+    if (commentContent.length === 0) {
       setError(true);
       setOpen(true);
     } else {

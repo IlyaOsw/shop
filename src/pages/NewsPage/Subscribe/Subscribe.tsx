@@ -72,7 +72,7 @@ export const Subscribe: React.FC = () => {
   >(undefined);
 
   const clearInput = () => {
-    if (value.trim().length === 0) {
+    if (value.length === 0) {
       setError(true);
     } else {
       setValue("");
