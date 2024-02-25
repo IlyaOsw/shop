@@ -8,6 +8,7 @@ const initialState = [
     additionalText1: "text1.1",
     additionalText2: "text1.2",
     postDate: "2february2024",
+    views: 15234,
   },
   {
     id: 1,
@@ -18,6 +19,7 @@ const initialState = [
     additionalText1: "text2.1",
     additionalText2: "text2.2",
     postDate: "30january2024",
+    views: 21345,
   },
   {
     id: 2,
@@ -28,6 +30,7 @@ const initialState = [
     additionalText1: "text3.1",
     additionalText2: "text3.2",
     postDate: "27january2024",
+    views: 28765,
   },
   {
     id: 3,
@@ -38,6 +41,7 @@ const initialState = [
     additionalText1: "text4.1",
     additionalText2: "text4.2",
     postDate: "25january2024",
+    views: 19456,
   },
   {
     id: 4,
@@ -48,6 +52,7 @@ const initialState = [
     additionalText1: "text5.1",
     additionalText2: "text5.2",
     postDate: "22january2024",
+    views: 26543,
   },
   {
     id: 5,
@@ -58,6 +63,7 @@ const initialState = [
     additionalText1: "text6.1",
     additionalText2: "text6.2",
     postDate: "17january2024",
+    views: 17689,
   },
   {
     id: 6,
@@ -68,6 +74,7 @@ const initialState = [
     additionalText1: "text7.1",
     additionalText2: "text7.2",
     postDate: "15january2024",
+    views: 21347,
   },
   {
     id: 7,
@@ -78,6 +85,7 @@ const initialState = [
     additionalText1: "text8.1",
     additionalText2: "text8.2",
     postDate: "10january2024",
+    views: 16983,
   },
   {
     id: 8,
@@ -88,6 +96,7 @@ const initialState = [
     additionalText1: "text9.1",
     additionalText2: "text9.2",
     postDate: "7january2024",
+    views: 28765,
   },
   {
     id: 9,
@@ -98,6 +107,7 @@ const initialState = [
     additionalText1: "text10.1",
     additionalText2: "text10.2",
     postDate: "3january2024",
+    views: 19678,
   },
   {
     id: 10,
@@ -108,6 +118,7 @@ const initialState = [
     additionalText1: "text11.1",
     additionalText2: "text11.2",
     postDate: "30december2023",
+    views: 25874,
   },
   {
     id: 11,
@@ -118,6 +129,7 @@ const initialState = [
     additionalText1: "text12.1",
     additionalText2: "text12.2",
     postDate: "28december2023",
+    views: 21123,
   },
 ];
 

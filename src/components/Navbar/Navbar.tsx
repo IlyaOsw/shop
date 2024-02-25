@@ -222,7 +222,7 @@ export const Navbar: React.FC = () => {
           <Particle />
           <Box
             sx={{
-              mt: 15,
+              mt: 10,
               mb: 5,
               display: "flex",
               justifyContent: "space-around",

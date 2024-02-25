@@ -48,6 +48,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
       borderRadius: "50%",
       animation: "ripple 1.2s infinite ease-in-out",
       border: "1px solid currentColor",
+      // eslint-disable-next-line quotes
       content: '""',
     },
   },
@@ -74,24 +75,23 @@ export const Chat: React.FC = () => {
   ]);
   const [sendedMessage, setSendedMessage] = React.useState<string[]>([]);
 
-  const handleClickOpen = () => setOpen(true);
+  const handleClickOpen = () => {
+    setOpen(true);
+    const timerForMessage = setTimeout(() => {
+      setRobotMessage(["Hello! How can I help you today?"]);
+    }, 3000);
+
+    return () => clearTimeout(timerForMessage);
+  };
 
   const handleClose = () => setOpen(false);
 
   const handleSendMessage = () => {
     if (clientMessage.trim().length > 0) {
-      setSendedMessage([clientMessage]);
+      setSendedMessage([...sendedMessage, clientMessage]);
     }
     setClientMessage("");
   };
-
-  React.useEffect(() => {
-    const timerForMessage = setTimeout(() => {
-      setRobotMessage(["Hello! Can I help you?"]);
-    }, 3000);
-
-    return () => clearTimeout(timerForMessage);
-  }, []);
 
   return (
     <>

@@ -85,6 +85,7 @@ export type NewsPostPropsType = {
   additionalText1: string;
   additionalText2: string;
   postDate: string;
+  views: number;
 };
 
 export type TabPanelProps = {

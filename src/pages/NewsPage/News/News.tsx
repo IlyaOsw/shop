@@ -30,7 +30,7 @@ export const News: React.FC = () => {
               variant="contained"
               color="info"
               onClick={showMorePosts}
-              sx={{ mb: 3 }}
+              sx={{ mb: 5 }}
             >
               {t("showMorePosts")}
             </Button>

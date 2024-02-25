@@ -10,6 +10,7 @@ import {
   Divider,
   Typography,
 } from "@mui/material";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 
 import { ShareButton } from "../../../../components/ShareButton/ShareButton";
 import { NewsPostPropsType } from "../../../../types/types";
@@ -26,6 +27,7 @@ export const NewsPost: React.FC<NewsPostPropsType> = ({
   additionalText1,
   additionalText2,
   postDate,
+  views,
 }) => {
   const { t } = useTranslation();
 
@@ -59,6 +61,12 @@ export const NewsPost: React.FC<NewsPostPropsType> = ({
         <Box sx={{ ml: 2 }}>
           <Typography variant="body2" color="text.secondary">
             {t(postDate)}
+          </Typography>
+        </Box>
+        <Box sx={{ m: 2, display: "flex", alignItems: "center" }}>
+          <RemoveRedEyeIcon fontSize="small" color="secondary" />
+          <Typography variant="body2" color="text.secondary" sx={{ ml: 0.5 }}>
+            {views}
           </Typography>
         </Box>
         <Box
