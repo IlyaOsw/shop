@@ -78,7 +78,7 @@ export const Chat: React.FC = () => {
   const handleClickOpen = () => {
     setOpen(true);
     const timerForMessage = setTimeout(() => {
-      setRobotMessage(["Hello! How can I help you today?"]);
+      setRobotMessage(["Hello! How can I help you?"]);
     }, 3000);
 
     return () => clearTimeout(timerForMessage);

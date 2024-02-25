@@ -61,8 +61,6 @@ export const Login: React.FC = () => {
         </IconButton>
       </Tooltip>
       <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
         open={open}
         onClose={handleClose}
         closeAfterTransition
@@ -81,14 +79,26 @@ export const Login: React.FC = () => {
             </Typography>
             <Divider sx={{ m: 2 }} />
             <Box sx={{ "& > :not(style)": { m: 1 } }}>
-              <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "flex-end",
+                  justifyContent: "center",
+                }}
+              >
                 <AccountCircle sx={{ color: "action.active", mb: 1 }} />
                 <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
                   <InputLabel>{t("name")}</InputLabel>
                   <Input type="text" />
                 </FormControl>
               </Box>
-              <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "flex-end",
+                  justifyContent: "center",
+                }}
+              >
                 <KeyIcon sx={{ color: "action.active", mb: 1 }} />
                 <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
                   <InputLabel htmlFor="standard-adornment-password">
