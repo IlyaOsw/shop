@@ -152,7 +152,7 @@
 	"body10" : "XYZ teatab oma uusima tahvelarvuti käivitamisest, pakendatud innovaatiliste funktsioonide ja vapustava ekraaniga täiustatud multimeediakogemuse jaoks.",
 	"body11" : "ABC tutvustab põhjalikku kodu turvasüsteemi,sisaldades nutikaid kaameraid, andureid ja kasutajasõbralikku liidest kodukaitse paremaks ja meelerahuks.",
 	"body12" : "DEF tutvustab oma viimast virtuaalse reaalsuse peakomplekti, pakkudes kasutajatele sukeldumist mängudesse, simulatsioonidesse ja virtuaalsetesse reisidesse.",
-	"confrimDelete": "Kas olete kindel, et soovite eemaldada ",
+	"confrimDelete": "Kas olete kindel, et soovite eemaldada ostukorvist ",
     "no": "Ei",
     "Yes": "Jah",
 	"inStock": "Laos",
@@ -194,5 +194,8 @@
 	"stepperDescription3": "Kinnitage ja nautige esmaklassilist teenindust.",
 	"subscribeToUpdates": "Tellimine uuenduste saamiseks",
 	"subscribed": "Aitäh, tellimus oli edukas.",
-	"chatTitle": "Saate esitada küsimuse meie konsultandile siin ja ta vastab, niipea kui tal on vaba aega."
+	"chatTitle": "Saate esitada küsimuse meie konsultandile siin ja ta vastab, niipea kui tal on vaba aega.",
+	"typing": "Kirjutan...",
+	"assistantMessage": "Tere! Kuidas ma saan teid aidata?",
+	"enterMessage": "Sisestage oma sõnum"
 }

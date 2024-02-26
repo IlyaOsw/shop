@@ -24,6 +24,8 @@ import Slide from "@mui/material/Slide";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 
+import { Backdrop, Fade } from "@mui/material";
+
 import { CloseButton } from "../CloseButton/CloseButton";
 import { useCart } from "../../hooks/useCart";
 
@@ -45,6 +47,7 @@ const style = {
   bgcolor: "background.paper",
   border: "1px solid #000",
   p: 5,
+  borderRadius: "25px",
 };
 
 export const ShopCart: React.FC = () => {
@@ -145,68 +148,83 @@ export const ShopCart: React.FC = () => {
                           </IconButton>
                         </Tooltip>
                         {openModal === row.id && (
+                          // <Modal
+                          //   open={true}
+                          //   onClose={handleCloseModal}
+                          //   aria-labelledby="modal-modal-title"
+                          //   sx={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
+                          //   hideBackdrop
+                          // >
                           <Modal
-                            open={true}
-                            onClose={handleCloseModal}
-                            aria-labelledby="modal-modal-title"
-                            sx={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
-                            hideBackdrop
+                            aria-labelledby="transition-modal-title"
+                            aria-describedby="transition-modal-description"
+                            open={open}
+                            onClose={handleClose}
+                            closeAfterTransition
+                            slots={{ backdrop: Backdrop }}
+                            slotProps={{
+                              backdrop: {
+                                timeout: 500,
+                              },
+                            }}
                           >
-                            <Box sx={style}>
-                              <Typography
-                                id="modal-modal-title"
-                                variant="h6"
-                                sx={{
-                                  textAlign: "center",
-                                }}
-                              >
-                                {t("confrimDelete")} {row.title}?
-                              </Typography>
-                              <Box
-                                sx={{
-                                  display: "flex",
-                                  justifyContent: "center",
-                                  m: 2,
-                                }}
-                              >
-                                <img
-                                  style={{
-                                    height: "100px",
-                                    width: "80px",
+                            <Fade in={open}>
+                              <Box sx={style}>
+                                <Typography
+                                  id="modal-modal-title"
+                                  variant="h6"
+                                  sx={{
+                                    textAlign: "center",
                                   }}
-                                  src={`${process.env.PUBLIC_URL}/Images/Store/${row.description}.jpg`}
-                                  alt={row.description}
-                                />
-                              </Box>
-                              <Box
-                                sx={{
-                                  display: "flex",
-                                  justifyContent: "space-around",
-                                  mt: 4,
-                                }}
-                              >
-                                <Button
-                                  variant="outlined"
-                                  onClick={handleCloseModal}
-                                  color="primary"
-                                  sx={{ borderRadius: "25px" }}
                                 >
-                                  {t("cancel")}
-                                </Button>
-                                <Button
-                                  variant="contained"
-                                  color="error"
-                                  onClick={() => {
-                                    removeItem(row.id);
-                                    handleCloseModal();
-                                    disableCartButton(row.id, false);
+                                  {t("confrimDelete")} {row.title}?
+                                </Typography>
+                                <Box
+                                  sx={{
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    m: 2,
                                   }}
-                                  sx={{ borderRadius: "25px" }}
                                 >
-                                  {t("delete")}
-                                </Button>
+                                  <img
+                                    style={{
+                                      height: "100px",
+                                      width: "80px",
+                                    }}
+                                    src={`${process.env.PUBLIC_URL}/Images/Store/${row.description}.jpg`}
+                                    alt={row.description}
+                                  />
+                                </Box>
+                                <Box
+                                  sx={{
+                                    display: "flex",
+                                    justifyContent: "space-around",
+                                    mt: 4,
+                                  }}
+                                >
+                                  <Button
+                                    variant="outlined"
+                                    onClick={handleCloseModal}
+                                    color="primary"
+                                    sx={{ borderRadius: "25px" }}
+                                  >
+                                    {t("cancel")}
+                                  </Button>
+                                  <Button
+                                    variant="contained"
+                                    color="error"
+                                    onClick={() => {
+                                      removeItem(row.id);
+                                      handleCloseModal();
+                                      disableCartButton(row.id, false);
+                                    }}
+                                    sx={{ borderRadius: "25px" }}
+                                  >
+                                    {t("delete")}
+                                  </Button>
+                                </Box>
                               </Box>
-                            </Box>
+                            </Fade>
                           </Modal>
                         )}
                       </TableCell>

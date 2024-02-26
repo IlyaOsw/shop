@@ -32,6 +32,7 @@ const ClientsPage: React.FC = () => {
         <Box
           sx={{
             maxWidth: "500px",
+            textAlign: "center",
           }}
         >
           <Typography>{t("clientsSubTitle")}</Typography>

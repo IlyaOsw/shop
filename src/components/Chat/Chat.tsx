@@ -2,7 +2,6 @@ import * as React from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import PersonPinIcon from "@mui/icons-material/PersonPin";
-import PersonIcon from "@mui/icons-material/Person";
 import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
@@ -16,6 +15,7 @@ import {
   TextField,
   Button,
   Typography,
+  Avatar,
 } from "@mui/material";
 import ChatIcon from "@mui/icons-material/Chat";
 import { styled } from "@mui/material/styles";
@@ -71,14 +71,14 @@ export const Chat: React.FC = () => {
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
   const [clientMessage, setClientMessage] = React.useState("");
   const [robotMessage, setRobotMessage] = React.useState<string[]>([
-    "Typing...",
+    t("typing"),
   ]);
   const [sendedMessage, setSendedMessage] = React.useState<string[]>([]);
 
   const handleClickOpen = () => {
     setOpen(true);
     const timerForMessage = setTimeout(() => {
-      setRobotMessage(["Hello! How can I help you?"]);
+      setRobotMessage([t("assistantMessage")]);
     }, 3000);
 
     return () => clearTimeout(timerForMessage);
@@ -134,7 +134,11 @@ export const Chat: React.FC = () => {
                 anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
                 variant="dot"
               >
-                <PersonPinIcon fontSize="large" color="info" />
+                <Avatar
+                  sx={{ width: 40, height: 40 }}
+                  src={`${process.env.PUBLIC_URL}/Images/Assistant/assistant.jpg`}
+                  alt="Assistant"
+                />
               </StyledBadge>
               <Typography sx={{ ml: 1 }}> {robotMessage} </Typography>
             </Box>
@@ -148,13 +152,13 @@ export const Chat: React.FC = () => {
                   alignItems: "center",
                 }}
               >
-                <PersonIcon fontSize="large" color="info" />
+                <PersonPinIcon fontSize="large" color="info" />
                 {item}
               </Box>
             ))}
           </Paper>
           <TextField
-            label="Введите ваше сообщение"
+            label={t("enterMessage")}
             variant="outlined"
             fullWidth
             margin="normal"
