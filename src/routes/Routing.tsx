@@ -15,7 +15,7 @@ export const Routing: React.FC = () => {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/home" element={<MainPage />} />
-        <Route path="/e-store/*" element={<StorePage />} />
+        <Route path="/e-store" element={<StorePage />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/clients" element={<ClientsPage />} />
       </Routes>

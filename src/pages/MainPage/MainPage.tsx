@@ -7,6 +7,7 @@ import { Description } from "./Description/Description";
 import Feedback from "./Feedback/Feedback";
 import { About } from "./About/About";
 import { Partners } from "./Partners/Partners";
+import { Products } from "./Products/Products";
 
 const MainPage: React.FC = React.memo(() => {
   const { t } = useTranslation();
@@ -32,6 +33,7 @@ const MainPage: React.FC = React.memo(() => {
       </Box>
       <Description />
       <Partners />
+      <Products />
       <About />
       <Feedback />
     </Container>

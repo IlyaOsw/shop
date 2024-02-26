@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Box, Typography } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
-import { AboutBlocksType } from "../AboutBlocks";
+import { AboutBlocksType } from "../../../../../types/types";
 
 export const AboutItem: React.FC<AboutBlocksType> = ({ item }) => {
   const { t } = useTranslation();

@@ -157,3 +157,22 @@ export type CloseButtonProps = {
 export interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
 }
+
+export type AboutBlocksType = {
+  item: {
+    id: number;
+    label: AboutTitle;
+    description: AboutInfo;
+  };
+};
+
+export type ChatContentPropsType = {
+  open: boolean;
+  setOpen: (open: boolean) => void;
+  robotMessage: string[];
+};
+
+export type ChatAreaPropsType = {
+  robotMessage: string[];
+  sendedMessage: string[];
+};

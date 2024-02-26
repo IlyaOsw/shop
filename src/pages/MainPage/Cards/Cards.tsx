@@ -6,6 +6,7 @@ import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
+import { Link } from "react-router-dom";
 
 const cards: { id: number; label: string; description: string }[] = [
   { id: 0, label: "Card1", description: "cardInfo1" },
@@ -17,29 +18,34 @@ export const Cards: React.FC = () => {
     <>
       {cards.map((item) => (
         <Paper elevation={3} key={item.id} sx={{ mt: 3 }}>
-          <Card
-            sx={{
-              position: "relative",
-              maxWidth: "640px",
-            }}
+          <Link
+            to={"/news"}
+            style={{ textDecoration: "none", color: "inherit" }}
           >
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                height="500"
-                src={`${process.env.PUBLIC_URL}/Images/MainPageImages/${item.label}.jpg`}
-                alt="green iguana"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {t(item.label)}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {t(item.description)}
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
+            <Card
+              sx={{
+                position: "relative",
+                maxWidth: "730px",
+              }}
+            >
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  height="500"
+                  src={`${process.env.PUBLIC_URL}/Images/MainPageImages/${item.label}.jpg`}
+                  alt={item.label}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5">
+                    {t(item.label)}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {t(item.description)}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Link>
         </Paper>
       ))}
     </>

@@ -138,7 +138,6 @@ export const Navbar: React.FC = () => {
           <Toolbar>
             <IconButton
               color="inherit"
-              aria-label="open drawer"
               onClick={handleDrawerOpen}
               edge="start"
               sx={{
@@ -183,7 +182,7 @@ export const Navbar: React.FC = () => {
                 >
                   <Divider />
                   <Link
-                    to={`/${item.label}`.toLowerCase()}
+                    to={`/${item.label}`}
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
                     <ListItemButton

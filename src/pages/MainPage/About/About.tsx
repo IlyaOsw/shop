@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Box, Typography } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 
 import { AboutBlocks, AboutInfo, AboutTitle } from "./AboutBlocks/AboutBlocks";
 
@@ -16,6 +16,7 @@ export const About: React.FC = () => {
       <Typography variant="h5" sx={{ mt: 10 }}>
         {t("about")}
       </Typography>
+      <Divider sx={{ m: 2 }} color="lightgray" />
       <Box
         sx={{
           display: "flex",

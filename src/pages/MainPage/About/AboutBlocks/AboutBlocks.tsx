@@ -1,7 +1,11 @@
 import React from "react";
 import { Box } from "@mui/material";
 
-import { AboutTitle, AboutInfo } from "../../../../types/types";
+import {
+  AboutTitle,
+  AboutInfo,
+  AboutBlocksType,
+} from "../../../../types/types";
 
 import { AboutItem } from "./AboutItem/AboutItem";
 
@@ -11,14 +15,6 @@ const about: { id: number; label: AboutTitle; description: AboutInfo }[] = [
   { id: 2, label: AboutTitle.TITLE3, description: AboutInfo.INFO3 },
   { id: 3, label: AboutTitle.TITLE4, description: AboutInfo.INFO4 },
 ];
-
-export type AboutBlocksType = {
-  item: {
-    id: number;
-    label: AboutTitle;
-    description: AboutInfo;
-  };
-};
 
 export const AboutBlocks: React.FC<AboutBlocksType> = () => {
   return (
