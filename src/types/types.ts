@@ -176,3 +176,20 @@ export type ChatAreaPropsType = {
   robotMessage: string[];
   sendedMessage: string[];
 };
+
+export type ProductPropsType = {
+  item: ProductType;
+};
+
+export type ProductActionsPropsType = {
+  item: ProductType;
+  toggleFavorite: (productId: number) => void;
+  setOpenFavorite: (openFavorite: boolean) => void;
+  setOpenCart: (openCart: boolean) => void;
+};
+
+export type CustomPaginationPropsType = {
+  products: ProductType[];
+  productsPerPage: number;
+  handlePage: (pageNumber: number) => void;
+};

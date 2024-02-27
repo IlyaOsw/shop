@@ -11,6 +11,7 @@ import { ProductType } from "../../../types/types";
 import { ShowOnly } from "./ShowOnly/ShowOnly";
 import { Bar } from "./Bar/Bar";
 import { EmptyBox } from "./EmptyBox/EmptyBox";
+import { CustomPagination } from "./Pagination/Pagination";
 
 export const Filter: React.FC = () => {
   const shopData = useSelector(
@@ -22,14 +23,26 @@ export const Filter: React.FC = () => {
   const [search, setSearch] = React.useState("");
   const [selectedOption, setSelectedOption] = React.useState("");
 
+  const [productsPerPage] = React.useState(10);
+  const [currentPage, setCurrentPage] = React.useState(1);
+
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = products
+    .filter((product) =>
+      product.title.toLowerCase().includes(search.toLowerCase())
+    )
+    .slice(indexOfFirstProduct, indexOfLastProduct);
+
+  const handlePage = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+    window.scroll({ top: 0, left: 0, behavior: "smooth" });
+  };
+
   const noFilters = () => {
     setProducts(originalProducts);
     setEmpty(false);
   };
-
-  const filteredProducts = products.filter((product) => {
-    return product.title.toLowerCase().includes(search.toLowerCase());
-  });
 
   const filterFavorites = () => {
     const favoriteFirst = products.filter(
@@ -87,7 +100,7 @@ export const Filter: React.FC = () => {
           flexWrap: "wrap",
         }}
       >
-        {filteredProducts.map((item: ProductType, index: number) => (
+        {currentProducts.map((item: ProductType, index: number) => (
           <StoreCard
             key={item.id}
             item={item}
@@ -96,6 +109,11 @@ export const Filter: React.FC = () => {
           />
         ))}
       </Box>
+      <CustomPagination
+        products={products}
+        productsPerPage={productsPerPage}
+        handlePage={handlePage}
+      />
       {empty && (
         <EmptyBox noFilters={noFilters} setSelectedOption={setSelectedOption} />
       )}
