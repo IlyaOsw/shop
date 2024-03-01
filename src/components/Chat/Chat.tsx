@@ -12,20 +12,20 @@ export const Chat: React.FC = () => {
 
   const [open, setOpen] = React.useState(false);
   const [robotMessage, setRobotMessage] = React.useState<string[]>([
-    t("typing"),
+    "Typing...",
   ]);
 
   const handleClickOpen = () => {
     setOpen(true);
     const timerForMessage = setTimeout(() => {
-      setRobotMessage([t("assistantMessage")]);
+      setRobotMessage(["Hello! How can I help you?"]);
     }, 3000);
 
     return () => clearTimeout(timerForMessage);
   };
   return (
     <>
-      <Tooltip title="Help" arrow>
+      <Tooltip title={t("help")} arrow>
         <IconButton size="large" onClick={handleClickOpen}>
           <ChatIcon fontSize="large" />
         </IconButton>

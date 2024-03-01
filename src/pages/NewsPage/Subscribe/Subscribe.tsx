@@ -71,7 +71,7 @@ export const Subscribe: React.FC = () => {
     React.ComponentType<TransitionProps> | undefined
   >(undefined);
 
-  const clearInput = () => {
+  const subscribe = () => {
     if (value.length === 0) {
       setError(true);
     } else {
@@ -120,7 +120,7 @@ export const Subscribe: React.FC = () => {
             variant="contained"
             color="info"
             sx={{ height: "50px", borderRadius: "25px" }}
-            onClick={clearInput}
+            onClick={subscribe}
           >
             {t("subscribe")}
           </Button>

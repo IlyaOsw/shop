@@ -197,6 +197,7 @@
     "chatTitle": " You can ask a question to our consultant here, and he will answer assoon as they have free time.",
     "typing": "Typing...",
     "assistantMessage": "Hello! How can I help you?",
-    "enterMessage": "Enter your message"
+    "enterMessage": "Enter your message",
+    "help": "Help"
 }
    

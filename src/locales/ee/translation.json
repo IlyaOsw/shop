@@ -197,5 +197,6 @@
 	"chatTitle": "Saate esitada küsimuse meie konsultandile siin ja ta vastab, niipea kui tal on vaba aega.",
 	"typing": "Kirjutan...",
 	"assistantMessage": "Tere! Kuidas ma saan teid aidata?",
-	"enterMessage": "Sisestage oma sõnum"
+	"enterMessage": "Sisestage oma sõnum",
+	"help": "Abi"
 }

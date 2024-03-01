@@ -50,7 +50,7 @@ export const ChatArea: React.FC<ChatAreaPropsType> = ({
     <Paper
       elevation={6}
       sx={{
-        height: "220px",
+        height: "230px",
         padding: "5px",
         overflowY: "auto",
       }}
@@ -59,7 +59,6 @@ export const ChatArea: React.FC<ChatAreaPropsType> = ({
       <Box
         sx={{
           display: "flex",
-          justifyContent: "start",
           alignItems: "center",
         }}
       >
@@ -81,13 +80,15 @@ export const ChatArea: React.FC<ChatAreaPropsType> = ({
           key={item}
           sx={{
             height: "50px",
+            width: "60%",
             display: "flex",
-            justifyContent: "end",
+            justifyContent: "flex-end",
+            marginLeft: "auto",
             alignItems: "center",
           }}
         >
-          <PersonPinIcon fontSize="large" color="info" />
           {item}
+          <PersonPinIcon fontSize="large" color="info" />
         </Box>
       ))}
     </Paper>
