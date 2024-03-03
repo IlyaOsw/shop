@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box } from "@mui/material";
-import NorthIcon from "@mui/icons-material/North";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 import styles from "./ScrollToTop.module.scss";
 
@@ -29,7 +29,9 @@ export const ScrollToTop: React.FC = () => {
       onClick={scrollToTop}
       className={`${styles.scrollBtn} ${isHidden ? styles.hidden : ""}`}
     >
-      <NorthIcon fontSize="large" color="primary" />
+      <Box sx={{ ml: 0.3 }}>
+        <KeyboardArrowUpIcon fontSize="large" />
+      </Box>
     </Box>
   );
 };

@@ -84,7 +84,7 @@ export const Bar: React.FC<BarPropsType> = ({
         setProducts={setProducts}
         filterFavorites={filterFavorites}
       />
-      <Search sx={{ m: 1 }}>
+      <Search sx={{ m: 0.5 }}>
         <SearchIconWrapper>
           <SearchIcon />
         </SearchIconWrapper>

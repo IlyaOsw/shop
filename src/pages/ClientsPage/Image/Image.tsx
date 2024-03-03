@@ -1,11 +1,13 @@
-import Box from "@mui/material/Box";
+import { Paper } from "@mui/material";
 
 export const Image: React.FC = () => {
   return (
-    <Box
+    <Paper
+      elevation={6}
       sx={{
         mt: 5,
         position: "relative",
+        height: "500px",
       }}
     >
       <img
@@ -13,6 +15,6 @@ export const Image: React.FC = () => {
         alt="clientsImage"
         style={{ maxHeight: "500px", width: "100%" }}
       />
-    </Box>
+    </Paper>
   );
 };

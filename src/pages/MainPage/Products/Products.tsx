@@ -1,17 +1,17 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
 import ButtonBase from "@mui/material/ButtonBase";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Paper } from "@mui/material";
 
 const images = [
   {
     id: 0,
     title: "Phones",
     url: `${process.env.PUBLIC_URL}/Images/MainPageImages/Products/phones.jpg`,
-    width: "33%",
+    width: "33.5%",
   },
   {
     id: 1,
@@ -23,7 +23,7 @@ const images = [
     id: 2,
     title: "Headphones",
     url: `${process.env.PUBLIC_URL}/Images/MainPageImages/Products/headphones.jpg`,
-    width: "33%",
+    width: "33.5%",
   },
 ];
 
@@ -95,7 +95,8 @@ export const Products: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <Box
+    <Paper
+      elevation={6}
       sx={{
         display: "flex",
         flexWrap: "wrap",
@@ -134,6 +135,6 @@ export const Products: React.FC = () => {
           </Link>
         </ImageButton>
       ))}
-    </Box>
+    </Paper>
   );
 };

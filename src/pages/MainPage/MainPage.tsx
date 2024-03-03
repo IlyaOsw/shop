@@ -4,7 +4,7 @@ import { Box, Container, Divider, Typography } from "@mui/material";
 
 import { Cards } from "./Cards/Cards";
 import { Description } from "./Description/Description";
-import Feedback from "./Feedback/Feedback";
+import { Feedback } from "./Feedback/Feedback";
 import { About } from "./About/About";
 import { Partners } from "./Partners/Partners";
 import { Products } from "./Products/Products";

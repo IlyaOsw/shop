@@ -62,7 +62,7 @@ const getLabelText = (value: number) => {
   return `${value} Star${value !== 1 ? "s" : ""}, ${labels[value]}`;
 };
 
-export default function MainFeedback() {
+export const Feedback: React.FC = () => {
   const { t } = useTranslation();
   const [value, setValue] = React.useState<number | null>(5);
   const [hover, setHover] = React.useState(-1);
@@ -94,9 +94,7 @@ export default function MainFeedback() {
         {t("feedback")}
       </Typography>
       <StyledRating
-        name="highlight-selected-only"
         value={value}
-        defaultValue={5}
         IconContainerComponent={IconContainer}
         getLabelText={getLabelText}
         highlightSelectedOnly
@@ -112,4 +110,4 @@ export default function MainFeedback() {
       {active && <CommentForm />}
     </Box>
   );
-}
+};

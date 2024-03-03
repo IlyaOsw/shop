@@ -53,7 +53,7 @@ export const ShowOnly: React.FC<ShowOnlyPropsType> = ({
   };
 
   return (
-    <Box sx={{ mt: 2 }}>
+    <Box sx={{ mt: 1 }}>
       <Typography variant="h6" sx={{ textAlign: "center" }}>
         {t("showOnly")}
       </Typography>
