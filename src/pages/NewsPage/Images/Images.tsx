@@ -51,11 +51,9 @@ export const Images: React.FC = () => {
     >
       {images.map((image) => (
         <ImageButton
+          disableRipple
           key={image.id}
-          sx={{ m: 0.5 }}
-          style={{
-            width: image.width,
-          }}
+          sx={{ m: 0.5, width: image.width, cursor: "default" }}
         >
           <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
         </ImageButton>
