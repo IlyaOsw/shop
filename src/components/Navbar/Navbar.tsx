@@ -157,16 +157,21 @@ export const Navbar: React.FC = () => {
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
-          <DrawerHeader>
+          <DrawerHeader
+            className={darkMode ? styles.darkTheme : styles.lightTheme}
+          >
             <IconButton onClick={handleDrawerClose}>
               {theme.direction === "rtl" ? (
                 <ChevronRightIcon />
               ) : (
-                <ChevronLeftIcon />
+                <ChevronLeftIcon color="info" />
               )}
             </IconButton>
           </DrawerHeader>
-          <List>
+          <List
+            className={darkMode ? styles.darkTheme : styles.lightTheme}
+            sx={{ height: "100%" }}
+          >
             {navbarData.map(
               (
                 item: {
@@ -180,7 +185,7 @@ export const Navbar: React.FC = () => {
                   disablePadding
                   sx={{ display: "block" }}
                 >
-                  <Divider />
+                  <Divider color="lightgray" />
                   <Link
                     to={`/${item.label}`}
                     style={{ textDecoration: "none", color: "inherit" }}
@@ -189,7 +194,6 @@ export const Navbar: React.FC = () => {
                       sx={{
                         minHeight: 80,
                         justifyContent: open ? "initial" : "center",
-                        px: 2.5,
                       }}
                     >
                       <ListItemIcon
@@ -209,7 +213,7 @@ export const Navbar: React.FC = () => {
                 </ListItem>
               )
             )}
-            <Divider />
+            <Divider color="lightgray" />
           </List>
         </Drawer>
         <Box

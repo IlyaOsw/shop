@@ -27,8 +27,16 @@ export const StoreCard: React.FC<StoreCardProps> = ({
     <>
       <Paper
         key={item.id}
-        elevation={3}
-        sx={{ m: 1, mt: 10, position: "relative", width: "280px" }}
+        sx={{
+          m: 1,
+          mt: 10,
+          position: "relative",
+          width: "280px",
+          transition: "box-shadow 0.3s",
+          "&:hover": {
+            boxShadow: (theme) => theme.shadows[8],
+          },
+        }}
       >
         <ProductImage item={item} />
         <ProductContent item={item} />

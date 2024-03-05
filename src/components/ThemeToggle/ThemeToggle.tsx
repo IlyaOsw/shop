@@ -3,7 +3,6 @@ import Button from "@mui/material/Button";
 import Switch from "@mui/material/Switch";
 import { styled } from "@mui/material/styles";
 import { t } from "i18next";
-import { Typography } from "@mui/material";
 
 import { ThemeType } from "../../types/types";
 
@@ -63,7 +62,7 @@ export const ThemeToggle: React.FC<ThemeType> = ({ toggleDarkMode }) => {
       color="info"
       sx={{ height: "36px", borderRadius: "25px" }}
     >
-      <Typography>{t("Theme")}</Typography>
+      {t("Theme")}
       <MaterialUISwitch onClick={toggleDarkMode} />
     </Button>
   );

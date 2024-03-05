@@ -63,10 +63,14 @@ export const ProductActions: React.FC<ProductActionsPropsType> = ({
         >
           {t("favorite")}
           <Checkbox
-            sx={{ marginLeft: "-10px" }}
+            sx={{ marginLeft: "-8px" }}
             {...label}
-            icon={<FavoriteBorder color="secondary" />}
-            checkedIcon={<Favorite color="secondary" />}
+            icon={
+              <FavoriteBorder color="secondary" sx={{ marginRight: "-10px" }} />
+            }
+            checkedIcon={
+              <Favorite color="secondary" sx={{ marginRight: "-10px" }} />
+            }
             checked={favorite}
           />
         </Button>
