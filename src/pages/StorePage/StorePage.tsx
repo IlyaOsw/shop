@@ -12,12 +12,8 @@ const StorePage: React.FC = () => {
   }, []);
 
   return (
-    <Container maxWidth="xl" sx={{ mb: 10 }}>
-      <Typography
-        variant="h5"
-        textAlign={"center"}
-        sx={{ m: 3, letterSpacing: "1px" }}
-      >
+    <Container maxWidth="xl">
+      <Typography variant="h5" sx={{ m: 3, textAlign: "center" }}>
         {t("storePage")}
       </Typography>
       <Divider sx={{ m: 2 }} color="lightgray" />

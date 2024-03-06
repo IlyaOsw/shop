@@ -54,10 +54,10 @@ export const Login: React.FC = () => {
   };
 
   return (
-    <Stack direction="row" alignItems="center" justifyContent="end" spacing={1}>
+    <>
       <Tooltip title={t("login")} arrow>
-        <IconButton size="large" onClick={handleOpen}>
-          <PersonIcon fontSize="large" />
+        <IconButton onClick={handleOpen}>
+          <PersonIcon fontSize="large" style={{ color: "#ffffff" }} />
         </IconButton>
       </Tooltip>
       <Modal
@@ -139,6 +139,6 @@ export const Login: React.FC = () => {
           </Box>
         </Fade>
       </Modal>
-    </Stack>
+    </>
   );
 };

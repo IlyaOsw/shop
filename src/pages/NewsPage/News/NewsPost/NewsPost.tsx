@@ -41,7 +41,7 @@ export const NewsPost: React.FC<NewsPostPropsType> = ({
       <Card
         sx={{
           position: "relative",
-          mb: 2,
+          mb: 5,
         }}
       >
         <CardMedia
@@ -64,7 +64,7 @@ export const NewsPost: React.FC<NewsPostPropsType> = ({
           </Typography>
         </Box>
         <Box sx={{ m: 2, display: "flex", alignItems: "center" }}>
-          <RemoveRedEyeIcon fontSize="small" color="secondary" />
+          <RemoveRedEyeIcon fontSize="small" color="info" />
           <Typography variant="body2" color="text.secondary" sx={{ ml: 0.5 }}>
             {views}
           </Typography>

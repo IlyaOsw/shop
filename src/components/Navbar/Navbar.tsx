@@ -11,7 +11,6 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import MuiDrawer from "@mui/material/Drawer";
 import MuiAppBar from "@mui/material/AppBar";
-import { Divider } from "@mui/material";
 import Toolbar from "@mui/material/Toolbar";
 import CssBaseline from "@mui/material/CssBaseline";
 import IconButton from "@mui/material/IconButton";
@@ -40,7 +39,7 @@ import { Chat } from "../Chat/Chat";
 
 import styles from "./Themes.module.scss";
 
-const drawerWidth = 235;
+const drawerWidth = 225;
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,
@@ -68,7 +67,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   alignItems: "center",
   justifyContent: "flex-end",
   padding: theme.spacing(0, 1),
-
   ...theme.mixins.toolbar,
 }));
 
@@ -147,12 +145,12 @@ export const Navbar: React.FC = () => {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" noWrap sx={{ width: "100%" }}>
+            <Typography variant="h6" sx={{ width: "100%" }}>
               E-STORE
             </Typography>
             <ShopCart />
-            <Chat />
             <Login />
+            <Chat />
             <FAQ />
           </Toolbar>
         </AppBar>
@@ -185,7 +183,6 @@ export const Navbar: React.FC = () => {
                   disablePadding
                   sx={{ display: "block" }}
                 >
-                  <Divider color="lightgray" />
                   <Link
                     to={`/${item.label}`}
                     style={{ textDecoration: "none", color: "inherit" }}
@@ -199,7 +196,7 @@ export const Navbar: React.FC = () => {
                       <ListItemIcon
                         sx={{
                           minWidth: 0,
-                          mr: open ? 3 : "auto",
+                          mr: open ? 2 : "auto",
                           justifyContent: "center",
                         }}
                       >
@@ -213,7 +210,6 @@ export const Navbar: React.FC = () => {
                 </ListItem>
               )
             )}
-            <Divider color="lightgray" />
           </List>
         </Drawer>
         <Box
@@ -226,7 +222,6 @@ export const Navbar: React.FC = () => {
           <Box
             sx={{
               mt: 10,
-              mb: 5,
               display: "flex",
               justifyContent: "space-around",
             }}
@@ -234,9 +229,7 @@ export const Navbar: React.FC = () => {
             <ThemeToggle toggleDarkMode={toggleDarkMode} />
             <LanguageToggle />
           </Box>
-          <Box sx={{ m: 1 }}>
-            <Routing />
-          </Box>
+          <Routing />
         </Box>
       </Box>
     </CartProvider>

@@ -6,17 +6,14 @@ const images = [
   {
     id: 0,
     url: `${process.env.PUBLIC_URL}/Images/News/news1.jpg`,
-    width: "32%",
   },
   {
     id: 1,
     url: `${process.env.PUBLIC_URL}/Images/News/news2.jpg`,
-    width: "32%",
   },
   {
     id: 2,
     url: `${process.env.PUBLIC_URL}/Images/News/news3.jpg`,
-    width: "32%",
   },
 ];
 
@@ -44,8 +41,6 @@ export const Images: React.FC = () => {
       sx={{
         display: "flex",
         flexWrap: "wrap",
-        minWidth: 300,
-        width: "100%",
         justifyContent: "center",
       }}
     >
@@ -53,7 +48,7 @@ export const Images: React.FC = () => {
         <ImageButton
           disableRipple
           key={image.id}
-          sx={{ m: 0.5, width: image.width, cursor: "default" }}
+          sx={{ m: 0.3, width: "33%", cursor: "default" }}
         >
           <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
         </ImageButton>

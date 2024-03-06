@@ -26,8 +26,8 @@ export const Chat: React.FC = () => {
   return (
     <>
       <Tooltip title={t("help")} arrow>
-        <IconButton size="large" onClick={handleClickOpen}>
-          <ChatIcon fontSize="large" />
+        <IconButton onClick={handleClickOpen}>
+          <ChatIcon fontSize="large" style={{ color: "#ffffff" }} />
         </IconButton>
       </Tooltip>
       <Content open={open} setOpen={setOpen} robotMessage={robotMessage} />

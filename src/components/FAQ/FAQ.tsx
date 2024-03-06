@@ -91,7 +91,7 @@ export const FAQ: React.FC = () => {
   return (
     <>
       <Tooltip title="FAQ" arrow>
-        <IconButton size="large" onClick={handleOpen}>
+        <IconButton onClick={handleOpen} style={{ color: "#ffffff" }}>
           <HelpIcon fontSize="large" />
         </IconButton>
       </Tooltip>
@@ -109,6 +109,9 @@ export const FAQ: React.FC = () => {
           {t("faq")}
         </Typography>
         <Divider sx={{ m: 2 }} />
+        <Typography variant="body1" sx={{ textAlign: "center", p: 2 }}>
+          {t("FAQinfo")}
+        </Typography>
         <DialogContent>
           <Accordion
             expanded={expanded === "panel1"}

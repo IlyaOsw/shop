@@ -20,10 +20,7 @@ const NewsPage: React.FC = () => {
       </Typography>
       <Divider sx={{ m: 2 }} color="lightgray" />
       <Images />
-      <Typography
-        variant="body1"
-        sx={{ p: 2, margin: "50px auto", textAlign: "center" }}
-      >
+      <Typography sx={{ p: 2, margin: "50px auto", textAlign: "center" }}>
         {t("newsDesc")}
       </Typography>
       <Subscribe />

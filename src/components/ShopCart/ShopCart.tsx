@@ -80,9 +80,9 @@ export const ShopCart: React.FC = () => {
   return (
     <>
       <Tooltip title={t("cart")} arrow>
-        <IconButton size="large" onClick={handleOpen}>
+        <IconButton onClick={handleOpen}>
           <Badge badgeContent={cart.length} color="error">
-            <ShoppingCartIcon fontSize="large" />
+            <ShoppingCartIcon fontSize="large" style={{ color: "#ffffff" }} />
           </Badge>
         </IconButton>
       </Tooltip>
