@@ -2,22 +2,21 @@ import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import { CustomSkeleton } from "../components/CustomSkeleton/CustomSkeleton";
-const MainPage = React.lazy(() => import("../pages/MainPage/MainPage"));
-const StorePage = React.lazy(() => import("../pages/StorePage/StorePage"));
-const NewsPage = React.lazy(() => import("../pages/NewsPage/NewsPage"));
-const ClientsPage = React.lazy(
-  () => import("../pages/ClientsPage/ClientsPage")
-);
+
+const Main = React.lazy(() => import("../pages/Main/Main"));
+const Store = React.lazy(() => import("../pages/Store/Store"));
+const News = React.lazy(() => import("../pages/News/News"));
+const Clients = React.lazy(() => import("../pages/Clients/Clients"));
 
 export const Routing: React.FC = () => {
   return (
     <Suspense fallback={<CustomSkeleton />}>
       <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/home" element={<MainPage />} />
-        <Route path="/e-store" element={<StorePage />} />
-        <Route path="/news" element={<NewsPage />} />
-        <Route path="/clients" element={<ClientsPage />} />
+        <Route path="/" element={<Main />} />
+        <Route path="/home" element={<Main />} />
+        <Route path="/e-store" element={<Store />} />
+        <Route path="/news" element={<News />} />
+        <Route path="/clients" element={<Clients />} />
       </Routes>
     </Suspense>
   );

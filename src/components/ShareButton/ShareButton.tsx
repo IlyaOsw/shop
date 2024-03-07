@@ -26,7 +26,7 @@ export const ShareButton: React.FC = () => {
           variant="contained"
           color="info"
           onClick={handleClickOpen}
-          sx={{ borderRadius: "20px" }}
+          sx={{ borderRadius: "25px" }}
         >
           <ShareIcon />
           <Box sx={{ marginLeft: "5px" }}>{t("share")}</Box>
@@ -59,8 +59,16 @@ export const ShareButton: React.FC = () => {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>{t("cancel")}</Button>
-          <Button type="submit">{t("share2")}</Button>
+          <Button onClick={handleClose} sx={{ borderRadius: "25px" }}>
+            {t("cancel")}
+          </Button>
+          <Button
+            type="submit"
+            variant="contained"
+            sx={{ borderRadius: "25px" }}
+          >
+            {t("share2")}
+          </Button>
         </DialogActions>
       </Dialog>
     </>

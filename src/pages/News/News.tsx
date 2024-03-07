@@ -3,10 +3,10 @@ import { useTranslation } from "react-i18next";
 import { Container, Divider, Typography } from "@mui/material";
 
 import { Images } from "./Images/Images";
-import { News } from "./News/News";
+import { NewsItem } from "./NewsItem/NewsItem";
 import { Subscribe } from "./Subscribe/Subscribe";
 
-const NewsPage: React.FC = () => {
+const News: React.FC = () => {
   const { t } = useTranslation();
 
   React.useEffect(() => {
@@ -24,9 +24,9 @@ const NewsPage: React.FC = () => {
         {t("newsDesc")}
       </Typography>
       <Subscribe />
-      <News />
+      <NewsItem />
     </Container>
   );
 };
 
-export default NewsPage;
+export default News;

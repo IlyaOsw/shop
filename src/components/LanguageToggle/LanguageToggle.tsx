@@ -17,12 +17,14 @@ import { Locales } from "../../types/types";
 const changeLanguage = (language: Locales): void => {
   i18n.changeLanguage(language);
 };
+
 const options: { id: number; label: Locales }[] = [
   { id: 0, label: Locales.EN },
   { id: 1, label: Locales.RU },
   { id: 2, label: Locales.EE },
 ];
-export const LanguageToggle: React.FC = React.memo(() => {
+
+export const LanguageToggle: React.FC = () => {
   const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef<HTMLDivElement>(null);
@@ -62,12 +64,8 @@ export const LanguageToggle: React.FC = React.memo(() => {
         color="info"
       >
         <Button
-          size="small"
-          aria-controls={open ? "split-button-menu" : undefined}
-          aria-expanded={open ? "true" : undefined}
-          aria-haspopup="menu"
           onClick={handleToggle}
-          sx={{ height: "36px", padding: "6px 16px", borderRadius: "25px" }}
+          sx={{ height: "36px", borderRadius: "25px" }}
         >
           {t(options[selectedIndex].label)}
           <PublicIcon sx={{ ml: "5px" }} />
@@ -126,4 +124,4 @@ export const LanguageToggle: React.FC = React.memo(() => {
       </Popper>
     </>
   );
-});
+};

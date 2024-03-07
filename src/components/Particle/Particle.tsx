@@ -22,11 +22,6 @@ export const Particle: React.FC = () => {
       init={particlesInit}
       loaded={particlesLoaded}
       options={{
-        // background: {
-        //   color: {
-        //     value: "black",
-        //   },
-        // },
         fpsLimit: 120,
         interactivity: {
           events: {

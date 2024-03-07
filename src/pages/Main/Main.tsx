@@ -9,7 +9,7 @@ import { About } from "./About/About";
 import { Partners } from "./Partners/Partners";
 import { Products } from "./Products/Products";
 
-const MainPage: React.FC = React.memo(() => {
+const Main: React.FC = React.memo(() => {
   const { t } = useTranslation();
 
   React.useEffect(() => {
@@ -40,4 +40,4 @@ const MainPage: React.FC = React.memo(() => {
   );
 });
 
-export default MainPage;
+export default Main;

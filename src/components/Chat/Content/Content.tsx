@@ -70,7 +70,12 @@ export const Content: React.FC<ChatContentPropsType> = ({
           onChange={(event) => setClientMessage(event.target.value)}
         />
         <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <Button variant="contained" color="info" onClick={handleSendMessage}>
+          <Button
+            variant="contained"
+            color="info"
+            onClick={handleSendMessage}
+            sx={{ borderRadius: "25px" }}
+          >
             {t("send")}
           </Button>
         </Box>

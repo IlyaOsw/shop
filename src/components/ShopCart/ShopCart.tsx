@@ -148,13 +148,6 @@ export const ShopCart: React.FC = () => {
                           </IconButton>
                         </Tooltip>
                         {openModal === row.id && (
-                          // <Modal
-                          //   open={true}
-                          //   onClose={handleCloseModal}
-                          //   aria-labelledby="modal-modal-title"
-                          //   sx={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
-                          //   hideBackdrop
-                          // >
                           <Modal
                             aria-labelledby="transition-modal-title"
                             aria-describedby="transition-modal-description"

@@ -4,7 +4,7 @@ import { Container, Divider, Typography } from "@mui/material";
 
 import { Filter } from "./Filter/Filter";
 
-const StorePage: React.FC = () => {
+const Store: React.FC = () => {
   const { t } = useTranslation();
 
   React.useEffect(() => {
@@ -21,4 +21,5 @@ const StorePage: React.FC = () => {
     </Container>
   );
 };
-export default StorePage;
+
+export default Store;

@@ -15,7 +15,6 @@
     "no-mixed-operators": "off",
     "no-console": "warn",
     "quotes": ["warn", "double"],
-    // "max-len": ["warn", { "code": 120 }],
     "import/order": [
       "error",
       {

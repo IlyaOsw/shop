@@ -9,7 +9,7 @@ import { NewsPostPropsType } from "../../../types/types";
 
 import { NewsPost } from "./NewsPost/NewsPost";
 
-export const News: React.FC = () => {
+export const NewsItem: React.FC = () => {
   const { t } = useTranslation();
   const newsData = useSelector((state: { news: NewsType }) => state.news);
   const [posts, setPosts] = useState(3);

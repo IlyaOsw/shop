@@ -10,7 +10,6 @@ export const CloseButton: React.FC<CloseButtonProps> = ({ onClose }) => {
     <Box
       sx={{
         display: "flex",
-        alignItems: "end",
         justifyContent: "end",
       }}
     >

@@ -68,7 +68,6 @@ export const ChatArea: React.FC<ChatAreaPropsType> = ({
           variant="dot"
         >
           <Avatar
-            sx={{ width: 40, height: 40 }}
             src={`${process.env.PUBLIC_URL}/Images/Assistant/assistant.jpg`}
             alt="Assistant"
           />

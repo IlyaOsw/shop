@@ -6,7 +6,7 @@ import { ClientsType } from "../../../redux/reducers/clients-reducer";
 
 import { ClientInfo } from "./ClientInfo/ClientInfo";
 
-export const Clients: React.FC = () => {
+export const Client: React.FC = () => {
   const clientsData = useSelector(
     (state: { clients: ClientsType }) => state.clients
   );

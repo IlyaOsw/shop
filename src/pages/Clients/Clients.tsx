@@ -4,11 +4,11 @@ import { Box, Container, Divider, Typography } from "@mui/material";
 
 import { Timer } from "../../components/Timer/Timer";
 
-import { Clients } from "./Clients/Clients";
+import { Client } from "./Client/Client";
 import { Image } from "./Image/Image";
 import { CustomStepper } from "./CustomStepper/CustomStepper";
 
-const ClientsPage: React.FC = () => {
+const Clients: React.FC = () => {
   const { t } = useTranslation();
 
   React.useEffect(() => {
@@ -43,9 +43,9 @@ const ClientsPage: React.FC = () => {
       </Box>
       <Timer />
       <CustomStepper />
-      <Clients />
+      <Client />
     </Container>
   );
 };
 
-export default ClientsPage;
+export default Clients;
