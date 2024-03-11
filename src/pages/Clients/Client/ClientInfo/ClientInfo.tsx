@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Avatar,
-  CardActions,
-  CardContent,
-  Typography,
-  Divider,
-} from "@mui/material";
+import { Box, Avatar, CardContent, Typography, Divider } from "@mui/material";
 import MailOutlineOutlinedIcon from "@mui/icons-material/MailOutlineOutlined";
 import PhoneForwardedOutlinedIcon from "@mui/icons-material/PhoneForwardedOutlined";
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
@@ -60,13 +53,13 @@ export const ClientInfo: React.FC<{ user: ClientType }> = ({ user }) => {
           </Box>
         </Typography>
       </CardContent>
-      <CardActions
+      <Box
         sx={{
           ml: 2,
         }}
       >
         <ShareButton />
-      </CardActions>
+      </Box>
     </Box>
   );
 };

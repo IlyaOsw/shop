@@ -8,6 +8,7 @@ export const Timer: React.FC = () => {
 
   useEffect(() => {
     const timeInterval = setInterval(() => setTime(new Date()), 1000);
+
     return () => {
       clearInterval(timeInterval);
     };

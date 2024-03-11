@@ -13,7 +13,7 @@ const Store: React.FC = () => {
 
   return (
     <Container maxWidth="xl">
-      <Typography variant="h5" sx={{ m: 3, textAlign: "center" }}>
+      <Typography variant="h5" align="center" sx={{ m: 3 }}>
         {t("storePage")}
       </Typography>
       <Divider sx={{ m: 2 }} color="lightgray" />

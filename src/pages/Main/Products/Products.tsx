@@ -102,7 +102,7 @@ export const Products: React.FC = () => {
         flexWrap: "wrap",
         minWidth: 300,
         width: "100%",
-        mt: 10,
+        mt: 5,
         mb: 5,
       }}
     >

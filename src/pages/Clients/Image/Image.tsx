@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 
 export const Image: React.FC = () => {
   const { t } = useTranslation();
+
   return (
     <Box>
       <Paper
@@ -24,7 +25,7 @@ export const Image: React.FC = () => {
           }}
         />
       </Paper>
-      <Typography sx={{ textAlign: "center", mt: 2 }}>
+      <Typography align="center" sx={{ mt: 2 }}>
         {t("building")}
       </Typography>
     </Box>

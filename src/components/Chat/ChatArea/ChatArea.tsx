@@ -1,5 +1,5 @@
 import { Paper, Box, Avatar, Typography, styled, Badge } from "@mui/material";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import PersonPinIcon from "@mui/icons-material/PersonPin";
 
 import { ChatAreaPropsType } from "../../../types/types";
@@ -38,9 +38,9 @@ export const ChatArea: React.FC<ChatAreaPropsType> = ({
   robotMessage,
   sendedMessage,
 }) => {
-  const chatAreaRef = React.useRef<HTMLDivElement | null>(null);
+  const chatAreaRef = useRef<HTMLDivElement | null>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (chatAreaRef.current) {
       chatAreaRef.current.scrollTop = chatAreaRef.current.scrollHeight;
     }

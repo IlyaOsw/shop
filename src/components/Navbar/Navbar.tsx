@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -115,8 +115,8 @@ const generalIcons = [
 export const Navbar: React.FC = () => {
   const { t } = useTranslation();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
-  const [darkMode, setDarkMode] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   const navbarData = useSelector(
     (state: { navbar: NavbarType }) => state.navbar

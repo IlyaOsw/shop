@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FormControl,
   InputLabel,
@@ -16,7 +16,7 @@ export const CustomSelect: React.FC<CustomSelectPropsType> = ({
   filterFavorites,
 }) => {
   const { t } = useTranslation();
-  const [filter, setFilter] = React.useState("");
+  const [filter, setFilter] = useState("");
 
   const PriceHighToLow = () => {
     const sortedList = [...products].sort((a, b) => b.price - a.price);

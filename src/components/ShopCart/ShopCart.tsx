@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
@@ -55,8 +55,8 @@ export const ShopCart: React.FC = () => {
   const theme = useTheme();
   //@ts-ignore
   const { cart, removeItem, disableCartButton } = useCart();
-  const [open, setOpen] = React.useState(false);
-  const [openModal, setOpenModal] = React.useState<number | null>(null);
+  const [open, setOpen] = useState(false);
+  const [openModal, setOpenModal] = useState<number | null>(null);
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   const total = (items: any) => {
@@ -70,11 +70,8 @@ export const ShopCart: React.FC = () => {
   const invoiceTotal = total(cart);
 
   const handleClose = () => setOpen(false);
-
   const handleOpen = () => setOpen(true);
-
   const handleCloseModal = () => setOpenModal(null);
-
   const handleOpenModal = (itemId: number) => setOpenModal(itemId);
 
   return (
@@ -96,7 +93,7 @@ export const ShopCart: React.FC = () => {
         <Box sx={{ p: 2 }}>
           <CloseButton onClose={handleClose} />
         </Box>
-        <DialogTitle sx={{ m: 1, textAlign: "center", fontSize: "24px" }}>
+        <DialogTitle align="center" sx={{ m: 1, fontSize: "24px" }}>
           {t("cart")}
         </DialogTitle>
         <Divider sx={{ m: 2 }} />
@@ -105,10 +102,7 @@ export const ShopCart: React.FC = () => {
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell
-                    colSpan={2}
-                    sx={{ fontSize: "20px", textAlign: "start" }}
-                  >
+                  <TableCell colSpan={2} sx={{ fontSize: "20px" }}>
                     {t("details")}
                   </TableCell>
                   <TableCell align="right" sx={{ fontSize: "20px" }}>
@@ -166,9 +160,7 @@ export const ShopCart: React.FC = () => {
                                 <Typography
                                   id="modal-modal-title"
                                   variant="h6"
-                                  sx={{
-                                    textAlign: "center",
-                                  }}
+                                  align="center"
                                 >
                                   {t("confrimDelete")} {row.title}?
                                 </Typography>

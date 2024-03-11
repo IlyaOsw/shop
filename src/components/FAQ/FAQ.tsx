@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -75,8 +75,8 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 export const FAQ: React.FC = () => {
   const { t } = useTranslation();
   const theme = useTheme();
-  const [expanded, setExpanded] = React.useState<string | false>("");
-  const [open, setOpen] = React.useState(false);
+  const [expanded, setExpanded] = useState<string | false>("");
+  const [open, setOpen] = useState(false);
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   const handleOpen = () => setOpen(true);
@@ -105,11 +105,11 @@ export const FAQ: React.FC = () => {
         <Box sx={{ p: 2 }}>
           <CloseButton onClose={handleClose} />
         </Box>
-        <Typography variant="h5" sx={{ textAlign: "center" }}>
+        <Typography variant="h5" align="center">
           {t("faq")}
         </Typography>
         <Divider sx={{ m: 2 }} />
-        <Typography variant="body1" sx={{ textAlign: "center", p: 2 }}>
+        <Typography variant="body1" align="center" sx={{ p: 2 }}>
           {t("FAQinfo")}
         </Typography>
         <DialogContent>

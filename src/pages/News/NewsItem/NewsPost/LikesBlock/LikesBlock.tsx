@@ -1,6 +1,6 @@
 import { Box, Button, Tooltip, Checkbox } from "@mui/material";
 import { t } from "i18next";
-import React from "react";
+import React, { useState } from "react";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
@@ -12,12 +12,11 @@ export const LikesBlock: React.FC<LikesBlockPropsType> = ({
   likes,
   dislikes,
 }) => {
-  const [isLiked, setIsLiked] = React.useState(false);
-  const [likesCount, setLikesCount] = React.useState(likes);
-  const [dislikesCount, setDislikesCount] = React.useState(dislikes);
-  const [dislikeButtonDisabled, setDislikeButtonDisabled] =
-    React.useState(false);
-  const [likeButtonDisabled, setLikeButtonDisabled] = React.useState(false);
+  const [isLiked, setIsLiked] = useState(false);
+  const [likesCount, setLikesCount] = useState(likes);
+  const [dislikesCount, setDislikesCount] = useState(dislikes);
+  const [dislikeButtonDisabled, setDislikeButtonDisabled] = useState(false);
+  const [likeButtonDisabled, setLikeButtonDisabled] = useState(false);
 
   const toggleLike = () => {
     if (isLiked) {

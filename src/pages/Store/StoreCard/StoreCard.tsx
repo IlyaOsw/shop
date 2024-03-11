@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Paper } from "@mui/material";
 import Snackbar from "@mui/material/Snackbar";
@@ -16,10 +16,10 @@ export const StoreCard: React.FC<StoreCardProps> = ({
 }) => {
   const { t } = useTranslation();
 
-  const [openCart, setOpenCart] = React.useState(false);
-  const [openFavorite, setOpenFavorite] = React.useState(false);
+  const [openCart, setOpenCart] = useState(false);
+  const [openFavorite, setOpenFavorite] = useState(false);
 
-  const [transition] = React.useState<
+  const [transition] = useState<
     React.ComponentType<TransitionProps> | undefined
   >(undefined);
 

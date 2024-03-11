@@ -1,5 +1,5 @@
 import { Box, Button, Snackbar, Tooltip, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 
 import { useTranslation } from "react-i18next";
 import { TransitionProps } from "@mui/material/transitions";
@@ -12,12 +12,12 @@ import { Textarea } from "./Textarea/Textarea";
 
 export const CommentForm: React.FC = () => {
   const { t } = useTranslation();
-  const [commentContent, setCommentContent] = React.useState("");
-  const [snackbar, setSnackbar] = React.useState(false);
-  const [error, setError] = React.useState(false);
-  const [, setOpen] = React.useState(false);
+  const [commentContent, setCommentContent] = useState("");
+  const [snackbar, setSnackbar] = useState(false);
+  const [error, setError] = useState(false);
+  const [, setOpen] = useState(false);
 
-  const [transition] = React.useState<
+  const [transition] = useState<
     React.ComponentType<TransitionProps> | undefined
   >(undefined);
 
@@ -37,8 +37,6 @@ export const CommentForm: React.FC = () => {
       sx={{
         "& .MuiTextField-root": { mt: 3, mb: 3, width: "33ch" },
       }}
-      noValidate
-      autoComplete="off"
     >
       <Typography sx={{ mt: 3 }}>{t("leaveComment")}</Typography>
       <Textarea

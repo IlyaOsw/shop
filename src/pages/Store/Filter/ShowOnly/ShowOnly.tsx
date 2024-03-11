@@ -54,15 +54,10 @@ export const ShowOnly: React.FC<ShowOnlyPropsType> = ({
 
   return (
     <Box sx={{ mt: 1 }}>
-      <Typography variant="h6" sx={{ textAlign: "center" }}>
+      <Typography variant="h6" align="center">
         {t("showOnly")}
       </Typography>
-      <RadioGroup
-        row
-        aria-labelledby="demo-form-control-label-placement"
-        name="position"
-        className={styles.showOnlyBlock}
-      >
+      <RadioGroup row name="position" className={styles.showOnlyBlock}>
         <FormControlLabel
           value="InStock"
           className={styles.radioBtn}

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import AppBar from "@mui/material/AppBar";
@@ -16,6 +16,8 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
+import { useEffect, useState } from "react";
+
 import { Links } from "./Links/Links";
 
 const Transition = React.forwardRef(function Transition(
@@ -30,11 +32,11 @@ const Transition = React.forwardRef(function Transition(
 export const CustomAlert: React.FC = () => {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClose = () => setOpen(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setOpen(true);
   }, []);
 

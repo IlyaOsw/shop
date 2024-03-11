@@ -8,7 +8,7 @@ import {
   alpha,
   styled,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import EastIcon from "@mui/icons-material/East";
 import { useTranslation } from "react-i18next";
 
@@ -63,11 +63,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export const Subscribe: React.FC = () => {
   const { t } = useTranslation();
-  const [value, setValue] = React.useState("");
-  const [error, setError] = React.useState(false);
-  const [snackbar, setSnackbar] = React.useState(false);
+  const [value, setValue] = useState("");
+  const [error, setError] = useState(false);
+  const [snackbar, setSnackbar] = useState(false);
 
-  const [transition] = React.useState<
+  const [transition] = useState<
     React.ComponentType<TransitionProps> | undefined
   >(undefined);
 
@@ -91,7 +91,7 @@ export const Subscribe: React.FC = () => {
         position: "relative",
       }}
     >
-      <Typography variant="h6" sx={{ textAlign: "center" }}>
+      <Typography variant="h6" align="center">
         {t("getNewLetter")}
       </Typography>
       <Box
@@ -100,8 +100,8 @@ export const Subscribe: React.FC = () => {
           justifyContent: "center",
           alignItems: "center",
           flexWrap: "wrap",
-          mt: 2,
-          mb: 2,
+          mt: 1,
+          mb: 1,
         }}
       >
         <Search sx={{ m: 1 }}>
@@ -110,7 +110,6 @@ export const Subscribe: React.FC = () => {
           </SearchIconWrapper>
           <StyledInputBase
             placeholder={t("enterMail")}
-            inputProps={{ "aria-label": "search" }}
             value={value}
             onChange={(e) => setValue(e.target.value)}
           />

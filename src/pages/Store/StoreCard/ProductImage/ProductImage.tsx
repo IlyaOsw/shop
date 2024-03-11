@@ -6,7 +6,7 @@ import {
   Box,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 
 import { CloseButton } from "../../../../components/CloseButton/CloseButton";
 import { ProductPropsType } from "../../../../types/types";
@@ -25,7 +25,7 @@ const style = {
 };
 
 export const ProductImage: React.FC<ProductPropsType> = ({ item }) => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -46,8 +46,6 @@ export const ProductImage: React.FC<ProductPropsType> = ({ item }) => {
       />
       {open && (
         <Modal
-          aria-labelledby="transition-modal-title"
-          aria-describedby="transition-modal-description"
           open={open}
           onClose={handleClose}
           closeAfterTransition
@@ -61,7 +59,7 @@ export const ProductImage: React.FC<ProductPropsType> = ({ item }) => {
           <Fade in={open}>
             <Box sx={style}>
               <CloseButton onClose={handleClose} />
-              <Box sx={{ textAlign: "center" }}>
+              <Box textAlign="center">
                 <Typography variant="h6" sx={{ mt: 2, mb: 2 }}>
                   {item.title}
                 </Typography>

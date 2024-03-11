@@ -250,4 +250,5 @@ const shopReducer = (state: ProductType[] = initialState, action: any) => {
 export const actions = {};
 
 export type ShopType = typeof initialState;
+
 export default shopReducer;

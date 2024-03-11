@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Container, Divider, Typography } from "@mui/material";
 
@@ -9,18 +9,18 @@ import { Subscribe } from "./Subscribe/Subscribe";
 const News: React.FC = () => {
   const { t } = useTranslation();
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.scroll(0, 0);
   }, []);
 
   return (
     <Container maxWidth="xl">
-      <Typography variant="h5" textAlign={"center"} sx={{ m: 3 }}>
+      <Typography variant="h5" align="center" sx={{ m: 3 }}>
         {t("newsTitle")}
       </Typography>
       <Divider sx={{ m: 2 }} color="lightgray" />
       <Images />
-      <Typography sx={{ p: 2, margin: "50px auto", textAlign: "center" }}>
+      <Typography align="center" sx={{ p: 2, margin: "50px auto" }}>
         {t("newsDesc")}
       </Typography>
       <Subscribe />

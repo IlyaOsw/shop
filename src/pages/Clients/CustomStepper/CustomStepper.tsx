@@ -85,9 +85,10 @@ const steps: { id: number; label: string }[] = [
 
 export const CustomStepper: React.FC = () => {
   const { t } = useTranslation();
+
   return (
     <Box sx={{ mb: 10 }}>
-      <Typography variant="h5" sx={{ textAlign: "center", mt: 5, mb: 5 }}>
+      <Typography variant="h5" align="center">
         {t("stepperTitle")}
       </Typography>
       <Stepper

@@ -140,4 +140,5 @@ const newsReducer = (state = initialState, action: any) => {
 export const actions = {};
 
 export type NewsType = typeof initialState;
+
 export default newsReducer;

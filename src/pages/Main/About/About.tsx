@@ -6,21 +6,16 @@ import { AboutBlocks, AboutInfo, AboutTitle } from "./AboutBlocks/AboutBlocks";
 
 export const About: React.FC = () => {
   const { t } = useTranslation();
+
   return (
-    <Box
-      sx={{
-        textAlign: "center",
-        position: "relative",
-      }}
-    >
-      <Typography variant="h5" sx={{ mt: 10 }}>
+    <Box>
+      <Typography variant="h5" align="center" sx={{ mt: 10 }}>
         {t("about")}
       </Typography>
       <Divider sx={{ m: 2 }} color="lightgray" />
       <Box
         sx={{
           display: "flex",
-          mt: 5,
           justifyContent: "space-around",
         }}
       >

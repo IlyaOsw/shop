@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Skeleton from "@mui/material/Skeleton";
 import { Box, Container } from "@mui/material";
 
 export const CustomSkeleton: React.FC = () => {
-  const [loading] = React.useState(true);
+  const [loading] = useState(true);
+
   return (
     <Container maxWidth="xl">
       {loading && (

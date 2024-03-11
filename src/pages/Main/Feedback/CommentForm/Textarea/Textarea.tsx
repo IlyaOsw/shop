@@ -23,7 +23,6 @@ export const Textarea: React.FC<CommentFormPropsType> = ({
       <CustomTextField
         value={commentContent}
         onChange={(e) => setCommentContent(e.target.value)}
-        id="outlined-multiline-static"
         label="Comment"
         multiline
         rows={5}

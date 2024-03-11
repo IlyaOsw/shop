@@ -90,7 +90,6 @@ export const Bar: React.FC<BarPropsType> = ({
         </SearchIconWrapper>
         <StyledInputBase
           placeholder={t("search")}
-          inputProps={{ "aria-label": "search" }}
           onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
             setSearch(event.target.value)
           }

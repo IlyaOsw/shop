@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
@@ -35,9 +35,9 @@ export const Content: React.FC<ChatContentPropsType> = ({
   const { t } = useTranslation();
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
-  const [clientMessage, setClientMessage] = React.useState("");
+  const [clientMessage, setClientMessage] = useState("");
 
-  const [sendedMessage, setSendedMessage] = React.useState<string[]>([]);
+  const [sendedMessage, setSendedMessage] = useState<string[]>([]);
 
   const handleClose = () => setOpen(false);
 
@@ -58,7 +58,7 @@ export const Content: React.FC<ChatContentPropsType> = ({
       <Box sx={{ p: 2 }}>
         <CloseButton onClose={handleClose} />
       </Box>
-      <DialogTitle sx={{ textAlign: "center" }}>{t("chatTitle")}</DialogTitle>
+      <DialogTitle align="center">{t("chatTitle")}</DialogTitle>
       <DialogContent>
         <ChatArea robotMessage={robotMessage} sendedMessage={sendedMessage} />
         <TextField

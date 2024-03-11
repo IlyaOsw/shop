@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Box, Container, Divider, Typography } from "@mui/material";
 
@@ -11,13 +11,13 @@ import { CustomStepper } from "./CustomStepper/CustomStepper";
 const Clients: React.FC = () => {
   const { t } = useTranslation();
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.scroll(0, 0);
   }, []);
 
   return (
     <Container maxWidth="xl">
-      <Typography variant="h5" textAlign={"center"} sx={{ m: 3 }}>
+      <Typography variant="h5" align="center" sx={{ m: 3 }}>
         {t("clientsTitle")}
       </Typography>
       <Divider sx={{ m: 2 }} color="lightgray" />

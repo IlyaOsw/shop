@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Box } from "@mui/material";
 
@@ -17,14 +17,14 @@ export const Filter: React.FC = () => {
   const shopData = useSelector(
     (state: { shopPage: ShopType }) => state.shopPage
   );
-  const [products, setProducts] = React.useState([...shopData]);
-  const [originalProducts] = React.useState([...shopData]);
-  const [empty, setEmpty] = React.useState(false);
-  const [search, setSearch] = React.useState("");
-  const [selectedOption, setSelectedOption] = React.useState("");
+  const [products, setProducts] = useState([...shopData]);
+  const [originalProducts] = useState([...shopData]);
+  const [empty, setEmpty] = useState(false);
+  const [search, setSearch] = useState("");
+  const [selectedOption, setSelectedOption] = useState("");
 
-  const [productsPerPage] = React.useState(10);
-  const [currentPage, setCurrentPage] = React.useState(1);
+  const [productsPerPage] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;

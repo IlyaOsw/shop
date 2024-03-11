@@ -1,7 +1,7 @@
 import { FavoriteBorder, Favorite } from "@mui/icons-material";
 import { CardActions, Tooltip, Button, Checkbox, Box } from "@mui/material";
 import { t } from "i18next";
-import React from "react";
+import React, { useState } from "react";
 import DoneIcon from "@mui/icons-material/Done";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
@@ -27,7 +27,7 @@ export const ProductActions: React.FC<ProductActionsPropsType> = ({
   //@ts-ignore
   const { addItem, disableCartButton, disabledButtons } = useCart();
 
-  const [favorite, setFavorite] = React.useState(false);
+  const [favorite, setFavorite] = useState(false);
 
   const handleAddToFavorites = () => {
     toggleFavorite(item.id);
@@ -76,12 +76,7 @@ export const ProductActions: React.FC<ProductActionsPropsType> = ({
         </Button>
       </Tooltip>
       {disabledButtons[item.id] ? (
-        <Button
-          variant="contained"
-          color="success"
-          aria-label="added to shopping cart"
-          sx={buttonStyle}
-        >
+        <Button variant="contained" color="success" sx={buttonStyle}>
           {t("added")}
           <Box sx={{ paddingLeft: "2px", paddingTop: "3px" }}>
             <DoneIcon />

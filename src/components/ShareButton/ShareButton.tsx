@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Box } from "@mui/material";
 import Button from "@mui/material/Button";
@@ -13,7 +13,7 @@ import ShareIcon from "@mui/icons-material/Share";
 
 export const ShareButton: React.FC = () => {
   const { t } = useTranslation();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => setOpen(true);
 

@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
 import PersonIcon from "@mui/icons-material/Person";
 import AccountCircle from "@mui/icons-material/AccountCircle";
@@ -19,7 +18,7 @@ import Tooltip from "@mui/material/Tooltip";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 
-import { Fade, Modal } from "@mui/material";
+import { Checkbox, Fade, Modal } from "@mui/material";
 import Backdrop from "@mui/material/Backdrop";
 
 import { CloseButton } from "../CloseButton/CloseButton";
@@ -39,11 +38,11 @@ const style = {
 
 export const Login: React.FC = () => {
   const { t } = useTranslation();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const [showPassword, setShowPassword] = React.useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -78,63 +77,71 @@ export const Login: React.FC = () => {
               {t("signIn")}
             </Typography>
             <Divider sx={{ m: 2 }} />
-            <Box sx={{ "& > :not(style)": { m: 1 } }}>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "flex-end",
-                  justifyContent: "center",
-                }}
-              >
-                <AccountCircle sx={{ color: "action.active", mb: 1 }} />
-                <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
-                  <InputLabel>{t("name")}</InputLabel>
-                  <Input type="text" />
-                </FormControl>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "flex-end",
-                  justifyContent: "center",
-                }}
-              >
-                <KeyIcon sx={{ color: "action.active", mb: 1 }} />
-                <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
-                  <InputLabel htmlFor="standard-adornment-password">
-                    {t("password")}
-                  </InputLabel>
-                  <Input
-                    id="standard-adornment-password"
-                    type={showPassword ? "text" : "password"}
-                    endAdornment={
-                      <InputAdornment position="end">
-                        <IconButton
-                          onClick={handleClickShowPassword}
-                          onMouseDown={handleMouseDownPassword}
-                        >
-                          {showPassword ? <VisibilityOff /> : <Visibility />}
-                        </IconButton>
-                      </InputAdornment>
-                    }
-                  />
-                </FormControl>
-              </Box>
-            </Box>
-            <Stack
-              direction="row"
-              sx={{ display: "flex", justifyContent: "center", m: 3 }}
+
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "flex-end",
+                justifyContent: "center",
+              }}
             >
+              <AccountCircle sx={{ color: "action.active", mb: 1 }} />
+              <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
+                <InputLabel>{t("name")}</InputLabel>
+                <Input type="text" />
+              </FormControl>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "flex-end",
+                justifyContent: "center",
+              }}
+            >
+              <KeyIcon sx={{ color: "action.active", mb: 1 }} />
+              <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
+                <InputLabel htmlFor="standard-adornment-password">
+                  {t("password")}
+                </InputLabel>
+                <Input
+                  id="standard-adornment-password"
+                  type={showPassword ? "text" : "password"}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                />
+              </FormControl>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Checkbox />
+              <Typography>{t("rememberMe")}</Typography>
+            </Box>
+            <Box sx={{ display: "flex", justifyContent: "center", m: 2 }}>
               <Button
                 variant="contained"
                 color="info"
                 endIcon={<SendIcon />}
                 onClick={() => handleClose()}
-                sx={{ borderRadius: "25px" }}
+                sx={{
+                  borderRadius: "25px",
+                }}
               >
                 {t("login")}
               </Button>
-            </Stack>
+            </Box>
           </Box>
         </Fade>
       </Modal>

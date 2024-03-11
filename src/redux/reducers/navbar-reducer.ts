@@ -12,4 +12,5 @@ const navbarReducer = (state = initialState, action: any) => {
 export const actions = {};
 
 export type NavbarType = typeof initialState;
+
 export default navbarReducer;

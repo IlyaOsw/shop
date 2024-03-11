@@ -50,4 +50,5 @@ const clientsReducer = (state: ClientType[] = initialState, action: any) => {
 export const actions = {};
 
 export type ClientsType = typeof initialState;
+
 export default clientsReducer;

@@ -18,7 +18,7 @@ const Main: React.FC = React.memo(() => {
 
   return (
     <Container maxWidth="xl">
-      <Typography variant="h5" sx={{ m: 3, textAlign: "center" }}>
+      <Typography align="center" variant="h5" sx={{ m: 3 }}>
         {t("welcome")}
       </Typography>
       <Divider sx={{ m: 2 }} color="lightgray" />

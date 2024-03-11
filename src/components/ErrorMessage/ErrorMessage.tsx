@@ -1,5 +1,5 @@
 import { Modal, Box, Typography, Button } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import WarningIcon from "@mui/icons-material/Warning";
 import { useTranslation } from "react-i18next";
 import Backdrop from "@mui/material/Backdrop";
@@ -21,7 +21,8 @@ const style = {
 
 export const ErrorMessage: React.FC = () => {
   const { t } = useTranslation();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(true);
+
   const handleClose = () => setOpen(false);
 
   return (

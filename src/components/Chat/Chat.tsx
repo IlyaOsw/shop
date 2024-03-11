@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 
 import { Tooltip, IconButton } from "@mui/material";
 import ChatIcon from "@mui/icons-material/Chat";
@@ -10,10 +10,8 @@ import { Content } from "./Content/Content";
 export const Chat: React.FC = () => {
   const { t } = useTranslation();
 
-  const [open, setOpen] = React.useState(false);
-  const [robotMessage, setRobotMessage] = React.useState<string[]>([
-    "Typing...",
-  ]);
+  const [open, setOpen] = useState(false);
+  const [robotMessage, setRobotMessage] = useState<string[]>(["Typing..."]);
 
   const handleClickOpen = () => {
     setOpen(true);
