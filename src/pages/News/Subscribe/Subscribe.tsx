@@ -72,7 +72,7 @@ export const Subscribe: React.FC = () => {
   >(undefined);
 
   const subscribe = () => {
-    if (value.length === 0) {
+    if (value.trim().length === 0) {
       setError(true);
     } else {
       setValue("");
@@ -114,6 +114,7 @@ export const Subscribe: React.FC = () => {
             onChange={(e) => setValue(e.target.value)}
           />
         </Search>
+
         <Tooltip title={t("subscribeToUpdates")} arrow>
           <Button
             variant="contained"
@@ -125,7 +126,7 @@ export const Subscribe: React.FC = () => {
           </Button>
         </Tooltip>
       </Box>
-      {error && <ErrorMessage />}
+      {error && <ErrorMessage setError={setError} />}
       {snackbar && (
         <Snackbar
           open={snackbar}

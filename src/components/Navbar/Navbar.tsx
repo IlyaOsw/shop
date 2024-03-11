@@ -145,7 +145,7 @@ export const Navbar: React.FC = () => {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" sx={{ width: "100%" }}>
+            <Typography variant="h6" noWrap sx={{ width: "100%" }}>
               E-STORE
             </Typography>
             <ShopCart />

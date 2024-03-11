@@ -193,3 +193,7 @@ export type CustomPaginationPropsType = {
   productsPerPage: number;
   handlePage: (pageNumber: number) => void;
 };
+
+export type ErrorMessagePropsType = {
+  setError: (error: boolean) => void;
+};

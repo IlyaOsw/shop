@@ -18,7 +18,7 @@ import Tooltip from "@mui/material/Tooltip";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 
-import { Checkbox, Fade, Modal } from "@mui/material";
+import { Checkbox, Fade, FormHelperText, Modal } from "@mui/material";
 import Backdrop from "@mui/material/Backdrop";
 
 import { CloseButton } from "../CloseButton/CloseButton";
@@ -39,10 +39,10 @@ const style = {
 export const Login: React.FC = () => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -50,6 +50,20 @@ export const Login: React.FC = () => {
     event: React.MouseEvent<HTMLButtonElement>
   ) => {
     event.preventDefault();
+  };
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => {
+    setOpen(false);
+    setError(false);
+  };
+
+  const handleLogin = () => {
+    setOpen(false);
+    if (username.length === 0 || password.length === 0) {
+      setOpen(true);
+      setError(true);
+    }
   };
 
   return (
@@ -77,47 +91,102 @@ export const Login: React.FC = () => {
               {t("signIn")}
             </Typography>
             <Divider sx={{ m: 2 }} />
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "column",
+              }}
+            >
+              {/* <AccountCircle sx={{ color: "action.active", mb: 1 }} /> */}
+              {/* <KeyIcon sx={{ color: "action.active", mb: 1 }} /> */}
+              {error ? (
+                <>
+                  <FormControl
+                    error
+                    variant="standard"
+                    sx={{ m: 1, width: "25ch" }}
+                  >
+                    <InputLabel htmlFor="component-error">
+                      {t("name")}
+                    </InputLabel>
+                    <Input
+                      error={error}
+                      type="text"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                    />
+                    <FormHelperText id="component-error-text">
+                      {t("requiredField")}
+                    </FormHelperText>
+                  </FormControl>
 
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "flex-end",
-                justifyContent: "center",
-              }}
-            >
-              <AccountCircle sx={{ color: "action.active", mb: 1 }} />
-              <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
-                <InputLabel>{t("name")}</InputLabel>
-                <Input type="text" />
-              </FormControl>
-            </Box>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "flex-end",
-                justifyContent: "center",
-              }}
-            >
-              <KeyIcon sx={{ color: "action.active", mb: 1 }} />
-              <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
-                <InputLabel htmlFor="standard-adornment-password">
-                  {t("password")}
-                </InputLabel>
-                <Input
-                  id="standard-adornment-password"
-                  type={showPassword ? "text" : "password"}
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                      >
-                        {showPassword ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                />
-              </FormControl>
+                  <FormControl
+                    error
+                    sx={{ m: 1, width: "25ch" }}
+                    variant="standard"
+                  >
+                    <InputLabel htmlFor="component-error">
+                      {t("password")}
+                    </InputLabel>
+                    <Input
+                      error={error}
+                      id="standard-adornment-password"
+                      type={showPassword ? "text" : "password"}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      endAdornment={
+                        <InputAdornment position="end">
+                          <IconButton
+                            onClick={handleClickShowPassword}
+                            onMouseDown={handleMouseDownPassword}
+                          >
+                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                          </IconButton>
+                        </InputAdornment>
+                      }
+                    />
+                    <FormHelperText id="component-error-text">
+                      {t("requiredField")}
+                    </FormHelperText>
+                  </FormControl>
+                </>
+              ) : (
+                <>
+                  <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
+                    <InputLabel>{t("name")}</InputLabel>
+                    <Input
+                      error={error}
+                      type="text"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                    />
+                  </FormControl>
+
+                  <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
+                    <InputLabel htmlFor="standard-adornment-password">
+                      {t("password")}
+                    </InputLabel>
+                    <Input
+                      error={error}
+                      type={showPassword ? "text" : "password"}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      endAdornment={
+                        <InputAdornment position="end">
+                          <IconButton
+                            onClick={handleClickShowPassword}
+                            onMouseDown={handleMouseDownPassword}
+                          >
+                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                          </IconButton>
+                        </InputAdornment>
+                      }
+                    />
+                  </FormControl>
+                </>
+              )}
             </Box>
             <Box
               sx={{
@@ -134,7 +203,7 @@ export const Login: React.FC = () => {
                 variant="contained"
                 color="info"
                 endIcon={<SendIcon />}
-                onClick={() => handleClose()}
+                onClick={handleLogin}
                 sx={{
                   borderRadius: "25px",
                 }}

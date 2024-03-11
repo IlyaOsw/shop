@@ -22,7 +22,7 @@ export const CommentForm: React.FC = () => {
   >(undefined);
 
   const clearContent = () => {
-    if (commentContent.length === 0) {
+    if (commentContent.trim().length === 0) {
       setError(true);
       setOpen(true);
     } else {
@@ -52,7 +52,7 @@ export const CommentForm: React.FC = () => {
           {t("send")}
         </Button>
       </Tooltip>
-      {error && <ErrorMessage />}
+      {error && <ErrorMessage setError={setError} />}
       {snackbar && (
         <Snackbar
           open={snackbar}

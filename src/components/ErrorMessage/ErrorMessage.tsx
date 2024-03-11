@@ -5,6 +5,8 @@ import { useTranslation } from "react-i18next";
 import Backdrop from "@mui/material/Backdrop";
 import Fade from "@mui/material/Fade";
 
+import { ErrorMessagePropsType } from "../../types/types";
+
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
@@ -19,11 +21,14 @@ const style = {
   borderRadius: "25px",
 };
 
-export const ErrorMessage: React.FC = () => {
+export const ErrorMessage: React.FC<ErrorMessagePropsType> = ({ setError }) => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(true);
 
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+    setError(false);
+  };
 
   return (
     <Modal
