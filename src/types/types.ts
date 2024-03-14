@@ -197,3 +197,14 @@ export type CustomPaginationPropsType = {
 export type ErrorMessagePropsType = {
   setError: (error: boolean) => void;
 };
+
+export type LoginFormPropsType = {
+  error: boolean;
+  username: string;
+  setUsername: (username: string) => void;
+  showPassword: boolean;
+  password: string;
+  setPassword: (password: string) => void;
+  handleClickShowPassword: () => void;
+  handleMouseDownPassword: (event: React.MouseEvent<HTMLButtonElement>) => void;
+};

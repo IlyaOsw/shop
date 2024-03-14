@@ -3,25 +3,20 @@ import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import PersonIcon from "@mui/icons-material/Person";
-import AccountCircle from "@mui/icons-material/AccountCircle";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
-import KeyIcon from "@mui/icons-material/Key";
-import Input from "@mui/material/Input";
-import InputLabel from "@mui/material/InputLabel";
-import InputAdornment from "@mui/material/InputAdornment";
-import FormControl from "@mui/material/FormControl";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Tooltip from "@mui/material/Tooltip";
 
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 
-import { Checkbox, Fade, FormHelperText, Modal } from "@mui/material";
+import { Checkbox, Fade, Modal } from "@mui/material";
 import Backdrop from "@mui/material/Backdrop";
 
 import { CloseButton } from "../CloseButton/CloseButton";
+
+import { LoginForm } from "./LoginForm/LoginForm";
+import { ErrorForm } from "./ErrorForm/ErrorForm";
 
 const style = {
   position: "absolute" as "absolute",
@@ -56,10 +51,15 @@ export const Login: React.FC = () => {
   const handleClose = () => {
     setOpen(false);
     setError(false);
+    setUsername("");
+    setPassword("");
   };
 
   const handleLogin = () => {
     setOpen(false);
+    setError(false);
+    setUsername("");
+    setPassword("");
     if (username.length === 0 || password.length === 0) {
       setOpen(true);
       setError(true);
@@ -91,103 +91,29 @@ export const Login: React.FC = () => {
               {t("signIn")}
             </Typography>
             <Divider sx={{ m: 2 }} />
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexDirection: "column",
-              }}
-            >
-              {/* <AccountCircle sx={{ color: "action.active", mb: 1 }} /> */}
-              {/* <KeyIcon sx={{ color: "action.active", mb: 1 }} /> */}
-              {error ? (
-                <>
-                  <FormControl
-                    error
-                    variant="standard"
-                    sx={{ m: 1, width: "25ch" }}
-                  >
-                    <InputLabel htmlFor="component-error">
-                      {t("name")}
-                    </InputLabel>
-                    <Input
-                      error={error}
-                      type="text"
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
-                    />
-                    <FormHelperText id="component-error-text">
-                      {t("requiredField")}
-                    </FormHelperText>
-                  </FormControl>
-
-                  <FormControl
-                    error
-                    sx={{ m: 1, width: "25ch" }}
-                    variant="standard"
-                  >
-                    <InputLabel htmlFor="component-error">
-                      {t("password")}
-                    </InputLabel>
-                    <Input
-                      error={error}
-                      id="standard-adornment-password"
-                      type={showPassword ? "text" : "password"}
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      endAdornment={
-                        <InputAdornment position="end">
-                          <IconButton
-                            onClick={handleClickShowPassword}
-                            onMouseDown={handleMouseDownPassword}
-                          >
-                            {showPassword ? <VisibilityOff /> : <Visibility />}
-                          </IconButton>
-                        </InputAdornment>
-                      }
-                    />
-                    <FormHelperText id="component-error-text">
-                      {t("requiredField")}
-                    </FormHelperText>
-                  </FormControl>
-                </>
-              ) : (
-                <>
-                  <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
-                    <InputLabel>{t("name")}</InputLabel>
-                    <Input
-                      error={error}
-                      type="text"
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
-                    />
-                  </FormControl>
-
-                  <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
-                    <InputLabel htmlFor="standard-adornment-password">
-                      {t("password")}
-                    </InputLabel>
-                    <Input
-                      error={error}
-                      type={showPassword ? "text" : "password"}
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      endAdornment={
-                        <InputAdornment position="end">
-                          <IconButton
-                            onClick={handleClickShowPassword}
-                            onMouseDown={handleMouseDownPassword}
-                          >
-                            {showPassword ? <VisibilityOff /> : <Visibility />}
-                          </IconButton>
-                        </InputAdornment>
-                      }
-                    />
-                  </FormControl>
-                </>
-              )}
-            </Box>
+            {error ? (
+              <ErrorForm
+                error={error}
+                username={username}
+                setUsername={setUsername}
+                showPassword={showPassword}
+                password={password}
+                setPassword={setPassword}
+                handleClickShowPassword={handleClickShowPassword}
+                handleMouseDownPassword={handleMouseDownPassword}
+              />
+            ) : (
+              <LoginForm
+                error={error}
+                username={username}
+                setUsername={setUsername}
+                showPassword={showPassword}
+                password={password}
+                setPassword={setPassword}
+                handleClickShowPassword={handleClickShowPassword}
+                handleMouseDownPassword={handleMouseDownPassword}
+              />
+            )}
             <Box
               sx={{
                 display: "flex",
