@@ -6,6 +6,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import Tooltip from "@mui/material/Tooltip";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
@@ -14,6 +15,8 @@ import { Checkbox, Fade, Modal } from "@mui/material";
 import Backdrop from "@mui/material/Backdrop";
 
 import { CloseButton } from "../CloseButton/CloseButton";
+
+import { CustomBadge } from "../CustomBadge/CustomBadge";
 
 import { LoginForm } from "./LoginForm/LoginForm";
 import { ErrorForm } from "./ErrorForm/ErrorForm";
@@ -33,13 +36,15 @@ const style = {
 
 export const Login: React.FC = () => {
   const { t } = useTranslation();
-  const [open, setOpen] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState(false);
-  const [username, setUsername] = useState("");
+  const auth = getAuth();
+  const [isOpen, setIsOpen] = useState(false);
+  const [isPasswordShown, setIsPasswordShown] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [isAuth, setIsAuth] = useState(false);
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const handleClickShowPassword = () => setIsPasswordShown((show) => !show);
 
   const handleMouseDownPassword = (
     event: React.MouseEvent<HTMLButtonElement>
@@ -47,22 +52,29 @@ export const Login: React.FC = () => {
     event.preventDefault();
   };
 
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => setIsOpen(true);
   const handleClose = () => {
-    setOpen(false);
-    setError(false);
-    setUsername("");
+    setIsOpen(false);
+    setIsError(false);
+    setEmail("");
     setPassword("");
   };
 
   const handleLogin = () => {
-    setOpen(false);
-    setError(false);
-    setUsername("");
-    setPassword("");
-    if (username.length === 0 || password.length === 0) {
-      setOpen(true);
-      setError(true);
+    handleClose();
+    if (email.length === 0 || password.length === 0) {
+      setIsOpen(true);
+      setIsError(true);
+    } else {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+        });
+      setIsAuth(true);
     }
   };
 
@@ -70,11 +82,17 @@ export const Login: React.FC = () => {
     <>
       <Tooltip title={t("login")} arrow>
         <IconButton onClick={handleOpen}>
-          <PersonIcon fontSize="large" style={{ color: "#ffffff" }} />
+          {isAuth ? (
+            <CustomBadge>
+              <PersonIcon fontSize="large" style={{ color: "#ffffff" }} />
+            </CustomBadge>
+          ) : (
+            <PersonIcon fontSize="large" style={{ color: "#ffffff" }} />
+          )}
         </IconButton>
       </Tooltip>
       <Modal
-        open={open}
+        open={isOpen}
         onClose={handleClose}
         closeAfterTransition
         slots={{ backdrop: Backdrop }}
@@ -84,19 +102,19 @@ export const Login: React.FC = () => {
           },
         }}
       >
-        <Fade in={open}>
+        <Fade in={isOpen}>
           <Box sx={style}>
             <CloseButton onClose={handleClose} />
             <Typography sx={{ mt: 2, textAlign: "center" }} variant="h5">
               {t("signIn")}
             </Typography>
             <Divider sx={{ m: 2 }} />
-            {error ? (
+            {isError ? (
               <ErrorForm
-                error={error}
-                username={username}
-                setUsername={setUsername}
-                showPassword={showPassword}
+                isError={isError}
+                email={email}
+                setEmail={setEmail}
+                isPasswordShown={isPasswordShown}
                 password={password}
                 setPassword={setPassword}
                 handleClickShowPassword={handleClickShowPassword}
@@ -104,10 +122,10 @@ export const Login: React.FC = () => {
               />
             ) : (
               <LoginForm
-                error={error}
-                username={username}
-                setUsername={setUsername}
-                showPassword={showPassword}
+                isError={isError}
+                email={email}
+                setEmail={setEmail}
+                isPasswordShown={isPasswordShown}
                 password={password}
                 setPassword={setPassword}
                 handleClickShowPassword={handleClickShowPassword}

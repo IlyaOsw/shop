@@ -14,10 +14,10 @@ import KeyIcon from "@mui/icons-material/Key";
 import { LoginFormPropsType } from "../../../types/types";
 
 export const ErrorForm: React.FC<LoginFormPropsType> = ({
-  error,
-  username,
-  setUsername,
-  showPassword,
+  isError,
+  email,
+  setEmail,
+  isPasswordShown,
   password,
   setPassword,
   handleClickShowPassword,
@@ -38,16 +38,16 @@ export const ErrorForm: React.FC<LoginFormPropsType> = ({
           sx={{ display: "flex", alignItems: "center" }}
         >
           <AccountCircle sx={{ mr: 1 }} color="error" />
-          {t("name")}
+          {t("email")}
         </InputLabel>
         <Input
-          error={error}
+          error={isError}
           type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <FormHelperText id="component-error-text">
-          {t("requiredField")}
+          {t("emailField")}
         </FormHelperText>
       </FormControl>
       <FormControl error sx={{ m: 1, width: "25ch" }} variant="standard">
@@ -59,9 +59,9 @@ export const ErrorForm: React.FC<LoginFormPropsType> = ({
           {t("password")}
         </InputLabel>
         <Input
-          error={error}
+          error={isError}
           id="standard-adornment-password"
-          type={showPassword ? "text" : "password"}
+          type={isPasswordShown ? "text" : "password"}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           endAdornment={
@@ -70,7 +70,7 @@ export const ErrorForm: React.FC<LoginFormPropsType> = ({
                 onClick={handleClickShowPassword}
                 onMouseDown={handleMouseDownPassword}
               >
-                {showPassword ? <VisibilityOff /> : <Visibility />}
+                {isPasswordShown ? <VisibilityOff /> : <Visibility />}
               </IconButton>
             </InputAdornment>
           }

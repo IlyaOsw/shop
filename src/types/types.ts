@@ -199,12 +199,25 @@ export type ErrorMessagePropsType = {
 };
 
 export type LoginFormPropsType = {
-  error: boolean;
-  username: string;
-  setUsername: (username: string) => void;
-  showPassword: boolean;
+  isError: boolean;
+  email: string;
+  setEmail: (email: string) => void;
+  isPasswordShown: boolean;
   password: string;
   setPassword: (password: string) => void;
   handleClickShowPassword: () => void;
   handleMouseDownPassword: (event: React.MouseEvent<HTMLButtonElement>) => void;
+};
+
+export type ShopCartPropsType = {
+  open: boolean;
+  handleClose: () => void;
+};
+
+export type EmptyShopCartPropsType = {
+  handleClose: () => void;
+};
+
+export type CustomBadgePropsType = {
+  children: React.ReactNode;
 };

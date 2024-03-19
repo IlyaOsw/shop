@@ -202,6 +202,10 @@
     "building": "The main building of our official representation, constructed in 2020.",
     "FAQinfo": "If you haven't found an answer to your question among the ones provided below, please contact us via email at estore@info.ee.",
     "rememberMe": "Remember me",
-    "requiredField": "Required field!"
+    "requiredField": "Required field!",
+    "emailField": "Field have to include @ and . symbols!",
+    "shopCartText1": "Unfortunately, no items have been added to the cart.",
+    "shopCartText2": "Start your shopping by following",
+    "shopCartLink": "this link"
 }
    

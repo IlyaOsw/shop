@@ -14,10 +14,10 @@ import { useTranslation } from "react-i18next";
 import { LoginFormPropsType } from "../../../types/types";
 
 export const LoginForm: React.FC<LoginFormPropsType> = ({
-  error,
-  username,
-  setUsername,
-  showPassword,
+  isError,
+  email,
+  setEmail,
+  isPasswordShown,
   password,
   setPassword,
   handleClickShowPassword,
@@ -36,17 +36,17 @@ export const LoginForm: React.FC<LoginFormPropsType> = ({
       <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
         <InputLabel
           sx={{ display: "flex", alignItems: "center" }}
-          htmlFor="username"
+          htmlFor="email"
         >
           <AccountCircle sx={{ mr: 1 }} color="info" />
-          {t("name")}
+          {t("email")}
         </InputLabel>
         <Input
-          id="username"
-          error={error}
+          id="email"
+          error={isError}
           type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
       </FormControl>
       <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
@@ -59,8 +59,8 @@ export const LoginForm: React.FC<LoginFormPropsType> = ({
         </InputLabel>
         <Input
           id="password"
-          error={error}
-          type={showPassword ? "text" : "password"}
+          error={isError}
+          type={isPasswordShown ? "text" : "password"}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           endAdornment={
@@ -69,7 +69,7 @@ export const LoginForm: React.FC<LoginFormPropsType> = ({
                 onClick={handleClickShowPassword}
                 onMouseDown={handleMouseDownPassword}
               >
-                {showPassword ? <VisibilityOff /> : <Visibility />}
+                {isPasswordShown ? <VisibilityOff /> : <Visibility />}
               </IconButton>
             </InputAdornment>
           }

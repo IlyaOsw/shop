@@ -123,9 +123,7 @@ export const Navbar: React.FC = () => {
   );
 
   const handleDrawerOpen = () => setOpen(true);
-
   const handleDrawerClose = () => setOpen(false);
-
   const toggleDarkMode = () => setDarkMode(!darkMode);
 
   return (
@@ -148,8 +146,8 @@ export const Navbar: React.FC = () => {
             <Typography variant="h6" noWrap sx={{ width: "100%" }}>
               E-STORE
             </Typography>
-            <ShopCart />
             <Login />
+            <ShopCart />
             <Chat />
             <FAQ />
           </Toolbar>

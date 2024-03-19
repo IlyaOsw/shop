@@ -76,15 +76,13 @@ export const Bar: React.FC<BarPropsType> = ({
         justifyContent: "center",
       }}
     >
-      <Typography variant="h6" sx={{ p: 1 }}>
-        {t("sortBy")}
-      </Typography>
+      <Typography variant="h6">{t("sortBy")}</Typography>
       <CustomSelect
         products={products}
         setProducts={setProducts}
         filterFavorites={filterFavorites}
       />
-      <Search sx={{ m: 0.5 }}>
+      <Search>
         <SearchIconWrapper>
           <SearchIcon />
         </SearchIconWrapper>

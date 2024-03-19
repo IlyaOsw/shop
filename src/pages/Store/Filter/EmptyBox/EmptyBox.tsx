@@ -10,7 +10,7 @@ export const EmptyBox: React.FC<EmptyBoxPropsType> = ({
   setSelectedOption,
 }) => {
   return (
-    <Box sx={{ height: "100vh", position: "relative" }}>
+    <>
       <Box
         sx={{
           textAlign: "center",
@@ -18,7 +18,7 @@ export const EmptyBox: React.FC<EmptyBoxPropsType> = ({
           p: 1,
         }}
       >
-        <Typography variant="h5" color="error" sx={{ mt: 2 }}>
+        <Typography variant="h6" color="error" sx={{ mt: 2 }}>
           {t("noFavorites")}
         </Typography>
         <SentimentVeryDissatisfiedIcon color="error" />
@@ -26,26 +26,21 @@ export const EmptyBox: React.FC<EmptyBoxPropsType> = ({
       <Box
         sx={{
           textAlign: "center",
-          p: 1,
         }}
       >
-        <Typography variant="h6">
-          {t("continueShopping")}
-          <Box>
-            <Button
-              variant="contained"
-              sx={{ mt: 2, borderRadius: "25px" }}
-              onClick={() => {
-                noFilters();
-                setSelectedOption("");
-              }}
-              color="info"
-            >
-              {t("here")}
-            </Button>
-          </Box>
-        </Typography>
+        <Typography variant="h6">{t("continueShopping")}</Typography>
+        <Button
+          variant="contained"
+          sx={{ mt: 2, borderRadius: "25px" }}
+          onClick={() => {
+            noFilters();
+            setSelectedOption("");
+          }}
+          color="info"
+        >
+          {t("here")}
+        </Button>
       </Box>
-    </Box>
+    </>
   );
 };

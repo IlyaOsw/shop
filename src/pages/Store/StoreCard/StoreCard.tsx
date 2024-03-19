@@ -29,7 +29,7 @@ export const StoreCard: React.FC<StoreCardProps> = ({
         key={item.id}
         sx={{
           m: 1,
-          mt: 10,
+          mt: 5,
           position: "relative",
           width: "280px",
           transition: "box-shadow 0.3s",
