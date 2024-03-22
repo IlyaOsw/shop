@@ -221,3 +221,9 @@ export type EmptyShopCartPropsType = {
 export type CustomBadgePropsType = {
   children: React.ReactNode;
 };
+
+export type AuthenticationPropsType = {
+  isAuth: boolean;
+  setIsAuth: (isAuth: boolean) => void;
+  setIsOpen: (isOpen: boolean) => void;
+};

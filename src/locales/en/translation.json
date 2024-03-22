@@ -206,6 +206,8 @@
     "emailField": "Field have to include @ and . symbols!",
     "shopCartText1": "Unfortunately, no items have been added to the cart.",
     "shopCartText2": "Start your shopping by following",
-    "shopCartLink": "this link"
+    "shopCartLink": "this link",
+    "logout": "Logout",
+    "myAcc": "My account"
 }
    

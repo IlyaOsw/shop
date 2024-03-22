@@ -146,10 +146,10 @@ export const Navbar: React.FC = () => {
             <Typography variant="h6" noWrap sx={{ width: "100%" }}>
               E-STORE
             </Typography>
-            <Login />
             <ShopCart />
             <Chat />
             <FAQ />
+            <Login />
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>

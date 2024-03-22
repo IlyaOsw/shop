@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
-import PersonIcon from "@mui/icons-material/Person";
+
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
-import Tooltip from "@mui/material/Tooltip";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 import Divider from "@mui/material/Divider";
@@ -16,10 +14,9 @@ import Backdrop from "@mui/material/Backdrop";
 
 import { CloseButton } from "../CloseButton/CloseButton";
 
-import { CustomBadge } from "../CustomBadge/CustomBadge";
-
 import { LoginForm } from "./LoginForm/LoginForm";
 import { ErrorForm } from "./ErrorForm/ErrorForm";
+import { Authentication } from "./Authentication/Authentication";
 
 const style = {
   position: "absolute" as "absolute",
@@ -52,7 +49,6 @@ export const Login: React.FC = () => {
     event.preventDefault();
   };
 
-  const handleOpen = () => setIsOpen(true);
   const handleClose = () => {
     setIsOpen(false);
     setIsError(false);
@@ -68,11 +64,11 @@ export const Login: React.FC = () => {
     } else {
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          const user = userCredential.user;
+          // const user = userCredential.user;
         })
         .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
+          // const errorCode = error.code;
+          // const errorMessage = error.message;
         });
       setIsAuth(true);
     }
@@ -80,17 +76,11 @@ export const Login: React.FC = () => {
 
   return (
     <>
-      <Tooltip title={t("login")} arrow>
-        <IconButton onClick={handleOpen}>
-          {isAuth ? (
-            <CustomBadge>
-              <PersonIcon fontSize="large" style={{ color: "#ffffff" }} />
-            </CustomBadge>
-          ) : (
-            <PersonIcon fontSize="large" style={{ color: "#ffffff" }} />
-          )}
-        </IconButton>
-      </Tooltip>
+      <Authentication
+        isAuth={isAuth}
+        setIsAuth={setIsAuth}
+        setIsOpen={setIsOpen}
+      />
       <Modal
         open={isOpen}
         onClose={handleClose}
@@ -105,7 +95,7 @@ export const Login: React.FC = () => {
         <Fade in={isOpen}>
           <Box sx={style}>
             <CloseButton onClose={handleClose} />
-            <Typography sx={{ mt: 2, textAlign: "center" }} variant="h5">
+            <Typography align="center" sx={{ mt: 2 }} variant="h5">
               {t("signIn")}
             </Typography>
             <Divider sx={{ m: 2 }} />

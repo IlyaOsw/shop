@@ -206,5 +206,7 @@
 	"emailField": "Väljal peab olema @ ja . sümbolid!",
 	"shopCartText1": "Kahjuks ostukorvis pole ühtegi toodet.",
 	"shopCartText2": "Alustage oma ostude tegemist, järgides",
-	"shopCartLink": "seda linki"
+	"shopCartLink": "seda linki",
+	"logout": "Logi välja",
+	"myAcc": "Minu konto"
 }
