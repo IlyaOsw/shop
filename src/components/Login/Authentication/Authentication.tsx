@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import PersonIcon from "@mui/icons-material/Person";
 import Avatar from "@mui/material/Avatar";
@@ -12,10 +12,11 @@ import { useTranslation } from "react-i18next";
 
 import { Divider } from "@mui/material";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { CustomBadge } from "../../CustomBadge/CustomBadge";
 import { AuthenticationPropsType } from "../../../types/types";
+import { LogoutMessage } from "../LogoutMessage/LogoutMessage";
 
 export const Authentication: React.FC<AuthenticationPropsType> = ({
   isAuth,
@@ -23,16 +24,27 @@ export const Authentication: React.FC<AuthenticationPropsType> = ({
   setIsOpen,
 }) => {
   const { t } = useTranslation();
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const navigate = useNavigate();
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [isLogout, setIsLogout] = useState(false);
+
   const open = Boolean(anchorEl);
+
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
   const handleCloseMenu = () => setAnchorEl(null);
-  const handleOpen = () => setIsOpen(true);
+  const handleOpen = () => {
+    setIsOpen(true);
+    setIsLogout(false);
+  };
 
-  const handleLogout = () => setIsAuth(false);
+  const handleLogout = () => {
+    setIsAuth(false);
+    setIsLogout(true);
+    navigate("/");
+  };
 
   return (
     <>
@@ -152,6 +164,7 @@ export const Authentication: React.FC<AuthenticationPropsType> = ({
           </Menu>
         </>
       )}
+      {isLogout && <LogoutMessage />}
     </>
   );
 };

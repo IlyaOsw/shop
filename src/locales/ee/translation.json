@@ -208,5 +208,19 @@
 	"shopCartText2": "Alustage oma ostude tegemist, järgides",
 	"shopCartLink": "seda linki",
 	"logout": "Logi välja",
-	"myAcc": "Minu konto"
+	"myAcc": "Minu konto",
+	"loggedOut": "Olete oma kontolt välja logitud.",
+	"uploadFile": "Faili üleslaadimine",
+	"accountSettings": "Teie konto seadistuste leht",
+ 	"saveChanges": "Salvesta muudatused",
+	"surname": "Perekonnanimi",
+	"birthDate": "Sünnikuupäev",
+	"country": "Riik",
+	"phoneNumber": "Telefoninumber",
+	"enterName": "Sisestage oma nimi",
+	"enterSurname": "Sisestage oma perekonnanimi",
+	"enterBirthDate": "Sisestage oma sünnikuupäev",
+	"enterCountry": "Sisestage oma riik",
+	"enterCity": "Sisestage oma linn",
+	"enterPhone": "Sisestage oma kontakttelefon"
 }

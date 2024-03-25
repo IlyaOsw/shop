@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Box, Container, Divider, Typography } from "@mui/material";
 
@@ -9,10 +9,10 @@ import { About } from "./About/About";
 import { Partners } from "./Partners/Partners";
 import { Products } from "./Products/Products";
 
-const Main: React.FC = React.memo(() => {
+const Main: React.FC = () => {
   const { t } = useTranslation();
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.scroll(0, 0);
   }, []);
 
@@ -38,6 +38,6 @@ const Main: React.FC = React.memo(() => {
       <Feedback />
     </Container>
   );
-});
+};
 
 export default Main;

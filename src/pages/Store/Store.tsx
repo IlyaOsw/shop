@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Container, Divider, Typography } from "@mui/material";
 
@@ -7,7 +7,7 @@ import { Filter } from "./Filter/Filter";
 const Store: React.FC = () => {
   const { t } = useTranslation();
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.scroll(0, 0);
   }, []);
 

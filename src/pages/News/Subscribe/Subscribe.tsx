@@ -114,7 +114,6 @@ export const Subscribe: React.FC = () => {
             onChange={(e) => setValue(e.target.value)}
           />
         </Search>
-
         <Tooltip title={t("subscribeToUpdates")} arrow>
           <Button
             variant="contained"

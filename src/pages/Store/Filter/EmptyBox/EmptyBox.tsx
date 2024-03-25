@@ -31,7 +31,7 @@ export const EmptyBox: React.FC<EmptyBoxPropsType> = ({
         <Typography variant="h6">{t("continueShopping")}</Typography>
         <Button
           variant="contained"
-          sx={{ mt: 2, borderRadius: "25px" }}
+          sx={{ m: 2, borderRadius: "25px" }}
           onClick={() => {
             noFilters();
             setSelectedOption("");

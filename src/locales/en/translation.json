@@ -208,6 +208,20 @@
     "shopCartText2": "Start your shopping by following",
     "shopCartLink": "this link",
     "logout": "Logout",
-    "myAcc": "My account"
+    "myAcc": "My account",
+    "loggedOut": "You are logged out of your account.",
+    "uploadFile": "Upload file",
+    "accountSettings": "Your account settings page",
+    "saveChanges": "Save changes",
+    "surname": "Surname",
+    "birthDate": "Date of birth",
+    "country": "Country",
+    "phoneNumber": "Phone number",
+    "enterName": "Enter your name",
+    "enterSurname": "Enter your surname",
+    "enterBirthDate": "Enter your date of birth",
+    "enterCountry": "Enter your country",
+    "enterCity": "Enter your city",
+    "enterPhone": "Enter your contact number"
 }
    
