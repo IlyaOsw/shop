@@ -16,10 +16,13 @@ const CustomTextField = styled(TextField)({
     "& fieldset": {
       borderColor: "#a6a6a6",
     },
+    "&:hover fieldset": {
+      borderColor: "#a6a6a6",
+    },
   },
 });
 
-export const Information = () => {
+export const Information: React.FC = () => {
   const { t } = useTranslation();
 
   const accountLabels: { id: number; label: string; placeholder: string }[] = [
@@ -35,8 +38,6 @@ export const Information = () => {
   return (
     <Box
       sx={{
-        overflow: "hidden",
-        position: "relative",
         height: "100%",
         width: "100%",
         maxWidth: "700px",
@@ -46,11 +47,13 @@ export const Information = () => {
         <TableBody>
           {accountLabels.map((item) => (
             <TableRow key={item.id}>
-              <TableCell sx={{ color: "#a6a6a6" }}>{t(item.label)}</TableCell>
+              <TableCell sx={{ color: "#a6a6a6", fontWeight: "bold" }}>
+                {t(item.label)}
+              </TableCell>
               <TableCell>
                 <CustomTextField
                   fullWidth
-                  id="fullWidth"
+                  id={item.label}
                   label={t(item.placeholder)}
                 />
               </TableCell>

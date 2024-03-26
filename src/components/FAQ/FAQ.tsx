@@ -80,13 +80,20 @@ export const FAQ: React.FC = () => {
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   const handleOpen = () => setOpen(true);
-
   const handleClose = () => setOpen(false);
 
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
       setExpanded(newExpanded ? panel : false);
     };
+
+  const faqData: { id: string; question: string; answer: string }[] = [
+    { id: "panel1", question: "Faq1question", answer: "Faq1answer" },
+    { id: "panel2", question: "Faq2question", answer: "Faq2answer" },
+    { id: "panel3", question: "Faq3question", answer: "Faq3answer" },
+    { id: "panel4", question: "Faq4question", answer: "Faq4answer" },
+    { id: "panel5", question: "Faq5question", answer: "Faq5answer" },
+  ];
 
   return (
     <>
@@ -113,61 +120,20 @@ export const FAQ: React.FC = () => {
           {t("FAQinfo")}
         </Typography>
         <DialogContent>
-          <Accordion
-            expanded={expanded === "panel1"}
-            onChange={handleChange("panel1")}
-          >
-            <AccordionSummary id="panel1d-header">
-              <Typography>{t("Faq1question")}</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography>{t("Faq1answer")}</Typography>
-            </AccordionDetails>
-          </Accordion>
-          <Accordion
-            expanded={expanded === "panel2"}
-            onChange={handleChange("panel2")}
-          >
-            <AccordionSummary id="panel2d-header">
-              <Typography>{t("Faq2question")}</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography>{t("Faq2answer")}</Typography>
-            </AccordionDetails>
-          </Accordion>
-          <Accordion
-            expanded={expanded === "panel3"}
-            onChange={handleChange("panel3")}
-          >
-            <AccordionSummary id="panel3d-header">
-              <Typography>{t("Faq3question")}</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography>{t("Faq3answer")}</Typography>
-            </AccordionDetails>
-          </Accordion>
-          <Accordion
-            expanded={expanded === "panel4"}
-            onChange={handleChange("panel4")}
-          >
-            <AccordionSummary id="panel4d-header">
-              <Typography>{t("Faq4question")}</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography>{t("Faq4answer")}</Typography>
-            </AccordionDetails>
-          </Accordion>
-          <Accordion
-            expanded={expanded === "panel5"}
-            onChange={handleChange("panel5")}
-          >
-            <AccordionSummary id="panel5d-header">
-              <Typography>{t("Faq5question")}</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography>{t("Faq5answer")}</Typography>
-            </AccordionDetails>
-          </Accordion>
+          {faqData.map((faq) => (
+            <Accordion
+              key={faq.id}
+              expanded={expanded === faq.id}
+              onChange={handleChange(faq.id)}
+            >
+              <AccordionSummary id={`${faq.id}-header`}>
+                <Typography>{t(faq.question)}</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>{t(faq.answer)}</Typography>
+              </AccordionDetails>
+            </Accordion>
+          ))}
         </DialogContent>
       </Dialog>
     </>

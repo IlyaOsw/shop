@@ -37,8 +37,8 @@ export const Image: React.FC = () => {
   };
 
   const avatarStyle = {
-    width: "50vh",
-    height: "50vh",
+    width: "40vh",
+    height: "40vh",
     boxShadow: "0px 4px 25px rgba(0, 0, 0, 0.5)",
   };
 

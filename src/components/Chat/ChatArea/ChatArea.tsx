@@ -39,7 +39,7 @@ export const ChatArea: React.FC<ChatAreaPropsType> = ({
             alt="Assistant"
           />
         </CustomBadge>
-        <Typography sx={{ ml: 1 }}> {robotMessage} </Typography>
+        <Typography sx={{ ml: 1 }}>{robotMessage}</Typography>
       </Box>
       {sendedMessage.map((item) => (
         <Box

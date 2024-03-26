@@ -8,12 +8,13 @@ import { Image } from "./Image/Image";
 
 const Account: React.FC = () => {
   const { t } = useTranslation();
+
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
 
   return (
-    <Container maxWidth="xl" sx={{ height: "100vh" }}>
+    <Container maxWidth="xl">
       <Typography variant="h5" align="center" sx={{ mt: 3 }}>
         {t("accountSettings")}
       </Typography>
